@@ -248,7 +248,7 @@ import AllWhatsPy as awp
   import AllWhatsPy as awp
     
   awp.conexao()
-  awp.pegar_dados_contato()
+  dados = awp.pegar_dados_contato()
   
   ```
 
