@@ -365,7 +365,6 @@ import AllWhatsPy as awp
   ```
 
   </p>
-  </details>
 
 
   - ### enviar_mensagem_por_link(numero, mensagem)
@@ -387,12 +386,11 @@ import AllWhatsPy as awp
     ```
 
     </p>
-    </details>
 
 
    - ### enviar_mensagem_direta(contato, mensagem, selecionar_funcao, salvo):
 
-    <p>
+  <p>
   
   > Ela fará com que todo o processo que teria que ser feito com as outras functions não seja necessário. Tudo será feito por esta única.
   
@@ -417,7 +415,7 @@ import AllWhatsPy as awp
   awp.desconectar()
     ```
 
-    </p>
+ 
     
   Para número não salvo:
   
@@ -465,7 +463,7 @@ awp.desconectar()
 
 
 - ## Agendamento
-
+<p>
 > O código irá aguardar até a chegada da hora planejada. Feito isso, irá liberar para que o restante do código siga adiante.
 
 `awp.agendamento(dia_programado, hora_programado, minuto_programado)`
@@ -480,7 +478,7 @@ awp.enviar_mensagem('Hello World')
   
 awp.desconectar()
 ```
-
+</p>
 
 - ## Enviando Arquivos, Vídeos e Imagens
 
@@ -548,17 +546,63 @@ awp.desconectar()
     </p>
 
 
+- ## Listando as Ultimas Mensagens e Contatos Aparentes
+  
+  - ### lista_ultimas_mensagens_recebidas_de_contatos(quantidade: int = 1)
+    <p>
+    
+    > Função responsável para encontrar as últimas mensagens enviadas por cada contato
+     de acordo com a quantidade oferecida na aplicação da função
+    Por padrão, a quantidade é 1, mas basta alterar a mesma que retornará quantas conversas forem pré-determinadas\n
+    Esta função retornará um dicionário contendo 2 dados, sendo eles:
+    
+    >1- Key - Nome do contato
+    
+    >2- Values: tupla - No índice 0 será a hora que a última mensagem foi enviada e no índice 1 será a última mensagem
+    
+    
+    ```python
+    import AllWhatsPy as awp
+
+    awp.conexao()
+    dados = awp.lista_ultimas_mensagens_recebidas_de_contatos()
+
+    ```
+    
+    </p>
 
 
 
+- ## Mensagens de Conversas
+  
+  - ### ultimas_mensagens_conversa()
+    <p>
+    
+    > Esta função irá, na conversa atualmente aberta, pegar as mensagens que foram enviadas.
+     Em seu início, ela subirá para ser possível de captar mais inforamções e, logo após, irá retornar tudo em um dicionário separado por índices. E os valores desses      índices serão mais um dicionário contendo todas as informações daquela conversa.
+    
+    ```python
+    import AllWhatsPy as awp
 
+    awp.conexao()
+    awp.encontrar_contato('Lucas Lourenço')
+    dados = awp.ultimas_mensagens_conversa()
 
-
+    ```
+    
+    </p>
 
 
 
 ## Acesso ao Código
 Se quiser ter acesso ao código, basta [Clicar Aqui](AllWhatsPy.py)
+
+
+
+## Notas do Criador
+Sem dúvidas, a função mais difícil foi a ultimas_mensagens_conversa()
+cxriei essa parte para explicar algumas coisas e falar do meu ponto de vista a criação do código
+
 
 
 ## Problemas com o AllWhatsPy
