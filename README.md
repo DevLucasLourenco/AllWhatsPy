@@ -1,7 +1,7 @@
 # AllWhatsPy - AWP
 PT-BR | 
 
-<img src="/utilidades/awpimg.png" alt="AllWhatsPy" width="350px"/>
+<img src="/utilidades/awpimgg.png" alt="AllWhatsPy" width="350px"/>
 
 >Criado por Lucas Lourenço.
 
