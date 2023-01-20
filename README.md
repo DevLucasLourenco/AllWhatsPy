@@ -607,4 +607,7 @@ cxriei essa parte para explicar algumas coisas e falar do meu ponto de vista a c
 
 ## Problemas com o AllWhatsPy
 Ainda não foi encontrado problemas no código. 
+
 Caso você tenha percebido algo, sinta-se à vontade para descrevê-lo na aba `Issues`!
+
+E também para você que está tendo dificuldades em trabalhar com esta lib, basta descrevê-lo que irei ajudá-lo!
