@@ -3,9 +3,9 @@ PT-BR |
 
 <img src="/utilidades/awpimg.png" alt="AllWhatsPy" width="350px"/>
 
-Criado por Lucas Lourenço.
+>Criado por Lucas Lourenço.
 
-Manutenido por Lucas Lourenço
+>Manutenido por Lucas Lourenço
 
 
 ## Avalie o Código!
@@ -22,11 +22,26 @@ Seja para cunho profissional ou pessoal, é necessário o manuseio completo dest
 
 Então... por que não torná-lo <b>`ainda mais eficiente`?</b>
 
-Com o AllWhatsPy, [você pode fazer o que quiser](###o-que-fazer)
+Com o AllWhatsPy, [você PODE fazer o que quiser](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#o-que-voc%C3%AA-pode-fazer-com-allwhatspy))
 
   
   
 ## Começando no AllWhatsPy
+
+###Instalação
+
+
+
+
+### Lógica:
+
+```mermaid
+graph TD;
+    conexao-->encontrar_usuario;
+    encontrar_usuario-->enviar_mensagem;
+    enviar_mensagem-->desconectar;
+    desconectar-->conexao
+```
 
 
 
@@ -35,6 +50,71 @@ Com o AllWhatsPy, [você pode fazer o que quiser](###o-que-fazer)
 
   
 ## O que você pode fazer com AllWhatsPy
+
+ - Conectar
+ <p>
+  
+  ```python
+import AllWhatsPy as awp
+  awp.conexao()
+```
+</p>
+
+- Desconectar
+<p>
+  
+  ```python
+import AllWhatsPy as awp
+  awp.desconetar()
+```
+  
+</p>
+
+- Enviar Mensagens
+
+  <details><summary>enviar_mensagem()</summary>
+  <p>
+
+  ```
+
+  ```
+
+  </p>
+  </details>
+  
+  
+  <details><summary>enviar_mensagem_paragrafada()</summary>
+  <p>
+
+  ```
+
+  ```
+
+  </p>
+  </details>
+  
+  
+  <details><summary>enviar_mensagem_por_link()</summary>
+  <p>
+
+  ```
+
+  ```
+
+  </p>
+  </details>
+  
+  <details><summary>enviar_mensagem_direta()</summary>
+  <p>
+
+  ```
+
+  ```
+
+  </p>
+  </details>
+  
+  
 
 
 
