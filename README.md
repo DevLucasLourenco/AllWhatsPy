@@ -5,7 +5,7 @@ PT-BR |
 
 >Criado por Lucas Lourenço.
 
->Manutenido por Lucas Lourenço
+>Manutenido por Lucas Lourenço.
 
 
 ## Avalie o Código!
