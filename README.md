@@ -1,7 +1,7 @@
 # AllWhatsPy
 PT-BR | 
 
-<img src=".png" alt="AllWhatsPy" width="600px"/>
+<img src="awpimg.png" alt="AllWhatsPy" width="600px"/>
 
 Criado por Lucas Lourenço.
 
