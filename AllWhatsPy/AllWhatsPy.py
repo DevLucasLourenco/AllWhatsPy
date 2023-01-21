@@ -952,8 +952,13 @@ def marcar_como_nao_lida():
 
 
 def buscar_contatos_não_lidos():
-    'a'
+    ''
     
+#
+
+def retornar_posicao_anterior():
+    ''
+#vai fzr com que retorne a posição anteior. igual a ideia inicial de voltar pr ultimo contato 
 #
 
 
