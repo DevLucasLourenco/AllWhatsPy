@@ -43,6 +43,10 @@ Seja para cunho profissional ou pessoal, é necessário o manuseio completo dest
 
 Então... por que não torná-lo <b>`ainda mais eficiente`?</b>
 
+Depois de ter pensado nisso, comecei a pesquisar sobre Bots e APIs do Whatsapp, me inspirei em códigos como o do [PyWhatsapp](https://github.com/shauryauppal/PyWhatsapp) e [PyWhatKit](https://github.com/Ankit404butfound/PyWhatKit) para a realização deste.
+
+Após passar um tempo estudando e alternando entre o trabalho e o software, botei a mão na massa e comecei a minha jornada indo atrás da melhoria e da qualidade de Software. Continuo atualizando e desenvolvendo sendo único e exclusivamente sozinho.
+
 Com o AllWhatsPy, você consegue fazer [o que quiser!](https://github.com/LucasLourencoo/AllWhatsPy#trabalhando-com-chatscontatosusu%C3%A1rios)
 
 
@@ -688,3 +692,10 @@ Ainda não foi encontrado problemas no código.
 Caso você tenha percebido algo, sinta-se à vontade para descrevê-lo na aba `Issues`!
 
 E também para você que está tendo dificuldades em trabalhar com esta lib, basta descrevê-lo que irei ajudá-lo!
+
+
+## Contribuição
+
+Pull Requests são muito bem vindas!
+
+Caso seja uma grande mudança, por favor, abra uma discussão na aba `Issues` para maior compreensão do seu caso.
