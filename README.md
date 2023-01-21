@@ -521,7 +521,7 @@ awp.desconetar()
 <p>
   
   > Primeiro, use o código a seguir para registrá-lo. 
-  (Mesmo se a máquina for desligada, ainda está salvo. Basta rodar o código abaixo)
+  
   
 ```python
 import AllWhatsPy as awp
@@ -533,6 +533,8 @@ awp.desconectar()
 ```
  > Após já ter registrado, use o seguinte para voltar ao contato.
   Existem 2 opções. Se o valor declarado for 1, ele buscará pelo nome do contato. Caso o valor declarado for 2, ele buscará pelo número.
+  
+ > (Mesmo se a máquina for desligada, ainda está salvo. Basta rodar o código abaixo)
   
 ```python
 import AllWhatsPy as awp
