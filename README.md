@@ -1,8 +1,16 @@
-# AllWhatsPy - AWP
-PT-BR | 
+<h1 align="center">
+<br>AllWhatsPy - AWP
+</h1>
+
+
+
+ 
+<h1 align="center">
 
 <img src="/utilidades/awpimgg.png" alt="AllWhatsPy" width="350px"/>
+</h1>
 
+PT-BR |
 >Criado por Lucas Lourenço.
 
 >Manutenido por Lucas Lourenço.
@@ -49,6 +57,23 @@ graph TD;
 
 ## Objetivos a Serem Terminados 
 
+- [x] Criar alternativas para envio de mensagem (Realizado - 19/12/2022)
+- [x] Tratar as `except Exception` (Realizado - 21/12/2022)
+- [x] Resolver bug na urllib (Realizado - 21/12/2022)
+- [x] Alimentar o código com opções alternativas para `awp.conexao()` e  `awp.desconectar()` (Realizado - 21/12/2022)
+- [x] Corrigir excepts de `NoSuchElementException`  (Realizado - 22/12/2022)
+- [x] Implementar WebDriverWait para melhor responsividade do software (Realizado - 27/12/2022)
+- [x] Configurar a entrada de `logs` (Realizado - 28/12/2022)
+- [x] Atualizar ActionChains (Realizado - 15/01/2023)
+- [x] Terminar `ultimas_mensagens_conversa()` (Realizado - 18/01/2023)
+- [x] Explicar todas as fórmulas (Realizado - 21/01/2023)
+- [x] Aperfeiçoar a função de `agendamento` (Realizado - 21/01/2023)
+- [ ] Realizar a explicação de como começar no AWP
+- [ ] Criar um `pip install` para AWP
+- [ ] Performar criação de pastas com a lib `pathlib` para melhor qualidade de software
+- [ ] Corrigir bug na função `pegar_foto_contato()`
+- [ ] Terminar função `buscar_contatos_não_lidos`
+
 
   
 ## O que você pode fazer com AllWhatsPy
@@ -59,6 +84,7 @@ graph TD;
 > É de enorme importância a utilização deste código! Afinal, ele é o responsável pela integração do AllWhatsPy ao Whatsapp.
 > É possível utilizar como `awp.conexao()` ou `awp.conexao(2)`. No primeiro caso, abrirá um `popup` na tela esperando a confirmação para dar continuidade.
 >  No segundo caso, será ignorado o popup que aparece após a inicialização do algoritmo.
+
 <p>
   
 ```python
@@ -73,6 +99,7 @@ awp.conexao()
 
 > Após a conclusão de todas as funções que forem usadas por você, caso seja de sua vontade desconectar o Whatsapp, rode este código. Caso contrário, o seu login ficará > sempre registrado como ainda conectar, por mais que feche a janela.
 > É possível utilizar como `awp.desconectar()` ou `awp.desconectar(2)`. Caso utilize-se o primeiro caso, o software encerrará e fechará a janela. No segundo caso, irá manter a janela do QR Code aberta.
+
 <p>
   
   ```python
@@ -600,7 +627,7 @@ awp.desconectar()
  
     ```
     Como é possível reparar, será trazido informações com o índice. Os `values` deles serão outra dicionário onde você pode estar trabalhando. 
-    > quando a mensagem for citando uma outra, o value desse dicionário será uma lista
+    > quando a mensagem for citando uma outra mensagem enviada pela pessoa que está conversando, o `value` desse dicionário será uma lista
   
     </p>
 
@@ -614,6 +641,25 @@ Se quiser ter acesso ao código, basta [Clicar Aqui](AllWhatsPy.py)
 ## Notas do Criador
 Sem dúvidas, a função mais difícil foi a ultimas_mensagens_conversa()
 cxriei essa parte para explicar algumas coisas e falar do meu ponto de vista a criação do código
+
+
+## Autor
+
+<h2>
+<p>
+
+[Linkedin](http://linkedin.com/in/lucas-lourenco0312)
+
+</p>
+
+
+<p>
+
+[Instagram](https://www.instagram.com/lucaslourencoo__/)
+
+
+</p>
+</h2>
 
 
 
