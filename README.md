@@ -23,6 +23,7 @@
 - [AllWhatsPy](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#por-que-allwhatspy)
 - [Instalação](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#come%C3%A7ando-no-allwhatspy)
 - [Lista de Tarefa](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#objetivos-a-serem-terminados)
+- [Exemplos](https://github.com/LucasLourencoo/AllWhatsPy/blob/main/README.md#exemplos-pr%C3%A1ticos)
 - [Códigos](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#o-que-voc%C3%AA-pode-fazer-com-allwhatspy)
 - [Notas do Criador](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#notas-do-criador)
 - [Autor](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#autor)
