@@ -16,6 +16,19 @@ PT-BR |
 >Manutenido por Lucas Lourenço.
 
 
+## Tutorial
+
+ 
+<h1 align="center">
+ 
+<a href="google.com">
+<img src="/utilidades/videoicon.gif" alt="Tutorial" width="350px" href=/>
+ 
+</a>
+
+</h1>
+
+
 ## Avalie o Código!
 É de muitíssima importância a `Star` que você pode estar dando para colaborar com a `Manutenção` e `Atualização` do código!
 Se você utiliza o AllWhatsPy com frequência, gosta da forma que foi desenvolvido, se inspira nele, serei muito grato por sua avaliação!
