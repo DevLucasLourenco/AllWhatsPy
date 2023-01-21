@@ -10,7 +10,8 @@
 <img src="/utilidades/awpimgg.png" alt="AllWhatsPy" width="350px"/>
 </h1>
 
-PT-BR |
+> PT-BR 
+
 >Criado por Lucas Lourenço.
 
 >Manutenido por Lucas Lourenço.
