@@ -58,7 +58,9 @@ Então... por que não torná-lo <b>`ainda mais eficiente`?</b>
 
 Depois de ter pensado nisso, comecei a pesquisar sobre Bots e APIs do Whatsapp, me inspirei em códigos como o do [PyWhatsapp](https://github.com/shauryauppal/PyWhatsapp) e [PyWhatKit](https://github.com/Ankit404butfound/PyWhatKit) para a realização deste.
 
-Após passar um tempo estudando e alternando entre o trabalho e o software, botei a mão na massa e comecei a minha jornada indo atrás da melhoria e da qualidade de Software. Continuo atualizando e desenvolvendo sendo único e exclusivamente sozinho.
+Após passar um tempo estudando e alternando entre o trabalho e o software, botei a mão na massa e comecei a minha jornada indo atrás da melhoria e da qualidade de Software. Continuo atualizando e desenvolvendo, fazendo isso  único e exclusivamente sozinho.
+
+Foram usadas mais de [11 mil linhas de logs](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#-2) para o total funcionamento do código.
 
 Com o AllWhatsPy, você consegue fazer [o que quiser!](https://github.com/LucasLourencoo/AllWhatsPy#o-que-voc%C3%AA-pode-fazer-com-allwhatspy)
 
@@ -669,6 +671,12 @@ Se quiser ter acesso ao código, basta [Clicar Aqui](AllWhatsPy.py)
 
 
 ## Notas do Criador
+
+Para a criação deste código, foram usadas 11 mil linhas de log
+<h1 align="center">
+<img src="/utilidades/linhaslog.png" alt="11k log lines" width="900px"/>
+</h1>
+
 Sem dúvidas, a função mais difícil foi a ultimas_mensagens_conversa()
 cxriei essa parte para explicar algumas coisas e falar do meu ponto de vista a criação do código
 
