@@ -16,14 +16,12 @@ PT-BR |
 >Manutenido por Lucas Lourenço.
 
 
-## Tutorial
+## Tutorial em Vídeo
 
- 
 <h1 align="center">
  
-<a href="google.com">
+<a href="http://linkedin.com/in/lucas-lourenco0312">
 <img src="/utilidades/videoicon.gif" alt="Tutorial" width="350px" href=/>
- 
 </a>
 
 </h1>
@@ -81,6 +79,7 @@ graph TD;
 - [x] Terminar `ultimas_mensagens_conversa()` (Realizado - 18/01/2023)
 - [x] Explicar todas as fórmulas (Realizado - 21/01/2023)
 - [x] Aperfeiçoar a função de `agendamento` (Realizado - 21/01/2023)
+- [ ] Fazer vídeo e postar no Youtube de explicação para utilizar o código
 - [ ] Realizar a explicação de como começar no AWP
 - [ ] Criar um `pip install` para AWP
 - [ ] Performar criação de pastas com a lib `pathlib` para melhor qualidade de software
