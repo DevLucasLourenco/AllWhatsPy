@@ -6,9 +6,9 @@
 
  
 <h1 align="center">
-
 <img src="/utilidades/awpimgg.png" alt="AllWhatsPy" width="350px"/>
 </h1>
+
 
 > PT-BR 
 
@@ -105,6 +105,22 @@ graph TD;
 - [ ] Performar criação de pastas com a lib `pathlib` para melhor qualidade de software
 - [ ] Corrigir bug na função `pegar_foto_contato()`
 - [ ] Terminar função `buscar_contatos_não_lidos`
+
+
+## Exemplos Práticos
+
+<details>
+<summary>
+ 🚨Exemplos🚨
+</summary>
+
+ - [Exemplo Prático - Tratamento de Dados com Execução AWP](/utilidade/TratamentoDeDados-Execução.py)
+ 
+ 
+ 
+ 
+</details>
+
 
 
   
