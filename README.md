@@ -108,6 +108,7 @@ graph TD;
 - [ ] Performar criação de pastas com a lib `pathlib` para melhor qualidade de software
 - [ ] Corrigir bug na função `pegar_foto_contato()`
 - [ ] Terminar função `buscar_contatos_não_lidos`
+- [ ] Terminar função `retornar_posicao_anterior()`
 
 
 ## 🚨Exemplos Práticos🚨
