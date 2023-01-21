@@ -23,7 +23,7 @@ Seja para cunho profissional ou pessoal, é necessário o manuseio completo dest
 
 Então... por que não torná-lo <b>`ainda mais eficiente`?</b>
 
-Com o AllWhatsPy, [você PODE fazer O QUE QUISER!](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#o-que-voc%C3%AA-pode-fazer-com-allwhatspy))
+Com o AllWhatsPy, [você PODE fazer O QUE QUISER!](https://github.com/LucasLourencoo/AllWhatsPy#trabalhando-com-chatscontatosusu%C3%A1rios)
 
 
   
