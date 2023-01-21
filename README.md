@@ -146,7 +146,7 @@ awp.conexao()
 
 - ## Desconectar
 
-> Após a conclusão de todas as funções que forem usadas por você, caso seja de sua vontade desconectar o Whatsapp, rode este código. Caso contrário, o seu login ficará > sempre registrado como ainda conectar, por mais que feche a janela.
+> Após a conclusão de todas as funções que forem usadas por você, caso seja de sua vontade desconectar o Whatsapp, rode este código. Caso contrário, o seu login ficará  sempre registrado como ainda conectar, por mais que feche a janela.
 > É possível utilizar como `awp.desconectar()` ou `awp.desconectar(2)`. Caso utilize-se o primeiro caso, o software encerrará e fechará a janela. No segundo caso, irá manter a janela do QR Code aberta.
 
 <p>
