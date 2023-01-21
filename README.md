@@ -117,11 +117,11 @@ graph TD;
 
 <p>
 
- - [Exemplo Prático - Tratamento de Dados com Execução AWP](/utilidade/TratamentoDeDados-Execução.py)
+ - [Exemplo Prático - Tratamento de Dados com Execução AWP](/exemplos/TratamentoDeDados-Execução.py)
  
- - [Exemplo Prático - Agendamento em Lista com Execução AWP](/utilidade/ListaDeAgendamentos-ExecucaoAWP.py)
+ - [Exemplo Prático - Agendamento em Lista com Execução AWP](/exemplos/ListaDeAgendamentos-ExecucaoAWP.py)
  
- - [Exemplo Prático - Descendo Chats e Retornando as Mensagens](/utilidade/DescendoChatsBuscandoMensagens-ExecuçãoAWP.py)
+ - [Exemplo Prático - Descendo Chats e Retornando as Mensagens](/exemplos/DescendoChatsBuscandoMensagens-ExecuçãoAWP.py)
 </p>
 
 </details>
