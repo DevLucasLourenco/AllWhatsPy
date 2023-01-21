@@ -717,7 +717,7 @@ cxriei essa parte para explicar algumas coisas e falar do meu ponto de vista a c
  
 <p>
   
-[Email](Lucas.lcl100@gmail.com)
+Email: lucas.lcl100@gmail.com
   
 </p>
 </h2>
