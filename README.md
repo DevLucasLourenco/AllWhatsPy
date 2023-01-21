@@ -150,7 +150,7 @@ awp.desconetar()
   - ### encontrar_primeira_conversa(ignorar_fixado = True)
   <p>
   
-    > Essa função será responsável por abrir a primeira oonversa do seu Whatsapp.
+    > Essa função será responsável por abrir a primeira conversa do seu Whatsapp.
   Caso "ignorar_fixado" for True, ele irá verificar se há uma conversa fixada e pular a mesma.
   Se o valor de "ignorar_fixado" for False, irá selecionar o primeiro comentário fixado.
     
@@ -658,6 +658,12 @@ cxriei essa parte para explicar algumas coisas e falar do meu ponto de vista a c
 [Instagram](https://www.instagram.com/lucaslourencoo__/)
 
 
+</p>
+ 
+<p>
+  
+[Email](Lucas.lcl100@gmail.com)
+  
 </p>
 </h2>
 
