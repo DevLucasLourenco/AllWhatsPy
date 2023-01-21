@@ -100,6 +100,8 @@ graph TD;
 - [x] Terminar `ultimas_mensagens_conversa()` (Realizado - 18/01/2023)
 - [x] Explicar todas as fórmulas (Realizado - 21/01/2023)
 - [x] Aperfeiçoar a função de `agendamento` (Realizado - 21/01/2023)
+- [x] Terminar o `sumário` (Realizado - 21/01/2023)
+- [x] Implementar a área de `Exemplos Práticos` (Realizado - 21/01/2023)
 - [ ] Fazer vídeo e postar no Youtube de explicação para utilizar o código
 - [ ] Realizar a explicação de como começar no AWP
 - [ ] Criar um `pip install` para AWP
