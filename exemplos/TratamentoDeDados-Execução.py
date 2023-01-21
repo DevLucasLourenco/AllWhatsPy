@@ -24,6 +24,10 @@ planilha_df = planilha_df[['Nome','Email Nome','Celular']]
 
 
 
+texto = ''' Olá, {}!
+Estou passando para lembrar que hoje vence o pagamento do seu plano.
+Para mais informações, estou aqui para ajudá-lo.
+'''
 # Execução
 conexao()
 
@@ -31,15 +35,11 @@ conexao()
 for i, nome in enumerate(planilha_df['Nome']):
        celular = planilha_df.iloc[i, 2]
        
-       texto = f''' Olá, {nome}!
-       Estou passando para lembrar que hoje vence o pagamento do seu plano.
-       Para mais informações, estou aqui para ajudá-lo.
-       '''
 
        
        print(f'{i+1} - {nome} - {celular}')
        encontrar_usuario(celular)
-       enviar_mensagem_paragrafada(texto)
+       enviar_mensagem_paragrafada(texto.format(nome))
 
        
 desconectar()
