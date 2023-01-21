@@ -693,7 +693,7 @@ Se quiser ter acesso ao código, basta [Clicar Aqui](AllWhatsPy.py)
 
 ## Notas do Criador
 
-Para a criação deste código, foram usadas 11 mil linhas de log
+Para a criação deste código, foram usadas mais de 11 mil linhas de log
 <h1 align="center">
 <img src="/utilidades/linhaslog.png" alt="11k log lines" width="900px"/>
 </h1>
