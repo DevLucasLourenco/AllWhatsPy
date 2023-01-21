@@ -17,6 +17,19 @@
 >Manutenido por Lucas Lourenço.
 
 
+## Sumário
+
+- [Tutorial](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#tutorial-em-v%C3%ADdeo)
+- [AllWhatsPy](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#por-que-allwhatspy)
+- [Instalação](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#come%C3%A7ando-no-allwhatspy)
+- [Lista de Tarefa](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#objetivos-a-serem-terminados)
+- [Códigos](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#o-que-voc%C3%AA-pode-fazer-com-allwhatspy)
+- [Notas do Criador](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#notas-do-criador)
+- [Autor](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#autor)
+- [Contribuição](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#contribui%C3%A7%C3%A3o)
+- [Erros](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#problemas-com-o-allwhatspy)
+
+
 ## Tutorial em Vídeo
 
 <h1 align="center">
