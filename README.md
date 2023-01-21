@@ -108,7 +108,7 @@ graph TD;
 - [ ] Terminar função `buscar_contatos_não_lidos`
 
 
-## Exemplos Práticos
+## 🚨Exemplos Práticos🚨
 
 <details>
 <summary>
