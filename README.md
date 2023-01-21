@@ -77,7 +77,8 @@ awp.conexao()
   
   ```python
 import AllWhatsPy as awp
-  awp.desconetar()
+awp.conexao()
+awp.desconetar()
 ```  
 </p>
 
@@ -279,7 +280,7 @@ import AllWhatsPy as awp
   - ### arquivar_conversa()
   <p>
   
-    > Através desta função, a conversa atualmente aberta será excluida.
+    > Através desta função, a conversa atualmente aberta será arquivada.
      
 
   ```python
@@ -299,7 +300,7 @@ import AllWhatsPy as awp
   - ### marcar_como_nao_lida()
   <p>
   
-    > Através desta função, a conversa atualmente aberta será excluida.
+    > Através desta função, a conversa atualmente aberta será marcada como não lida.
      
 
   ```python
@@ -354,13 +355,13 @@ import AllWhatsPy as awp
 
   awp.conexao()
   awp.encontrar_contato('Lucas Lourenço')
-  awp.enviar_mensagem_paragrafada('''
-  
+  awp.enviar_mensagem_paragrafada(
+  '''
   Olá!
   Meu nome é Lucas Lourenco.
   Sou o Criador do AWP.
-  
-  ''')
+  '''
+  )
 
   awp.desconectar()
   ```
@@ -465,6 +466,7 @@ awp.desconectar()
 
 - ## Agendamento
 <p>
+  
 > O código irá aguardar até a chegada da hora planejada. Feito isso, irá liberar para que o restante do código siga adiante.
 
 `awp.agendamento(dia_programado, hora_programado, minuto_programado)`
@@ -553,8 +555,8 @@ awp.desconectar()
     <p>
     
     > Função responsável para encontrar as últimas mensagens enviadas por cada contato
-     de acordo com a quantidade oferecida na aplicação da função
-    Por padrão, a quantidade é 1, mas basta alterar a mesma que retornará quantas conversas forem pré-determinadas\n
+     de acordo com a quantidade oferecida na aplicação da função.
+    Por padrão, a quantidade é 1, mas basta alterar a mesma que retornará quantas conversas forem pré-determinadas.
     Esta função retornará um dicionário contendo 2 dados, sendo eles:
     
     >1- Key - Nome do contato
@@ -579,7 +581,7 @@ awp.desconectar()
   - ### ultimas_mensagens_conversa()
     <p>
     
-    > Esta função irá, na conversa atualmente aberta, pegar as mensagens que foram enviadas.
+    > Esta função irá, na conversa atualmente aberta, pegar as mensagens que foram enviadas.0                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
      Em seu início, ela subirá para ser possível de captar mais inforamções e, logo após, irá retornar tudo em um dicionário separado por índices. E os valores desses      índices serão mais um dicionário contendo todas as informações daquela conversa.
     
     ```python
@@ -588,9 +590,18 @@ awp.desconectar()
     awp.conexao()
     awp.encontrar_contato('Lucas Lourenço')
     dados = awp.ultimas_mensagens_conversa()
-
     ```
-    
+     
+    `output:`
+    ```python
+    >>> {0 : {'[09:30, 21/01/2023] Lucas Lourenço: ': 'Me encaminha oq ela disse kkkkk'}, 
+    >>> 1 : {'[09:32, 21/01/2023] Jenyfer: ': ['Me encaminha oq ela disse kkkkk','taaa']},
+    >>> 2 : {'[09:32, 21/01/2023] Jenyfer: ': 'você vai adorar kkkkkk'}}
+ 
+    ```
+    Como é possível reparar, será trazido informações com o índice. Os `values` deles serão outra dicionário onde você pode estar trabalhando. 
+    > quando a mensagem for citando uma outra, o value desse dicionário será uma lista
+  
     </p>
 
 
