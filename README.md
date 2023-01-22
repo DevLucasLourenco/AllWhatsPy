@@ -71,7 +71,7 @@ Com o AllWhatsPy, você consegue fazer [o que quiser!](https://github.com/LucasL
 ## Começando no AllWhatsPy
 
 ###Instalação
-(mais dados serão adicionados aqui)
+Ainda está sendo aguardada a aprovação para o `pip install`, mas você pode estar baixando o módulo e estar colocando-o na mesma pasta do projeto que estiver utilizando.
 
 
 
