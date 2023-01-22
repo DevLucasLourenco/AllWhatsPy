@@ -710,7 +710,7 @@ awp.desconectar()
 
 
 ## Acesso ao Código
-Se quiser ter acesso ao código, basta [Clicar Aqui](AllWhatsPy.py)
+Se quiser ter acesso ao código, basta [Clicar Aqui](/AllWhatsPy/AllWhatsPy.py)
 
 
 
