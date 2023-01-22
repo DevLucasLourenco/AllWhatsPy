@@ -129,6 +129,23 @@ graph TD;
 
 </details>
 
+<details>
+<sumary>
+🚨Exemplos🚨
+</sumary>
+<p>
+
+- Exemplo
+
+- Exemplo
+
+
+
+</p>
+
+
+
+</details>
 
 
   
