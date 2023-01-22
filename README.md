@@ -71,6 +71,7 @@ Com o AllWhatsPy, você consegue fazer [o que quiser!](https://github.com/LucasL
 ## Começando no AllWhatsPy
 
 ###Instalação
+(mais dados serão adicionados aqui)
 
 
 
@@ -720,8 +721,7 @@ Para a criação deste código, foram usadas mais de 11 mil linhas de log
 <img src="/utilidades/linhaslog.png" alt="11k log lines" width="900px"/>
 </h1>
 
-Sem dúvidas, a função mais difícil foi a ultimas_mensagens_conversa()
-cxriei essa parte para explicar algumas coisas e falar do meu ponto de vista a criação do código
+(mais dados serão inseridos)
 
 
 ## Autor
