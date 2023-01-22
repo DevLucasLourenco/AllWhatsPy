@@ -184,11 +184,7 @@ def descer_conversa_origem_atual(quantidade: int = 1):
 
     t.sleep(1)
     
-    dados_contato = pegar_dados_contato()
-    nome_contato = dados_contato[0]
-    
-    
-    logging.info(f'Conversa selecinada - {nome_contato}')
+
     logging.info('descer_conversa_origem_atual() Terminou de Rodar!')
 
 
@@ -209,11 +205,7 @@ def subir_conversa_origem_atual(quantidade: int = 1):
 
     t.sleep(1)
     
-    dados_contato = pegar_dados_contato()
-    nome_contato = dados_contato[0]
-    
-    
-    logging.info(f'Conversa selecinada - {nome_contato}')
+
     logging.info('subir_conversa_origem_atual() Terminou de Rodar!')
 
 
@@ -667,22 +659,18 @@ def pegar_dados_contato():
         titulo_ctt_xpath = '//*[@id="main"]/header/div[2]/div/div/span'
         drive.find_element(By.XPATH, titulo_ctt_xpath).click()
 
-        info_ctt_numero_xpath = '//*[@id="app"]/div/div/div[5]/span/div/span/div/div/section/div[1]/div[2]/div/span/span'
-        
-        marktime.until(
-            EC.presence_of_element_located(
-                (By.XPATH, info_ctt_numero_xpath)
-            )
-        )
+        t.sleep(1)
 
         nome_contato = drive.find_element(By.XPATH, 
                                             titulo_ctt_xpath).text
+        t.sleep(1)
 
-        numero_contato = drive.find_element(By.XPATH, 
-                                            info_ctt_numero_xpath).text
+        numero_contato = drive.find_element(By.CLASS_NAME, 
+                                            '_10kwi _1BX24 dd2Ow').text
 
-        sair_da_conversa()
 
+        t.sleep(2)
+        
         logging.info(f'{nome_contato} - {numero_contato}')
         logging.info('pegar_dados_contato() Terminou de Rodar')
 
@@ -804,6 +792,7 @@ def possibilidade_desconectar_e_fechar_janela():
 
     dc_button.click()
     drive.switch_to.active_element
+    
     t.sleep(1)
     
     ActionChains(drive).key_down(Keys.ARROW_DOWN
@@ -952,13 +941,8 @@ def marcar_como_nao_lida():
 
 
 def buscar_contatos_não_lidos():
-    ''
+    'a'
     
-#
-
-def retornar_posicao_anterior():
-    ''
-#vai fzr com que retorne a posição anteior. igual a ideia inicial de voltar pr ultimo contato 
 #
 
 
