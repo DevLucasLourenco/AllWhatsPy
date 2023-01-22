@@ -111,11 +111,11 @@ graph TD;
 - [ ] Terminar função `retornar_posicao_anterior()`
 
 
-## 🚨Exemplos Práticos🚨
+## 🚨Exemplos🚨
 
 <details>
 <summary>
- 🚨Exemplos🚨
+ 🚨Exemplos Práticos🚨
 </summary>
 
 <p>
