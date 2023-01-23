@@ -18,16 +18,16 @@
 
 ## Sumário
 
-- [Tutorial](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#tutorial-em-v%C3%ADdeo)
-- [AllWhatsPy](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#por-que-allwhatspy)
-- [Instalação](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#come%C3%A7ando-no-allwhatspy)
-- [Lista de Tarefa](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#objetivos-a-serem-terminados)
-- [Exemplos](https://github.com/LucasLourencoo/AllWhatsPy/blob/main/README.md#exemplos-pr%C3%A1ticos)
-- [Códigos](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#o-que-voc%C3%AA-pode-fazer-com-allwhatspy)
-- [Notas do Criador](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#notas-do-criador)
-- [Autor](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#autor)
-- [Contribuição](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#contribui%C3%A7%C3%A3o)
-- [Erros](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#problemas-com-o-allwhatspy)
+- [Tutorial](https://github.com/LucasLourencoo/AllWhatsPy#tutorial-em-v%C3%ADdeo2)
+- [AllWhatsPy](https://github.com/LucasLourencoo/AllWhatsPy#por-que-allwhatspy)
+- [Instalação](https://github.com/LucasLourencoo/AllWhatsPy#come%C3%A7ando-no-allwhatspy)
+- [Lista de Tarefa](https://github.com/LucasLourencoo/AllWhatsPy#objetivos-a-serem-terminados)
+- [Exemplos](https://github.com/LucasLourencoo/AllWhatsPy#exemplos)
+- [Códigos](https://github.com/LucasLourencoo/AllWhatsPy#o-que-voc%C3%AA-pode-fazer-com-allwhatspy)
+- [Notas do Criador](https://github.com/LucasLourencoo/AllWhatsPy#notas-do-criador)
+- [Autor](https://github.com/LucasLourencoo/AllWhatsPy#autor)
+- [Contribuição](https://github.com/LucasLourencoo/AllWhatsPy#contribui%C3%A7%C3%A3o)
+- [Erros](https://github.com/LucasLourencoo/AllWhatsPy#problemas-com-o-allwhatspy)
 
 
 ## Tutorial em Vídeo
@@ -41,10 +41,16 @@
 </h1>
 
 
-## Avalie o Código!
+## ⭐ Avalie o Código! ⭐
+
+
+
 É de muitíssima importância a `Estrela` que você pode estar dando para colaborar com a `Manutenção` e `Atualização` do código!
 Se você utiliza o AllWhatsPy com frequência, gosta da forma que foi desenvolvido, se inspira nele, serei muito grato por sua avaliação!
 
+<h1 align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/2534/2534324.png" weight= 100 height=100 >
+</h1>
 
 Após tendo feito isso, vamos ao que importa: `AllWhatsPy`
 
