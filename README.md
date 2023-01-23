@@ -3,7 +3,6 @@
 </h1>
 
 
-
  
 <h1 align="center">
 <img src="/utilidades/awpimgg.png" alt="AllWhatsPy" width="350px"/>
