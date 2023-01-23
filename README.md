@@ -743,7 +743,7 @@ Para a criação deste código, foram usadas mais de 11 mil linhas de log
  
 <p>
   
-Email: lucas.lcl100@gmail.com
+Email: dev.lucaslourenco@gmail.com
   
 </p>
 </h2>
