@@ -49,7 +49,9 @@
 Se você utiliza o AllWhatsPy com frequência, gosta da forma que foi desenvolvido, se inspira nele, serei muito grato por sua avaliação!
 
 <h1 align="center">
+<a href="https://github.com/LucasLourencoo/AllWhatsPy/stargazers">
 <img src="https://cdn-icons-png.flaticon.com/512/2534/2534324.png" weight= 100 height=100 >
+</a>
 </h1>
 
 Após tendo feito isso, vamos ao que importa: `AllWhatsPy`
