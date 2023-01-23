@@ -97,7 +97,7 @@ flowchart LR;
     
     
     awp.enviar_mensagem-->E{Enviar Outra Coisa?};
-    awp.enviar_mensagem_paragrafada-->E{Enviar Outra Coisa?};
+    awp.enviar_mensagem_paragrafada-->E{Enviar outra coisa?};
     awp.enviar_mensagem_direta---->d[awp.desconectar];
     awp.enviar_mensagem_por_link---->d;
     
@@ -106,12 +106,12 @@ flowchart LR;
     E -- Sim --> awp.enviar_imagem;
     E -- Sim --> awp.enviar_video;
     E -- Sim --> awp.enviar_arquivo;
-    E -- Não --> d;
+    
     
     awp.enviar_imagem --> d;
     awp.enviar_video --> d;
     awp.enviar_arquivo --> d;
-    
+    E -- Não --> d;
     
     
 ```
