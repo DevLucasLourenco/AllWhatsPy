@@ -87,14 +87,17 @@ Ainda está sendo aguardada a aprovação para o `pip install`, mas você pode e
 
 ```mermaid
 flowchart LR;
-    awp.conexao-->eu[awp.encontrar_contato / awp.encontrar_usuario];
+    awp.conexao-->awpe[awp.encontrar_contato];
+    awp.conexao-->awpu[awp.encontrar_usuario];
     awp.conexao---->awp.enviar_mensagem_por_link;
     awp.conexao---->awp.enviar_mensagem_direta;
         
     
-    eu-->awp.enviar_mensagem;
-    eu-->awp.enviar_mensagem_paragrafada;
+    awpe-->awp.enviar_mensagem;
+    awpe-->awp.enviar_mensagem_paragrafada;
     
+    awpu-->awp.enviar_mensagem;
+    awpu-->awp.enviar_mensagem_paragrafada;
     
     awp.enviar_mensagem-->E{Enviar Outra Coisa?};
     awp.enviar_mensagem_paragrafada-->E{Enviar outra coisa?};
