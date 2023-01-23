@@ -68,9 +68,9 @@ Depois de ter pensado nisso, comecei a pesquisar sobre Bots e APIs do Whatsapp, 
 
 Após passar um tempo estudando e alternando entre o trabalho e o software, botei a mão na massa e comecei a minha jornada indo atrás da melhoria e da qualidade de Software. Continuo atualizando e desenvolvendo, fazendo isso  único e exclusivamente sozinho.
 
-Foram usadas mais de [11 mil linhas de logs](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#-2) para o total funcionamento do código.
+Foram usadas mais de [11 mil linhas de logs](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#-3) para o total funcionamento do código.
 
-Com o AllWhatsPy, você consegue fazer [o que quiser!](https://github.com/LucasLourencoo/AllWhatsPy#o-que-voc%C3%AA-pode-fazer-com-allwhatspy)
+Com o AllWhatsPy, você consegue fazer [o que quiser!](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#o-que-voc%C3%AA-pode-fazer-com-allwhatspy)
 
 
   
