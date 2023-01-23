@@ -4,15 +4,15 @@ import pandas as pd
 
 
 # Importação de Dados
-alunos_ativos1_df = pd.read_excel('planilha1.xlsx')
-alunos_ativos2_df = pd.read_excel('planilha2.xlsx')
-alunos_ativos3_df = pd.read_excel('planilha3.xlsx')
+contatos_ativos1_df = pd.read_excel('planilha1.xlsx')
+contatos_ativos2_df = pd.read_excel('planilha2.xlsx')
+contatos_ativos3_df = pd.read_excel('planilha3.xlsx')
 
 
 
 # Junção de Dados
-planilha_df = alunos_ativos1_df.merge(alunos_ativos2_df, how='outer')
-planilha_df = planilha_df.merge(alunos_ativos3_df, how='outer')
+planilha_df = contatos_ativos1_df.merge(contatos_ativos2_df, how='outer')
+planilha_df = planilha_df.merge(contatos_ativos3_df, how='outer')
 
 
 
