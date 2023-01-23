@@ -99,8 +99,8 @@ flowchart LR;
     awpu-->awp.enviar_mensagem;
     awpu-->awp.enviar_mensagem_paragrafada;
     
-    awp.enviar_mensagem-->E{Enviar Outra Coisa?};
-    awp.enviar_mensagem_paragrafada-->E{Enviar outra coisa?};
+    awp.enviar_mensagem-->E{Enviar outra coisa?};
+    awp.enviar_mensagem_paragrafada-->E;
     awp.enviar_mensagem_direta---->d[awp.desconectar];
     awp.enviar_mensagem_por_link---->d;
     
