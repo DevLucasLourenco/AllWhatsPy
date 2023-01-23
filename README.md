@@ -42,7 +42,7 @@
 
 
 ## Avalie o Código!
-É de muitíssima importância a `Star` que você pode estar dando para colaborar com a `Manutenção` e `Atualização` do código!
+É de muitíssima importância a `Estrela` que você pode estar dando para colaborar com a `Manutenção` e `Atualização` do código!
 Se você utiliza o AllWhatsPy com frequência, gosta da forma que foi desenvolvido, se inspira nele, serei muito grato por sua avaliação!
 
 
