@@ -103,7 +103,7 @@ graph TD;
 - [x] Aperfeiçoar a função de `agendamento` (Realizado - 21/01/2023)
 - [x] Terminar o `sumário` (Realizado - 21/01/2023)
 - [x] Implementar a área de `Exemplos Práticos` (Realizado - 21/01/2023)
-- [x] Fazer vídeo e postar no Youtube de explicação para utilizar o código
+- [x] Fazer vídeo e postar no Youtube de explicação para utilizar o código (Realizado - 22/01/2023)
 - [ ] Realizar a explicação de como começar no AWP
 - [ ] Criar um `pip install` para AWP
 - [ ] Performar criação de pastas com a lib `pathlib` para melhor qualidade de software
