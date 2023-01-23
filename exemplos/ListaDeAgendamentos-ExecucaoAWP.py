@@ -15,6 +15,8 @@ for i, minuto in enumerate(minuto_lista):
     awp.agendamento('21', hora_list[i], minuto)
     awp.enviar_mensagem('Vai beber sua água!')
 
-awp.ultimas_mensagens_conversa()
+dados = awp.ultimas_mensagens_conversa()
 
 awp.desconectar()
+
+print(dados)
