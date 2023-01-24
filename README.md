@@ -115,8 +115,7 @@ flowchart LR;
     awp.enviar_video --> d;
     awp.enviar_arquivo --> d;
     E -- Não --> d;
-    
-    
+       
 ```
 
 
