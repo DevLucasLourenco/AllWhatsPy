@@ -17,8 +17,9 @@
 
 <div>
 
+</br>
 <a href="https://github.com/DevLucasLourenco/AllWhatsPy/archive/refs/heads/main.zip">
-<img src="https://img.shields.io/github/downloads/DevLucasLourenco/AllWhatsPy/total.svg">
+ <img src="https://img.shields.io/github/downloads/devlucaslourenco/AllWhatsPy/total?style=social">
 </a>
 
 </div>
