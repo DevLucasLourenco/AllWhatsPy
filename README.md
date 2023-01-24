@@ -15,6 +15,13 @@
 
 >Manutenido por Lucas Lourenço
 
+<div>
+
+<a href="https://github.com/DevLucasLourenco/AllWhatsPy/archive/refs/heads/main.zip">
+<img src="https://img.shields.io/github/downloads/DevLucasLourenco/AllWhatsPy/total.svg">
+</a>
+
+</div>
 
 ## Sumário
 
