@@ -24,6 +24,9 @@
 
 </div>
 
+[![Github All Releases](https://img.shields.io/github/downloads/devlucaslourenco/allwhatspy/total.svg)]()
+
+
 ## Sumário
 
 - [Tutorial](https://github.com/DevLucasLourenco/AllWhatsPy#tutorial-em-v%C3%ADdeo2)
