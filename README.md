@@ -15,16 +15,20 @@
 
 >Manutenido por Lucas Lourenço
 
-<div>
+<div align="center">
 
 </br>
 <a href="https://github.com/DevLucasLourenco/AllWhatsPy/archive/refs/heads/main.zip">
- <img src="https://img.shields.io/github/downloads/devlucaslourenco/AllWhatsPy/total?style=social">
+ <img src="https://img.shields.io/github/downloads/devlucaslourenco/allwhatspy/total">
 </a>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=https://github.com/devlucsalourenco/allwhatspy">  
+<img src="https://img.shields.io/github/stars/devlucaslourenco/allwhatspy">
+<img src="https://img.shields.io/github/commit-activity/y/devlucaslourenco/allwhatspy">
+<img src="https://img.shields.io/github/languages/code-size/devlucaslourenco/allwhatspy">
+
 
 </div>
 
-[![Github All Releases](https://img.shields.io/github/downloads/devlucaslourenco/allwhatspy/total.svg)]()
 
 
 ## Sumário
