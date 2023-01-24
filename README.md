@@ -18,16 +18,16 @@
 
 ## Sumário
 
-- [Tutorial](https://github.com/LucasLourencoo/AllWhatsPy#tutorial-em-v%C3%ADdeo2)
-- [AllWhatsPy](https://github.com/LucasLourencoo/AllWhatsPy#por-que-allwhatspy)
-- [Instalação](https://github.com/LucasLourencoo/AllWhatsPy#come%C3%A7ando-no-allwhatspy)
-- [Lista de Tarefa](https://github.com/LucasLourencoo/AllWhatsPy#objetivos-a-serem-terminados)
-- [Exemplos](https://github.com/LucasLourencoo/AllWhatsPy#exemplos)
-- [Códigos](https://github.com/LucasLourencoo/AllWhatsPy#o-que-voc%C3%AA-pode-fazer-com-allwhatspy)
-- [Notas do Criador](https://github.com/LucasLourencoo/AllWhatsPy#notas-do-criador)
-- [Autor](https://github.com/LucasLourencoo/AllWhatsPy#autor)
-- [Contribuição](https://github.com/LucasLourencoo/AllWhatsPy#contribui%C3%A7%C3%A3o)
-- [Erros](https://github.com/LucasLourencoo/AllWhatsPy#problemas-com-o-allwhatspy)
+- [Tutorial](https://github.com/DevLucasLourenco/AllWhatsPy#tutorial-em-v%C3%ADdeo2)
+- [AllWhatsPy](https://github.com/DevLucasLourenco/AllWhatsPy#por-que-allwhatspy)
+- [Instalação](https://github.com/DevLucasLourenco/AllWhatsPy#come%C3%A7ando-no-allwhatspy)
+- [Lista de Tarefa](https://github.com/DevLucasLourenco/AllWhatsPy#objetivos-a-serem-terminados)
+- [Exemplos](https://github.com/DevLucasLourenco/AllWhatsPy#exemplos)
+- [Códigos](https://github.com/DevLucasLourenco/AllWhatsPy#o-que-voc%C3%AA-pode-fazer-com-allwhatspy)
+- [Notas do Criador](https://github.com/DevLucasLourenco/AllWhatsPy#notas-do-criador)
+- [Autor](https://github.com/DevLucasLourenco/AllWhatsPy#autor)
+- [Contribuição](https://github.com/DevLucasLourenco/AllWhatsPy#contribui%C3%A7%C3%A3o)
+- [Erros](https://github.com/DevLucasLourenco/AllWhatsPy#problemas-com-o-allwhatspy)
 
 
 ## Tutorial em Vídeo
@@ -49,7 +49,7 @@
 Se você utiliza o AllWhatsPy com frequência, gosta da forma que foi desenvolvido, se inspira nele, serei muito grato por sua avaliação!
 
 <h1 align="center">
-<a href="https://github.com/LucasLourencoo/AllWhatsPy/stargazers">
+<a href="https://github.com/DevLucasLourenco/AllWhatsPy/stargazers">
 <img src="https://cdn-icons-png.flaticon.com/512/2534/2534324.png" weight= 100 height=100 >
 </a>
 </h1>
@@ -68,9 +68,9 @@ Depois de ter pensado nisso, comecei a pesquisar sobre Bots e APIs do Whatsapp, 
 
 Após passar um tempo estudando e alternando entre o trabalho e o software, botei a mão na massa e comecei a minha jornada indo atrás da melhoria e da qualidade de Software. Continuo atualizando e desenvolvendo, fazendo isso  único e exclusivamente sozinho.
 
-Foram usadas mais de [11 mil linhas de logs](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#-3) para o total funcionamento do código.
+Foram usadas mais de [11 mil linhas de logs](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#-3) para o total funcionamento do código.
 
-Com o AllWhatsPy, você consegue fazer [o que quiser!](https://github.com/LucasLourencoo/AllWhatsPy/edit/main/README.md#o-que-voc%C3%AA-pode-fazer-com-allwhatspy)
+Com o AllWhatsPy, você consegue fazer [o que quiser!](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#o-que-voc%C3%AA-pode-fazer-com-allwhatspy)
 
 
   
