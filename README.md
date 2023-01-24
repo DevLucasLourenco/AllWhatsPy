@@ -6,8 +6,16 @@
  
 <h1 align="center">
 <img src="/utilidades/awpimgg.png" alt="AllWhatsPy" width="350px"/>
-</h1>
 
+
+
+<div align="center">
+   <img src="https://visitor-badge.laobi.icu/badge?page_id=https://github.com/devlucsalourenco/allwhatspy">  
+   <img src="https://img.shields.io/github/stars/devlucaslourenco/allwhatspy">
+   <img src="https://img.shields.io/github/commit-activity/y/devlucaslourenco/allwhatspy">
+   <img src="https://img.shields.io/github/languages/code-size/devlucaslourenco/allwhatspy">
+</div>
+</h1>
 
 > PT-BR 
 
@@ -15,19 +23,6 @@
 
 >Manutenido por Lucas Lourenço
 
-<div align="center">
-
-</br>
-<a href="https://github.com/DevLucasLourenco/AllWhatsPy/archive/refs/heads/main.zip">
- <img src="https://img.shields.io/github/downloads/devlucaslourenco/allwhatspy/total">
-</a>
-<img src="https://visitor-badge.laobi.icu/badge?page_id=https://github.com/devlucsalourenco/allwhatspy">  
-<img src="https://img.shields.io/github/stars/devlucaslourenco/allwhatspy">
-<img src="https://img.shields.io/github/commit-activity/y/devlucaslourenco/allwhatspy">
-<img src="https://img.shields.io/github/languages/code-size/devlucaslourenco/allwhatspy">
-
-
-</div>
 
 
 
@@ -92,9 +87,9 @@ Com o AllWhatsPy, você consegue fazer [o que quiser!](https://github.com/DevLuc
   
 ## Começando no AllWhatsPy
 
-###Instalação
-Ainda está sendo aguardada a aprovação para o `pip install`, mas você pode estar baixando o módulo e estar colocando-o na mesma pasta do projeto que estiver utilizando.
+### Instalação
 
+Ainda está sendo aguardada a aprovação para o `pip install`, mas você pode estar baixando o módulo e estar colocando-o na mesma pasta do projeto que estiver utilizando.
 
 
 
