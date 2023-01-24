@@ -54,7 +54,7 @@ def conexao(popup: int = 1):
             drive.find_element(By.XPATH, 
                                    var_aux_xpath)
             
-            logging.info('Conexão Efetuada!')
+            logging.info('Conexao Efetuada!')
             
             if popup == 1:
                 messagebox.showinfo('Validado','Conexao Efetuada!')
@@ -88,6 +88,14 @@ def desconectar(padrao: int = 1):
     
     else:
         logging.critical('Não foi possível realizar a desconexão. Valor inserido inválido')
+
+
+
+def contato_nome():
+    ctt = drive.find_element(By.XPATH, '//*[@id="main"]/header/div[2]/div/div')
+    nome = ctt.find_element(By.CLASS_NAME, 'span').text
+
+    return nome
 
 
 
@@ -687,8 +695,7 @@ def apagar_conversa():
     Através desta função, a conversa atualmente aberta será excluida.
     '''
 
-    dados_contato = pegar_dados_contato()
-    nome_contato = dados_contato[0]
+    nome_contato = contato_nome()
 
     # Sequência de comandos pra realizar a funcionalidade de apagar a conversa
     ActionChains(drive
