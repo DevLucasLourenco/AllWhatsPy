@@ -11,6 +11,7 @@ from selenium.common.exceptions import (
     UnexpectedAlertPresentException,
     NoSuchElementException,
 )
+import string
 from tkinter import messagebox
 from  PIL import Image
 from urllib import parse
@@ -1111,3 +1112,55 @@ def ultimas_mensagens_conversa():
         
 
     return dict_info
+
+
+
+def encontrar_numeros_não_salvos(quantidade_de_contatos_percorridos: int = 3):
+    '''
+    Função responsável por encontrar números que não estão salvos. Irá retornar uma lista 
+    '''
+       
+    
+    #separacao das letras
+    letras =  string.ascii_letters
+    letras = [l for l in letras]
+
+
+    # Execução
+
+
+    search_box = drive.find_element(By.XPATH, '//*[@id="side"]/div[1]/div/div/div[2]/div/div[2]')
+
+    lista = []
+    for i in range(quantidade_de_contatos_percorridos):
+        chat_area = drive.find_element(By.ID, 'pane-side')
+        another = chat_area.find_elements(By.TAG_NAME, 'div')
+        search_box.send_keys(Keys.ARROW_DOWN * quantidade_de_contatos_percorridos)
+        lista.append(list(i for i in another))
+
+    for i, item in enumerate(another):
+        item = item.get_attribute("aria-label")
+        if item == 'Lista de conversas':
+            item = another[i]
+            break
+
+        else:
+            pass
+
+    dados = item.text.split('\n')
+
+    lista_auxiliar = []
+    for each in dados:
+        contador = 0
+        if '+' in each and '-' in each:
+            for l in letras:
+                if l in each:
+                    break
+                else:
+                    contador += 1
+                    if contador == len(letras):
+                        lista_auxiliar.append(each)
+
+                
+    # lista_auxiliar = list(set(lista_auxiliar))
+    return lista_auxiliar
