@@ -1115,7 +1115,7 @@ def ultimas_mensagens_conversa():
 
 
 
-def encontrar_numeros_não_salvos(quantidade_de_contatos_percorridos: int = 3):
+def encontrar_numeros_nao_salvos(intensidade: int = 40):
     '''
     Função responsável por encontrar números que não estão salvos. Irá retornar uma lista 
     '''
@@ -1127,40 +1127,46 @@ def encontrar_numeros_não_salvos(quantidade_de_contatos_percorridos: int = 3):
 
 
     # Execução
-
-
     search_box = drive.find_element(By.XPATH, '//*[@id="side"]/div[1]/div/div/div[2]/div/div[2]')
+    chat_area = drive.find_element(By.ID, 'pane-side')
 
     lista = []
-    for i in range(quantidade_de_contatos_percorridos):
-        chat_area = drive.find_element(By.ID, 'pane-side')
-        another = chat_area.find_elements(By.TAG_NAME, 'div')
-        search_box.send_keys(Keys.ARROW_DOWN * quantidade_de_contatos_percorridos)
-        lista.append(list(i for i in another))
+    search_box.click()
+    t.sleep(1)
+    search_box.send_keys(Keys.ARROW_DOWN * 2)
 
-    for i, item in enumerate(another):
-        item = item.get_attribute("aria-label")
-        if item == 'Lista de conversas':
-            item = another[i]
-            break
+    for i in range(intensidade):
+        ActionChains(drive).send_keys(Keys.PAGE_DOWN
+        ).perform()
 
-        else:
-            pass
+        info_lista = chat_area.find_elements(By.TAG_NAME, 'div')        
+        lista.append(l for l in info_lista)
 
-    dados = item.text.split('\n')
 
-    lista_auxiliar = []
-    for each in dados:
-        contador = 0
-        if '+' in each and '-' in each:
-            for l in letras:
-                if l in each:
-                    break
-                else:
-                    contador += 1
-                    if contador == len(letras):
-                        lista_auxiliar.append(each)
+        for i, item in enumerate(info_lista):
+            item = item.get_attribute("aria-label")
+            if item == 'Lista de conversas':
+                item = info_lista[i]
+                break
 
+            else:
+                pass
+
+        dados = item.text.split('\n')
+
+        lista_auxiliar = []
+        for each in dados:
+            contador = 0
+            if '+' in each and '-' in each:
+                for l in letras:
+                    if l in each:
+                        break
+                    else:
+                        contador += 1
+                        if contador == len(letras):
+                            lista_auxiliar.append(each)
+
+    ActionChains(drive).send_keys(Keys.HOME)
                 
     # lista_auxiliar = list(set(lista_auxiliar))
     return lista_auxiliar
