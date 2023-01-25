@@ -766,7 +766,8 @@ Para a criação deste código, foram usadas mais de 11 mil linhas de log
 <img src="/utilidades/linhaslog.png" alt="11k log lines" width="900px"/>
 </h1>
 
-(mais dados serão inseridos)
+> Na primeira vez que você rodar o código, será criada um arquivo de log. Lá, estarão todos os acontecimentos necessários para sua informação. 
+
 
 
 ## Autor
