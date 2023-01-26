@@ -157,6 +157,7 @@ flowchart LR;
 - [ ] Corrigir bug na função `pegar_foto_contato()`
 - [ ] Terminar função `buscar_contatos_não_lidos()`
 - [ ] Terminar função `retornar_posicao_anterior()`
+- [ ] Implementação de Classes 
 
 
 ## 🚨Exemplos🚨
