@@ -19,9 +19,9 @@
 
 > PT-BR 
 
->Criado por Lucas Lourenço
+>Criado por [Lucas Lourenço](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#autor)
 
->Manutenido por Lucas Lourenço
+>Manutenido por [Lucas Lourenço](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#autor)
 
 
 
@@ -92,15 +92,13 @@ Com o AllWhatsPy, você consegue fazer [o que quiser!](https://github.com/DevLuc
 Para a instalação da lib, no terminal faça:
 
 ```
-pip install allwhatspy-awp
+pip install -U allwhatspy-awp
 ```
 
 Após, chame o pacote. Segue um exemplo:
 
 ```python
-import AllWhatsPy
-
-awp = AllWhatsPy.AllWhatsPy()
+import AllWhatsPy as awp
 
 awp.conexao()
 ```
