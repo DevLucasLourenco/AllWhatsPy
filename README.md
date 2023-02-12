@@ -89,6 +89,32 @@ Com o AllWhatsPy, você consegue fazer [o que quiser!](https://github.com/DevLuc
 
 ### Instalação
 
+Para a instalação da lib, no terminal faça:
+
+```
+pip install allwhatspy-awp
+```
+
+Após, chame o pacote. Segue um exemplo:
+
+```python
+import AllWhatsPy
+
+awp = AllWhatsPy.AllWhatsPy()
+
+awp.conexao()
+```
+
+ou
+
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+
+awp.conexao()
+```
+
 Ainda está sendo aguardada a aprovação para o `pip install`, mas você pode estar baixando o módulo e estar colocando-o na mesma pasta do projeto que estiver utilizando.
 
 
