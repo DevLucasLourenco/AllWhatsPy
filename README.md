@@ -103,15 +103,6 @@ import AllWhatsPy as awp
 awp.conexao()
 ```
 
-ou
-
-```python
-from AllWhatsPy import AllWhatsPy
-
-awp = AllWhatsPy()
-
-awp.conexao()
-```
 
 Ainda está sendo aguardada a aprovação para o `pip install`, mas você pode estar baixando o módulo e estar colocando-o na mesma pasta do projeto que estiver utilizando.
 
