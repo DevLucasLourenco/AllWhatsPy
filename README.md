@@ -149,15 +149,16 @@ flowchart LR;
 - [x] Implementar exemplos convencionais (Realizado - 23/01/2023) 
 - [x] Alterar Imagem da lógica do AWP com Mermaid (Realizado - 23/01/2023)
 - [x] Finalizar função `encontrar_numeros_não_salvos()` (Realizado - 25/01/2023)
+- [x] Implementação de Classes (Realizado - 12/02/2023)
+- [x] Desenvolver um `pip install` para AWP (Realizado - 12/02/2023)
 - [ ] Atualizar `contato_nome()`
 - [ ] Atualizar icon do AWP
 - [ ] Realizar a explicação de como começar no AWP
-- [ ] Desenvolver um `pip install` para AWP
 - [ ] Performar criação de pastas com a lib `pathlib` para melhor qualidade de software
 - [ ] Corrigir bug na função `pegar_foto_contato()`
 - [ ] Terminar função `buscar_contatos_não_lidos()`
 - [ ] Terminar função `retornar_posicao_anterior()`
-- [ ] Implementação de Classes 
+
 
 
 ## 🚨Exemplos🚨
