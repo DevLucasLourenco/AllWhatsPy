@@ -19,9 +19,9 @@
 
 > PT-BR 
 
->Criado por [Lucas Lourenço](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#autor)
+>Criado por [Lucas Lourenço](https://github.com/DevLucasLourenco/AllWhatsPy#autor)
 
->Manutenido por [Lucas Lourenço](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#autor)
+>Manutenido por [Lucas Lourenço](https://github.com/DevLucasLourenco/AllWhatsPy#autor)
 
 
 
