@@ -28,6 +28,8 @@ class AllWhatsPy:
     def conexao(popup: int = 1):
 
         '''
+        https://github.com/DevLucasLourenco/AllWhatsPy
+        
         Função responsável por estabelecer a conexão com o Whatsapp.
         Ela aguardará a realização do login ao QR Code para prosseguir com o
         restante do código.\n
