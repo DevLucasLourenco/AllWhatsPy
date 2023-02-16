@@ -64,11 +64,10 @@ Se você utiliza o AllWhatsPy com frequência, gosta da forma que foi desenvolvi
 </a>
 </h1>
 
-Após tendo feito isso, vamos ao que importa: `AllWhatsPy`
-
 
 
 ## Por que AllWhatsPy?
+
 Como já sabemos, o Whatsapp é uma ferramenta que não podemos mais viver sem.
 Seja para cunho profissional ou pessoal, é necessário o manuseio completo desta aplicação.
 
@@ -83,11 +82,16 @@ Foram usadas mais de [11 mil linhas de logs](https://github.com/DevLucasLourenco
 Com o AllWhatsPy, você consegue fazer [o que quiser!](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#o-que-voc%C3%AA-pode-fazer-com-allwhatspy)
 
 
-  
+</br>
+</br>
   
 ## Começando no AllWhatsPy
 
-### Instalação
+<div align="center">
+   <h2>
+      INSTALAÇÃO
+   </h2>
+</div>
 
 Para a instalação da lib, no terminal faça:
 
@@ -104,7 +108,7 @@ import AllWhatsPy as awp
 
 Você também pode estar baixando os arquivos e colar na sua pasta, caso sua máquina esteja tendo problemas em instalar esta lib.
 
-
+</br>
 
 ### Lógica:
 
@@ -224,7 +228,6 @@ flowchart LR;
   
 ```python
 import AllWhatsPy as awp
-awp = AllWhatsPy()
 
 awp.conexao()
 ```
@@ -379,7 +382,7 @@ awp.desconetar()
     
   awp.conexao()
   awp.encontrar_usuario(21900000000)
-  awp.enviar_mensagem()
+  awp.enviar_mensagem('Olá!)
   awp.sair_da_conversa()
   
   ```
