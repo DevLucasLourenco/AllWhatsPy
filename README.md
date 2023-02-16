@@ -165,6 +165,7 @@ flowchart LR;
 - [x] Finalizar função `encontrar_numeros_não_salvos()` (Realizado - 25/01/2023)
 - [x] Implementação de Classes (Realizado - 12/02/2023)
 - [x] Desenvolver um `pip install` para AWP (Realizado - 12/02/2023)
+- [x] Atualizar `nome_usuario()` (Realizado - 15/02/2023)
 - [ ] Atualizar `contato_nome()`
 - [ ] Atualizar icon do AWP
 - [ ] Realizar a explicação de como começar no AWP
@@ -496,8 +497,22 @@ awp.desconetar()
   </p>
   
   
+  - ### nome_usuario()
+  <p>
   
+    > Esta função retorna o nome d usuário.
   
+    ```python
+  from AllWhatsPy import AllWhatsPy
+  awp = AllWhatsPy()
+    
+  awp.conexao()
+  nome = awp.nome_usuario()
+  awp.enviar_mensagem(f'Olá! eu sou o {nome}')
+  
+  awp.desconectar()
+  
+  ```
   
   
 - ## Enviando Mensagens
