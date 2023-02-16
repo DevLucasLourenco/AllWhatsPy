@@ -102,7 +102,7 @@ import AllWhatsPy as awp
 ```
 
 
-Ainda está sendo aguardada a aprovação para o `pip install`, mas você pode estar baixando o módulo e estar colocando-o na mesma pasta do projeto que estiver utilizando.
+Você também pode estar baixando os arquivos e colar na sua pasta, caso sua máquina esteja tendo problemas em instalar esta lib.
 
 
 
