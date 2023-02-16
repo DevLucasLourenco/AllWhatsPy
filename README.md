@@ -98,8 +98,7 @@ pip install -U allwhatspy-awp
 Após, chame o pacote. Segue um exemplo:
 
 ```python
-from AllWhatsPy import AllWhatsPy
-awp = AllWhatsPy()
+import AllWhatsPy as awp
 ```
 
 
@@ -224,7 +223,7 @@ flowchart LR;
 <p>
   
 ```python
-from AllWhatsPy import AllWhatsPy
+import AllWhatsPy as awp
 awp = AllWhatsPy()
 
 awp.conexao()
@@ -241,8 +240,8 @@ awp.conexao()
 <p>
   
   ```python
-from AllWhatsPy import AllWhatsPy
-awp = AllWhatsPy()
+import AllWhatsPy as awp
+
 
 awp.conexao()
 awp.desconetar()
@@ -258,8 +257,7 @@ awp.desconetar()
     
 
   ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
     
   awp.conexao()
   awp.encontrar_contato('Lucas Lourenço')
@@ -277,8 +275,7 @@ awp.desconetar()
     
 
   ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
 
     
   awp.conexao()
@@ -299,8 +296,7 @@ awp.desconetar()
     
 
   ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
     
   awp.conexao()
   awp.encontrar_primeira_conversa()
@@ -320,8 +316,7 @@ awp.desconetar()
     
 
   ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
     
   awp.conexao()
   awp.encontrar_contato('Lucas Lourenço')
@@ -341,8 +336,7 @@ awp.desconetar()
     
 
   ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
     
   awp.conexao()
   awp.encontrar_contato('Lucas Lourenço')
@@ -362,8 +356,7 @@ awp.desconetar()
      
 
   ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
     
   awp.conexao()
   awp.descer_chat_quantidade()
@@ -382,8 +375,7 @@ awp.desconetar()
      
 
   ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
     
   awp.conexao()
   awp.encontrar_usuario(21900000000)
@@ -403,8 +395,7 @@ awp.desconetar()
      
 
   ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
     
   awp.conexao()
   awp.aplicar_filtro()
@@ -423,8 +414,8 @@ awp.desconetar()
      
 
   ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
+  
     
   awp.conexao()
   dados = awp.pegar_dados_contato()
@@ -441,8 +432,7 @@ awp.desconetar()
      
 
   ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
     
   awp.conexao()
   awp.encontrar_contato('Lucas Lourenço')
@@ -462,8 +452,8 @@ awp.desconetar()
      
 
   ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
+  
     
   awp.conexao()
   awp.encontrar_contato('Lucas Lourenço')
@@ -483,8 +473,7 @@ awp.desconetar()
      
 
   ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
     
   awp.conexao()
   awp.encontrar_contato('Lucas Lourenço')
@@ -500,11 +489,10 @@ awp.desconetar()
   - ### nome_usuario()
   <p>
   
-    > Esta função retorna o nome d usuário.
+    > Esta função retorna o nome do usuário.
   
     ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
     
   awp.conexao()
   nome = awp.nome_usuario()
@@ -524,8 +512,7 @@ awp.desconetar()
   
   
   ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
 
   awp.conexao()
   awp.encontrar_contato('Lucas Lourenço')
@@ -546,8 +533,7 @@ awp.desconetar()
   
   
   ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
 
   awp.conexao()
   awp.encontrar_contato('Lucas Lourenço')
@@ -574,8 +560,7 @@ awp.desconetar()
 
   
     ```python
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
 
   awp.conexao()
   awp.enviar_mensagem_por_link(21900000000 ,'E ai, tudo bem?')
@@ -606,8 +591,7 @@ awp.desconetar()
   
     ```python
     
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
 
   awp.conexao()
   awp.enviar_mensagem_direta('Lucas Lourenco','Olá! Tudo bem?',1 ,True)
@@ -621,8 +605,7 @@ awp.desconetar()
   
   ```python
 
-  from AllWhatsPy import AllWhatsPy
-  awp = AllWhatsPy()
+  import AllWhatsPy as awp
 
   awp.conexao()
   awp.enviar_mensagem_direta(21900000000,'Olá! Tudo bem?',1 ,False)
@@ -641,8 +624,7 @@ awp.desconetar()
   
   
 ```python
-from AllWhatsPy import AllWhatsPy
-awp = AllWhatsPy()
+import AllWhatsPy as awp
   
 awp.conexao()
 awp.contato_registrar()
@@ -655,8 +637,7 @@ awp.desconectar()
  > (Mesmo se a máquina for desligada, ainda está salvo. Basta rodar o código abaixo)
   
 ```python
-from AllWhatsPy import AllWhatsPy
-awp = AllWhatsPy()
+import AllWhatsPy as awp
   
 awp.conexao()
 awp.contato_abrir_registrado(2)
@@ -675,8 +656,8 @@ awp.desconectar()
 `awp.agendamento(dia_programado, hora_programado, minuto_programado)`
 
 ```python
-from AllWhatsPy import AllWhatsPy
-awp = AllWhatsPy()
+import AllWhatsPy as awp
+
   
 awp.conexao()
 awp.agendamento('20', '08', '30')
@@ -697,8 +678,7 @@ awp.desconectar()
 
 
     ```python
-    from AllWhatsPy import AllWhatsPy
-    awp = AllWhatsPy()
+    import AllWhatsPy as awp
 
     awp.conexao()
     awp.encontrar_contato('Lucas Lourenço')
@@ -721,8 +701,8 @@ awp.desconectar()
 
 
     ```python
-    from AllWhatsPy import AllWhatsPy
-    awp = AllWhatsPy()
+    import AllWhatsPy as awp
+    
 
     awp.conexao()
     awp.encontrar_contato('Lucas Lourenço')
@@ -743,8 +723,7 @@ awp.desconectar()
     
 
     ```python
-    from AllWhatsPy import AllWhatsPy
-    awp = AllWhatsPy()
+    import AllWhatsPy as awp
 
     awp.conexao()
     awp.encontrar_contato('Lucas Lourenço')
@@ -772,8 +751,7 @@ awp.desconectar()
     
     
     ```python
-    from AllWhatsPy import AllWhatsPy
-    awp = AllWhatsPy()
+    import AllWhatsPy as awp
 
     awp.conexao()
     dados = awp.lista_ultimas_mensagens_recebidas_de_contatos()
@@ -793,8 +771,7 @@ awp.desconectar()
      Em seu início, ela subirá para ser possível de captar mais inforamções e, logo após, irá retornar tudo em um dicionário separado por índices. E os valores desses      índices serão mais um dicionário contendo todas as informações daquela conversa.
     
     ```python
-    from AllWhatsPy import AllWhatsPy
-    awp = AllWhatsPy()
+    import AllWhatsPy as awp
 
     awp.conexao()
     awp.encontrar_contato('Lucas Lourenço')
