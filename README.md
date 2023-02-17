@@ -10,6 +10,7 @@
 
 
 <div align="center">
+   <img src="https://static.pepy.tech/personalized-badge/allwhatspy-awp?period=total&units=none&left_color=grey&right_color=red&left_text=Downloads">
    <img src="https://visitor-badge.laobi.icu/badge?page_id=https://github.com/devlucsalourenco/allwhatspy">  
    <img src="https://img.shields.io/github/stars/devlucaslourenco/allwhatspy">
    <img src="https://img.shields.io/github/commit-activity/y/devlucaslourenco/allwhatspy">
