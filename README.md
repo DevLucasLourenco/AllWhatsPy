@@ -235,6 +235,18 @@ awp.conexao()
 </p>
 
 
+ou
+
+
+<p>
+  
+```python
+import AllWhatsPy as awp
+
+awp.conexao(2)
+```
+</p>
+
 
 - ## Desconectar
 
