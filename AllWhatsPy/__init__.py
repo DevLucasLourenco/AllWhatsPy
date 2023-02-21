@@ -11,7 +11,6 @@ from selenium.common.exceptions import (
     UnexpectedAlertPresentException,
     NoSuchElementException,
 )
-
 import string
 from tkinter import messagebox
 from  PIL import Image
