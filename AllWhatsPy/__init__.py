@@ -785,46 +785,21 @@ def possibilidade_desconectar_e_fechar_janela():
     logging.info('Desconectando Whatsapp...')
 
 
-    dc_xpath1 = '//*[@id="app"]/div/div/div[3]/header/div[2]/div/span/div[4]/div/span'
-    dc_xpath2 = '//*[@id="app"]/div/span[2]/div/div/div/div/div/div/div[3]/div/div[2]/div/div'
+    dc_xpath_abrir = '//*[@id="app"]/div/div/div[3]/header/div[2]/div/span/div[4]/div/span'
+    dc_xpath_opcoes = '//*[@id="app"]/div/div/div[3]/header/div[2]/div/span/div[4]/span/div'
+    dc_xpath_confirmar = '//*[@id="app"]/div/span[2]/div/div/div/div/div/div/div[3]/div/div[2]/div/div'
     
+    drive.find_element(By.XPATH, dc_xpath_abrir).click()
     
-    # xpath1
-    # Aguardando o parâmetro aparecer
-    marktime.until(
-        EC.presence_of_element_located(
-            (By.XPATH, dc_xpath1)
-            )
-        )
-
-
-    dc_button = drive.find_element(By.XPATH,
-                            dc_xpath1
-                            )
-
-    dc_button.click()
-    drive.switch_to.active_element
+    opcoes = drive.find_element(By.XPATH, dc_xpath_opcoes)
+    lista_opcoes = opcoes.find_elements(By.TAG_NAME, 'li')
     
-    t.sleep(1)
-    
-    ActionChains(drive).key_down(Keys.ARROW_DOWN
-                                    ).key_down(Keys.ARROW_DOWN
-                                                ).key_down(Keys.ARROW_DOWN
-                                                        ).key_down(Keys.ARROW_DOWN
-                                                                ).send_keys(Keys.ARROW_DOWN
-                                                                        ).send_keys(Keys.ENTER
-                                                                                    ).perform()
-    
-    t.sleep(1)
-    # xpath2
-    marktime.until(EC.presence_of_element_located(
-                                            (By.XPATH, dc_xpath2)
-                                                                ))
-    
-    drive.find_element(By.XPATH, 
-                            dc_xpath2
-                            ).click()
-    
+    for item in lista_opcoes:
+        if item.get_attribute('data-testid') == 'mi-logout menu-item':
+            item.click()
+            
+    drive.find_element(By.XPATH, dc_xpath_confirmar).click()
+  
     
     drive.close()
     logging.info('Whatsapp Encerrado')
