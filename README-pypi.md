@@ -1,3 +1,9 @@
+<div align='center'>
+<img src='utilidades/awpimgg.png' weight=400 height=400>
+</div>
+
+
+  
 ### Para ler a documentation, acesse:
 
 <div>
@@ -8,7 +14,7 @@
 
 <h3> Se preferir, escaneie o QRCODE </h3>
 
-<div align="center"
+<div>
      
 <a href="https://github.com/DevLucasLourenco/AllWhatsPy">
 
