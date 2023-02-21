@@ -170,6 +170,7 @@ flowchart LR;
 - [x] Implementação de Classes (Realizado - 12/02/2023)
 - [x] Desenvolver um `pip install` para AWP (Realizado - 12/02/2023)
 - [x] Atualizar `nome_usuario()` (Realizado - 15/02/2023)
+- [x] Atualizar bug da função `desconectar()` (Realizado - 20/02/2023)
 - [ ] Atualizar `contato_nome()`
 - [ ] Atualizar icon do AWP
 - [ ] Realizar a explicação de como começar no AWP
