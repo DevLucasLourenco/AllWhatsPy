@@ -1,10 +1,10 @@
 from setuptools import setup
 
-with open("README.md", "r") as arq:
+with open(r"utilidades/README.md", "r") as arq:
     readme = arq.read()
 
 setup(name='allwhatspy_awp',
-    version='0.0.11.3',
+    version='0.0.12.2',
     license='MIT License',
     author='Lucas Lourenço',
     long_description=readme,

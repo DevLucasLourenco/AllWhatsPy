@@ -15,6 +15,7 @@ import string
 from tkinter import messagebox
 from  PIL import Image
 from urllib import parse
+import urllib.request
 import os
 import time as t
 import logging
@@ -772,32 +773,33 @@ def pegar_foto_contato(nome_imagem):
     printscreen_foto(nome_imagem)
     
     link = drive.find_element(By.XPATH,'//*[@id="app"]/div/span[3]/div/div/div[2]/div/div/div/div/img'). get_attribute('src')
-    print(link)
     
-
-    # https://pt.stackoverflow.com/questions/446700/python-download-de-imagem-via-url
-    # próximo de terminar
-
+    # baixando a imagem
+    urllib.request.urlretrieve(link, nome_imagem)
+    
 
 
 def possibilidade_desconectar_e_fechar_janela():
 
     logging.info('Desconectando Whatsapp...')
 
-
+    # xpath para abrir os botões de opção, identificar as opções e confirmar respectivamente
     dc_xpath_abrir = '//*[@id="app"]/div/div/div[3]/header/div[2]/div/span/div[4]/div/span'
     dc_xpath_opcoes = '//*[@id="app"]/div/div/div[3]/header/div[2]/div/span/div[4]/span/div'
     dc_xpath_confirmar = '//*[@id="app"]/div/span[2]/div/div/div/div/div/div/div[3]/div/div[2]/div/div'
     
+    # clicar nos botões de opção
     drive.find_element(By.XPATH, dc_xpath_abrir).click()
     
     opcoes = drive.find_element(By.XPATH, dc_xpath_opcoes)
     lista_opcoes = opcoes.find_elements(By.TAG_NAME, 'li')
     
+    # encontrar a opção de desconetar e clicar nela
     for item in lista_opcoes:
         if item.get_attribute('data-testid') == 'mi-logout menu-item':
             item.click()
-            
+
+    # confirmar desconexão
     drive.find_element(By.XPATH, dc_xpath_confirmar).click()
   
     
@@ -812,46 +814,24 @@ def possibilidade_desconectar_e_manter_janela():
 
     logging.info('Desconectando Whatsapp...')
     
-    dc_xpath1 = '//*[@id="app"]/div/div/div[3]/header/div[2]/div/span/div[4]/div/span'
-    dc_xpath2 = '//*[@id="app"]/div/span[2]/div/div/div/div/div/div/div[3]/div/div[2]/div/div'
+    # xpath para abrir os botões de opção, identificar as opções e confirmar respectivamente
+    dc_xpath_abrir = '//*[@id="app"]/div/div/div[3]/header/div[2]/div/span/div[4]/div/span'
+    dc_xpath_opcoes = '//*[@id="app"]/div/div/div[3]/header/div[2]/div/span/div[4]/span/div'
+    dc_xpath_confirmar = '//*[@id="app"]/div/span[2]/div/div/div/div/div/div/div[3]/div/div[2]/div/div'
     
+    # clicar nos botões de opção
+    drive.find_element(By.XPATH, dc_xpath_abrir).click()
     
-    # xpath1
-    # Aguardando o parâmetro aparecer
-    marktime.until(
-        EC.presence_of_element_located(
-            (By.XPATH, dc_xpath1)
-            )
-        )
+    opcoes = drive.find_element(By.XPATH, dc_xpath_opcoes)
+    lista_opcoes = opcoes.find_elements(By.TAG_NAME, 'li')
+    
+    # encontrar a opção de desconetar e clicar nela
+    for item in lista_opcoes:
+        if item.get_attribute('data-testid') == 'mi-logout menu-item':
+            item.click()
 
-
-    dc_button = drive.find_element(By.XPATH,
-                            dc_xpath1
-                            )
-    dc_button.click()
-    drive.switch_to.active_element
-    
-    
-    
-    ActionChains(drive).key_down(Keys.ARROW_DOWN
-                                    ).key_down(Keys.ARROW_DOWN
-                                                ).key_down(Keys.ARROW_DOWN
-                                                        ).key_down(Keys.ARROW_DOWN
-                                                                ).send_keys(Keys.ARROW_DOWN
-                                                                        ).send_keys(Keys.ENTER
-                                                                                    ).perform()
-    
-    t.sleep(1)
-
-    #xpath2
-    marktime.until(EC.presence_of_element_located(
-                                            (By.XPATH, dc_xpath2)
-                                                                ))
-    
-    drive.find_element(By.XPATH, 
-                            dc_xpath2
-                            ).click()
-    
+    # confirmar desconexão
+    drive.find_element(By.XPATH, dc_xpath_confirmar).click()
     
     
     logging.info('Whatsapp Encerrado')
