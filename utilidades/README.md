@@ -1,5 +1,3 @@
-# AllWhatsPy - AWP
-
 ### Para ler a documentation, acesse:
 
 <div>
