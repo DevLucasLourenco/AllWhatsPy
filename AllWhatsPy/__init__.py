@@ -23,7 +23,7 @@ logging.basicConfig(level=logging.INFO, filename='event.log' , format='%(asctime
 
 
     
-def conexao(popup: int = 1):
+def conexao(popup: bool = True):
 
     '''
     https://github.com/DevLucasLourenco/AllWhatsPy
@@ -31,9 +31,9 @@ def conexao(popup: int = 1):
     Função responsável por estabelecer a conexão com o Whatsapp.
     Ela aguardará a realização do login ao QR Code para prosseguir com o
     restante do código.\n
-    Por padrão, aparecerá um pop na tela aguardando você clicar no "OK"
+    Por padrão, quando o argumento do popup for "True", aparecerá um popup na tela aguardando você clicar no "OK"
     para liberar a progressão do código para as demais fórmulas, 
-    entretanto, se você colocar o valor do argumento "popup" para 2, 
+    entretanto, se você colocar o argumento "popup" para "False", 
     não será exibido e o código dará continuidade sem interrupções\n
     OBS.: O popup por ser útil para nuâncias na conexão que impedem o
     Whatsapp de carregar totalmente.
@@ -60,10 +60,10 @@ def conexao(popup: int = 1):
             
             logging.info('Conexao Efetuada!')
             
-            if popup == 1:
+            if popup:
                 messagebox.showinfo('Validado','Conexao Efetuada!')
                 
-            elif popup == 2:
+            else:
                 pass
             break
 
