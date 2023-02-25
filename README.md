@@ -172,8 +172,8 @@ flowchart LR;
 - [x] Atualizar `nome_usuario()` (Realizado - 15/02/2023)
 - [x] Atualizar bug da função `desconectar()` (Realizado - 20/02/2023)
 - [x] Corrigir bug na função `pegar_foto_contato()` (Realizado - 21/02/2023)
+- [x] Atualizar icon do AWP (Realizado - 25/02/2023)
 - [ ] Atualizar `contato_nome()`
-- [ ] Atualizar icon do AWP
 - [ ] Realizar a explicação de como começar no AWP
 - [ ] Performar criação de pastas com a lib `pathlib` para melhor qualidade de software
 - [ ] Terminar função `buscar_contatos_não_lidos()`
