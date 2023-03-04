@@ -395,7 +395,7 @@ awp.desconetar()
     
   awp.conexao()
   awp.encontrar_usuario(21900000000)
-  awp.enviar_mensagem('Olá!)
+  awp.enviar_mensagem('Olá!')
   awp.sair_da_conversa()
   
   ```
