@@ -10,7 +10,9 @@
 
 
 <div align="center">
-   <img src="https://static.pepy.tech/personalized-badge/allwhatspy-awp?period=total&units=international_system&left_color=grey&right_color=blue&left_text=Downloads">
+   <img src="https://static.pepy.tech/personalized-badge/allwhatspy-awp?period=total&units=none&left_color=grey&right_color=blue&left_text=Downloads/Ano">
+   <img src="https://static.pepy.tech/personalized-badge/allwhatspy-awp?period=month&units=none&left_color=grey&right_color=blue&left_text=Downloads/Mês">
+   <img src="https://static.pepy.tech/personalized-badge/allwhatspy-awp?period=week&units=none&left_color=grey&right_color=blue&left_text=Downloads/Semana">
    <img src="https://img.shields.io/github/stars/devlucaslourenco/allwhatspy">
    <img src="https://img.shields.io/github/commit-activity/y/devlucaslourenco/allwhatspy">
    <img src="https://img.shields.io/github/languages/code-size/devlucaslourenco/allwhatspy">
