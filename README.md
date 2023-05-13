@@ -179,6 +179,7 @@ flowchart LR;
 - [ ] Performar criação de pastas com a lib `pathlib` para melhor qualidade de software
 - [ ] Terminar função `buscar_contatos_não_lidos()`
 - [ ] Terminar função `retornar_posicao_anterior()`
+- [ ] Implementação de Classes, Métodos e Módulos auxiliaers
 
 
 
