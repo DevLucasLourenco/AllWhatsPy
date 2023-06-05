@@ -10,6 +10,7 @@
 
 
 <div align="center">
+   <img src="https://visitor-badge.laobi.icu/badge?page_id=https://github.com/DevLucasLourenco/AllWhatsPy"> 
    <img src="https://static.pepy.tech/personalized-badge/allwhatspy-awp?period=total&units=none&left_color=grey&right_color=blue&left_text=Downloads/Ano">
    <img src="https://static.pepy.tech/personalized-badge/allwhatspy-awp?period=month&units=none&left_color=grey&right_color=blue&left_text=Downloads/Mês">
    <img src="https://static.pepy.tech/personalized-badge/allwhatspy-awp?period=week&units=none&left_color=grey&right_color=blue&left_text=Downloads/Semana">
