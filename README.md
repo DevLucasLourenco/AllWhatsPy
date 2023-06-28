@@ -28,10 +28,11 @@
 
 <div align="center">
    <h1>ATENÇÃO</h1><br>
- O código estará passando por um grande update.<br> Aos poucos estarei refatorando-o e explicando as novas funções.<br>
+</div>
+
+ > O código estará passando por um grande update.<br> Aos poucos estarei refatorando-o e explicando as novas funções.<br><br>
  Att,<br>
  Lucas Lourenço
-</div>
 
 
 ## Sumário
