@@ -82,7 +82,36 @@ class AWPContatos(AllWhatsPy):
         ...
         
         
+class CriptografiaMensagem(AllWhatsPy):
+    """Exercido para a aplicação de criptografia à mensagem enviada.
+
+    Args:
+        object (_type_): _description_
+    """
+    
+    def __init__(self):
+        self.mensagem_criptografada = ""
+
+
+    def criptografar(self, mensagem, chave):
         
+
+        for caractere in mensagem:
+
+            if caractere.isalpha():
+                ascii_inicial = ord('a') if caractere.islower() else ord('A')
+                indice = (ord(caractere) - ascii_inicial + chave) % 26
+                caractere_criptografado = chr(ascii_inicial + indice)
+                self.mensagem_criptografada += caractere_criptografado
+            else:
+                self.mensagem_criptografada += caractere
+
+
+
+def descriptografar(self, mensagem_criptografada, chave):
+    return self.criptografar(mensagem_criptografada, -chave)
+
+
         
 if __name__=="__main__":
     awp = AllWhatsPy()
@@ -90,3 +119,6 @@ if __name__=="__main__":
     print(awp.ctt.encontrar_contato())
     print(awp.ctt.encontrar_contato())
     
+    c = CriptografiaMensagem()
+    c.criptografar("Lucas Lourenco",3)
+    print(c.mensagem_criptografada) 
