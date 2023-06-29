@@ -12,7 +12,9 @@ class AllWhatsPy:
         
         self.msg = AWPMensagem(self) # instanciado para acessar os métodos de envio de mensagem
         self.ctt = AWPContatos(self) # instanciado para acessar os métodos de acessar contatos
-        
+        self.criptografia = AWPCriptografia(self)
+        self.audio = AWPAudio(self)
+                
         
     def testando(self):
         print('de awp executando em mensagem')
@@ -72,7 +74,8 @@ class AWPContatos(AllWhatsPy):
         print(self.flag_conection)
         ...
         
-        
+
+    
     def encontrar_contato(self):
         ...
         next(self.objeto_awp._generator_info_contato_acessado)
@@ -86,19 +89,20 @@ class AWPContatos(AllWhatsPy):
         ...
         
         
-class CriptografiaMensagem(AllWhatsPy):
+class AWPCriptografia(AllWhatsPy):
     """Exercido para a aplicação de criptografia à mensagem enviada.
 
     Args:
         object (_type_): _description_
     """
     
-    def __init__(self):
-        self.mensagem_criptografada = ""
+    def __init__(self, objeto):
+        self.objeto_awp = objeto
+        self.mensagem_criptografada = ...
 
 
     def criptografar(self, mensagem, chave):
-        
+        self.mensagem_criptografada = ''
 
         for caractere in mensagem:
 
@@ -116,17 +120,28 @@ class CriptografiaMensagem(AllWhatsPy):
         return self.criptografar(mensagem_criptografada, -chave)
 
 
-class ReproducaoAudio:
 
-    def __init__(self):
-        ...
+class AWPAudio(AllWhatsPy):
+
+    def __init__(self, objeto):
+        self.objeto_awp = objeto
+        
+        
+        
+class Shoot(AllWhatsPy):
+    
+    def __init__(self, objeto):
+        self.objeto_awp = objeto
+        
+        
+        
         
 if __name__=="__main__":
     awp = AllWhatsPy()
     print(awp.lista_teste)
-    print(awp.ctt.encontrar_contato())
-    print(awp.ctt.encontrar_contato())
+    awp.ctt.encontrar_contato()
+    awp.ctt.encontrar_contato()
     
-    c = CriptografiaMensagem()
-    c.criptografar("Lucas Lourenco",3)
+    c = AWPCriptografia(awp)
+    c.criptografar("Lucas Lourenco",222)
     print(c.mensagem_criptografada) 
