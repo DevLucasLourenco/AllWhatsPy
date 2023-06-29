@@ -2,6 +2,9 @@ class AllWhatsPy:
     flag_conection = False
     
     def __init__(self):
+        self.mensagem = ...
+        self.contato = ...
+        
         self.lista_teste = list()
         self.__lista_informacoes_contato_aberto = list()
         self._generator_info_contato_acessado = self.__informacoes_contato_acessado()
@@ -108,8 +111,8 @@ class CriptografiaMensagem(AllWhatsPy):
 
 
 
-def descriptografar(self, mensagem_criptografada, chave):
-    return self.criptografar(mensagem_criptografada, -chave)
+    def descriptografar(self, mensagem_criptografada, chave):
+        return self.criptografar(mensagem_criptografada, -chave)
 
 
         
