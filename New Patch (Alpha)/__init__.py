@@ -116,6 +116,10 @@ class CriptografiaMensagem(AllWhatsPy):
         return self.criptografar(mensagem_criptografada, -chave)
 
 
+class ReproducaoAudio:
+
+    def __init__(self):
+        ...
         
 if __name__=="__main__":
     awp = AllWhatsPy()
