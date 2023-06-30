@@ -12,7 +12,6 @@ class AllWhatsPy:
         
         self.msg = AWPMensagem(self) # instanciado para acessar os métodos de envio de mensagem
         self.ctt = AWPContatos(self) # instanciado para acessar os métodos de acessar contatos
-        self.criptografia = AWPCriptografia(self)
         self.audio = AWPAudio(self)
                 
         
@@ -74,8 +73,7 @@ class AWPContatos(AllWhatsPy):
         print(self.flag_conection)
         ...
         
-
-    
+        
     def encontrar_contato(self):
         ...
         next(self.objeto_awp._generator_info_contato_acessado)
@@ -89,35 +87,56 @@ class AWPContatos(AllWhatsPy):
         ...
         
         
-class AWPCriptografia(AllWhatsPy):
-    """Exercido para a aplicação de criptografia à mensagem enviada.
+class AWPCriptografia():
+    """...
 
     Args:
         object (_type_): _description_
     """
     
-    def __init__(self, objeto):
-        self.objeto_awp = objeto
-        self.mensagem_criptografada = ...
+    # criar depois um log com todas as criptografias feitas até então. ex {0:xlaxaslkxa xlapxla, 1: duhasudsad uhasudsuad}
+    def __init__(self, mensagem, chave, metodo: str):
+        self.metodo = metodo # c ou d, criptografar e descriptografar respectivamente
+        self.mensagem = mensagem
+        self.chave = chave
+        self.resultado = ''
+
+
+    def __enter__(self):
+        if self.metodo == "c":
+            self.criptografar(self.mensagem, self.chave)
+        elif self.metodo == "d":
+            self.descriptografar(self.mensagem, self.chave)
+            
+        return self
+
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        pass
 
 
     def criptografar(self, mensagem, chave):
-        self.mensagem_criptografada = ''
-
+        self.resultado = ''
+        
+        
         for caractere in mensagem:
 
             if caractere.isalpha():
                 ascii_inicial = ord('a') if caractere.islower() else ord('A')
                 indice = (ord(caractere) - ascii_inicial + chave) % 26
                 caractere_criptografado = chr(ascii_inicial + indice)
-                self.mensagem_criptografada += caractere_criptografado
+                self.resultado += caractere_criptografado
+                
             else:
-                self.mensagem_criptografada += caractere
-
-
-
+                self.resultado += caractere
+    
+    
     def descriptografar(self, mensagem_criptografada, chave):
-        return self.criptografar(mensagem_criptografada, -chave)
+        self.criptografar(mensagem_criptografada, -chave)
+        
+        
+    def fetch(self):
+        return self.resultado
 
 
 
@@ -128,20 +147,23 @@ class AWPAudio(AllWhatsPy):
         
         
         
-class Shoot(AllWhatsPy):
-    
-    def __init__(self, objeto):
-        self.objeto_awp = objeto
-        
+class Shoot:
+    ...
         
         
         
 if __name__=="__main__":
+    
     awp = AllWhatsPy()
     print(awp.lista_teste)
     awp.ctt.encontrar_contato()
     awp.ctt.encontrar_contato()
     
-    c = AWPCriptografia(awp)
-    c.criptografar("Lucas Lourenco",222)
-    print(c.mensagem_criptografada) 
+    chave = 90
+    with AWPCriptografia('Lucas Lourenco', chave, 'c') as c:
+        res = c.fetch()
+        print(res)
+
+    with AWPCriptografia(res, chave, 'd') as c:
+        res2 = c.fetch()
+        print(res2)
