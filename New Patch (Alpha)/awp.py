@@ -39,7 +39,7 @@ class AllWhatsPy:
         self.criptografia = dependencia_criptografia
 
     @staticmethod
-    def analise_if_correct(item, checagem='mensagem'):
+    def if_dep_correta(item, checagem='mensagem'):
         item_nome = item.__name__
         
         if checagem == 'mensagem':
