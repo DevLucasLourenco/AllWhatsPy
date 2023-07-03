@@ -37,8 +37,43 @@ class AllWhatsPy:
         self.ctt = dependencia_contato(self) 
         self.audio = dependencia_audio(self)
         self.criptografia = dependencia_criptografia
-                
+
+    @staticmethod
+    def analise_if_correct(item, checagem='mensagem'):
+        item_nome = item.__name__
         
+        if checagem == 'mensagem':
+            if item_nome == "AWPMensagem":
+                return item
+            
+            raise ValueError(f'Erro na indicação de Dependencia AWP\nDependencia: AWPMensagem\nInformado: {item}')
+        
+        
+        elif checagem == 'contato':
+            if item_nome == "AWPContatos":
+                return item
+            
+            raise ValueError(f'Erro na indicação de Dependencia AWP\nDependencia: AWPContato\nInformado: {item}')
+        
+        
+        elif checagem == 'audio':
+            if item_nome == "AWPAudio":
+                return item
+            
+            raise ValueError(f'Erro na indicação de Dependencia AWP\nDependencia: AWPAudio\nInformado: {item}')
+        
+        
+        elif checagem == 'criptografia':
+            if item_nome == "AWPCriptografia":
+                return item
+    
+            raise ValueError(f'Erro na indicação de Dependencia AWP\nDependencia: AWPCriptografia\nInformado: {item}')
+        
+        
+        else:
+            raise RuntimeError('Especifique um tipo de checagem')
+
+
     def testando(self):
         print('de awp executando em mensagem')
         
