@@ -25,58 +25,57 @@ import logging
 class AllWhatsPy: 
     flag_conection = False
     
-    def __init__(self, dependencia_mensagem, dependencia_contato, dependencia_audio, dependencia_criptografia):
+    def __init__(self, dependencia_mensagem: object, dependencia_contato: object, dependencia_audio: object, dependencia_criptografia: object):
         self.mensagem = ...
         self.contato = ...
         
-        self.lista_teste = list()
         self.__lista_informacoes_contato_aberto = list()
         self._generator_info_contato_acessado = self.__informacoes_contato_acessado()
         
-        self.msg = dependencia_mensagem(self) 
-        self.ctt = dependencia_contato(self) 
-        self.audio = dependencia_audio(self)
-        self.criptografia = dependencia_criptografia
+        self.msg = AllWhatsPy.if_dep_correta(dependencia_mensagem(self), checagem='mensagem')
+        self.ctt = AllWhatsPy.if_dep_correta(dependencia_contato(self), checagem='contato')
+        self.audio = AllWhatsPy.if_dep_correta(dependencia_audio(self), checagem='audio')
+        self.criptografia = AllWhatsPy.if_dep_correta(dependencia_criptografia, checagem='criptografia')
+
 
     @staticmethod
-    def if_dep_correta(item, checagem='mensagem'):
-        item_nome = item.__name__
+    def if_dep_correta(item: object, checagem='mensagem'):
         
-        if checagem == 'mensagem':
-            if item_nome == "AWPMensagem":
-                return item
+        if checagem == 'criptografia': # devido ao fato da classe AWPCriptografia não estar instanciada, é realizado esse tratamento especial para ela.
             
-            raise ValueError(f'Erro na indicação de Dependencia AWP\nDependencia: AWPMensagem\nInformado: {item}')
-        
-        
-        elif checagem == 'contato':
-            if item_nome == "AWPContatos":
-                return item
-            
-            raise ValueError(f'Erro na indicação de Dependencia AWP\nDependencia: AWPContato\nInformado: {item}')
-        
-        
-        elif checagem == 'audio':
-            if item_nome == "AWPAudio":
-                return item
-            
-            raise ValueError(f'Erro na indicação de Dependencia AWP\nDependencia: AWPAudio\nInformado: {item}')
-        
-        
-        elif checagem == 'criptografia':
+            item_nome = item.__name__
             if item_nome == "AWPCriptografia":
                 return item
     
             raise ValueError(f'Erro na indicação de Dependencia AWP\nDependencia: AWPCriptografia\nInformado: {item}')
         
-        
         else:
-            raise RuntimeError('Especifique um tipo de checagem')
+            # as demais classes estão sendo instanciadas, portanto é possível obter retorno de "type(obj).__name__" 
+            item_nome = type(item).__name__
+            
+            if checagem == 'mensagem':
+                if item_nome == "AWPMensagem":
+                    return item
+                
+                raise ValueError(f'Erro na indicação de Dependencia AWP\nDependencia: AWPMensagem\nInformado: {item}')
+            
+            
+            elif checagem == 'contato':
+                if item_nome == "AWPContatos":
+                    return item
+                
+                raise ValueError(f'Erro na indicação de Dependencia AWP\nDependencia: AWPContato\nInformado: {item}')
+            
+            
+            elif checagem == 'audio':
+                if item_nome == "AWPAudio":
+                    return item
+                
+                raise ValueError(f'Erro na indicação de Dependencia AWP\nDependencia: AWPAudio\nInformado: {item}')       
+            
+            else:
+                raise RuntimeError('Especifique um tipo de checagem')
 
-
-    def testando(self):
-        print('de awp executando em mensagem')
-        
         
     def conexao(self):
         self.flag_conection = True
@@ -99,12 +98,3 @@ class AllWhatsPy:
             self.__lista_informacoes_contato_aberto.append(dados)
             print('info2')
             yield 2
-
-
-
-
-
-
-        
-
-

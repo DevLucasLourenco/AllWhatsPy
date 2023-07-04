@@ -8,8 +8,6 @@ class AWPContatos(AllWhatsPy):
     
     def __init__(self, objeto):
         self.objeto_awp = objeto # usado para acessar os atributos
-        print('contatos')
-        print(self.flag_conection)
         ...
         
     
