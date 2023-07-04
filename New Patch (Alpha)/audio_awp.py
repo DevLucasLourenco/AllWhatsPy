@@ -8,5 +8,3 @@ class AWPAudio(AllWhatsPy):
     def __init__(self, objeto):
         ...
 
-    def print_audio(self):
-        print('audio')  
