@@ -18,12 +18,13 @@ with awp.criptografia(res, 3, 'd') as c:
     res2 = c.fetch()
     print(res2)
 
-# algum_cep = 00000000
-# localizacao = awp.msg.localizacao(algum_cep).fetch()
-# print(localizacao)
+algum_cep = 24754000
+localizacao = awp.msg.localizacao(algum_cep).fetch()
+print(localizacao)
 
 
 
 
 
 
+awp
