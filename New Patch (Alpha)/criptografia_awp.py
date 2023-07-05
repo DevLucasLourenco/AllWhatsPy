@@ -53,3 +53,13 @@ class AWPCriptografia(AllWhatsPy):
         
     def fetch(self):
         return self.resultado
+        
+        
+        
+    def __apos_conclusao_decorator():
+        def descriptografia():
+            ...
+            
+        return descriptografia
+            
+        
