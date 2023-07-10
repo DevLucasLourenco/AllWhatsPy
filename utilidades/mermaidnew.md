@@ -5,28 +5,29 @@ flowchart LR
   AWPAudio --> AllWhatsPy
   AWPCriptografia --> AllWhatsPy
 
-  AllWhatsPy ----> enviar_mensagem_por_link 
-  AllWhatsPy ----> enviar_mensagem_direta
+  AllWhatsPy ----> awp.msg.enviar_mensagem_por_link 
+  AllWhatsPy ----> awp.msg.enviar_mensagem_direta
 
-  enviar_mensagem_por_link ----> desconectar
-  enviar_mensagem_direta ----> desconectar
+  awp.msg.enviar_mensagem_por_link ----> awp.desconectar
+  awp.msg.enviar_mensagem_direta ----> awp.desconectar
 
   AllWhatsPy ---> .ctt
-  AllWhatsPy --> .criptografia
+  AllWhatsPy --> .criptografia 
   
-  .ctt --> encontrar_contato
-  .ctt --> encontrar_usuario
+  .ctt --> awp.ctt.encontrar_contato
+  .ctt --> awp.ctt.encontrar_usuario
   
-  encontrar_contato --> .msg
-  encontrar_usuario --> .msg
+  awp.ctt.encontrar_contato --> .msg
+  awp.ctt.encontrar_usuario --> .msg
 
-  .msg --> .audio
 
-  .msg ----> enviar_mensagem
-  .msg ----> enviar_mensagem_paragrafada
+  .msg ---> awp.msg.enviar_mensagem
+  .msg ---> awp.msg.enviar_mensagem_paragrafada
 
-  enviar_mensagem_paragrafada --> desconectar
-  enviar_mensagem --> desconectar
+  .msg --> .audio 
+
+  awp.msg.enviar_mensagem_paragrafada --> awp.desconectar
+  awp.msg.enviar_mensagem --> awp.desconectar
 
 
 
@@ -51,7 +52,7 @@ flowchart LR;
     
     awp.enviar_mensagem-->E{Enviar outra coisa?};
     awp.enviar_mensagem_paragrafada-->E;
-    awp.enviar_mensagem_direta---->d[awp.desconectar];
+    awp.enviar_mensagem_direta---->d[awp.awp.desconectar];
     awp.enviar_mensagem_por_link---->d;
     
     
