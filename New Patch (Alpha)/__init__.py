@@ -42,6 +42,9 @@ class AllWhatsPy:
         self.ctt = AWPContatos(self)
         self.audio = AWPAudio(self)
         self.criptografia = AWPCriptografia
+    
+        self.drive = None
+        self.marktime = None
         
 
     def __login_requisicao(self):
