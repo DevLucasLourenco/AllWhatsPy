@@ -69,9 +69,7 @@ class AllWhatsPy:
         var_aux_xpath = '//*[@id="side"]/div[1]/div/div/div[2]/div/div[2]'
         while True:
             try:
-                self.drive.find_element(By.XPATH, 
-                                    var_aux_xpath)
-                
+                self.drive.find_element(By.XPATH, var_aux_xpath)
                 logging.info('Conexao Efetuada!')
                 
                 match popup:
@@ -80,7 +78,6 @@ class AllWhatsPy:
                     case 2:
                         pass
                 break
-
             except:
                 logging.info('Aguardando Login via QR Code...')
                 t.sleep(5)
@@ -106,7 +103,7 @@ class AllWhatsPy:
         return AllWhatsPy.flag_conection
 
 
-    def receber_logger(self, item_log):
+    def get_logging(self, item_log):
         logging.info(item_log)
         
         
