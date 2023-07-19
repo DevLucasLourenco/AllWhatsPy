@@ -8,7 +8,7 @@ class AWPMensagem():
     
     def __init__(self, objeto):
         self.objeto_awp = objeto # usado para acessar os atributos; mudar isto. criar um método onde receba o valor e faça a relação de atribuição aos atributos, não realizar diretamente com o objeto_awp
-        self.objeto_awp.receber_logger('AWPMensagem obteve êxito.')
+        self.objeto_awp.get_logging('AWPMensagem obteve êxito.')
         self.localizacao = Endereco
 
         
