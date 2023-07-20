@@ -61,7 +61,7 @@ class AllWhatsPy:
         self.marktime = WebDriverWait(self.drive, 90)
 
 
-    def conexao(self, popup):
+    def conexao(self, popup=False):
 
         self.__drive_config()     
 
@@ -73,9 +73,9 @@ class AllWhatsPy:
                 logging.info('Conexao Efetuada!')
                 
                 match popup:
-                    case 1:
+                    case True:
                         messagebox.showinfo('Validado','Conexao Efetuada!')
-                    case 2:
+                    case False:
                         pass
                 break
             except:
