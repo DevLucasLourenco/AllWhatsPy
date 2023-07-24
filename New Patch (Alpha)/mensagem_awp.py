@@ -1,3 +1,11 @@
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.common.exceptions import (
+    UnexpectedAlertPresentException,
+    NoSuchElementException,
+)
 import requests
 
 
@@ -7,16 +15,31 @@ class AWPMensagem():
     """
     
     def __init__(self, objeto):
-        self.objeto_awp = objeto # usado para acessar os atributos; mudar isto. criar um método onde receba o valor e faça a relação de atribuição aos atributos, não realizar diretamente com o objeto_awp
-        self.objeto_awp.get_logging('AWPMensagem obteve êxito.')
+        self.objeto_awp = objeto
+        self.objeto_awp._get_logging('AWPMensagem obteve êxito.')
         self.localizacao = Endereco
 
         
-    def enviar_mensagem(self):
-        print('metodo de mensagem')
+    def enviar_mensagem(self, mensagem):
+            if not self.objeto_awp._flag_status():
+                raise ConnectionError("Conexão não estabelecida.")
         
-
-
+            searchbox_xpath = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
+            try:
+                if isinstance(mensagem, list):        
+                    mensagem = '\n'.join(mensagem)
+                    self.objeto_awp.drive.find_element(By.XPATH,searchbox_xpath).send_keys(mensagem,Keys.ENTER)         
+                    
+                else:    
+                    self.objeto_awp.drive.find_element(By.XPATH, searchbox_xpath).send_keys(mensagem, Keys.ENTER)
+                                        
+                self.objeto_awp._get_logging(f'Mensagem enviada para {self.objeto_awp._contato}')
+                self.objeto_awp._get_logging(f'{self.enviar_mensagem.__name__} finalizou sua execução com êxito.')
+                
+            except:
+                self.objeto_awp._get_logging('Não foi possível enviar a mensagem')
+                
+            
 
 class Endereco(AWPMensagem):
 

@@ -25,15 +25,16 @@ import time as t
 import logging
 
 
-
 class AllWhatsPy: 
     logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='event.log', format='%(asctime)s - %(levelname)s - %(message)s')
     flag_conection = False
     
+    
     def __init__(self):
-        self.__mensagem = None
-        self.__contato = None
-        
+        self._get_logging(f"{'—'*15} AllWhatsPy - AWP {'—'*15}")
+
+        self._mensagem = None
+        self._contato = None
         
         self.__lista_informacoes_contato_aberto = list()
         self._generator_info_contato_acessado = self.__informacoes_contato_acessado()
@@ -45,11 +46,13 @@ class AllWhatsPy:
     
         self.drive = None
         self.marktime = None
-        
+
+                
 
     def __login_requisicao(self):
         options = webdriver.ChromeOptions()
         options.add_argument('user-data-dir=C://user/AllWhatsPyProfile')
+        
 
 
     def __drive_config(self):
@@ -70,7 +73,7 @@ class AllWhatsPy:
         while True:
             try:
                 self.drive.find_element(By.XPATH, var_aux_xpath)
-                logging.info('Conexao Efetuada!')
+                self._get_logging('Conexao Efetuada.')
                 
                 match popup:
                     case True:
@@ -79,31 +82,80 @@ class AllWhatsPy:
                         pass
                 break
             except:
-                logging.info('Aguardando Login via QR Code...')
+                self._get_logging('Aguardando Login via QR Code...')
                 t.sleep(5)
 
-        self.flag_conection = True       
+        self.flag_conection = True    
+        self.gear = 1
+           
+
+
+    def desconectar(self):
+        self._get_logging('Desconectando Whatsapp...')
+
+        # xpath para abrir os botões de opção, identificar as opções e confirmar respectivamente
+        dc_xpath_abrir = '//*[@id="app"]/div/div/div[4]/header/div[2]/div/span/div[4]/div/span'
+        dc_xpath_opcoes = '//*[@id="app"]/div/div/div[3]/header/div[2]/div/span/div[4]/span/div'
+        dc_xpath_confirmar = '//*[@id="app"]/div/span[2]/div/div/div/div/div/div/div[3]/div/div[2]/div/div'
         
+        # clicar nos botões de opção
+        self.drive.find_element(By.XPATH, dc_xpath_abrir).click()
+        t.sleep(1)
+        
+        opcoes = self.drive.find_element(By.XPATH, dc_xpath_opcoes)
+        lista_opcoes = opcoes.find_elements(By.TAG_NAME, 'li')
+        t.sleep(1)
+
+        # encontrar a opção de desconetar e clicar nela
+        for item in lista_opcoes:
+            if item.get_attribute('data-testid') == 'mi-logout menu-item':
+                item.click()
+
+        # confirmar desconexão
+        self.drive.find_element(By.XPATH, dc_xpath_confirmar).click()
+    
+        
+        self.drive.close()
+        self._get_logging('Whatsapp Encerrado')        
+       
 
     def __informacoes_contato_acessado(self): # método 'Generator' usado para coexistir com a classe AWPContato. Nela, será usada para alcançar os dados do contato acessado.
-        xpath = ...
+        xpath_aux = '//*[@id="main"]/header/div[2]/div/div'
+        self._marktime_func(xpath_aux)
+
+        
         while True:
             # Etapa 1
-            dados = ... # drive.find_element(By.XPATH, xpath).text
-            print('info1')
+            ctt = self.drive.find_element(By.XPATH, xpath_aux)
+            nome = ctt.find_element(By.XPATH, '//*[@id="main"]/header/div[2]/div[1]/div/span[1]').text
             yield 1
             
+            
             # Etapa 2
-            self.__lista_informacoes_contato_aberto.append(dados)
-            print('info2')
+            self._contato = nome
+            self.__lista_informacoes_contato_aberto.append(nome)
+
+            self._get_logging(f"Atual Contato: {self._contato}")
+            self._get_logging(f"Lista de contatos acessados nesta instância: ({' — '.join(self.__lista_informacoes_contato_aberto)})")
             yield 2
 
 
-    def flag_status(self):
-        return AllWhatsPy.flag_conection
+    def _flag_status(self):
+        return self.flag_conection
 
 
-    def get_logging(self, item_log):
-        logging.info(item_log)
+    def _get_logging(self, item_log):
+        logging.info(item_log) 
         
         
+    def _marktime_func(self, objeto):
+        res = self.marktime.until(
+                    EC.presence_of_element_located(
+                        (By.XPATH, objeto)
+                        )
+                    )
+        return res
+    
+    
+    def _tratamento_log_func(self, metodo):
+        return f'{__class__.__name__}'+'.'+f'{metodo.__name__}'+'()'
