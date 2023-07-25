@@ -34,7 +34,6 @@ class AWPContatos():
 
     @aprovarConexao
     def encontrar_usuario(self, contato_destino):   
-
         self.objeto_awp.drive.get(f'https://web.whatsapp.com/send?phone={contato_destino}')
         
         textbox_xpath = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
