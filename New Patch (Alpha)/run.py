@@ -17,7 +17,7 @@ awp.conexao(popup=True)
 
 awp.ctt.encontrar_usuario(21959061623)
 awp.ctt.chat_abaixo()
-# input()
+input()
 # awp.desconectar()
 
 

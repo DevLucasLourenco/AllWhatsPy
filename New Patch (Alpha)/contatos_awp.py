@@ -74,12 +74,14 @@ class AWPContatos():
 
 
     @aprovarConexao
-    def chat_abaixo(self, quantidade: int = 1):
-        self._executar_ordem_de_teclas(tecla_especial="]", quantidade_fornecida=quantidade)
+    def chat_acima(self, quantidade: int = 1):
+        time.sleep(1)
+        self._executar_ordem_de_teclas(tecla_especial="[", quantidade_fornecida=quantidade)
         time.sleep(1)
 
 
     @aprovarConexao
-    def chat_acima(self, quantidade: int = 1):        
-        self._executar_ordem_de_teclas(tecla_especial="[", quantidade_fornecida=quantidade)
+    def chat_abaixo(self, quantidade: int = 1):        
+        time.sleep(1)
+        self._executar_ordem_de_teclas(tecla_especial="]", quantidade_fornecida=quantidade)
         time.sleep(1)
