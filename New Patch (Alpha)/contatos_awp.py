@@ -36,9 +36,7 @@ class AWPContatos():
         
     @aprovarConexao
     def encontrar_contato(self):
-        if not self.objeto_awp._flag_status():
-            raise ConnectionError("Conexão não estabelecida.")
-        
+               
         ...
         next(self.objeto_awp._generator_info_contato_acessado)
         

@@ -28,7 +28,7 @@ import time as t
 import logging
 
 
-''
+
 class AllWhatsPy: 
     logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='event.log', format='%(asctime)s - %(levelname)s - %(message)s')
     logging.getLogger('webdriver_manager').setLevel(logging.CRITICAL)
@@ -62,7 +62,7 @@ class AllWhatsPy:
 
     def __drive_config(self):
         # Abertura padrão do Selenium. 
-        servico = Service(ChromeDriverManager().install())
+        servico = Service(ChromeDriverManager().install())  
         self.drive = webdriver.Chrome(service=servico)
         self.drive.maximize_window()
         self.drive.get(r'https://web.whatsapp.com/')
@@ -70,7 +70,6 @@ class AllWhatsPy:
 
     
     def conexao(self, popup=False):
-
         self.__drive_config()     
 
         # Aguardo na realização do login com QR Code
