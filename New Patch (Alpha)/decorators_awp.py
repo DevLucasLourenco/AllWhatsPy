@@ -49,3 +49,35 @@ def loginServer(self, func):
 
     return wrapper
 
+
+
+
+def loginServer2(*arg):
+    def wrapper(self):
+        def conexao_nova():
+            options = webdriver.ChromeOptions()
+            options.add_argument('user-data-dir=C://users/Profile AllWhatsPy') 
+            servico = Service(ChromeDriverManager().install())
+            self.drive = webdriver.Chrome(service=servico, options=options)
+            self.drive.maximize_window()
+            self.marktime = WebDriverWait(self.drive, 90)
+
+
+            var_aux_xpath = '//*[@id="side"]/div[1]/div/div/div[2]/div/div[2]'
+            while True:
+                try:
+                    self.drive.find_element(By.XPATH, var_aux_xpath)
+                    self._get_logging('Conexao Efetuada.')
+                    break
+
+                except:
+                    self._get_logging('Aguardando Login via QR Code...')
+                    t.sleep(5)
+
+            self.flag_conection = True   
+            
+        
+        
+        return conexao_nova()       
+    return wrapper
+

@@ -1,4 +1,3 @@
-import dataclasses
 from audio_awp import AWPAudio
 from contatos_awp import AWPContatos
 from mensagem_awp import AWPMensagem
@@ -37,12 +36,7 @@ class AllWhatsPy:
     
     def __init__(self):
         self._get_logging(f"{'—'*15} AllWhatsPy - AWP {'—'*15}")
-        
- 
-        # self._mensagem = None
-        # self._contato = None
-        
-        # self.__lista_informacoes_contato_aberto = list()
+    
         self._generator_info_contato_acessado = self.__informacoes_contato_acessado()
         
         self.msg = AWPMensagem(self)
@@ -60,17 +54,17 @@ class AllWhatsPy:
         mensagem: str
 
 
-    def __drive_config(self):
-        # Abertura padrão do Selenium. 
+    def __driveConfigGoogle(self):
+        # Abertura padrão do Selenium com o Google. 
         servico = Service(ChromeDriverManager().install())  
         self.drive = webdriver.Chrome(service=servico)
         self.drive.maximize_window()
         self.drive.get(r'https://web.whatsapp.com/')
         self.marktime = WebDriverWait(self.drive, 90)
 
-    
+        
     def conexao(self, popup=False):
-        self.__drive_config()     
+        self.__driveConfigGoogle()     
 
         # Aguardo na realização do login com QR Code
         var_aux_xpath = '//*[@id="side"]/div[1]/div/div/div[2]/div/div[2]'
