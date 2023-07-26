@@ -148,12 +148,12 @@ class AllWhatsPy:
             # Etapa 1
             ctt = self.drive.find_element(By.XPATH, xpath_aux)
             nome = ctt.find_element(By.XPATH, '//*[@id="main"]/header/div[2]/div[1]/div/span[1]').text
+            self._contato = nome
+            self.__lista_informacoes_contato_aberto.append(nome)
             yield 1
             
             
             # Etapa 2
-            self._contato = nome
-            self.__lista_informacoes_contato_aberto.append(nome)
 
             self._get_logging(f"Atual Contato: {self._contato}")
             self._get_logging(f"Lista de contatos acessados nesta instância: ({' — '.join(self.__lista_informacoes_contato_aberto)})")
