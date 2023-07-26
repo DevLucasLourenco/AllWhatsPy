@@ -1,3 +1,4 @@
+from decorators_awp import *
 from errors_awp import *
 import time
 from selenium.webdriver.common.by import By
@@ -8,18 +9,6 @@ from selenium.common.exceptions import (
     UnexpectedAlertPresentException,
     NoSuchElementException,
 )
-
-def aprovarConexao(func):
-    def wrapper(self, *args, **kwargs):
-        try:
-            if self.objeto_awp._flag_status():
-                self.objeto_awp._get_logging(f'{func.__name__}() inicializou.')
-                return func(self, *args, **kwargs)
-            raise AWPConnectionError        
-    
-        finally:
-            self.objeto_awp._get_logging(f'{self.objeto_awp._tratamento_log_func(func)} finalizou sua execução com êxito')
-    return wrapper
 
 
 class AWPContatos():
@@ -34,6 +23,7 @@ class AWPContatos():
 
     @aprovarConexao
     def encontrar_usuario(self, contato_destino):   
+
         self.objeto_awp.drive.get(f'https://web.whatsapp.com/send?phone={contato_destino}')
         
         textbox_xpath = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
@@ -46,7 +36,9 @@ class AWPContatos():
         
     @aprovarConexao
     def encontrar_contato(self):
-      
+        if not self.objeto_awp._flag_status():
+            raise ConnectionError("Conexão não estabelecida.")
+        
         ...
         next(self.objeto_awp._generator_info_contato_acessado)
         

@@ -1,8 +1,10 @@
+import dataclasses
 from audio_awp import AWPAudio
 from contatos_awp import AWPContatos
 from mensagem_awp import AWPMensagem
 from criptografia_awp import AWPCriptografia
 from errors_awp import *
+from decorators_awp import *
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -26,8 +28,7 @@ import time as t
 import logging
 
 
-
-
+''
 class AllWhatsPy: 
     logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='event.log', format='%(asctime)s - %(levelname)s - %(message)s')
     logging.getLogger('webdriver_manager').setLevel(logging.CRITICAL)
@@ -36,11 +37,12 @@ class AllWhatsPy:
     
     def __init__(self):
         self._get_logging(f"{'—'*15} AllWhatsPy - AWP {'—'*15}")
-
-        self._mensagem = None
-        self._contato = None
         
-        self.__lista_informacoes_contato_aberto = list()
+ 
+        # self._mensagem = None
+        # self._contato = None
+        
+        # self.__lista_informacoes_contato_aberto = list()
         self._generator_info_contato_acessado = self.__informacoes_contato_acessado()
         
         self.msg = AWPMensagem(self)
@@ -51,6 +53,12 @@ class AllWhatsPy:
         self.drive = None
         self.marktime = None
 
+    
+    class InferenciaAWP:
+        lista_contatos: list = list()
+        contato: str
+        mensagem: str
+
 
     def __drive_config(self):
         # Abertura padrão do Selenium. 
@@ -60,31 +68,6 @@ class AllWhatsPy:
         self.drive.get(r'https://web.whatsapp.com/')
         self.marktime = WebDriverWait(self.drive, 90)
 
-
-    # def loginServer(self, func):
-    #     def wrapper(self, *args, **kwargs):
-    #         options = webdriver.ChromeOptions()
-    #         options.add_argument('user-data-dir=C://users/Profile AllWhatsPy') 
-    #         servico = Service(ChromeDriverManager().install())
-    #         self.drive = webdriver.Chrome(service=servico, options=options)
-    #         self.drive.maximize_window()
-    #         self.marktime = WebDriverWait(self.drive, 90)
-
-
-    #         var_aux_xpath = '//*[@id="side"]/div[1]/div/div/div[2]/div/div[2]'
-    #         while True:
-    #             try:
-    #                 self.drive.find_element(By.XPATH, var_aux_xpath)
-    #                 self._get_logging('Conexao Efetuada.')
-    #                 break
-
-    #             except:
-    #                 self._get_logging('Aguardando Login via QR Code...')
-    #                 t.sleep(5)
-
-    #         self.flag_conection = True   
-
-    #     return wrapper
     
     def conexao(self, popup=False):
 
@@ -148,15 +131,15 @@ class AllWhatsPy:
             # Etapa 1
             ctt = self.drive.find_element(By.XPATH, xpath_aux)
             nome = ctt.find_element(By.XPATH, '//*[@id="main"]/header/div[2]/div[1]/div/span[1]').text
-            self._contato = nome
-            self.__lista_informacoes_contato_aberto.append(nome)
+
+            self.InferenciaAWP.contato = nome
+            self.InferenciaAWP.lista_contatos.append(nome)
             yield 1
             
             
             # Etapa 2
-
-            self._get_logging(f"Atual Contato: {self._contato}")
-            self._get_logging(f"Lista de contatos acessados nesta instância: ({' — '.join(self.__lista_informacoes_contato_aberto)})")
+            self._get_logging(f"Atual Contato: {self.InferenciaAWP.contato}")
+            self._get_logging(f"Lista de contatos acessados nesta instância: ({' — '.join(self.InferenciaAWP.lista_contatos)})")
             yield 2
 
 
