@@ -39,8 +39,7 @@ class AWPMensagem():
                 self.objeto_awp._get_logging(f'Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
 
             except Exception as e:
-                self.objeto_awp._get_logging('Não foi possível realizar o envio da mensagem')
-                self.objeto_awp._get_logging(f'erro: {e}')
+                self.objeto_awp._get_logging(f'Não foi possível realizar o envio da mensagem - erro: {e}')
                 
             
 

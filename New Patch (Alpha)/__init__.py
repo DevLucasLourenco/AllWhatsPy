@@ -53,6 +53,10 @@ class AllWhatsPy:
         contato: str
         mensagem: str
 
+    class ArmazemXPATH:
+        searchbox_xpath: str = ''
+        textbox_xpath: str = ''
+
 
     def __driveConfigGoogle(self):
         # Abertura padrão do Selenium com o Google. 
