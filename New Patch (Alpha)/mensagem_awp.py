@@ -23,17 +23,19 @@ class AWPMensagem():
 
 
     @aprovarConexao
-    def enviar_mensagem(self, mensagem: str):      
-            mensagem = str(mensagem)
+    def enviar_mensagem(self, mensagem: str):
+            if isinstance(mensagem, int) or isinstance(mensagem, float):
+                mensagem = str(mensagem)
+
             self.objeto_awp.InferenciaAWP.mensagem = mensagem
             searchbox_xpath = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
             try:
                 if isinstance(mensagem, list):        
                     mensagem = '\n'.join(mensagem)
-                    self.objeto_awp.drive.find_element(By.XPATH,searchbox_xpath).send_keys(mensagem,Keys.ENTER)         
+                    self.objeto_awp._drive.find_element(By.XPATH,searchbox_xpath).send_keys(mensagem,Keys.ENTER)         
                     
                 else:    
-                    self.objeto_awp.drive.find_element(By.XPATH, searchbox_xpath).send_keys(mensagem, Keys.ENTER)
+                    self.objeto_awp._drive.find_element(By.XPATH, searchbox_xpath).send_keys(mensagem, Keys.ENTER)
                                         
                 self.objeto_awp._get_logging(f'Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
                 self.objeto_awp._get_logging(f'Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')

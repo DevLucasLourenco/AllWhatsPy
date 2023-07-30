@@ -2,6 +2,7 @@ from audio_awp import AWPAudio
 from contatos_awp import AWPContatos
 from mensagem_awp import AWPMensagem
 from criptografia_awp import AWPCriptografia
+from utils_awp import AWPUtilidades
 from errors_awp import *
 from decorators_awp import *
 from selenium import webdriver
@@ -39,13 +40,14 @@ class AllWhatsPy:
     
         self._generator_info_contato_acessado = self.__informacoes_contato_acessado()
         
-        self.msg = AWPMensagem(self)
         self.ctt = AWPContatos(self)
+        self.msg = AWPMensagem(self)
         self.audio = AWPAudio(self)
+        self.utilidade = AWPUtilidades(self)
         self.criptografia = AWPCriptografia
     
-        self.drive = None
-        self.marktime = None
+        self._drive = None
+        self._marktime = None
 
     
     class InferenciaAWP:
@@ -53,18 +55,20 @@ class AllWhatsPy:
         contato: str
         mensagem: str
 
-    class ArmazemXPATH:
+
+    class _ArmazemXPATH:
         searchbox_xpath: str = ''
         textbox_xpath: str = ''
 
 
     def __driveConfigGoogle(self):
         # Abertura padrão do Selenium com o Google. 
+        os.environ['WDM_LOG'] = '0'
         servico = Service(ChromeDriverManager().install())  
-        self.drive = webdriver.Chrome(service=servico)
-        self.drive.maximize_window()
-        self.drive.get(r'https://web.whatsapp.com/')
-        self.marktime = WebDriverWait(self.drive, 90)
+        self._drive = webdriver.Chrome(service=servico)
+        self._drive.maximize_window()
+        self._drive.get(r'https://web.whatsapp.com/')
+        self._marktime = WebDriverWait(self._drive, 90)
 
         
     def conexao(self, popup=False):
@@ -74,7 +78,7 @@ class AllWhatsPy:
         var_aux_xpath = '//*[@id="side"]/div[1]/div/div/div[2]/div/div[2]'
         while True:
             try:
-                self.drive.find_element(By.XPATH, var_aux_xpath)
+                self._drive.find_element(By.XPATH, var_aux_xpath)
                 self._get_logging('Conexao Efetuada.')
                 
                 match popup:
@@ -99,10 +103,10 @@ class AllWhatsPy:
         dc_xpath_confirmar = '//*[@id="app"]/div/span[2]/div/div/div/div/div/div/div[3]/div/div[2]/div/div'
         
         # clicar nos botões de opção
-        self.drive.find_element(By.XPATH, dc_xpath_abrir).click()
+        self._drive.find_element(By.XPATH, dc_xpath_abrir).click()
         t.sleep(1)
         
-        opcoes = self.drive.find_element(By.XPATH, dc_xpath_opcoes)
+        opcoes = self._drive.find_element(By.XPATH, dc_xpath_opcoes)
         lista_opcoes = opcoes.find_elements(By.TAG_NAME, 'li')
         t.sleep(1)
 
@@ -112,10 +116,10 @@ class AllWhatsPy:
                 item.click()
 
         # confirmar desconexão
-        self.drive.find_element(By.XPATH, dc_xpath_confirmar).click()
+        self._drive.find_element(By.XPATH, dc_xpath_confirmar).click()
     
         
-        self.drive.close()
+        self._drive.close()
         self._get_logging('Whatsapp Encerrado')        
        
 
@@ -126,7 +130,7 @@ class AllWhatsPy:
         
         while True:
             # Etapa 1
-            ctt = self.drive.find_element(By.XPATH, xpath_aux)
+            ctt = self._drive.find_element(By.XPATH, xpath_aux)
             nome = ctt.find_element(By.XPATH, '//*[@id="main"]/header/div[2]/div[1]/div/span[1]').text
 
             self.InferenciaAWP.contato = nome
@@ -149,7 +153,7 @@ class AllWhatsPy:
         
         
     def _marktime_func(self, objeto):
-        res = self.marktime.until(
+        res = self._marktime.until(
                     EC.presence_of_element_located(
                         (By.XPATH, objeto)
                         )

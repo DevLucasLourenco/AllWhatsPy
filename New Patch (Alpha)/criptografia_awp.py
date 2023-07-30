@@ -13,7 +13,7 @@ class AWPCriptografia():
 
     # criar depois um log com todas as criptografias feitas até então. ex {0:xlaxaslkxa xlapxla, 1: duhasudsad uhasudsuad}
     def __init__(self, mensagem, chave_numeral, metodo: str):
-        logging.info('AWPCriptografia foi iniciado com êxito.')
+        logging.info('AWPCriptografia foi inicializado com êxito.')
         self.metodo = metodo # c ou d, criptografar e descriptografar respectivamente
         self.mensagem = mensagem
         self.chave = chave_numeral

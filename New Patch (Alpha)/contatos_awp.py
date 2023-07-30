@@ -24,7 +24,7 @@ class AWPContatos():
     @aprovarConexao
     def encontrar_usuario(self, contato_destino):   
 
-        self.objeto_awp.drive.get(f'https://web.whatsapp.com/send?phone={contato_destino}')
+        self.objeto_awp._drive.get(f'https://web.whatsapp.com/send?phone={contato_destino}')
         
         textbox_xpath = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
         textbox = self.objeto_awp._marktime_func(textbox_xpath)
@@ -48,27 +48,32 @@ class AWPContatos():
     def __verificacao_existencia_contato(self):
         ...
         
+        
     @aprovarConexao
     def _executar_ordem_de_teclas(self, tecla_especial: str, quantidade_fornecida):
         for i in range(quantidade_fornecida):
 
-            ActionChains(self.objeto_awp.drive).key_down(Keys.CONTROL).key_down(Keys.SHIFT).key_down(
+            ActionChains(self.objeto_awp._drive).key_down(Keys.CONTROL).key_down(Keys.SHIFT).key_down(
                                                         Keys.ALT).send_keys(tecla_especial).perform()
-            
-            next(self.objeto_awp._generator_info_contato_acessado)
-            next(self.objeto_awp._generator_info_contato_acessado)
             time.sleep(1) 
+            
+
 
 
     @aprovarConexao
     def chat_acima(self, quantidade: int = 1):
         time.sleep(1)
         self._executar_ordem_de_teclas(tecla_especial="[", quantidade_fornecida=quantidade)
-        time.sleep(1)
+
+        next(self.objeto_awp._generator_info_contato_acessado)
+        next(self.objeto_awp._generator_info_contato_acessado)
 
 
     @aprovarConexao
     def chat_abaixo(self, quantidade: int = 1):        
         time.sleep(1)
         self._executar_ordem_de_teclas(tecla_especial="]", quantidade_fornecida=quantidade)
-        time.sleep(1)
+
+        next(self.objeto_awp._generator_info_contato_acessado)
+        next(self.objeto_awp._generator_info_contato_acessado)
+        
