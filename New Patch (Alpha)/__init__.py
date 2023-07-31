@@ -3,8 +3,8 @@ from contatos_awp import AWPContatos
 from mensagem_awp import AWPMensagem
 from criptografia_awp import AWPCriptografia
 from utils_awp import AWPUtilidades
-from errors_awp import *
-from decorators_awp import *
+from errors_awp import AWPConnectionError
+from decorators_awp import aprovarConexao, conexaoMetodo
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -70,8 +70,10 @@ class AllWhatsPy:
         self._drive.get(r'https://web.whatsapp.com/')
         self._marktime = WebDriverWait(self._drive, 90)
 
+    @conexaoMetodo
+    def conexao(self, server_host: bool=False, popup=False,): # Método "Generator" para conexão.
+        yield server_host, popup
         
-    def conexao(self, popup=False):
         self.__driveConfigGoogle()     
 
         # Aguardo na realização do login com QR Code
@@ -92,6 +94,7 @@ class AllWhatsPy:
                 t.sleep(5)
 
         self.flag_conection = True              
+        yield
 
 
     def desconectar(self):

@@ -1,5 +1,5 @@
-from decorators_awp import *
-from errors_awp import *
+from decorators_awp import aprovarConexao
+from errors_awp import AWPConnectionError
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
@@ -65,6 +65,7 @@ class Endereco(AWPMensagem):
         if len(item) == 8:
             return item
 
+
     def run(self):
         try:
             requisicao = requests.get(self.link.format(self.cep)).json()
@@ -76,10 +77,10 @@ class Endereco(AWPMensagem):
             self.dados = requisicao, rua, cidade, bairro, uf
             
         except requests.JSONDecodeError:
-            
             raise ValueError("Insira um CEP válido")
 
-    def fetch(self):
+
+    def get(self):
         return self.dados
   
 

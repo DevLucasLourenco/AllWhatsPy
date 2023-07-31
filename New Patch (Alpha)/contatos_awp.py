@@ -1,5 +1,5 @@
-from decorators_awp import *
-from errors_awp import *
+from decorators_awp import aprovarConexao
+from errors_awp import AWPConnectionError
 import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
