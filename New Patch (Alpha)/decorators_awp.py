@@ -52,8 +52,6 @@ def conexaoMetodo(func):
                 t.sleep(5)
 
         self.flag_conection = True
-        
-        
     
     def wrapper(self,*args, **kwargs):
         run = func(self,*args, **kwargs)
