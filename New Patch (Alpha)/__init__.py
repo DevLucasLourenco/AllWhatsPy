@@ -30,8 +30,7 @@ import logging
 
 
 class AllWhatsPy: 
-    logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='event.log', format='%(asctime)s - %(levelname)s - %(message)s')
-    logging.getLogger('webdriver_manager').setLevel(logging.CRITICAL)
+    logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='eventAWP.log', format='%(asctime)s - %(levelname)s - %(message)s')
     flag_conection = False
     
     
@@ -57,14 +56,17 @@ class AllWhatsPy:
 
 
     class _ArmazemXPATH:
-        searchbox_xpath: str = ''
-        textbox_xpath: str = ''
+        searchbox_xpath: str = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
+        textbox_xpath: str = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
+        var_aux_xpath: str = '//*[@id="side"]/div[1]/div/div/div[2]/div/div[2]'
 
 
     def __driveConfigGoogle(self):
         # Abertura padrão do Selenium com o Google. 
+        
         os.environ['WDM_LOG'] = '0'
         servico = Service(ChromeDriverManager().install())  
+
         self._drive = webdriver.Chrome(service=servico)
         self._drive.maximize_window()
         self._drive.get(r'https://web.whatsapp.com/')
@@ -171,5 +173,3 @@ class AllWhatsPy:
     
     def _tratamento_log_func(self, metodo):
         return f'{__class__.__name__}'+'.'+f'{metodo.__name__}'+'()'
-
-

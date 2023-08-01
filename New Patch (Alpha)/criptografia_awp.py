@@ -9,7 +9,7 @@ class AWPCriptografia():
         chave (int): a chave para criptografar e descriptografar a mensagem.
         metodo (str): Selecione entre "c" e "d", para criptografar e descriptografar respectivamente.
     """
-    logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='event.log', format='%(asctime)s - %(levelname)s - %(message)s')
+    logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='eventAWP.log', format='%(asctime)s - %(levelname)s - %(message)s')
 
     # criar depois um log com todas as criptografias feitas até então. ex {0:xlaxaslkxa xlapxla, 1: duhasudsad uhasudsuad}
     def __init__(self, mensagem, chave_numeral, metodo: str):

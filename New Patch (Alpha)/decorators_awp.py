@@ -44,7 +44,10 @@ def conexaoVariante(func):
         while True:
             try:
                 self._drive.find_element(By.XPATH, var_aux_xpath)
-                self._get_logging(f'Conexão por Server efetuada. Nome da Pasta:AllWhatsPyHost | Usuário: {dados_nome_usuario}')
+
+                self._get_logging(f'Conexão por Server efetuada.')
+                self._get_logging(f'<Nome da Pasta: AllWhatsPyHost> | <Usuário: {dados_nome_usuario}>')
+                
                 match popup:
                     case True:
                         messagebox.showinfo('Validado','Conexao Efetuada!')
@@ -57,6 +60,7 @@ def conexaoVariante(func):
 
         self.flag_conection = True
     
+
     def wrapper(self,*args, **kwargs):
         run = func(self,*args, **kwargs)
         l = next(run)
@@ -64,4 +68,5 @@ def conexaoVariante(func):
             server_login(self, l[1])
             return
         next(run)
+        
     return wrapper
