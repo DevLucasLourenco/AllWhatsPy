@@ -29,10 +29,13 @@ def conexaoVariante(func):
     def server_login(self, popup: bool = False):
         dados_nome_usuario = os.getlogin()
         os.environ['WDM_LOG'] = '0'
+        
         options = webdriver.ChromeOptions()
         options.add_argument(f'user-data-dir=C://users/{dados_nome_usuario}/AllWhatsPyHost')
+        
         servico = Service(ChromeDriverManager().install())
         self._drive = webdriver.Chrome(service=servico, options=options)
+        
         self._drive.maximize_window()
         self._drive.get(r'https://web.whatsapp.com/')
         self._marktime = WebDriverWait(self._drive, 90)
@@ -41,7 +44,7 @@ def conexaoVariante(func):
         while True:
             try:
                 self._drive.find_element(By.XPATH, var_aux_xpath)
-                self._get_logging(f'Conexão por Server efetuada. Usuário: {dados_nome_usuario}')
+                self._get_logging(f'Conexão por Server efetuada. Nome da Pasta:AllWhatsPyHost | Usuário: {dados_nome_usuario}')
                 match popup:
                     case True:
                         messagebox.showinfo('Validado','Conexao Efetuada!')
