@@ -25,11 +25,12 @@ def aprovarConexao(func):
     return wrapper
 
 
-def conexaoMetodo(func):
+def conexaoVariante(func):
     def server_login(self, popup: bool = False):
+        dados_nome_usuario = os.getlogin()
         os.environ['WDM_LOG'] = '0'
         options = webdriver.ChromeOptions()
-        options.add_argument(f'user-data-dir=C://users/{os.getlogin()}/Profile Selenium')
+        options.add_argument(f'user-data-dir=C://users/{dados_nome_usuario}/Profile Selenium')
         servico = Service(ChromeDriverManager().install())
         self._drive = webdriver.Chrome(service=servico, options=options)
         self._drive.maximize_window()
@@ -40,7 +41,7 @@ def conexaoMetodo(func):
         while True:
             try:
                 self._drive.find_element(By.XPATH, var_aux_xpath)
-                self._get_logging('Conexao por Server Efetuada.')
+                self._get_logging(f'Conexão por Server efetuada. Usuário: {dados_nome_usuario}')
                 match popup:
                     case True:
                         messagebox.showinfo('Validado','Conexao Efetuada!')

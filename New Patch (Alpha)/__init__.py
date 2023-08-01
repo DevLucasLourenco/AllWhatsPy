@@ -2,9 +2,9 @@ from audio_awp import AWPAudio
 from contatos_awp import AWPContatos
 from mensagem_awp import AWPMensagem
 from criptografia_awp import AWPCriptografia
-from utils_awp import AWPUtilidades
+from utilidades_awp import AWPUtilidades
 from errors_awp import AWPConnectionError
-from decorators_awp import aprovarConexao, conexaoMetodo
+from decorators_awp import aprovarConexao, conexaoVariante
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -70,7 +70,8 @@ class AllWhatsPy:
         self._drive.get(r'https://web.whatsapp.com/')
         self._marktime = WebDriverWait(self._drive, 90)
 
-    @conexaoMetodo
+
+    @conexaoVariante
     def conexao(self, server_host: bool=False, popup=False,): # Método "Generator" para conexão.
         yield server_host, popup
         
@@ -124,7 +125,11 @@ class AllWhatsPy:
         
         self._drive.close()
         self._get_logging('Whatsapp Encerrado')        
-       
+
+
+    def explodir_server(self):
+        ...       
+
 
     def __informacoes_contato_acessado(self): # método 'Generator' usado para coexistir com a classe AWPContato. Nela, será usada para alcançar os dados do contato acessado.
         xpath_aux = '//*[@id="main"]/header/div[2]/div/div'

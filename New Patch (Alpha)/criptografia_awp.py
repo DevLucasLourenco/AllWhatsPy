@@ -56,19 +56,20 @@ class AWPCriptografia():
         
         
     def fetch(self):
-        if self.metodo == 'c':
-            logging.info(f"AWPCriptografia está criptografando a mensagem: {self.mensagem[:50]}")
-            logging.info(f"AWPCriptografia criptografou a mensagem para: {self.resultado[:50]}")
-        elif self.metodo == 'd':
-            logging.info(f"AWPCriptografia está descriptografando a mensagem: {self.mensagem[:50]}")
-            logging.info(f"AWPCriptografia descriptografou a mensagem para: {self.resultado[:50]}")
+
+        match self.metodo:
+            case "c":
+                if len(self.mensagem) >= 50:
+                    logging.info(f"AWPCriptografia |Criptografando: {self.mensagem[:50]}[...] |Para: {self.resultado[:50]}[...]")
+                else:
+                    logging.info(f"AWPCriptografia |Criptografando: {self.mensagem} |Para: {self.resultado}")
+            case "d":
+                if len(self.mensagem) >= 50:
+                    logging.info(f"AWPCriptografia |Descriptografando: {self.mensagem[:50]}[...] |Para: {self.resultado[:50]}[...]")
+                else:
+                    logging.info(f"AWPCriptografia |Descriptografando: {self.mensagem} |Para: {self.resultado}")          
+
+            case _:
+                raise ValueError('Informar validação correta.')
+
         return self.resultado
-        
-
-    def __apos_conclusao_decorator():
-        def descriptografia():
-            ...
-            
-        return descriptografia
-            
-
