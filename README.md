@@ -20,7 +20,9 @@
 </div>
 </h1>
 
-> PT-BR 
+> PT-BR
+
+> English Version [HERE](https://github.com/DevLucasLourenco/AllWhatsPy/blob/main/utilidades/README.md)
 
 >Criado por [Lucas Lourenço](https://github.com/DevLucasLourenco/AllWhatsPy#autor)
 
