@@ -30,7 +30,7 @@ def conexaoVariante(func):
         dados_nome_usuario = os.getlogin()
         os.environ['WDM_LOG'] = '0'
         options = webdriver.ChromeOptions()
-        options.add_argument(f'user-data-dir=C://users/{dados_nome_usuario}/Profile Selenium')
+        options.add_argument(f'user-data-dir=C://users/{dados_nome_usuario}/AllWhatsPyHost')
         servico = Service(ChromeDriverManager().install())
         self._drive = webdriver.Chrome(service=servico, options=options)
         self._drive.maximize_window()
