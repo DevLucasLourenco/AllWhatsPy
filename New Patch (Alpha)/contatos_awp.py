@@ -26,8 +26,8 @@ class AWPContatos():
 
         self.objeto_awp._drive.get(f'https://web.whatsapp.com/send?phone={contato_destino}')
         
-        textbox_xpath = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
-        textbox = self.objeto_awp._marktime_func(textbox_xpath)
+        
+        textbox = self.objeto_awp._marktime_func(self.objeto_awp._ArmazemXPATH.textbox_xpath)
         textbox.click()
 
         next(self.objeto_awp._generator_info_contato_acessado)

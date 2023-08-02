@@ -40,10 +40,10 @@ def conexaoVariante(func):
         self._drive.get(r'https://web.whatsapp.com/')
         self._marktime = WebDriverWait(self._drive, 90)
         
-        var_aux_xpath = '//*[@id="side"]/div[1]/div/div/div[2]/div/div[2]'
+        
         while True:
             try:
-                self._drive.find_element(By.XPATH, var_aux_xpath)
+                self._drive.find_element(By.XPATH, self._ArmazemXPATH.var_aux_xpath)
 
                 self._get_logging(f'Conexão por Server efetuada.')
                 self._get_logging(f'<Nome da Pasta: AllWhatsPyHost> | <Usuário: {dados_nome_usuario}>')

@@ -56,20 +56,19 @@ class AllWhatsPy:
 
 
     class _ArmazemXPATH:
-        searchbox_xpath: str = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
+        # searchbox_xpath: str = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
         textbox_xpath: str = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
         var_aux_xpath: str = '//*[@id="side"]/div[1]/div/div/div[2]/div/div[2]'
 
 
     def __driveConfigGoogle(self):
-        # Abertura padrão do Selenium com o Google. 
-        
         os.environ['WDM_LOG'] = '0'
         servico = Service(ChromeDriverManager().install())  
 
         self._drive = webdriver.Chrome(service=servico)
         self._drive.maximize_window()
         self._drive.get(r'https://web.whatsapp.com/')
+        
         self._marktime = WebDriverWait(self._drive, 90)
 
 
@@ -80,10 +79,10 @@ class AllWhatsPy:
         self.__driveConfigGoogle()     
 
         # Aguardo na realização do login com QR Code
-        var_aux_xpath = '//*[@id="side"]/div[1]/div/div/div[2]/div/div[2]'
+        
         while True:
             try:
-                self._drive.find_element(By.XPATH, var_aux_xpath)
+                self._drive.find_element(By.XPATH, self._ArmazemXPATH.var_aux_xpath)
                 self._get_logging('Conexao Efetuada.')
                 
                 match popup:
