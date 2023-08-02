@@ -28,7 +28,7 @@
 
 >Maintained by [Lucas Lourenço](https://github.com/DevLucasLourenco/AllWhatsPy#autor)
 
-> Translated by [AzraeArts](https://www.instagram.com/azraeart/)
+> Contributed on Translation: [AzraeArts](https://www.instagram.com/azraeart/)
 
 <div align="center">
    <h1>ATTENTION</h1><br>
