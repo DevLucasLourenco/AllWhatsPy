@@ -76,8 +76,8 @@ class AllWhatsPy:
 
 
     @conexaoVariante
-    def conexao(self, server_host: bool=False, popup=False, tempo_aguardo: tuple[bool, int]=(True, 10)): # Método "Generator" para conexão.
-        yield server_host, popup, tempo_aguardo
+    def conexao(self, server_host: bool=False, popup=False, calibragem: tuple[bool, int]=(True, 10)): # Método "Generator" para conexão.
+        yield server_host, popup, calibragem
         
         self.__driveConfigGoogle()     
 
@@ -90,9 +90,9 @@ class AllWhatsPy:
                 if popup:
                         messagebox.showinfo('Validado','Conexao Efetuada!')
                                             
-                if tempo_aguardo[0]:
-                    time.sleep(tempo_aguardo[1])
-                    self._get_logging(f'Aguardando {tempo_aguardo[1]} segundos para calibragem.')
+                if calibragem[0]:
+                    self._get_logging(f'Aguardando {calibragem[1]} segundos para calibragem.')
+                    time.sleep(calibragem[1])
                 
                 break
             except:
@@ -133,7 +133,7 @@ class AllWhatsPy:
 
 
     def explodir_server(self):
-        ...       
+        ... 
 
 
     def __informacoes_contato_acessado(self): # método 'Generator' usado para coexistir com a classe AWPContato. Nela, será usada para alcançar os dados do contato acessado.
@@ -148,13 +148,13 @@ class AllWhatsPy:
 
             self.InferenciaAWP.contato = nome
             self.InferenciaAWP.lista_contatos.append(nome)
-            yield 1
+            yield 
             
             
             # Etapa 2
             self._get_logging(f"Atual Contato: {self.InferenciaAWP.contato}")
-            self._get_logging(f"Lista de contatos acessados nesta instância: ({' — '.join(self.InferenciaAWP.lista_contatos)})")
-            yield 2
+            self._get_logging(f"Lista de contatos acessados nesta instância: ({'; '.join(self.InferenciaAWP.lista_contatos)})")
+            yield 
 
 
     def _flag_status(self):

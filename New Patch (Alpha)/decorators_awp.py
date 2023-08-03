@@ -53,8 +53,8 @@ def conexaoVariante(func):
                     messagebox.showinfo('Validado','Conexao Efetuada!')
                                             
                 if tempo_aguardo[0]:
-                    time.sleep(tempo_aguardo[1])
                     self._get_logging(f'Aguardando {tempo_aguardo[1]} segundos para calibragem.')
+                    time.sleep(tempo_aguardo[1])
     
                 break
             except:
