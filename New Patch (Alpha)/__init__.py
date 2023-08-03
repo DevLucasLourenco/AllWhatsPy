@@ -26,6 +26,7 @@ import urllib.request
 import os
 import time as t
 import logging
+import time 
 
 
 
@@ -50,6 +51,7 @@ class AllWhatsPy:
 
     
     class InferenciaAWP:
+        # criar setter e getter
         lista_contatos: list = list()
         contato: str
         mensagem: str
@@ -64,6 +66,7 @@ class AllWhatsPy:
     def __driveConfigGoogle(self):
         os.environ['WDM_LOG'] = '0'
         servico = Service(ChromeDriverManager().install())  
+        
 
         self._drive = webdriver.Chrome(service=servico)
         self._drive.maximize_window()
@@ -73,23 +76,24 @@ class AllWhatsPy:
 
 
     @conexaoVariante
-    def conexao(self, server_host: bool=False, popup=False,): # Método "Generator" para conexão.
-        yield server_host, popup
+    def conexao(self, server_host: bool=False, popup=False, tempo_aguardo: tuple[bool, int]=(True, 10)): # Método "Generator" para conexão.
+        yield server_host, popup, tempo_aguardo
         
         self.__driveConfigGoogle()     
 
         # Aguardo na realização do login com QR Code
-        
         while True:
             try:
                 self._drive.find_element(By.XPATH, self._ArmazemXPATH.var_aux_xpath)
                 self._get_logging('Conexao Efetuada.')
                 
-                match popup:
-                    case True:
+                if popup:
                         messagebox.showinfo('Validado','Conexao Efetuada!')
-                    case False:
-                        pass
+                                            
+                if tempo_aguardo[0]:
+                    time.sleep(tempo_aguardo[1])
+                    self._get_logging(f'Aguardando {tempo_aguardo[1]} segundos para calibragem.')
+                
                 break
             except:
                 self._get_logging('Aguardando Login via QR Code...')

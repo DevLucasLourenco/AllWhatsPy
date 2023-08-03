@@ -1,4 +1,4 @@
-from decorators_awp import aprovarConexao
+from decorators_awp import aprovarConexao, executarOrdemTeclas
 from errors_awp import AWPConnectionError
 import time
 from selenium.webdriver.common.by import By
@@ -46,34 +46,18 @@ class AWPContatos():
     
     @aprovarConexao
     def __verificacao_existencia_contato(self):
-        ...
-        
-        
+        ...         
+
+  
+    @executarOrdemTeclas
     @aprovarConexao
-    def _executar_ordem_de_teclas(self, tecla_especial: str, quantidade_fornecida):
-        for i in range(quantidade_fornecida):
+    def chat_acima(self):        
+        time.sleep(0.5)   
+        return Keys.CONTROL, Keys.SHIFT, Keys.ALT, '['
 
-            ActionChains(self.objeto_awp._drive).key_down(Keys.CONTROL).key_down(Keys.SHIFT).key_down(
-                                                        Keys.ALT).send_keys(tecla_especial).perform()
-            time.sleep(1) 
-            
-
-
-
+    
+    @executarOrdemTeclas
     @aprovarConexao
-    def chat_acima(self, quantidade: int = 1):
-        time.sleep(1)
-        self._executar_ordem_de_teclas(tecla_especial="[", quantidade_fornecida=quantidade)
-
-        next(self.objeto_awp._generator_info_contato_acessado)
-        next(self.objeto_awp._generator_info_contato_acessado)
-
-
-    @aprovarConexao
-    def chat_abaixo(self, quantidade: int = 1):        
-        time.sleep(1)
-        self._executar_ordem_de_teclas(tecla_especial="]", quantidade_fornecida=quantidade)
-
-        next(self.objeto_awp._generator_info_contato_acessado)
-        next(self.objeto_awp._generator_info_contato_acessado)
-        
+    def chat_abaixo(self):     
+        time.sleep(0.5)   
+        return Keys.CONTROL, Keys.SHIFT, Keys.ALT, ']'
