@@ -1,10 +1,11 @@
 from errors_awp import AWPConnectionError
-import time as t
+import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 from tkinter import messagebox
 import os 
 
@@ -18,7 +19,7 @@ def aprovarConexao(func):
             raise AWPConnectionError        
     
         finally:
-            if self.objeto_awp._flag_status():
+            if self.objeto_awp._flag_status() or self._drive._flag_status():
                 self.objeto_awp._get_logging(f'{self.objeto_awp._tratamento_log_func(func)} finalizou sua execução com êxito.')
             else:
                 self.objeto_awp._get_logging(f'{self.objeto_awp._tratamento_log_func(func)} encontrou uma falha na execução.')
@@ -26,7 +27,7 @@ def aprovarConexao(func):
 
 
 def conexaoVariante(func):
-    def server_login(self, popup: bool = False):
+    def server_login(self, popup: bool = False, tempo_aguardo: tuple[bool, int] = (True, 10)):
         dados_nome_usuario = os.getlogin()
         os.environ['WDM_LOG'] = '0'
         
@@ -48,15 +49,17 @@ def conexaoVariante(func):
                 self._get_logging(f'Conexão por Server efetuada.')
                 self._get_logging(f'<Nome da Pasta: AllWhatsPyHost> | <Usuário: {dados_nome_usuario}>')
                 
-                match popup:
-                    case True:
-                        messagebox.showinfo('Validado','Conexao Efetuada!')
-                    case False:
-                        pass
+                if popup:
+                    messagebox.showinfo('Validado','Conexao Efetuada!')
+                                            
+                if tempo_aguardo[0]:
+                    time.sleep(tempo_aguardo[1])
+                    self._get_logging(f'Aguardando {tempo_aguardo[1]} segundos para calibragem.')
+    
                 break
             except:
                 self._get_logging('Aguardando Login via QR Code...')
-                t.sleep(5)
+                time.sleep(5)
 
         self.flag_conection = True
     
@@ -65,8 +68,30 @@ def conexaoVariante(func):
         run = func(self,*args, **kwargs)
         l = next(run)
         if l[0]:
-            server_login(self, l[1])
+            server_login(self, l[1], l[2])
             return
-        next(run)
+        return next(run)
         
     return wrapper
+
+
+def executarOrdemTeclas(func):
+    def _ordenacao(self, ordem):
+        acao = ActionChains(self.objeto_awp._drive)
+        for t in ordem:
+            acao.key_down(t)
+        
+        time.sleep(0.5)
+        acao.perform()
+        time.sleep(0.5)
+            
+            
+    def wrapper(self, *args, **kwargs):
+        run = func(self, *args, **kwargs)
+        _ordenacao(self, run)
+        
+        next(self.objeto_awp._generator_info_contato_acessado)
+        next(self.objeto_awp._generator_info_contato_acessado)
+        
+    return wrapper
+    
