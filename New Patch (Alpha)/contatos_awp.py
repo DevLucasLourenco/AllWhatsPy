@@ -35,14 +35,21 @@ class AWPContatos():
             
         
     @aprovarConexao
-    def encontrar_contato(self):
-               
-        ...
+    def encontrar_contato(self, contato_destino):
+        
+        var_aux_xpath = self.objeto_awp._ArmazemXPATH.var_aux2_xpath
+        self.objeto_awp._marktime_func(var_aux_xpath)
+        self.objeto_awp._drive.find_element(By.XPATH, var_aux_xpath).send_keys(contato_destino)
+    
+        time.sleep(3)
+        self.objeto_awp._drive.find_element(By.XPATH, var_aux_xpath).send_keys(Keys.ENTER)
+        self.objeto_awp._drive.find_element(By.XPATH, '//*[@id="side"]/div[1]/div/div/span/button/span').click()
+        time.sleep(0.5)
+
+        next(self.objeto_awp._generator_info_contato_acessado)
         next(self.objeto_awp._generator_info_contato_acessado)
         
-        ...
-        next(self.objeto_awp._generator_info_contato_acessado)
-        
+
     
     @aprovarConexao
     def __verificacao_existencia_contato(self):

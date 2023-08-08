@@ -7,23 +7,35 @@ awp = AllWhatsPy()
 awp.conexao(server_host=True, popup=False)
 # awp.ctt.encontrar_usuario(21959061623)
 # awp.ctt.encontrar_usuario(21984273613)
-awp.ctt.encontrar_usuario(21959061623)
+# awp.ctt.encontrar_usuario(21959061623)
+
+awp.ctt.encontrar_contato('Lucas Lourenço')
+awp.ctt.encontrar_contato('Lucas Lourenço')
+
+mensagem = """
+Olá!
+Sou o Lucas, criador do AWP.
+"""
+# awp.msg.enviar_mensagem_paragrafada(mensagem)
+
 # awp.msg.enviar_mensagem('lucas é lindo')
 # awp.msg.enviar_mensagem(['lucas é lindo', 'e legal'])
-for i in range(2):
-    awp.ctt.chat_abaixo()
-    awp.ctt.chat_acima()
+
+# for i in range(2):
+#     awp.ctt.chat_abaixo()
+#     awp.ctt.chat_acima()
+
 # awp.utilidade.arquivar_chat()
 
 
 print(awp.InferenciaAWP.contato)
 print(awp.InferenciaAWP.lista_contatos)
-# print(awp.InferenciaAWP.mensagem)
+print(awp.InferenciaAWP.mensagem)
 # input()
 # awp.desconectar()
-
+texto = 'Lucas eh o criador do AWP, AllWhatsPy'
 key = 3
-with awp.criptografia('lucas', key, 'c') as cript:
+with awp.criptografia(texto, key, 'c') as cript:
     texto = cript.fetch()
 
 with awp.criptografia(texto, key, 'd') as descript:

@@ -35,7 +35,8 @@ class AllWhatsPy:
     flag_conection = False
     
     
-    def __init__(self):
+    def __init__(self, inicializarTitulo:bool=True):
+        AllWhatsPy.__tituloAWP(inicializarTitulo)
         self._get_logging(f"{'—'*15} AllWhatsPy - AWP {'—'*15}")
     
         self._generator_info_contato_acessado = self.__informacoes_contato_acessado()
@@ -61,7 +62,14 @@ class AllWhatsPy:
         # searchbox_xpath: str = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
         textbox_xpath: str = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
         var_aux_xpath: str = '//*[@id="side"]/div[1]/div/div/div[2]/div/div[2]'
+        var_aux2_xpath: str = '//*[@id="side"]/div[1]/div/div/div[2]/div/div[1]/p'
 
+
+    @staticmethod
+    def __tituloAWP(item):
+        if item:
+            print(""" ========== AllWhatsPy-AWP ==========""")
+            
 
     def __driveConfigGoogle(self):
         os.environ['WDM_LOG'] = '0'

@@ -15,5 +15,6 @@ class AWPUtilidades:
     def arquivar_chat(self):
         ActionChains(self.objeto_awp._drive).key_down(Keys.CONTROL).key_down(Keys.ALT).key_down(
                                                              Keys.SHIFT).send_keys('e').perform()
+        
         self.objeto_awp._get_logging(f'{self.objeto_awp.InferenciaAWP.contato} foi arquivado.')
         time.sleep(1)
