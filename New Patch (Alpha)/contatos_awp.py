@@ -53,7 +53,14 @@ class AWPContatos():
     
     @aprovarConexao
     def __verificacao_existencia_contato(self):
-        ...         
+        while True:
+            try:
+                if ...:# xpath do textbox
+                    ...
+                if ...:# xpath da verificação do numero quando não existe
+                    ...
+            except:
+                time.sleep(1)
 
   
     @executarOrdemTeclas
