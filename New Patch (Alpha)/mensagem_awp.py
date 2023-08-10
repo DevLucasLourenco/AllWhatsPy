@@ -64,10 +64,6 @@ class AWPMensagem():
 
 
 
-
-                
-            
-
 class Endereco(AWPMensagem):
 
     def __init__(self, cep: int):

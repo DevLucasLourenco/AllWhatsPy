@@ -23,7 +23,6 @@ class AWPContatos():
 
     @aprovarConexao
     def encontrar_usuario(self, contato_destino):   
-
         self.objeto_awp._drive.get(f'https://web.whatsapp.com/send?phone={contato_destino}')
         
         if self.__verificacao_existencia_contato(contato_destino):
@@ -33,7 +32,6 @@ class AWPContatos():
         
     @aprovarConexao
     def encontrar_contato(self, contato_destino):
-        
         var_aux_xpath = self.objeto_awp._ArmazemXPATH.var_aux2_xpath
         self.objeto_awp._marktime_func(var_aux_xpath)
         self.objeto_awp._drive.find_element(By.XPATH, var_aux_xpath).send_keys(contato_destino)
