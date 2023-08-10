@@ -52,14 +52,13 @@ class AllWhatsPy:
 
     
     class InferenciaAWP:
-        # criar setter e getter
         lista_contatos: list = list()
         contato: str
         mensagem: str
+        contatosInexistentes: list = list()
 
 
     class _ArmazemXPATH:
-        # searchbox_xpath: str = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
         textbox_xpath: str = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
         var_aux_xpath: str = '//*[@id="side"]/div[1]/div/div/div[2]/div/div[2]'
         var_aux2_xpath: str = '//*[@id="side"]/div[1]/div/div/div[2]/div/div[1]/p'
@@ -69,6 +68,7 @@ class AllWhatsPy:
     def __tituloAWP(item):
         if item:
             print(""" ========== AllWhatsPy-AWP ==========""")
+            print('https://github.com/DevLucasLourenco/AllWhatsPy')
             
 
     def __driveConfigGoogle(self):
@@ -101,8 +101,8 @@ class AllWhatsPy:
                 if calibragem[0]:
                     self._get_logging(f'Aguardando {calibragem[1]} segundos para calibragem.')
                     time.sleep(calibragem[1])
-                
                 break
+
             except:
                 self._get_logging('Aguardando Login via QR Code...')
                 t.sleep(5)
@@ -142,7 +142,7 @@ class AllWhatsPy:
 
     def explodir_server(self):
         ... 
-
+        
 
     def __informacoes_contato_acessado(self): # método 'Generator' usado para coexistir com a classe AWPContato. Nela, será usada para alcançar os dados do contato acessado.
         xpath_aux = '//*[@id="main"]/header/div[2]/div/div'

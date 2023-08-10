@@ -26,12 +26,9 @@ class AWPContatos():
 
         self.objeto_awp._drive.get(f'https://web.whatsapp.com/send?phone={contato_destino}')
         
-        
-        textbox = self.objeto_awp._marktime_func(self.objeto_awp._ArmazemXPATH.textbox_xpath)
-        textbox.click()
-
-        next(self.objeto_awp._generator_info_contato_acessado)
-        next(self.objeto_awp._generator_info_contato_acessado)
+        if self.__verificacao_existencia_contato(contato_destino):
+            next(self.objeto_awp._generator_info_contato_acessado)
+            next(self.objeto_awp._generator_info_contato_acessado)
             
         
     @aprovarConexao
@@ -52,15 +49,24 @@ class AWPContatos():
 
     
     @aprovarConexao
-    def __verificacao_existencia_contato(self):
+    def __verificacao_existencia_contato(self, contato):
         while True:
             try:
-                if ...:# xpath do textbox
-                    ...
-                if ...:# xpath da verificação do numero quando não existe
-                    ...
-            except:
-                time.sleep(1)
+                if self.objeto_awp._drive.find_element(By.XPATH, '//*[@id="app"]/div/span[2]/div/span/div/div/div/div/div/div[2]/div/button/div/div').is_displayed(): #xpath da verificação do numero quando não existe
+                    self.objeto_awp._drive.find_element(By.XPATH, '//*[@id="app"]/div/span[2]/div/span/div/div/div/div/div/div[2]/div/button/div/div').click()
+                    
+                    self.objeto_awp.InferenciaAWP.contatosInexistentes.append(contato)
+                    self.objeto_awp._get_logging(f'Contato {contato} não existe.')
+                    self.objeto_awp._get_logging(f'Lista de contatos inexistentes nesta instância: {self.objeto_awp.InferenciaAWP.contatosInexistentes}')
+                    return False
+                
+            except (NoSuchElementException):
+                try:
+                    if self.objeto_awp._drive.find_element(By.XPATH, self.objeto_awp._ArmazemXPATH.textbox_xpath).is_displayed():# xpath do textbox
+                        time.sleep(1)
+                        return True
+                except:
+                    time.sleep(1)
 
   
     @executarOrdemTeclas

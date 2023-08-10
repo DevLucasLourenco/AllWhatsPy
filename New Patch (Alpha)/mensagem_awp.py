@@ -9,6 +9,7 @@ from selenium.common.exceptions import (
     NoSuchElementException,
 )
 import requests
+import time
 
 
 class AWPMensagem():
@@ -42,6 +43,8 @@ class AWPMensagem():
 
             except Exception as e:
                 self.objeto_awp._get_logging(f'Não foi possível realizar o envio da mensagem - erro: {e}')
+
+            time.sleep(1)
 
 
     # @aprovarConexao
