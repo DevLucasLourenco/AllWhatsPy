@@ -17,8 +17,8 @@ class AWPContatos():
     """
     
     def __init__(self, objeto):
-        self.objeto_awp = objeto # usado para acessar os atributos
-        self.objeto_awp._get_logging('AWPContatos obteve êxito.')
+        self.objeto_awp = objeto
+        self.objeto_awp._get_logging(f'{__class__.__name__} obteve êxito.')
 
 
     @aprovarConexao

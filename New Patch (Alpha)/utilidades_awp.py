@@ -8,7 +8,7 @@ import time
 class AWPUtilidades:
     def __init__(self, objeto) -> None:
         self.objeto_awp = objeto
-        self.objeto_awp._get_logging('AWPUtilidades obteve êxito.')
+        self.objeto_awp._get_logging(f'{__class__.__name__} obteve êxito.')
 
 
     @aprovarConexao

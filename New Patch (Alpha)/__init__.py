@@ -45,7 +45,7 @@ class AllWhatsPy:
         self.msg = AWPMensagem(self)
         self.audio = AWPAudio(self)
         self.utilidade = AWPUtilidades(self)
-        self.criptografia = AWPCriptografia
+        self.criptografia = AWPCriptografia(self)
     
         self._drive = None
         self._marktime = None
