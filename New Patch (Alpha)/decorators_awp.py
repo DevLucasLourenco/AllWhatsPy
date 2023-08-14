@@ -52,9 +52,7 @@ def conexaoVariante(func):
                 if popup:
                     messagebox.showinfo('Validado','Conexao Efetuada!')
                                             
-                if tempo_aguardo[0]:
-                    self._get_logging(f'Aguardando {tempo_aguardo[1]} segundos para calibragem.')
-                    time.sleep(tempo_aguardo[1])
+                # self.config_calibragem_deco(tempo_aguardo)
     
                 break
             except:
@@ -62,6 +60,26 @@ def conexaoVariante(func):
                 time.sleep(5)
 
         self.flag_conection = True
+        
+
+    def config_calibragem_deco(self, calibragem):
+        if isinstance(calibragem, tuple) or isinstance(calibragem, list):
+            print('caiu aq3')
+            if calibragem[0]:
+                self._get_logging(f'Aguardando {calibragem[1]} segundos para calibragem.')
+                time.sleep(calibragem[1])
+                print('caiu aq4')
+            else:
+                pass
+        elif isinstance(calibragem, bool):
+            print('caiu aq1')
+            if not calibragem:
+                pass
+            else:
+                print('caiu aq2')
+                time.sleep(10)
+        else:
+            raise ValueError('Insira um valor válido para o parâmetro calibragem')
     
 
     def wrapper(self,*args, **kwargs):

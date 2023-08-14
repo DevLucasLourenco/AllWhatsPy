@@ -38,14 +38,14 @@ class AllWhatsPy:
     def __init__(self, inicializarTitulo:bool=True):
         AllWhatsPy.__tituloAWP(inicializarTitulo)
         self._get_logging(f"{'—'*15} AllWhatsPy - AWP {'—'*15}")
-    
-        self._generator_info_contato_acessado = self.__informacoes_contato_acessado()
         
         self.ctt = AWPContatos(self)
         self.msg = AWPMensagem(self)
         self.audio = AWPAudio(self)
         self.utilidade = AWPUtilidades(self)
         self.criptografia = AWPCriptografia(self)
+    
+        self._generator_info_contato_acessado = self.__informacoes_contato_acessado()
     
         self._drive = None
         self._marktime = None
@@ -69,18 +69,6 @@ class AllWhatsPy:
         if item:
             print(""" ========== AllWhatsPy-AWP ==========""")
             print('https://github.com/DevLucasLourenco/AllWhatsPy')
-            
-
-    def __driveConfigGoogle(self):
-        os.environ['WDM_LOG'] = '0'
-        servico = Service(ChromeDriverManager().install())  
-        
-
-        self._drive = webdriver.Chrome(service=servico)
-        self._drive.maximize_window()
-        self._drive.get(r'https://web.whatsapp.com/')
-        
-        self._marktime = WebDriverWait(self._drive, 90)
 
 
     @conexaoVariante
@@ -88,7 +76,6 @@ class AllWhatsPy:
         yield server_host, popup, calibragem
         
         self.__driveConfigGoogle()     
-
         # Aguardo na realização do login com QR Code
         while True:
             try:
@@ -96,11 +83,9 @@ class AllWhatsPy:
                 self._get_logging('Conexao Efetuada.')
                 
                 if popup:
-                        messagebox.showinfo('Validado','Conexao Efetuada!')
-                                            
-                if calibragem[0]:
-                    self._get_logging(f'Aguardando {calibragem[1]} segundos para calibragem.')
-                    time.sleep(calibragem[1])
+                        messagebox.showinfo('Validado','Conexão Efetuada!')
+                
+                self.__config_calibragem(calibragem)
                 break
 
             except:
@@ -163,6 +148,32 @@ class AllWhatsPy:
             self._get_logging(f"Atual Contato: {self.InferenciaAWP.contato}")
             self._get_logging(f"Lista de contatos acessados nesta instância: ({'; '.join(self.InferenciaAWP.lista_contatos)})")
             yield 
+
+
+    def __driveConfigGoogle(self):
+        os.environ['WDM_LOG'] = '0'
+        servico = Service(ChromeDriverManager().install())  
+
+        self._drive = webdriver.Chrome(service=servico)
+        self._drive.maximize_window()
+        self._drive.get(r'https://web.whatsapp.com/')
+        self._marktime = WebDriverWait(self._drive, 90)
+    
+
+    def __config_calibragem(self, calibragem):
+        if isinstance(calibragem, tuple) or isinstance(calibragem, list):
+            if calibragem[0]:
+                self._get_logging(f'Aguardando {calibragem[1]} segundos para calibragem.')
+                time.sleep(calibragem[1])
+            else:
+                pass
+        elif isinstance(calibragem, bool):
+            if not calibragem:
+                pass
+            else:
+                time.sleep(10)
+        else:
+            raise ValueError('Insira um valor válido para o parâmetro calibragem')
 
 
     def _flag_status(self):

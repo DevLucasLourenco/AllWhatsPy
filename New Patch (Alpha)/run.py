@@ -4,7 +4,9 @@ from __init__ import AllWhatsPy
 
 awp = AllWhatsPy()
 
-# awp.conexao(server_host=True, popup=False)
+awp.conexao(server_host=True, popup=False, calibragem=False)
+# awp.conexao()
+
 # awp.ctt.encontrar_usuario(21959061623)
 # awp.ctt.encontrar_usuario(21959061623)
 # awp.ctt.encontrar_usuario(2195906162464893)
