@@ -37,7 +37,8 @@ class AllWhatsPy:
     
     def __init__(self, inicializarTitulo:bool=True):
         AllWhatsPy.__tituloAWP(inicializarTitulo)
-        self._get_logging(f"{'—'*15} AllWhatsPy - AWP {'—'*15}")
+        self._get_logging(f"{' AllWhatsPy - AWP ':=^40}")
+        
         
         self.ctt = AWPContatos(self)
         self.msg = AWPMensagem(self)
