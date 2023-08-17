@@ -68,7 +68,7 @@ class AllWhatsPy:
     @staticmethod
     def __tituloAWP(item):
         if item:
-            print(""" ========== AllWhatsPy-AWP ==========""")
+            print(f"{' AllWhatsPy - AWP ':=^40}")
             print('https://github.com/DevLucasLourenco/AllWhatsPy')
 
 
