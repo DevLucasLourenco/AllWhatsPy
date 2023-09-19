@@ -4,7 +4,7 @@ from mensagem_awp import AWPMensagem
 from criptografia_awp import AWPCriptografia
 from utilidades_awp import AWPUtilidades
 from errors_awp import AWPConnectionError
-from decorators_awp import aprovarConexao, conexaoVariante
+from decorators_awp import aprovarConexao
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -29,7 +29,6 @@ import logging
 import time 
 
 
-
 class AllWhatsPy: 
     logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='eventAWP.log', format='%(asctime)s - %(levelname)s - %(message)s')
     flag_conection = False
@@ -49,7 +48,8 @@ class AllWhatsPy:
         self._generator_info_contato_acessado = self.__informacoes_contato_acessado()
     
         self._drive = None
-        self._marktime = None
+        self._marktime = None   
+        self.dados_nome_usuario = None
 
     
     class InferenciaAWP:
@@ -72,16 +72,20 @@ class AllWhatsPy:
             print('https://github.com/DevLucasLourenco/AllWhatsPy')
 
 
-    @conexaoVariante
-    def conexao(self, server_host: bool=False, popup=False, calibragem: tuple[bool, int]=(True, 10)): # Método "Generator" para conexão.
-        yield server_host, popup, calibragem
-        
-        self.__driveConfigGoogle()     
+    def conexao(self, server_host: bool=False, popup=False, calibragem: tuple[bool, int]=(True, 10)):
+        self.__driveConfigGoogle(server_host)
+
         # Aguardo na realização do login com QR Code
         while True:
             try:
                 self._drive.find_element(By.XPATH, self._ArmazemXPATH.var_aux_xpath)
-                self._get_logging('Conexao Efetuada.')
+
+                if server_host:
+                    self._get_logging(f'Conexão por Server efetuada.')
+                    self._get_logging(f'<Nome da Pasta: AllWhatsPyHost> | <Usuário: {self.dados_nome_usuario}>')
+
+                else:
+                    self._get_logging('Conexao Efetuada.')
                 
                 if popup:
                         messagebox.showinfo('Validado','Conexão Efetuada!')
@@ -94,7 +98,7 @@ class AllWhatsPy:
                 t.sleep(5)
 
         self.flag_conection = True              
-        yield
+        
 
 
     def desconectar(self):
@@ -151,11 +155,16 @@ class AllWhatsPy:
             yield 
 
 
-    def __driveConfigGoogle(self):
+    def __driveConfigGoogle(self, validacao_server):        
         os.environ['WDM_LOG'] = '0'
         servico = Service(ChromeDriverManager().install())  
 
-        self._drive = webdriver.Chrome(service=servico)
+        if validacao_server:
+            self.dados_nome_usuario = os.getlogin()
+            options = webdriver.ChromeOptions()
+            options.add_argument(f'user-data-dir=C://users/{self.dados_nome_usuario}/AllWhatsPyHost')
+
+        self._drive = webdriver.Chrome(service=servico, options=options)
         self._drive.maximize_window()
         self._drive.get(r'https://web.whatsapp.com/')
         self._marktime = WebDriverWait(self._drive, 90)
@@ -166,8 +175,7 @@ class AllWhatsPy:
             if calibragem[0]:
                 self._get_logging(f'Aguardando {calibragem[1]} segundos para calibragem.')
                 time.sleep(calibragem[1])
-            else:
-                pass
+
         elif isinstance(calibragem, bool):
             if not calibragem:
                 pass

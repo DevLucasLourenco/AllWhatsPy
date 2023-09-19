@@ -5,12 +5,12 @@ from __init__ import AllWhatsPy
 awp = AllWhatsPy()
 
 awp.conexao(server_host=True, popup=False, calibragem=False)
-# awp.conexao()
 
 # awp.ctt.encontrar_usuario(21959061623)
-# awp.ctt.encontrar_usuario(21959061623)
+# # awp.ctt.encontrar_usuario(21959061623)
 # awp.ctt.encontrar_usuario(2195906162464893)
-# awp.ctt.encontrar_usuario(21959061623)
+# awp.msg.enviar_mensagem_por_link(21959061623,'testezinho legal')
+awp.ctt.encontrar_usuario(21959061623)
 # awp.ctt.encontrar_usuario(21984273613)
 # awp.ctt.encontrar_usuario(91469414144944)
 # awp.ctt.encontrar_usuario(21959061623)
@@ -18,11 +18,13 @@ awp.conexao(server_host=True, popup=False, calibragem=False)
 # # awp.ctt.encontrar_contato('Lucas Lourenço')
 # # awp.ctt.encontrar_contato('Lucas Lourenço')
 
-# mensagem = """
-# Olá!
-# Sou o Lucas, criador do AWP.
-# """
-# # awp.msg.enviar_mensagem_paragrafada(mensagem)
+
+mensagem = """Olá!
+Sou o Lucas, criador do AWP.
+lalalala
+"""
+# awp.msg.enviar_mensagem_paragrafada(mensagem)
+awp.msg.enviar_mensagem_direta(21959061623, 'teste, po')
 
 # # awp.msg.enviar_mensagem('lucas é lindo')
 # awp.msg.enviar_mensagem(mensagem)
@@ -34,10 +36,10 @@ awp.conexao(server_host=True, popup=False, calibragem=False)
 # # awp.utilidade.arquivar_chat()
 
 
-# print(awp.InferenciaAWP.contato)
-# print(awp.InferenciaAWP.lista_contatos)
-# print(awp.InferenciaAWP.contatosInexistentes)
-# print(awp.InferenciaAWP.mensagem)
+print(awp.InferenciaAWP.contato)
+print(awp.InferenciaAWP.lista_contatos)
+print(awp.InferenciaAWP.contatosInexistentes)
+print(awp.InferenciaAWP.mensagem)
 # # input()
 # # awp.desconectar()
 

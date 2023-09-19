@@ -1,3 +1,6 @@
+import requests
+import time
+from urllib import parse
 from decorators_awp import aprovarConexao
 from errors_awp import AWPConnectionError
 from selenium.webdriver.common.by import By
@@ -8,8 +11,6 @@ from selenium.common.exceptions import (
     UnexpectedAlertPresentException,
     NoSuchElementException,
 )
-import requests
-import time
 
 
 class AWPMensagem():
@@ -47,20 +48,59 @@ class AWPMensagem():
             time.sleep(1)
 
 
-    # @aprovarConexao
-    # def enviar_mensagem_paragrafada(self, mensagem: str):
-    #     self.objeto_awp.InferenciaAWP.mensagem = mensagem
-    #     textbox = self.objeto_awp._marktime_func(self.objeto_awp._ArmazemXPATH.textbox_xpath)
-    #     textbox.click()
+    @aprovarConexao
+    def enviar_mensagem_paragrafada(self, mensagem: str):
+        self.objeto_awp.InferenciaAWP.mensagem = mensagem
 
-    #     for linha in mensagem.split('\n'):
-    #         textbox.send_keys(linha)
+        textbox = self.objeto_awp._marktime_func(self.objeto_awp._ArmazemXPATH.textbox_xpath)
+        textbox.click()
+
+        for linha in mensagem.split('\n'):
+            textbox.send_keys(linha)
+            ActionChains(self.objeto_awp._drive).key_down(Keys.SHIFT).key_down(Keys.ENTER).key_up(Keys.ENTER).key_up(Keys.SHIFT).perform()
+
+        textbox.send_keys(Keys.ENTER)
+
+
+    @aprovarConexao
+    def enviar_mensagem_por_link(self, numero, texto):
+        self.objeto_awp.InferenciaAWP.mensagem = texto
+
+        texto =  parse.quote(texto)
+        link = f'https://web.whatsapp.com/send?phone={numero}&text={texto}'
+        self.objeto_awp._drive.get(link)
+        
+        textbox = self.objeto_awp._marktime_func(self.objeto_awp._ArmazemXPATH.textbox_xpath)
+        textbox.send_keys(Keys.ENTER)
+
+        next(self.objeto_awp._generator_info_contato_acessado)
+        next(self.objeto_awp._generator_info_contato_acessado)
+
+
+    @aprovarConexao
+    def enviar_mensagem_direta(self, contato, mensagem: str, selecionar_funcao: int = 1, salvo: bool = True):
+
+        if salvo:
+            self.objeto_awp.ctt.encontrar_contato(contato)
+        else:        
+            self.objeto_awp.ctt.encontrar_usuario(contato)
             
-    #         ActionChains(self.objeto_awp._drive).key_down(Keys.SHIFT).key_down(Keys.ENTER).key_up(Keys.ENTER).key_up(Keys.SHIFT).perform()
+        
+        if selecionar_funcao == 1:
+            self.objeto_awp.msg.enviar_mensagem(mensagem)
+        
+        elif selecionar_funcao == 2:
+            self.objeto_awp.msg.enviar_mensagem_paragrafada(mensagem)
 
-    #         textbox.send_keys(Keys.ENTER)
+        else:
+            raise ValueError('Valor informado incoerente.')
+        
 
 
+
+class Enquete(AWPMensagem):
+    def __init__(self) -> None:
+        ...
 
 
 
