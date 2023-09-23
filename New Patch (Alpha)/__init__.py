@@ -31,7 +31,7 @@ import time
 
 class AllWhatsPy: 
     logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='eventAWP.log', format='%(asctime)s - %(levelname)s - %(message)s')
-    flag_conection = False
+    flag_connection = False
     
     
     def __init__(self, inicializarTitulo:bool=True):
@@ -114,7 +114,7 @@ class AllWhatsPy:
                 self._get_logging('Aguardando Login...')
                 t.sleep(5)
 
-        self.flag_conection = True              
+        self.flag_connection = True              
         
 
 
@@ -203,7 +203,7 @@ class AllWhatsPy:
 
 
     def _flag_status(self):
-        return self.flag_conection
+        return self.flag_connection
 
 
     def _get_logging(self, item_log):
