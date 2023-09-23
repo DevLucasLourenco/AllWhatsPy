@@ -73,7 +73,6 @@ class AWPCriptografia():
             pass
 
 
-
         def criptografar(self, mensagem):
             self.resultado = ''
             mensagem = mensagem.lower()

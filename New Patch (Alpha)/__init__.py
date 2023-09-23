@@ -35,6 +35,7 @@ class AllWhatsPy:
     
     
     def __init__(self, inicializarTitulo:bool=True):
+        self.__tempo_inicial = time.time()
         AllWhatsPy.__tituloAWP(inicializarTitulo)
         self._get_logging(f"{' AllWhatsPy - AWP ':=^40}")
         
@@ -51,11 +52,17 @@ class AllWhatsPy:
         self._marktime = None   
         self.dados_nome_usuario = None
 
+
+    def __del__(self):
+        self.tempo_execucao = time.time()-self.__tempo_inicial
+        self._get_logging(f'Tempo de Execução AWP: {self.tempo_execucao}')
+        self._get_logging(f"{'':=^40}")
+
     
     class InferenciaAWP:
         lista_contatos: list = list()
-        contato: str
-        mensagem: str
+        contato: str = ""
+        mensagem: str = ""
         contatosInexistentes: list = list()
 
 
@@ -63,6 +70,16 @@ class AllWhatsPy:
         textbox_xpath: str = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p'
         var_aux_xpath: str = '//*[@id="side"]/div[1]/div/div/div[2]/div/div[2]'
         var_aux2_xpath: str = '//*[@id="side"]/div[1]/div/div/div[2]/div/div[1]/p'
+
+
+    @property 
+    def tempo_execucao(self):  
+        return f'{time.time()-self.__tempo_inicial:.4f}s'
+        
+
+    @tempo_execucao.setter
+    def tempo_execucao(self, valor:str):
+        return f'{valor:.4f}s'
 
 
     @staticmethod
@@ -94,7 +111,7 @@ class AllWhatsPy:
                 break
 
             except:
-                self._get_logging('Aguardando Login via QR Code...')
+                self._get_logging('Aguardando Login...')
                 t.sleep(5)
 
         self.flag_conection = True              
@@ -127,7 +144,7 @@ class AllWhatsPy:
     
         
         self._drive.close()
-        self._get_logging('Whatsapp Encerrado')        
+        self._get_logging('Whatsapp Encerrado')    
 
 
     def explodir_server(self):

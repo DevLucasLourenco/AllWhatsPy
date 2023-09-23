@@ -45,4 +45,3 @@ def executarOrdemTeclas(func):
         next(self.objeto_awp._generator_info_contato_acessado)
         
     return wrapper
-    
