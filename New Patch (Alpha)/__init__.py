@@ -3,7 +3,7 @@ from contatos_awp import AWPContatos
 from mensagem_awp import AWPMensagem
 from criptografia_awp import AWPCriptografia
 from utilidades_awp import AWPUtilidades
-from errors_awp import AWPConnectionError
+# from errors_awp import AWPConnectionError
 from decorators_awp import aprovarConexao
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -17,14 +17,12 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import (
     UnexpectedAlertPresentException,
     NoSuchElementException,
-)
-import string
+    )
 from tkinter import messagebox
 from  PIL import Image
 from urllib import parse
 import urllib.request
 import os
-import time as t
 import logging
 import time 
 
@@ -52,11 +50,18 @@ class AllWhatsPy:
         self._marktime = None   
         self.dados_nome_usuario = None
 
+        self.atual_funcao = None
 
     def __del__(self):
-        self.tempo_execucao = time.time()-self.__tempo_inicial
         self._get_logging(f'Tempo de Execução AWP: {self.tempo_execucao}')
         self._get_logging(f"{'':=^40}")
+
+
+    def __exit__(self, exc_type, exc_value, traceback): #pesquisar how to deal
+        if exc_type is not None or exc_value is not None or traceback is not None:
+            self._get_logging(f"{'':=^40}")
+            self._get_logging(f'Ocorreu um erro durante a execução de {f"AllWhatsPy.{self.atual_funcao}()"}. Tempo de Execução AWP: {self.tempo_execucao}')
+            self._get_logging(f"{'':=^40}")
 
     
     class InferenciaAWP:
@@ -76,11 +81,6 @@ class AllWhatsPy:
     def tempo_execucao(self):  
         return f'{time.time()-self.__tempo_inicial:.4f}s'
         
-
-    @tempo_execucao.setter
-    def tempo_execucao(self, valor:str):
-        return f'{valor:.4f}s'
-
 
     @staticmethod
     def __tituloAWP(item):
@@ -112,12 +112,11 @@ class AllWhatsPy:
 
             except:
                 self._get_logging('Aguardando Login...')
-                t.sleep(5)
+                time.sleep(5)
 
         self.flag_connection = True              
         
-
-
+    @aprovarConexao
     def desconectar(self):
         self._get_logging('Desconectando Whatsapp...')
 
@@ -128,11 +127,11 @@ class AllWhatsPy:
         
         # clicar nos botões de opção
         self._drive.find_element(By.XPATH, dc_xpath_abrir).click()
-        t.sleep(1)
+        time.sleep(1)
         
         opcoes = self._drive.find_element(By.XPATH, dc_xpath_opcoes)
         lista_opcoes = opcoes.find_elements(By.TAG_NAME, 'li')
-        t.sleep(1)
+        time.sleep(1)
 
         # encontrar a opção de desconetar e clicar nela
         for item in lista_opcoes:
@@ -221,3 +220,7 @@ class AllWhatsPy:
     
     def _tratamento_log_func(self, metodo):
         return f'{__class__.__name__}'+'.'+f'{metodo.__name__}'+'()'
+
+
+    def _alterar_funcao_em_execucao(self, atual_funcao):
+        self.atual_funcao = atual_funcao

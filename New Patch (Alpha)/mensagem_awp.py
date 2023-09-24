@@ -4,6 +4,7 @@ import time
 from urllib import parse
 from decorators_awp import aprovarConexao
 from errors_awp import AWPConnectionError
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
@@ -149,8 +150,10 @@ class Anexo():
         self.objeto_awp = objeto
 
 
-    def enviar_imagem(self, item, mensagem):        
+    @aprovarConexao
+    def enviar_imagem(self, item, mensagem):   # correção.
         item = os.path.realpath(item)
+        print(item)
         self.__encontrar_botao_anexo_XPATH()
             
         arquivo = self.objeto_awp._drive.find_element(By.CSS_SELECTOR, "input[type='file']")
@@ -158,8 +161,8 @@ class Anexo():
         time.sleep(2)
 
         self.__enviar_anexo_XPATH(mensagem)
-
-
+    
+    @aprovarConexao
     def enviar_arquivo(self, nome_arquivo):     ## necessita correção!!!!!!!!!!!!!
         filename = os.path.realpath(nome_arquivo)
         self.__encontrar_botao_anexo_XPATH()
@@ -171,12 +174,14 @@ class Anexo():
         self.__enviar_anexo_XPATH()
 
 
+    @aprovarConexao
     def __encontrar_botao_anexo_XPATH(self):
         botão_anexo_xpath = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/div'
         self.objeto_awp._drive.find_element(By.XPATH, botão_anexo_xpath).click()
         time.sleep(2)
         
-    
+        
+    @aprovarConexao
     def __enviar_anexo_XPATH(self, *msg):
         inputbox_xpath = '//*[@id="app"]/div/div/div[3]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[1]/div[1]/p'
         if msg:

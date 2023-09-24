@@ -14,6 +14,8 @@ def aprovarConexao(func):
     def wrapper(self, *args, **kwargs):
         try:
             if self.objeto_awp._flag_status():
+                self.objeto_awp._alterar_funcao_em_execucao(f'AllWhatsPy.{func.__name__}()')
+                print(f'AllWhatsPy.{func.__name__}()')
                 self.objeto_awp._get_logging(f'AllWhatsPy.{func.__name__}() inicializou.')
                 return func(self, *args, **kwargs)
             raise AWPConnectionError        
