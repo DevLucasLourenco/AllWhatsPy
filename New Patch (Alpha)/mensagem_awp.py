@@ -1,3 +1,4 @@
+import os
 import requests
 import time
 from urllib import parse
@@ -9,8 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import (
     UnexpectedAlertPresentException,
-    NoSuchElementException,
-)
+    NoSuchElementException)
 
 
 class AWPMensagem():
@@ -22,30 +22,31 @@ class AWPMensagem():
         self.objeto_awp = objeto
         self.objeto_awp._get_logging(f'{__class__.__name__} obteve êxito.')
         self.localizacao = Endereco
+        self.anexo = Anexo(self.objeto_awp)
 
 
     @aprovarConexao
     def enviar_mensagem(self, mensagem: str):
-            if isinstance(mensagem, int) or isinstance(mensagem, float):
-                mensagem = str(mensagem)
+        if isinstance(mensagem, int) or isinstance(mensagem, float):
+            mensagem = str(mensagem)
 
-            self.objeto_awp.InferenciaAWP.mensagem = mensagem
-            textbox = self.objeto_awp._ArmazemXPATH.textbox_xpath
-            try:
-                if isinstance(mensagem, list):        
-                    mensagem = '\n'.join(mensagem)
-                    self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(mensagem,Keys.ENTER)         
-                    
-                else:    
-                    self.objeto_awp._drive.find_element(By.XPATH, textbox).send_keys(mensagem, Keys.ENTER)
-                                        
-                self.objeto_awp._get_logging(f'Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
-                self.objeto_awp._get_logging(f'Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
+        self.objeto_awp.InferenciaAWP.mensagem = mensagem
+        textbox = self.objeto_awp._ArmazemXPATH.textbox_xpath
+        try:
+            if isinstance(mensagem, list):        
+                mensagem = '\n'.join(mensagem)
+                self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(mensagem,Keys.ENTER)         
+                
+            else:    
+                self.objeto_awp._drive.find_element(By.XPATH, textbox).send_keys(mensagem, Keys.ENTER)
+                                    
+            self.objeto_awp._get_logging(f'Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
+            self.objeto_awp._get_logging(f'Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
 
-            except Exception as e:
-                self.objeto_awp._get_logging(f'Não foi possível realizar o envio da mensagem - erro: {e}')
+        except Exception as e:
+            self.objeto_awp._get_logging(f'Não foi possível realizar o envio da mensagem - erro: {e}')
 
-            time.sleep(1)
+        time.sleep(1)
 
 
     @aprovarConexao
@@ -141,13 +142,46 @@ class Endereco(AWPMensagem):
 
     def get(self):
         return self.dados
-  
 
 
+class Anexo():
 
+    def __init__(self, objeto) -> None:
+        self.objeto_awp = objeto
+
+
+    def enviar_imagem(self, item, mensagem):        
+        item = os.path.realpath(item)
+        self.__encontrar_botao_anexo_XPATH()
+            
+        arquivo = self.objeto_awp._drive.find_element(By.CSS_SELECTOR, "input[type='file']")
+        arquivo.send_keys(item)
+        time.sleep(2)
+
+        self.__enviar_anexo_XPATH(mensagem)
+
+
+    def enviar_arquivo(self, nome_arquivo):     ## necessita correção!!!!!!!!!!!!!
+        filename = os.path.realpath(nome_arquivo)
+        self.__encontrar_botao_anexo_XPATH()
+
+        self.objeto_awp.marktime('//*[@id="main"]/footer//*[@data-icon="attach-document"]/../input')
+        document_button = self.objeto_awp._drive.find_element(By.XPATH, '//*[@id="main"]/footer//*[@data-icon="attach-document"]/../input')
+        document_button.send_keys(filename)
+
+        self.__enviar_anexo_XPATH()
+
+
+    def __encontrar_botao_anexo_XPATH(self):
+        botão_anexo_xpath = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/div'
+        self.objeto_awp._drive.find_element(By.XPATH, botão_anexo_xpath).click()
+        time.sleep(2)
         
     
-
-    
-
-    
+    def __enviar_anexo_XPATH(self, *msg):
+        inputbox_xpath = '//*[@id="app"]/div/div/div[3]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[1]/div[1]/p'
+        if msg:
+            self.objeto_awp._drive.find_element(By.XPATH, inputbox_xpath).send_keys(msg, Keys.ENTER)
+        else:
+            self.objeto_awp._drive.find_element(By.XPATH, inputbox_xpath).send_keys(Keys.ENTER)
+        time.sleep(1)

@@ -4,6 +4,10 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
 from decorators_awp import aprovarConexao
 import time
+from selenium.common.exceptions import (
+    UnexpectedAlertPresentException,
+    NoSuchElementException,
+)
 
 
 class AWPUtilidades:
@@ -59,7 +63,7 @@ class AWPUtilidades:
             self.objeto_awp._get_logging(f'{self.objeto_awp.InferenciaAWP.contato} é uma conta comercial')
             return "C"
         
-        except Exception as e:
+        except NoSuchElementException as e:
             webdriver.ActionChains(self.objeto_awp._drive).send_keys(Keys.ESCAPE).perform()
             self.objeto_awp._get_logging(f'{self.objeto_awp.InferenciaAWP.contato} é uma conta pessoal')
             return "P"
