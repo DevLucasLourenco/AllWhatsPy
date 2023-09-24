@@ -98,7 +98,6 @@ class AWPMensagem():
         
 
 
-
 class Enquete(AWPMensagem):
     def __init__(self) -> None:
         ...
