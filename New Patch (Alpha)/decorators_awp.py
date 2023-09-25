@@ -52,7 +52,7 @@ def executarOrdemTeclas(func):
 def em_erro(func):
     def wrapper(self, *args, **kwargs):
         try:
-            return fn(self, *args, **kwargs)
+            return func(self, *args, **kwargs)
         except Exception as e:
             self._get_logging(f"{'':=^40}")
             self._get_logging(f'Ocorreu um erro durante a execução de {f"AllWhatsPy.{self.atual_funcao}()"}. Tempo de Execução AWP: {self.tempo_execucao}')
