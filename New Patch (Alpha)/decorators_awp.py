@@ -10,6 +10,7 @@ from tkinter import messagebox
 import os 
 
 
+@em_erro
 def aprovarConexao(func):
     def wrapper(self, *args, **kwargs):
         try:
@@ -36,8 +37,7 @@ def executarOrdemTeclas(func):
         
         time.sleep(0.5)
         acao.perform()
-        time.sleep(0.5)
-            
+        time.sleep(0.5)    
             
     def wrapper(self, *args, **kwargs):
         run = func(self, *args, **kwargs)
@@ -46,4 +46,16 @@ def executarOrdemTeclas(func):
         next(self.objeto_awp._generator_info_contato_acessado)
         next(self.objeto_awp._generator_info_contato_acessado)
         
+    return wrapper
+
+
+def em_erro(func):
+    def wrapper(self, *args, **kwargs):
+        try:
+            return func(self, *args, **kwargs)
+        except Exception as e:
+            self._get_logging(f"{'':=^40}")
+            self._get_logging(f'Ocorreu um erro durante a execução de {f"AllWhatsPy.{self.atual_funcao}()"} — Erro: {e}. Tempo de Execução AWP: {self.tempo_execucao}')
+            self._get_logging(f"{'':=^40}")
+            raise  
     return wrapper
