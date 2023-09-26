@@ -57,23 +57,36 @@ def executarOrdemTeclas(func):
 
 
 def PseudoAWP(func):
-    def validacao_dados(self):
-        ...
+    def validacao_dados(self, dicio: dict):
+        if isinstance(dicio, dict):
+            metodo = {
+                "EM" : {"Enviar Mensagem" : awp.msg.enviar_mensagem()},
+                #"EMP" : {"Enviar Mensagem Paragrafada" : awp.msg.;;;()},
+                
+            }
+        else:
+            raise TypeError('')
         
     def wrapper(self, *args, **kwargs):
         inf = func(self, *args, **kwargs)
+        inf = validacao_dados(inf)
         
     return wrapper
 
     #ex:
-    # @PseudoAWP
-    # def run():
-    #    dicio = {
+        # @PseudoAWP
+    # def run(dados: dict):
+    #    return dados
+
+
+    # dicio = {
     #        objeto : awp,
     #        iter_ctt : [],
     #        mensagem : '',
     #        metodo : '',
     #    }
-    #    return dicio
+
+    #run(dicio)
+
 
 
