@@ -140,7 +140,7 @@ class Endereco(AWPMensagem):
             raise ValueError("Insira um CEP válido")
 
 
-    def get(self):
+    def retornar(self):
         return self.dados
 
 
