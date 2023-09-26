@@ -56,3 +56,12 @@ def executarOrdemTeclas(func):
     return wrapper
 
 
+def ExecutarAWPPadronizacao(func):
+    ...
+    #aqui colocar parâmeetros para serem usados. O usuário enviará através de uma função os dados.
+    #ex:
+    # @ExecutarAWPPadronizacao
+    # def run():
+    #    return awp, listanomes, mensagem, qualmetodo
+
+
