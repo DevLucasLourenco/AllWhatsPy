@@ -3,7 +3,7 @@ from __init__ import AllWhatsPy
 
 
 awp = AllWhatsPy()
-awp.conexao(server_host=True, popup=False, calibragem=(True, 10))
+awp.conexao(server_host=True, popup=False, calibragem=[True, 10])
 
 # # # awp.ctt.encontrar_usuario(21959061623)
 # awp.ctt.encontrar_usuario(2195906162464893)
@@ -69,9 +69,9 @@ with awp.criptografia.CifraDeVigenere(texto_vigenere_c, 'lalaland','d') as vigen
 print(texto_vigenere_c)
 print(texto_vigenere_d)
 
-# print(awp.tempo_execucao)
+print(awp.tempo_execucao)
 
 
 awp.ctt.encontrar_usuario(21959061623)
-awp.msg.anexo.enviar_imagem('utilidades/awpimgg.png', 'lucas é lindo')
+awp.msg.anexo.enviar_imagem('baixados.jpg', 'lucas é lindo')
 # awp.msg.anexo.enviar_arquivo("texto.txt")
