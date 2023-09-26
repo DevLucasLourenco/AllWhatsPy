@@ -62,14 +62,14 @@ def PseudoAWP(func):
         
     def wrapper(self, *args, **kwargs):
         inf = func(self, *args, **kwargs)
+        
     return wrapper
 
-    #aqui colocar parâmeetros para serem usados. O usuário enviará através de uma função os dados.
     #ex:
-    # @ExecutarAWPPadronizacao
+    # @PseudoAWP
     # def run():
     #    dicio = {
-    #        objeto : self,
+    #        objeto : awp,
     #        iter_ctt : [],
     #        mensagem : '',
     #        metodo : '',
