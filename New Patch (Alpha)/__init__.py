@@ -31,9 +31,9 @@ class AllWhatsPy:
     logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='eventAWP.log', format='%(asctime)s - %(levelname)s - %(message)s')
     flag_connection = False
     
-    
     def __init__(self, inicializarTitulo:bool=True):
         self.__tempo_inicial = time.time()
+        
         AllWhatsPy.__tituloAWP(inicializarTitulo)
         self._get_logging(f"{' AllWhatsPy - AWP ':=^40}")
         
@@ -55,13 +55,6 @@ class AllWhatsPy:
     def __del__(self):
         self._get_logging(f'Tempo de Execução AWP: {self.tempo_execucao}')
         self._get_logging(f"{'':=^40}")
-
-
-    def __exit__(self, exc_type, exc_value, traceback): #pesquisar como fazer ocorrer caso o algoritmo reaja com um erro
-        if exc_type is not None or exc_value is not None or traceback is not None:
-            self._get_logging(f"{'':=^40}")
-            self._get_logging(f'Ocorreu um erro durante a execução de {f"AllWhatsPy.{self.atual_funcao}()"}. Tempo de Execução AWP: {self.tempo_execucao}')
-            self._get_logging(f"{'':=^40}")
 
     
     class InferenciaAWP:
@@ -141,7 +134,6 @@ class AllWhatsPy:
         # confirmar desconexão
         self._drive.find_element(By.XPATH, dc_xpath_confirmar).click()
     
-        
         self._drive.close()
         self._get_logging('Whatsapp Encerrado')    
 

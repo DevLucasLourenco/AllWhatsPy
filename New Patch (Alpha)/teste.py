@@ -3,7 +3,7 @@ from __init__ import AllWhatsPy
 
 
 awp = AllWhatsPy()
-awp.conexao(server_host=True, popup=False, calibragem=False)
+awp.conexao(server_host=True, popup=False, calibragem=(True, 10))
 
 # # # awp.ctt.encontrar_usuario(21959061623)
 # awp.ctt.encontrar_usuario(2195906162464893)
@@ -50,10 +50,10 @@ texto = 'Lucas e o criador do AWP, AllWhatsPy'
 key = 5
 
 with awp.criptografia.CifraDeCaesar(texto, key, 'c') as caesarC:
-    texto_caesar_c = caesarC.fetch()
+    texto_caesar_c = caesarC.retornar()
 
 with awp.criptografia.CifraDeCaesar(texto_caesar_c, key, 'd') as caesarD:
-    texto_caesar_d = caesarD.fetch()
+    texto_caesar_d = caesarD.retornar()
 
 print(texto_caesar_c)
 print(texto_caesar_d)
@@ -61,17 +61,17 @@ print(texto_caesar_d)
 
 textolegal = 'lucas é legalzao, po!'
 with awp.criptografia.CifraDeVigenere(textolegal, 'lalaland','c') as vigenereC:
-    texto_vigenere_c = vigenereC.fetch()
+    texto_vigenere_c = vigenereC.retornar()
 
 with awp.criptografia.CifraDeVigenere(texto_vigenere_c, 'lalaland','d') as vigenereD:
-    texto_vigenere_d = vigenereD.fetch()
+    texto_vigenere_d = vigenereD.retornar()
 
 print(texto_vigenere_c)
 print(texto_vigenere_d)
 
-print(awp.tempo_execucao)
+# print(awp.tempo_execucao)
 
 
 awp.ctt.encontrar_usuario(21959061623)
-awp.msg.anexo.enviar_imagem('baixados.jpg', 'lucas é lindo')
+awp.msg.anexo.enviar_imagem('utilidades/awpimgg.png', 'lucas é lindo')
 # awp.msg.anexo.enviar_arquivo("texto.txt")

@@ -46,7 +46,7 @@ class AWPCriptografia():
             self.criptografar(mensagem_criptografada, -chave)
             
 
-        def fetch(self):
+        def retornar(self):
             return self.resultado
         
 
@@ -108,5 +108,5 @@ class AWPCriptografia():
             self.resultado = mensagem_descriptografada
 
 
-        def fetch(self):
+        def retornar(self):
             return self.resultado

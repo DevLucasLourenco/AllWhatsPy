@@ -1,31 +1,38 @@
 from errors_awp import AWPConnectionError
 import time
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
-from tkinter import messagebox
-import os 
+from selenium.common.exceptions import (
+    UnexpectedAlertPresentException,
+    NoSuchElementException,
+)
 
 
-@em_erro
-def aprovarConexao(func):
+def eventual_erro(func):
     def wrapper(self, *args, **kwargs):
         try:
-            if self.objeto_awp._flag_status():
-                self.objeto_awp._alterar_funcao_em_execucao(f'AllWhatsPy.{func.__name__}()')
-                print(f'AllWhatsPy.{func.__name__}()')
-                self.objeto_awp._get_logging(f'AllWhatsPy.{func.__name__}() inicializou.')
-                return func(self, *args, **kwargs)
-            raise AWPConnectionError        
-    
-        finally:
-            if self.objeto_awp._flag_status() or self._drive._flag_status():
-                self.objeto_awp._get_logging(f'{self.objeto_awp._tratamento_log_func(func)} finalizou sua execução com êxito.')
-            else:
-                self.objeto_awp._get_logging(f'{self.objeto_awp._tratamento_log_func(func)} encontrou uma falha na execução.')
+            func(self, *args, **kwargs)
+
+        except AWPConnectionError:
+            raise AWPConnectionError
+
+        except (Exception, NoSuchElementException, UnexpectedAlertPresentException) as e:
+            self.objeto_awp._get_logging(f'Ocorreu um erro durante a execução de {f"{self.objeto_awp.atual_funcao}"} — Erro: {e}. Tempo de Execução AWP: {self.objeto_awp.tempo_execucao}')
+            self.objeto_awp._get_logging(f"{'':=^40}")
+            raise
+    return wrapper
+
+
+def aprovarConexao(func):
+    @eventual_erro
+    def wrapper(self, *args, **kwargs):
+        if self.objeto_awp._flag_status():
+            self.objeto_awp._alterar_funcao_em_execucao(f'AllWhatsPy.{func.__name__}()')
+            
+            self.objeto_awp._get_logging(f'AllWhatsPy.{func.__name__}() inicializou.')
+            func(self, *args, **kwargs)
+            self.objeto_awp._get_logging(f'{self.objeto_awp._tratamento_log_func(func)} finalizou sua execução com êxito.')
+            return
+        raise AWPConnectionError
     return wrapper
 
 
@@ -49,13 +56,3 @@ def executarOrdemTeclas(func):
     return wrapper
 
 
-def em_erro(func):
-    def wrapper(self, *args, **kwargs):
-        try:
-            return func(self, *args, **kwargs)
-        except Exception as e:
-            self._get_logging(f"{'':=^40}")
-            self._get_logging(f'Ocorreu um erro durante a execução de {f"AllWhatsPy.{self.atual_funcao}()"} — Erro: {e}. Tempo de Execução AWP: {self.tempo_execucao}')
-            self._get_logging(f"{'':=^40}")
-            raise  
-    return wrapper
