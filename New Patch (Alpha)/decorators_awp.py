@@ -56,12 +56,24 @@ def executarOrdemTeclas(func):
     return wrapper
 
 
-def ExecutarAWPPadronizacao(func):
-    ...
+def PseudoAWP(func):
+    def validacao_dados(self):
+        ...
+        
+    def wrapper(self, *args, **kwargs):
+        inf = func(self, *args, **kwargs)
+    return wrapper
+
     #aqui colocar parâmeetros para serem usados. O usuário enviará através de uma função os dados.
     #ex:
     # @ExecutarAWPPadronizacao
     # def run():
-    #    return awp, listanomes, mensagem, qualmetodo
+    #    dicio = {
+    #        objeto : self,
+    #        iter_ctt : [],
+    #        mensagem : '',
+    #        metodo : '',
+    #    }
+    #    return dicio
 
 
