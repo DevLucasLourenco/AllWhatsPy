@@ -96,6 +96,10 @@ class AWPMensagem():
 
         else:
             raise ValueError('Valor informado incoerente.')
+
+
+    def _validar_envio(self): #verifica se a mensagem foi enviada.
+        ...
         
 
 
