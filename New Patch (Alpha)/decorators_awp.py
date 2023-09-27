@@ -89,7 +89,7 @@ def PseudoAWP(func):
             return relacao #prototipo!! revisar tudo 
             
         else:
-            raise TypeError('Forneça um dicionário contendo as informações solicitadas.')
+            raise TypeError(f'O objeto {dicio.__name__} do tipo {type(dicio)} é inválido. Passe um objeto do tipo dict para o parâmetro requisitado.')
         
     def wrapper(*args, **kwargs):
         inf = func(*args, **kwargs)
