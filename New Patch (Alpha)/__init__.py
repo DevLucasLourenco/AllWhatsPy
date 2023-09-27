@@ -4,7 +4,7 @@ from mensagem_awp import AWPMensagem
 from criptografia_awp import AWPCriptografia
 from utilidades_awp import AWPUtilidades
 # from errors_awp import AWPConnectionError
-from decorators_awp import aprovarConexao
+from decorators_awp import aprovarConexao, PseudoAWP
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -51,6 +51,8 @@ class AllWhatsPy:
         self.dados_nome_usuario = None
 
         self.atual_funcao = None
+        
+
 
     def __del__(self):
         self._get_logging(f'Tempo de Execução AWP: {self.tempo_execucao}')
@@ -59,9 +61,10 @@ class AllWhatsPy:
     
     class InferenciaAWP:
         lista_contatos: list = list()
-        contato: str = ""
-        mensagem: str = ""
+        contato: str 
+        mensagem: str
         contatosInexistentes: list = list()
+        contato_acessivel: bool
 
 
     class _ArmazemXPATH:
@@ -146,11 +149,10 @@ class AllWhatsPy:
         xpath_aux = '//*[@id="main"]/header/div[2]/div/div'
         self._marktime_func(xpath_aux)
 
-        
         while True:
             # Etapa 1
             ctt = self._drive.find_element(By.XPATH, xpath_aux)
-            nome = ctt.find_element(By.XPATH, '//*[@id="main"]/header/div[2]/div[1]/div/span[1]').text
+            nome = ctt.find_element(By.XPATH, '//*[@id="main"]/header/div[2]/div/div/span').text
 
             self.InferenciaAWP.contato = nome
             self.InferenciaAWP.lista_contatos.append(nome)

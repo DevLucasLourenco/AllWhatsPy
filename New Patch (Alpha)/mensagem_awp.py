@@ -33,20 +33,22 @@ class AWPMensagem():
 
         self.objeto_awp.InferenciaAWP.mensagem = mensagem
         textbox = self.objeto_awp._ArmazemXPATH.textbox_xpath
-        try:
-            if isinstance(mensagem, list):        
-                mensagem = '\n'.join(mensagem)
-                self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(mensagem,Keys.ENTER)         
-                
-            else:    
-                self.objeto_awp._drive.find_element(By.XPATH, textbox).send_keys(mensagem, Keys.ENTER)
-                                    
-            self.objeto_awp._get_logging(f'Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
+
+
+        if isinstance(mensagem, list):        
+            mensagem = '\n'.join(mensagem)
+
+        self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(mensagem,Keys.ENTER)         
+                                
+
+        self.objeto_awp._get_logging(f'Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
+
+
+        if len(self.objeto_awp.InferenciaAWP.mensagem) > 35:
             self.objeto_awp._get_logging(f'Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
-
-        except Exception as e:
-            self.objeto_awp._get_logging(f'Não foi possível realizar o envio da mensagem - erro: {e}')
-
+        else:
+            self.objeto_awp._get_logging(f'Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}')
+            
         time.sleep(1)
 
 
@@ -57,11 +59,23 @@ class AWPMensagem():
         textbox = self.objeto_awp._marktime_func(self.objeto_awp._ArmazemXPATH.textbox_xpath)
         textbox.click()
 
+        if isinstance(mensagem, list):
+            mensagem = '\n'.join(mensagem)
+            
         for linha in mensagem.split('\n'):
             textbox.send_keys(linha)
             ActionChains(self.objeto_awp._drive).key_down(Keys.SHIFT).key_down(Keys.ENTER).key_up(Keys.ENTER).key_up(Keys.SHIFT).perform()
 
         textbox.send_keys(Keys.ENTER)
+        
+        self.objeto_awp._get_logging(f'Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
+        
+        if len(self.objeto_awp.InferenciaAWP.mensagem) > 35:
+            self.objeto_awp._get_logging(f'Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
+        else:
+            self.objeto_awp._get_logging(f'Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}')
+            
+        time.sleep(1)
 
 
     @aprovarConexao

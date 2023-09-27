@@ -28,6 +28,7 @@ class AWPContatos():
         if self.__verificacao_existencia_contato(contato_destino):
             next(self.objeto_awp._generator_info_contato_acessado)
             next(self.objeto_awp._generator_info_contato_acessado)
+
             
         
     @aprovarConexao
@@ -46,7 +47,6 @@ class AWPContatos():
         
 
     
-    @aprovarConexao
     def __verificacao_existencia_contato(self, contato):
         while True:
             try:
@@ -56,11 +56,13 @@ class AWPContatos():
                     self.objeto_awp.InferenciaAWP.contatosInexistentes.append(contato)
                     self.objeto_awp._get_logging(f'Contato {contato} não existe.')
                     self.objeto_awp._get_logging(f'Lista de contatos inexistentes nesta instância: {self.objeto_awp.InferenciaAWP.contatosInexistentes}')
+                    self.objeto_awp.InferenciaAWP.contato_acessivel = False
                     return False
                 
-            except (NoSuchElementException):
+            except Exception as e:
                 try:
                     if self.objeto_awp._drive.find_element(By.XPATH, self.objeto_awp._ArmazemXPATH.textbox_xpath).is_displayed():# xpath do textbox
+                        self.objeto_awp.InferenciaAWP.contato_acessivel = True
                         time.sleep(1)
                         return True
                 except:

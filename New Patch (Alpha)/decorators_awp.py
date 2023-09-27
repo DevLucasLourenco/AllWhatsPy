@@ -30,7 +30,7 @@ def aprovarConexao(func):
             
             self.objeto_awp._get_logging(f'AllWhatsPy.{func.__name__}() inicializou.')
             func(self, *args, **kwargs)
-            self.objeto_awp._get_logging(f'{self.objeto_awp._tratamento_log_func(func)} finalizou sua execução com êxito.')
+            self.objeto_awp._get_logging(f'{self.objeto_awp._tratamento_log_func(func)} finalizou sua execução.')
             return
         raise AWPConnectionError
     return wrapper
@@ -57,36 +57,41 @@ def executarOrdemTeclas(func):
 
 
 def PseudoAWP(func):
-    def validacao_dados(self, dicio: dict):
+    def _deteccao_metodo(obj, item):
+        metodo_resolucao = {
+                "EM" : obj.msg.enviar_mensagem,
+                "EMP" : obj.msg.enviar_mensagem_paragrafada, ## necessário correção. manda todas as msgs para uma única pessoa. (mt importante!!!)
+                }
+        try:
+            return metodo_resolucao[item]
+        except KeyError:
+            raise KeyError(f"Método não aceito. Opções: {', '.join(list(metodo_resolucao.keys()))}") 
+
+
+    def validacao_dados(dicio: dict):
         if isinstance(dicio, dict):
-            metodo = {
-                "EM" : {"Enviar Mensagem" : awp.msg.enviar_mensagem()},
-                #"EMP" : {"Enviar Mensagem Paragrafada" : awp.msg.;;;()},
-                
-            }
+            objeto = dicio.get('objeto')
+            lista_contatos = dicio.get('iter_ctt')
+            mensagem = dicio.get('mensagem')
+            metodo = _deteccao_metodo(objeto, dicio.get('metodo'))
+
+            return objeto, lista_contatos, mensagem, metodo
+            
         else:
-            raise TypeError('')
+            raise TypeError('Forneça um dicionário contendo as informações solicitadas.')
         
-    def wrapper(self, *args, **kwargs):
-        inf = func(self, *args, **kwargs)
+    def wrapper(*args, **kwargs):
+        inf = func(*args, **kwargs)
         inf = validacao_dados(inf)
-        
+        objeto, lista_contatos, mensagem, metodo = inf
+
+        print(objeto, lista_contatos, mensagem, metodo) 
+
+        objeto.conexao(server_host=True, popup=False, calibragem=[True, 10])
+
+        for ctt in lista_contatos:
+            objeto.ctt.encontrar_usuario(ctt)
+            if objeto.InferenciaAWP.contato_acessivel:
+                metodo(mensagem)
+                
     return wrapper
-
-    #ex:
-        # @PseudoAWP
-    # def run(dados: dict):
-    #    return dados
-
-
-    # dicio = {
-    #        objeto : awp,
-    #        iter_ctt : [],
-    #        mensagem : '',
-    #        metodo : '',
-    #    }
-
-    #run(dicio)
-
-
-
