@@ -1,5 +1,6 @@
 from errors_awp import AWPConnectionError
 import time
+import string
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import (
     UnexpectedAlertPresentException,
@@ -76,32 +77,37 @@ def PseudoAWP(func):
                 "iter_ctt": None,
                 "mensagem" : None,
                 "metodo" : "EMP",
-                "calibragem" : 10,
-                "host" : True,
+                "calibragem" : [True, 10],
+                "server_host" : True,
         }
-        relacao.update(dicio)
         if isinstance(dicio, dict):
             objeto = dicio.get('objeto')
             lista_contatos = dicio.get('iter_ctt')
             mensagem = dicio.get('mensagem')
             metodo = _deteccao_metodo(objeto, dicio.get('metodo'))
 
+            relacao.update(dicio)
             return relacao #prototipo!! revisar tudo 
             
         else:
             raise TypeError(f'O objeto {dicio.__name__} do tipo {type(dicio)} é inválido. Passe um objeto do tipo dict para o parâmetro requisitado.')
         
     def wrapper(*args, **kwargs):
+
         inf = func(*args, **kwargs)
         inf = validacao_dados(inf)
         objeto, lista_contatos, mensagem, metodo = inf
-
-        print(objeto, lista_contatos, mensagem, metodo) 
+        
+        alfabeto_maiusculo = [l for l in string.ascii_uppercase]
+        alfabeto_minusculo = [l for l in string.ascii_lowercase]
 
         objeto.conexao(server_host=True, popup=False, calibragem=[True, 10])
-
         for ctt in lista_contatos:
-            objeto.ctt.encontrar_usuario(ctt)
+            if (alfabeto_maiusculo in ctt) or (alfabeto_minusculo in ctt):
+                objeto.ctt.encontrar_contato(ctt)    
+            else:
+                objeto.ctt.encontrar_usuario(ctt)
+                
             if objeto.InferenciaAWP.contato_acessivel:
                 metodo(mensagem)
                 
