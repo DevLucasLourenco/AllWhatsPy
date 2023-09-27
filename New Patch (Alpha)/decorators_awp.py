@@ -10,8 +10,9 @@ from selenium.common.exceptions import (
 def eventual_erro(func):
     def wrapper(self, *args, **kwargs):
         try:
-            func(self, *args, **kwargs)
-
+            f = func(self, *args, **kwargs)
+            return f
+            
         except AWPConnectionError:
             raise AWPConnectionError
 
@@ -29,9 +30,9 @@ def aprovarConexao(func):
             self.objeto_awp._alterar_funcao_em_execucao(f'AllWhatsPy.{func.__name__}()')
             
             self.objeto_awp._get_logging(f'AllWhatsPy.{func.__name__}() inicializou.')
-            func(self, *args, **kwargs)
+            f = func(self, *args, **kwargs)
             self.objeto_awp._get_logging(f'{self.objeto_awp._tratamento_log_func(func)} finalizou sua execução.')
-            return
+            return f
         raise AWPConnectionError
     return wrapper
 
