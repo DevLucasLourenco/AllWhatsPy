@@ -65,18 +65,28 @@ def PseudoAWP(func):
                 }
         try:
             return metodo_resolucao[item]
+            
         except KeyError:
             raise KeyError(f"Método não aceito. Opções: {', '.join(list(metodo_resolucao.keys()))}") 
 
 
     def validacao_dados(dicio: dict):
+        relacao = {
+                "objeto" : None,
+                "iter_ctt": None,
+                "mensagem" : None,
+                "metodo" : "EMP",
+                "calibragem" : 10,
+                "host" : True,
+        }
+        relacao.update(dicio)
         if isinstance(dicio, dict):
             objeto = dicio.get('objeto')
             lista_contatos = dicio.get('iter_ctt')
             mensagem = dicio.get('mensagem')
             metodo = _deteccao_metodo(objeto, dicio.get('metodo'))
 
-            return objeto, lista_contatos, mensagem, metodo
+            return relacao #prototipo!! revisar tudo 
             
         else:
             raise TypeError('Forneça um dicionário contendo as informações solicitadas.')
