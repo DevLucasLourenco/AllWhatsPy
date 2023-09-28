@@ -45,6 +45,8 @@ class AWPContatos():
         next(self.objeto_awp._generator_info_contato_acessado)
         next(self.objeto_awp._generator_info_contato_acessado)
         
+        self.objeto_awp.InferenciaAWP.contato_acessivel = True
+        
 
     
     def __verificacao_existencia_contato(self, contato):

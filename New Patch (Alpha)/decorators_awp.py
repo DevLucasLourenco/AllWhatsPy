@@ -59,10 +59,11 @@ def executarOrdemTeclas(func):
 
 
 def PseudoAWP(func):
+    
     def _deteccao_metodo(obj, item):
         metodo_resolucao = {
                 "EM" : obj.msg.enviar_mensagem,
-                "EMP" : obj.msg.enviar_mensagem_paragrafada, ## necessário correção. manda todas as msgs para uma única pessoa. (mt importante!!!)
+                "EMP" : obj.msg.enviar_mensagem_paragrafada,
                 }
         try:
             return metodo_resolucao[item]
@@ -76,39 +77,49 @@ def PseudoAWP(func):
                 "objeto" : None,
                 "iter_ctt": None,
                 "mensagem" : None,
-                "metodo" : "EMP",
+                "metodo" : None,
                 "calibragem" : [True, 10],
                 "server_host" : True,
+                "anexo" : None,  #a criar...
         }
         if isinstance(dicio, dict):
             objeto = dicio.get('objeto')
-            lista_contatos = dicio.get('iter_ctt')
-            mensagem = dicio.get('mensagem')
-            metodo = _deteccao_metodo(objeto, dicio.get('metodo'))
+            relacao['metodo'] = _deteccao_metodo(objeto, "EMP")
 
             relacao.update(dicio)
-            return relacao #prototipo!! revisar tudo 
+            return relacao
             
         else:
             raise TypeError(f'O objeto {dicio.__name__} do tipo {type(dicio)} é inválido. Passe um objeto do tipo dict para o parâmetro requisitado.')
         
-    def wrapper(*args, **kwargs):
+    def _validar_alfabeto_em_contato(contato):   
+        try:
+            alfabeto = [l for l in string.ascii_lowercase]
+            alfabeto_maiusculo = [l for l in string.ascii_uppercase]
+            alfabeto.extend(alfabeto_maiusculo)
+            contato = [l for l in contato]
 
-        inf = func(*args, **kwargs)
-        inf = validacao_dados(inf)
-        objeto, lista_contatos, mensagem, metodo = inf
+            for l in contato:
+                if l in alfabeto:
+                    return True
+            return False
         
-        alfabeto_maiusculo = [l for l in string.ascii_uppercase]
-        alfabeto_minusculo = [l for l in string.ascii_lowercase]
+        except TypeError as e:
+            return False
+        
+    def wrapper(*args, **kwargs):
+        inf = func(*args, **kwargs)
+        dict_info = validacao_dados(inf)        
+        dict_info['metodo'] = _deteccao_metodo(dict_info['objeto'], dict_info['metodo'])
+        dict_info['objeto'].conexao(server_host=dict_info['server_host'], popup=False, calibragem=dict_info['calibragem'])
 
-        objeto.conexao(server_host=True, popup=False, calibragem=[True, 10])
-        for ctt in lista_contatos:
-            if (alfabeto_maiusculo in ctt) or (alfabeto_minusculo in ctt):
-                objeto.ctt.encontrar_contato(ctt)    
+        for ctt in dict_info['iter_ctt']:
+            if _validar_alfabeto_em_contato(ctt):
+                dict_info['objeto'].ctt.encontrar_contato(ctt)    
             else:
-                objeto.ctt.encontrar_usuario(ctt)
+                dict_info['objeto'].ctt.encontrar_usuario(ctt)
                 
-            if objeto.InferenciaAWP.contato_acessivel:
-                metodo(mensagem)
+            if dict_info['objeto'].InferenciaAWP.contato_acessivel:
+                dict_info['metodo'](dict_info['mensagem'])
                 
     return wrapper

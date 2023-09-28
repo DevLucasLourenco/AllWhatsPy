@@ -6,17 +6,18 @@ def awp_script(dados):
     return dados
 
 
-awp = AllWhatsPy()
+awp = AllWhatsPy(show_off=True)
 msg = ['teste', 'de cria']
 msg2 = """
 teste
-para emp
-"""
+paradastro"""
+
 dicio = {
         'objeto' : awp,
-        'iter_ctt' : [21959061623, 21169549849489, 21959061623],
-        'mensagem' : msg2,
-        'metodo' : 'EMP',
+        'iter_ctt' : ['lucas lourenco', 21169549849489, 21959061623],
+        'mensagem' : msg,
+        'metodo' : 'EM',
+        'calibragem' : False
         }
 
 awp_script(dicio)

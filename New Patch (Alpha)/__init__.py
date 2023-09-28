@@ -31,9 +31,10 @@ class AllWhatsPy:
     logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='eventAWP.log', format='%(asctime)s - %(levelname)s - %(message)s')
     flag_connection = False
     
-    def __init__(self, inicializarTitulo:bool=True):
+    def __init__(self, show_off:bool = True, inicializarTitulo:bool=True):
         self.__tempo_inicial = time.time()
-        
+        self.show_off = show_off
+
         AllWhatsPy.__tituloAWP(inicializarTitulo)
         self._get_logging(f"{' AllWhatsPy - AWP ':=^40}")
         
@@ -49,9 +50,8 @@ class AllWhatsPy:
         self._drive = None
         self._marktime = None   
         self.dados_nome_usuario = None
-
-        self.atual_funcao = None
         
+        self.atual_funcao = None
 
 
     def __del__(self):
@@ -88,7 +88,6 @@ class AllWhatsPy:
     def conexao(self, server_host: bool=False, popup=False, calibragem: tuple[bool, int]=(True, 10)):
         self.__driveConfigGoogle(server_host)
 
-        # Aguardo na realização do login com QR Code
         while True:
             try:
                 self._drive.find_element(By.XPATH, self._ArmazemXPATH.var_aux_xpath)
@@ -102,9 +101,10 @@ class AllWhatsPy:
                 
                 if popup:
                         messagebox.showinfo('Validado','Conexão Efetuada!')
-                
+
                 self.__config_calibragem(calibragem)
                 break
+
 
             except:
                 self._get_logging('Aguardando Login...')
@@ -112,6 +112,7 @@ class AllWhatsPy:
 
         self.flag_connection = True              
         
+
     @aprovarConexao
     def desconectar(self):
         self._get_logging('Desconectando Whatsapp...')
@@ -168,14 +169,17 @@ class AllWhatsPy:
     def __driveConfigGoogle(self, validacao_server):        
         os.environ['WDM_LOG'] = '0'
         servico = Service(ChromeDriverManager().install())  
+        options = webdriver.ChromeOptions()
+        options.add_experimental_option("useAutomationExtension", False)
+        options.add_experimental_option("excludeSwitches",["enable-automation"])
 
         if validacao_server:
             self.dados_nome_usuario = os.getlogin()
-            options = webdriver.ChromeOptions()
             options.add_argument(f'user-data-dir=C://users/{self.dados_nome_usuario}/AllWhatsPyHost')
 
+            
         self._drive = webdriver.Chrome(service=servico, options=options)
-        self._drive.maximize_window()
+        self._drive.maximize_window() if self.show_off else self._drive.minimize_window()
         self._drive.get(r'https://web.whatsapp.com/')
         self._marktime = WebDriverWait(self._drive, 90)
     
