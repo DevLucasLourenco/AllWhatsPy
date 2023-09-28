@@ -96,7 +96,6 @@ class AllWhatsPy:
                 if server_host:
                     self._get_logging(f'Conexão por Server efetuada.')
                     self._get_logging(f'<Nome da Pasta: AllWhatsPyHost> | <Usuário: {self.dados_nome_usuario}>')
-
                 else:
                     self._get_logging('Conexao Efetuada.')
                 
