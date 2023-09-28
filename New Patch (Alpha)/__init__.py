@@ -4,7 +4,7 @@ from mensagem_awp import AWPMensagem
 from criptografia_awp import AWPCriptografia
 from utilidades_awp import AWPUtilidades
 # from errors_awp import AWPConnectionError
-from decorators_awp import aprovarConexao, PseudoAWP
+from decorators_awp import aprovarConexao, PseudoAWP, eventual_erro
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -85,6 +85,7 @@ class AllWhatsPy:
             print('https://github.com/DevLucasLourenco/AllWhatsPy')
 
 
+    @eventual_erro
     def conexao(self, server_host: bool=False, popup=False, calibragem: tuple[bool, int]=(True, 10)):
         self.__driveConfigGoogle(server_host)
 
