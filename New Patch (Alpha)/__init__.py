@@ -28,16 +28,14 @@ import time
 
 
 class AllWhatsPy: 
+    __tempo_inicial = time.time()
     logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='eventAWP.log', format='%(asctime)s - %(levelname)s - %(message)s')
     flag_connection = False
     
     def __init__(self, show_off:bool = True, inicializarTitulo:bool=True):
-        self.__tempo_inicial = time.time()
-        self.show_off = show_off
-
         AllWhatsPy.__tituloAWP(inicializarTitulo)
         self._get_logging(f"{' AllWhatsPy - AWP ':=^40}")
-        
+        self.show_off = show_off
         
         self.ctt = AWPContatos(self)
         self.msg = AWPMensagem(self)
@@ -50,7 +48,6 @@ class AllWhatsPy:
         self._drive = None
         self._marktime = None   
         self.dados_nome_usuario = None
-        
         self.atual_funcao = None
 
 
@@ -75,7 +72,7 @@ class AllWhatsPy:
 
     @property 
     def tempo_execucao(self):  
-        return f'{time.time()-self.__tempo_inicial:.4f}s'
+        return f'{time.time()-AllWhatsPy.__tempo_inicial:.4f}s'
         
 
     @staticmethod
@@ -158,7 +155,6 @@ class AllWhatsPy:
             self.InferenciaAWP.contato = nome
             self.InferenciaAWP.lista_contatos.append(nome)
             yield 
-            
             
             # Etapa 2
             self._get_logging(f"Atual Contato: {self.InferenciaAWP.contato}")

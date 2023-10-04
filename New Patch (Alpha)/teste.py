@@ -1,26 +1,26 @@
 from __init__ import AllWhatsPy, PseudoAWP
 
 
-@PseudoAWP
-def awp_script(dados):
-    return dados
+# @PseudoAWP
+# def awp_script(dados):
+#     return dados
 
 
 awp = AllWhatsPy(show_off=True)
-msg = ['teste', 'de cria']
-msg2 = """
-teste
-paradastro"""
+# msg = ['teste', 'de cria']
+# msg2 = """
+# teste
+# paradastro"""
 
-dicio = {
-        'objeto' : awp,
-        'iter_ctt' : ['lucas lourenco', 21169549849489, 21959061623],
-        'mensagem' : msg,
-        'metodo' : 'EM',
-        'calibragem' : False
-        }
+# dicio = {
+#         'objeto' : awp,
+#         'iter_ctt' : ['lucas lourenco', 21169549849489, 21959061623],
+#         'mensagem' : msg,
+#         'metodo' : 'EM',
+#         'calibragem' : False
+#         }
 
-awp_script(dicio)
+# awp_script(dicio)
 
 # awp.conexao(server_host=True, popup=False, calibragem=False)
 

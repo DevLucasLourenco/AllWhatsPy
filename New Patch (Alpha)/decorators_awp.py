@@ -59,7 +59,6 @@ def executarOrdemTeclas(func):
 
 
 def PseudoAWP(func):
-    
     def _deteccao_metodo(obj, item):
         metodo_resolucao = {
                 "EM" : obj.msg.enviar_mensagem,

@@ -15,9 +15,6 @@ from selenium.common.exceptions import (
 
 
 class AWPMensagem():
-    """
-    Utilizado para o envio de mensagem
-    """
     
     def __init__(self, objeto):
         self.objeto_awp = objeto
@@ -34,15 +31,11 @@ class AWPMensagem():
         self.objeto_awp.InferenciaAWP.mensagem = mensagem
         textbox = self.objeto_awp._ArmazemXPATH.textbox_xpath
 
-
         if isinstance(mensagem, list):        
             mensagem = '\n'.join(mensagem)
 
         self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(mensagem,Keys.ENTER)         
-                                
-
         self.objeto_awp._get_logging(f'Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
-
 
         if len(self.objeto_awp.InferenciaAWP.mensagem) > 35:
             self.objeto_awp._get_logging(f'Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
