@@ -122,3 +122,17 @@ def PseudoAWP(func):
                 dict_info['metodo'](dict_info['mensagem'])
                 
     return wrapper
+
+
+def aguardeCooldown(func):
+    def wrapper(self, *args, **kwargs):
+        bool_status, quantidade_realizacao, int_tempo_aguarde  = self._status_aguarde.values()
+        f = func(*args, **kwargs)
+        
+        if bool_status:
+            if self.contador > quantidade_realizacao:
+                time.sleep(int_tempo_aguarde)
+            self.contador += 1
+
+        return f
+    return wrapper
