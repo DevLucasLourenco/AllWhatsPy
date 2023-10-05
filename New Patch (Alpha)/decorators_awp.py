@@ -131,8 +131,10 @@ def aguardeCooldown(func):
         
         if bool_status:
             if self.contador > quantidade_realizacao:
+                self.contador = 0
                 time.sleep(int_tempo_aguarde)
+                return f
             self.contador += 1
-
+       
         return f
     return wrapper
