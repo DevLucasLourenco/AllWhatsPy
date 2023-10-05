@@ -85,7 +85,7 @@ class AWPContatos():
         return Keys.CONTROL, Keys.SHIFT, Keys.ALT, ']'
 
             
-    def _config_aguarde(self, dados:dict[str:bool, str:int, str:int]):
+    def _config_aguarde(self, dados:dict[bool, int, int]) -> dict:
         if isinstance(dados, dict):
             self._status_aguarde = dados
             
