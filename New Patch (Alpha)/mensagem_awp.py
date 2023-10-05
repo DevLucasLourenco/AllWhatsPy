@@ -110,17 +110,18 @@ class AWPMensagem():
         
 
 
-class Enquete(AWPMensagem):
+class Enquete():
     def __init__(self) -> None:
         ...
 
 
 
-class Endereco(AWPMensagem):
+class Endereco():
 
     def __init__(self, cep: int):
         self.link = 'https://viacep.com.br/ws/{}/json/'
         self.cep = Endereco.tratamento_cep(cep)
+        self.dados = None
         self.run()
     
 

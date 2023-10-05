@@ -7,6 +7,8 @@ from __init__ import AllWhatsPy, PseudoAWP
 
 
 awp = AllWhatsPy(show_off=True)
+
+
 # awp.ctt._config_aguarde()
 # msg = ['teste', 'de cria']
 # msg2 = """

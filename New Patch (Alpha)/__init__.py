@@ -141,7 +141,7 @@ class AllWhatsPy:
 
     def explodir_server(self):
         ... 
-        
+
 
     def __informacoes_contato_acessado(self): # método 'Generator' usado para coexistir com a classe AWPContato. Nela, será usada para alcançar os dados do contato acessado.
         xpath_aux = '//*[@id="main"]/header/div[2]/div/div'

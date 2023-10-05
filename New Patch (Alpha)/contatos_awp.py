@@ -19,8 +19,7 @@ class AWPContatos():
         self.contador_aguarde:int = 0
         self._status_aguarde:dict[str:bool, str:int, str:int] = {'status_bool':False,
                                                                  'quantidade_realizacao':0,
-                                                                 'tempo_cooldown':0,
-                                                                 }
+                                                                 'tempo_cooldown':0}
 
     @aprovarConexao
     def encontrar_usuario(self, contato_destino):   
@@ -84,8 +83,8 @@ class AWPContatos():
         time.sleep(0.5)   
         return Keys.CONTROL, Keys.SHIFT, Keys.ALT, ']'
 
-            
+    
     def _config_aguarde(self, dados:dict[bool, int, int]) -> dict:
         if isinstance(dados, dict):
-            self._status_aguarde = dados
+            self._status_aguarde = self._status_aguarde.update(dados)
             
