@@ -41,7 +41,7 @@ class AllWhatsPy:
         self.msg = AWPMensagem(self)
         self.audio = AWPAudio(self)
         self.utilidade = AWPUtilidades(self)
-        self.criptografia = AWPCriptografia(self)
+        self.criptografia = AWPCriptografia(self, self._get_logging)
     
         self._generator_info_contato_acessado = self.__informacoes_contato_acessado()
     
