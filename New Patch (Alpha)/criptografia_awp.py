@@ -1,20 +1,29 @@
 import logging
 from decorators_awp import AWPC_Analytics
 
-
 class AWPCriptografia():  
-        
     
+    def __init__(self, objeto:object, realizar_log:bool):
+            self.objeto_awp = objeto
+            self.objeto_awp._get_logging(f'{__class__.__name__} obteve êxito.')
+            
+            LogAWPC.var_validacao_log = realizar_log
+            
+            
+            
     class CifraDeCaesar():
        
         def __init__(self, mensagem, chave_numeral, metodo: str):
-            
             self.metodo = metodo # c ou d, criptografar e descriptografar respectivamente
             self.mensagem = mensagem
             self.chave = chave_numeral
             self.resultado = ''
-            self.logging_input = AWPCriptografia.fornecerObjetoLogging    
+            self.objeto_logawp_log = LogAWPC._log
+
             
+        def log_get(self):
+            return LogAWPC.var_aux
+
 
         def __enter__(self):
             if self.metodo == "c":
@@ -24,11 +33,11 @@ class AWPCriptografia():
             return self
 
 
+        @AWPC_Analytics    
         def __exit__(self, exc_type, exc_val, exc_tb):
-            pass
+            LogAWPC.var_aux = self.resultado, self.__class__.__name__
 
         
-        @AWPC_Analytics
         def criptografar(self, mensagem, chave):
             self.resultado = ''
 
@@ -40,9 +49,11 @@ class AWPCriptografia():
                     self.resultado += caractere_criptografado
                 else:
                     self.resultado += caractere
+            
+            return self.resultado
                     
         
-        @AWPC_Analytics
+        
         def descriptografar(self, mensagem_criptografada, chave):
             self.criptografar(mensagem_criptografada, -chave)
             
@@ -50,7 +61,7 @@ class AWPCriptografia():
         def retornar(self):
             return self.resultado
         
-
+    
     class CifraDeVigenere():
 
         def __init__(self, mensagem, chave, metodo):
@@ -59,6 +70,11 @@ class AWPCriptografia():
             self.metodo = metodo
             self.alfabeto = 'abcdefghijklmnopqrstuvwxyz'
             self.resultado = ''
+            self.objeto_logawp_log = LogAWPC._log
+
+                    
+        def log_get(self):
+            return LogAWPC.var_aux
 
 
         def __enter__(self):
@@ -69,11 +85,11 @@ class AWPCriptografia():
 
             return self
 
-
-        def __exit__(self, exc_type, exc_value, traceback):
-            pass
-
         @AWPC_Analytics
+        def __exit__(self, exc_type, exc_value, traceback):
+            LogAWPC.var_aux = self.resultado, self.__class__.__name__
+
+        
         def criptografar(self, mensagem):
             self.resultado = ''
             mensagem = mensagem.lower()
@@ -91,7 +107,7 @@ class AWPCriptografia():
                     mensagem_criptografada += mensagem[i]
             self.resultado = mensagem_criptografada
 
-        @AWPC_Analytics
+        
         def descriptografar(self, mensagem):
             self.resultado = ''
             mensagem_descriptografada = ''
@@ -111,14 +127,18 @@ class AWPCriptografia():
 
         def retornar(self):
             return self.resultado
-    
 
-    def __init__(self, objeto, objeto_interativo_logging):
-            self.objeto_awp = objeto
-            self.objeto_interativo_logging = objeto_interativo_logging
-            self.objeto_awp._get_logging(f'{__class__.__name__} obteve êxito.')
-            
+
+class LogAWPC:
+    var_aux:tuple[str] = None
+    var_validacao_log:bool
     
-    def fornecerObjetoLogging(self, item):
-        AWPCriptografia.objeto_interativo_logging(item)
-            
+    def _log_primeira_etapa():
+        if LogAWPC.var_validacao_log:
+            logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='eventAWP.log', format='%(asctime)s - %(levelname)s - %(message)s')
+            return True
+        
+    def _log(item):
+        if LogAWPC._log_primeira_etapa():
+            logging.info(item)
+        

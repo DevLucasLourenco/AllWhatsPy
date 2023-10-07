@@ -143,6 +143,7 @@ def aguardeCooldown(func):
 def AWPC_Analytics(func):
     def wrapper(self, *args, **kwargs):
         f = func(self, *args, **kwargs)
-        self.logging_input(self, item=f'Entrada: {self.mensagem} | Saída: {self.resultado}')
+        var_aux = self.log_get()
+        self.objeto_logawp_log(f'AWPCriptografia.{var_aux[1]}: {var_aux[0]}')
         return f
     return wrapper

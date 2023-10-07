@@ -28,20 +28,22 @@ import time
 
 
 class AllWhatsPy: 
-    __tempo_inicial = time.time()
-    logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='eventAWP.log', format='%(asctime)s - %(levelname)s - %(message)s')
+    __tempo_inicial = time.time()    
     flag_connection = False
     
-    def __init__(self, show_off:bool = True, inicializarTitulo:bool=True):
+    def __init__(self, show_off:bool = True, inicializarTitulo:bool=True, realizar_log:bool=True):
+        self.show_off = show_off
+        self.realizar_log = realizar_log
+        self._inicializador_log()
+        
         AllWhatsPy.__tituloAWP(inicializarTitulo)
         self._get_logging(f"{' AllWhatsPy - AWP ':=^40}")
-        self.show_off = show_off
         
         self.ctt = AWPContatos(self)
         self.msg = AWPMensagem(self)
         self.audio = AWPAudio(self)
         self.utilidade = AWPUtilidades(self)
-        self.criptografia = AWPCriptografia(self, self._get_logging)
+        self.criptografia = AWPCriptografia(self, self.realizar_log)
     
         self._generator_info_contato_acessado = self.__informacoes_contato_acessado()
     
@@ -198,9 +200,13 @@ class AllWhatsPy:
     def _flag_status(self):
         return self.flag_connection
 
+    def _inicializador_log(self):
+        if self.realizar_log:
+            logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='eventAWP.log', format='%(asctime)s - %(levelname)s - %(message)s')
 
     def _get_logging(self, item_log):
-        logging.info(item_log) 
+        if self.realizar_log:
+            logging.info(item_log)
         
         
     def _marktime_func(self, objeto):
