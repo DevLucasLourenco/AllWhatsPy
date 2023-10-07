@@ -126,8 +126,8 @@ def PseudoAWP(func):
 
 def aguardeCooldown(func):
     def wrapper(self, *args, **kwargs):
-        bool_status, quantidade_realizacao, int_tempo_aguarde  = self._status_aguarde.values()
         f = func(*args, **kwargs)
+        bool_status, quantidade_realizacao, int_tempo_aguarde = self.objeto_awp._status_aguarde['status_bool'], self._status_aguarde['quantidade_realizacao'], self._status_aguarde['tempo_cooldown']
         
         if bool_status:
             if self.contador > quantidade_realizacao:

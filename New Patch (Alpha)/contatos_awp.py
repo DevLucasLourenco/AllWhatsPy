@@ -30,7 +30,7 @@ class AWPContatos():
             next(self.objeto_awp._generator_info_contato_acessado)
 
 
-    @aguardeCooldown
+    # @aguardeCooldown
     @aprovarConexao
     def encontrar_contato(self, contato_destino):
         var_aux_xpath = self.objeto_awp._ArmazemXPATH.var_aux2_xpath
@@ -39,7 +39,7 @@ class AWPContatos():
     
         time.sleep(3)
         self.objeto_awp._drive.find_element(By.XPATH, var_aux_xpath).send_keys(Keys.ENTER)
-        self.objeto_awp._drive.find_element(By.XPATH, '//*[@id="side"]/div[1]/div/div/span/button/span').click()
+        # self.objeto_awp._drive.find_element(By.XPATH, '//*[@id="side"]/div[1]/div/div/span/button/span').click()
         time.sleep(0.5)
 
         next(self.objeto_awp._generator_info_contato_acessado)
@@ -55,8 +55,8 @@ class AWPContatos():
                     self.objeto_awp._drive.find_element(By.XPATH, '//*[@id="app"]/div/span[2]/div/span/div/div/div/div/div/div[2]/div/button/div/div').click()
                     
                     self.objeto_awp.InferenciaAWP.contatosInexistentes.append(contato)
-                    self.objeto_awp._get_logging(f'Contato {contato} não existe.')
-                    self.objeto_awp._get_logging(f'Lista de contatos inexistentes nesta instância: {self.objeto_awp.InferenciaAWP.contatosInexistentes}')
+                    self.objeto_awp._get_logging(f'   Contato {contato} não existe.')
+                    self.objeto_awp._get_logging(f'   Lista de contatos inexistentes nesta instância: {self.objeto_awp.InferenciaAWP.contatosInexistentes}')
                     self.objeto_awp.InferenciaAWP.contato_acessivel = False
                     return False
                 

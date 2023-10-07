@@ -31,7 +31,7 @@ class AllWhatsPy:
     __tempo_inicial = time.time()    
     flag_connection = False
     
-    def __init__(self, show_off:bool = True, inicializarTitulo:bool=True, realizar_log:bool=True):
+    def __init__(self, show_off:bool=True, inicializarTitulo:bool=True, realizar_log:bool=True):
         self.show_off = show_off
         self.realizar_log = realizar_log
         self._inicializador_log()
@@ -97,13 +97,12 @@ class AllWhatsPy:
 
                 else:
                     self._get_logging('Conexao Efetuada.')
-                
+        
                 if popup:
                         messagebox.showinfo('Validado','Conexão Efetuada!')
-
+                
                 self.__config_calibragem(calibragem)
                 break
-
 
             except:
                 self._get_logging('Aguardando Login...')
@@ -143,6 +142,9 @@ class AllWhatsPy:
 
     def explodir_server(self):
         ... 
+        
+    def _IncorporarMediaTempo(self): # func para calcular o tempo médio para cada ação tomada no algoritmo e disponibilisar um .log com estas informações Ex.: MediasAWP.log
+        ...        
 
 
     def __informacoes_contato_acessado(self): # método 'Generator' usado para coexistir com a classe AWPContato. Nela, será usada para alcançar os dados do contato acessado.
@@ -159,8 +161,8 @@ class AllWhatsPy:
             yield 
             
             # Etapa 2
-            self._get_logging(f"Atual Contato: {self.InferenciaAWP.contato}")
-            self._get_logging(f"Lista de contatos acessados nesta instância: ({'; '.join(self.InferenciaAWP.lista_contatos)})")
+            self._get_logging(f"   Atual Contato: {self.InferenciaAWP.contato}")
+            self._get_logging(f"   Lista de contatos acessados nesta instância: ({'; '.join(self.InferenciaAWP.lista_contatos)})")
             yield 
 
 
@@ -174,7 +176,6 @@ class AllWhatsPy:
         if validacao_server:
             self.dados_nome_usuario = os.getlogin()
             options.add_argument(f'user-data-dir=C://users/{self.dados_nome_usuario}/AllWhatsPyHost')
-
             
         self._drive = webdriver.Chrome(service=servico, options=options)
         self._drive.maximize_window() if self.show_off else self._drive.minimize_window()
@@ -224,3 +225,4 @@ class AllWhatsPy:
 
     def _alterar_funcao_em_execucao(self, atual_funcao):
         self.atual_funcao = atual_funcao
+        

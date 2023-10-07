@@ -10,7 +10,6 @@ class AWPCriptografia():
             LogAWPC.var_validacao_log = realizar_log
             
             
-            
     class CifraDeCaesar():
        
         def __init__(self, mensagem, chave_numeral, metodo: str):
@@ -84,6 +83,7 @@ class AWPCriptografia():
                 self.descriptografar(self.mensagem)
 
             return self
+
 
         @AWPC_Analytics
         def __exit__(self, exc_type, exc_value, traceback):

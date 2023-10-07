@@ -6,30 +6,30 @@ from __init__ import AllWhatsPy, PseudoAWP
 #     return dados
 
 
-awp = AllWhatsPy(show_off=True, realizar_log=True)
+awp = AllWhatsPy(show_off=False, inicializarTitulo=False, realizar_log=True)
 
-
-# awp.ctt._config_aguarde()
 # msg = ['teste', 'de cria']
-# msg2 = """
-# teste
-# paradastro"""
 
 # dicio = {
 #         'objeto' : awp,
-#         'iter_ctt' : ['lucas lourenco', 21169549849489, 21959061623],
+#         'iter_ctt' : ['lucas lourenco', 21169549849489, 21959061623, 'lucas lourenco', 21169549849489, 21959061623, 'lucas lourenco', 21169549849489, 21959061623],
 #         'mensagem' : msg,
 #         'metodo' : 'EM',
 #         'calibragem' : False
 #         }
 
+# # awp.ctt._config_aguarde({'status_bool':True, #consertar este metodo
+# #                         'quantidade_realizacao':3,
+# #                         'tempo_cooldown':10}
+# # )
+
 # awp_script(dicio)
 
-# awp.conexao(server_host=True, popup=False, calibragem=False)
+awp.conexao(server_host=True, popup=False, calibragem=False)
 
-# # # awp.ctt.encontrar_usuario(21959061623)
-# awp.ctt.encontrar_usuario(2195906162464893)
-# awp.ctt.encontrar_usuario(21959061623)
+awp.ctt.encontrar_usuario(21959061623)
+awp.ctt.encontrar_usuario(2195906162464893)
+awp.ctt.encontrar_usuario(21959061623)
 # # awp.msg.enviar_mensagem_por_link(21959061623,'testezinho legal')
 # # awp.ctt.encontrar_usuario(21984273613)
 # # awp.ctt.encontrar_usuario(91469414144944)

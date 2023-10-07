@@ -35,12 +35,12 @@ class AWPMensagem():
             mensagem = '\n'.join(mensagem)
 
         self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(mensagem,Keys.ENTER)         
-        self.objeto_awp._get_logging(f'Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
+        self.objeto_awp._get_logging(f'   Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
 
         if len(self.objeto_awp.InferenciaAWP.mensagem) > 35:
-            self.objeto_awp._get_logging(f'Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
+            self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
         else:
-            self.objeto_awp._get_logging(f'Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}')
+            self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}')
             
         time.sleep(1)
 
@@ -61,12 +61,12 @@ class AWPMensagem():
 
         textbox.send_keys(Keys.ENTER)
         
-        self.objeto_awp._get_logging(f'Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
+        self.objeto_awp._get_logging(f'   Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
         
         if len(self.objeto_awp.InferenciaAWP.mensagem) > 35:
-            self.objeto_awp._get_logging(f'Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
+            self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
         else:
-            self.objeto_awp._get_logging(f'Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}')
+            self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}')
             
         time.sleep(1)
 
