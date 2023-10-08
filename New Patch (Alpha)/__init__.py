@@ -1,38 +1,30 @@
 from audio_awp import AWPAudio
 from contatos_awp import AWPContatos
 from mensagem_awp import AWPMensagem
-from criptografia_awp import AWPCriptografia
+from criptografia_awp import AWPCriptografia, LogAWPC
 from utilidades_awp import AWPUtilidades
-# from errors_awp import AWPConnectionError
-from decorators_awp import aprovarConexao, PseudoAWP
+from decorators_awp import PseudoAWP
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.common.exceptions import (
-    UnexpectedAlertPresentException,
-    NoSuchElementException,
-    )
 from tkinter import messagebox
-from  PIL import Image
-from urllib import parse
 import urllib.request
 import os
 import logging
 import time 
+import json
 
 
 class AllWhatsPy: 
     __tempo_inicial = time.time()    
     flag_connection = False
     
-    def __init__(self, show_off:bool=True, inicializarTitulo:bool=True, realizar_log:bool=True):
+    def __init__(self, show_off:bool=True, inicializarTitulo:bool=True, realizar_log:bool=True, JSON_file:bool=True):
         self.show_off = show_off
+        self.JSON_file = JSON_file
         self.realizar_log = realizar_log
         self._inicializador_log()
         
@@ -49,19 +41,21 @@ class AllWhatsPy:
     
         self._drive = None
         self._marktime = None   
-        self.dados_nome_usuario = None
         self.atual_funcao = None
+        self.funcoes_utilizadas: list = list()
+        self.dados_nome_usuario = os.getlogin()
 
 
     def __del__(self):
+        self.__JSON_execucao()
         self._get_logging(f'Tempo de Execução AWP: {self.tempo_execucao}')
         self._get_logging(f"{'':=^40}")
 
     
     class InferenciaAWP:
         lista_contatos: list = list()
-        contato: str 
-        mensagem: str
+        contato: str = ''
+        mensagem: str = ''
         contatosInexistentes: list = list()
         contato_acessivel: bool
 
@@ -111,7 +105,7 @@ class AllWhatsPy:
         self.flag_connection = True              
         
 
-    @aprovarConexao
+    
     def desconectar(self):
         self._get_logging('Desconectando Whatsapp...')
 
@@ -143,6 +137,7 @@ class AllWhatsPy:
     def explodir_server(self):
         ... 
         
+
     def _IncorporarMediaTempo(self): # func para calcular o tempo médio para cada ação tomada no algoritmo e disponibilisar um .log com estas informações Ex.: MediasAWP.log
         ...        
 
@@ -174,13 +169,46 @@ class AllWhatsPy:
         options.add_experimental_option("excludeSwitches",["enable-automation"])
 
         if validacao_server:
-            self.dados_nome_usuario = os.getlogin()
             options.add_argument(f'user-data-dir=C://users/{self.dados_nome_usuario}/AllWhatsPyHost')
             
         self._drive = webdriver.Chrome(service=servico, options=options)
         self._drive.maximize_window() if self.show_off else self._drive.minimize_window()
         self._drive.get(r'https://web.whatsapp.com/')
         self._marktime = WebDriverWait(self._drive, 90)
+
+
+    def __JSON_execucao(self):
+        if self.JSON_file:
+                _nome_funcoes_set_pre_erro = list(set(self.funcoes_utilizadas))
+                _lista_contatos_set_pre_erro = list(set(self.InferenciaAWP.lista_contatos))
+
+                try:
+                    dict_para_json: dict = {
+                        "Lib": __class__.__name__,
+                        "UsuarioAWP": self.dados_nome_usuario,
+                        "Contatos": {
+                            "Contatos Acessados Unitariamente": _lista_contatos_set_pre_erro,
+                            "Contatos Acessados - Ordenado por Execucao": self.InferenciaAWP.lista_contatos,
+                            "Contatos Inexistentes": self.InferenciaAWP.contatosInexistentes,
+                        },
+                        "Mensagem": self.InferenciaAWP.mensagem,
+                        "Funcoes": {
+                            "Ultima Funcao": self.atual_funcao,
+                            "Usuario - Funcoes Utilizadas": _nome_funcoes_set_pre_erro,
+                            "Usuario - Funcoes Utilizadas - Ordenado por Execucao": self.funcoes_utilizadas,
+                        },
+                        "Criptografia": LogAWPC.todas_criptografias,
+                        "Tempo Execucao": self.tempo_execucao
+                    }
+
+                    json_exportar: dict = json.dumps(dict_para_json, indent=4)
+                    with open("AWP.json", "w", encoding='utf-8') as file:
+                        file.write(json_exportar)
+
+                    self._get_logging('Arquivo JSON criado.')
+                    
+                except Exception as e:
+                    self._get_logging(f'Falha na criação do arquivo JSON. Erro: {e}')
     
 
     def __config_calibragem(self, calibragem):
@@ -201,9 +229,11 @@ class AllWhatsPy:
     def _flag_status(self):
         return self.flag_connection
 
+
     def _inicializador_log(self):
         if self.realizar_log:
             logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='eventAWP.log', format='%(asctime)s - %(levelname)s - %(message)s')
+
 
     def _get_logging(self, item_log):
         if self.realizar_log:
@@ -225,4 +255,4 @@ class AllWhatsPy:
 
     def _alterar_funcao_em_execucao(self, atual_funcao):
         self.atual_funcao = atual_funcao
-        
+        self.funcoes_utilizadas.append(atual_funcao)

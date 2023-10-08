@@ -21,7 +21,7 @@ class AWPUtilidades:
         ActionChains(self.objeto_awp._drive).key_down(Keys.CONTROL).key_down(Keys.ALT).key_down(
                                                              Keys.SHIFT).send_keys('e').perform()
         
-        self.objeto_awp._get_logging(f'{self.objeto_awp.InferenciaAWP.contato} foi arquivado.')
+        self.objeto_awp._get_logging(f'    {self.objeto_awp.InferenciaAWP.contato} foi arquivado.')
         time.sleep(1)
 
 
@@ -39,7 +39,7 @@ class AWPUtilidades:
                     if  adaptar_item(minuto) == minuto_programado:
                         break
             else:
-                self.objeto_awp._get_logging(f'No aguardo da hora programada...| Dia:{adaptar_item(dia_programado)}| Hora: {adaptar_item(hora)} | Minuto: {adaptar_item(minuto)}|')
+                self.objeto_awp._get_logging(f'    No aguardo da hora programada...| Dia:{adaptar_item(dia_programado)}| Hora: {adaptar_item(hora)} | Minuto: {adaptar_item(minuto)}|')
                 time.sleep(60)
                 
     @aprovarConexao
@@ -47,7 +47,7 @@ class AWPUtilidades:
         ActionChains(self.objeto_awp._drive).key_down(Keys.CONTROL).key_down(Keys.ALT).key_down(
                                                              Keys.SHIFT).send_keys('u').perform()
 
-        self.objeto_awp._get_logging(f'{self.objeto_awp.InferenciaAWP.contato} foi marcado(a) como não lido(a).')
+        self.objeto_awp._get_logging(f'    {self.objeto_awp.InferenciaAWP.contato} foi marcado(a) como não lido(a).')
         time.sleep(1)
 
 
@@ -60,11 +60,11 @@ class AWPUtilidades:
             self.objeto_awp._drive.find_element(By.XPATH, '//*[@id="app"]/div/div/div[6]/span/div/span/div/div/section/div[2]/div/div/div[2]/span')
             webdriver.ActionChains(self.objeto_awp._drive).send_keys(Keys.ESCAPE).perform()
             
-            self.objeto_awp._get_logging(f'{self.objeto_awp.InferenciaAWP.contato} é uma conta comercial')
+            self.objeto_awp._get_logging(f'    {self.objeto_awp.InferenciaAWP.contato} é uma conta comercial')
             return "C"
         
         except NoSuchElementException as e:
             webdriver.ActionChains(self.objeto_awp._drive).send_keys(Keys.ESCAPE).perform()
-            self.objeto_awp._get_logging(f'{self.objeto_awp.InferenciaAWP.contato} é uma conta pessoal')
+            self.objeto_awp._get_logging(f'    {self.objeto_awp.InferenciaAWP.contato} é uma conta pessoal')
             return "P"
         

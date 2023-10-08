@@ -130,10 +130,13 @@ class AWPCriptografia():
 
 
 class LogAWPC:
+    todas_criptografias: list[str] = list()
     var_aux:tuple[str] = None
     var_validacao_log:bool
     
+    
     def _log_primeira_etapa():
+        LogAWPC.todas_criptografias.append(LogAWPC.var_aux)
         if LogAWPC.var_validacao_log:
             logging.basicConfig(level=logging.INFO, encoding='utf-8', filename='eventAWP.log', format='%(asctime)s - %(levelname)s - %(message)s')
             return True

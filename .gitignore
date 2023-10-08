@@ -1,3 +1,4 @@
 
 *.pyc
 eventAWP.log
+*.json
