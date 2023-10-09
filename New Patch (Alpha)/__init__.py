@@ -48,8 +48,8 @@ class AllWhatsPy:
 
     def __del__(self):
         self.__JSON_execucao()
-        self._get_logging(f'Tempo de Execução AWP: {self.tempo_execucao}')
-        self._get_logging(f"{'':=^40}")
+        self._get_logging('\n'.join((f'Tempo de Execução AWP: {self.tempo_execucao}', f"{'':=^73}")))
+        
 
     
     class InferenciaAWP:
