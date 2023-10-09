@@ -1,9 +1,6 @@
 from __init__ import AllWhatsPy, PseudoAWP
 
 
-
-
-
 @PseudoAWP
 def awp_script(dados):
     return dados
@@ -28,6 +25,7 @@ dicio = {
 # )
 
 awp_script(dicio)
+
 
 # awp.conexao(server_host=True, popup=False, calibragem=(True, 10))
 

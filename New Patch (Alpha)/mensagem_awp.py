@@ -21,6 +21,7 @@ class AWPMensagem():
         self.objeto_awp._get_logging(f'{__class__.__name__} obteve êxito.')
         self.localizacao = Endereco
         self.anexo = Anexo(self.objeto_awp)
+        self.analise = Analise(self.objeto_awp)
 
 
     @aprovarConexao
@@ -105,6 +106,13 @@ class AWPMensagem():
             raise ValueError('Valor informado incoerente.')
 
 
+
+class Analise:
+    
+    def __init__(self, objeto) -> None:
+        self.objeto_awp = objeto
+        ...
+    
     def _validar_envio(self): #verifica se a mensagem foi enviada.
         ...
         
