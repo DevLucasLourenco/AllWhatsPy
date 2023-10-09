@@ -105,8 +105,23 @@ class AWPMensagem():
             raise ValueError('Valor informado incoerente.')
 
 
+<<<<<<< Updated upstream
+=======
+
+class Analise:
+    
+    def __init__(self, objeto) -> None:
+        self.objeto_awp = objeto
+        
+    @aprovarConexao
+>>>>>>> Stashed changes
     def _validar_envio(self): #verifica se a mensagem foi enviada.
-        ...
+        quadro_interacao = self.objeto_awp._drive.find_element(By.XPATH, '/html/body/div[1]/div/div/div[5]/div/div[2]/div/div[2]/div[3]') #pelo quadro onde ficar as imagens
+        caixa_mensagens_objeto = quadro_interacao.find_elements(By.XPATH, '//*[@role="row"]')
+        caixa_mensagens = [item.text for item in caixa_mensagens_objeto]
+        
+        for m in caixa_mensagens:
+            print(m)
         
 
 
