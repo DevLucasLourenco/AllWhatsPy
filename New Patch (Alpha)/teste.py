@@ -1,18 +1,13 @@
 from __init__ import AllWhatsPy, PseudoAWP
 
 
-<<<<<<< Updated upstream
 
-
-
-=======
->>>>>>> Stashed changes
 # @PseudoAWP
 # def awp_script(dados):
 #     return dados
 
 
-awp = AllWhatsPy(show_off=True, inicializarTitulo=False, realizar_log=True, JSON_file=True)
+awp = AllWhatsPy(inicializarTitulo=False, realizar_log=True, JSON_file=True)
 
 # msg = ['teste', 'de cria']
 
@@ -21,12 +16,8 @@ awp = AllWhatsPy(show_off=True, inicializarTitulo=False, realizar_log=True, JSON
 #         'iter_ctt' : ['lucas lourenco', 21169549849489, 21959061623, 'lucas lourenco', 21169549849489, 21959061623, 'lucas lourenco', 21169549849489, 21959061623],
 #         'mensagem' : msg,
 #         'metodo' : 'EM',
-<<<<<<< Updated upstream
-#         'calibragem' : False
-=======
 #         'calibragem' : False,
         
->>>>>>> Stashed changes
 #         }
 
 # # awp.ctt._config_aguarde({'status_bool':True, #consertar este metodo
@@ -35,51 +26,25 @@ awp = AllWhatsPy(show_off=True, inicializarTitulo=False, realizar_log=True, JSON
 # # )
 
 # awp_script(dicio)
-<<<<<<< Updated upstream
-
-awp.conexao(server_host=True, popup=False, calibragem=(True, 10))
-
-awp.ctt.encontrar_usuario(21959061623)
-awp.ctt.encontrar_usuario(2195906162464893)
-awp.ctt.encontrar_usuario(21959061623)
-# # awp.msg.enviar_mensagem_por_link(21959061623,'testezinho legal')
-# awp.ctt.encontrar_usuario(21984273613)
-# # awp.ctt.encontrar_usuario(91469414144944)
-# # awp.ctt.encontrar_usuario(21959061623)
-
-awp.ctt.encontrar_contato('Lucas Lourenço')
-# # # awp.ctt.encontrar_contato('Lucas Lourenço')
 
 
-mensagem = """Olá!
-Sou o Lucas, criador do AWP.
-lalalala
-"""
-awp.msg.enviar_mensagem_paragrafada(mensagem)
-# awp.msg.enviar_mensagem_direta(21959061623, 'teste, po')
-
-# # # awp.msg.enviar_mensagem('lucas é lin3do')
-# # awp.msg.enviar_mensagem(mensagem)
-=======
-
-
-awp.conexao(server_host=True, popup=False, calibragem=False)
+awp.conexao(server_host=True, popup=False, calibragem=False, show_off=True)
 
 awp.ctt.encontrar_usuario(21959061623)
-awp.msg.analise._validar_envio()
+awp.msg.analise._ultima_mensagem_chat()
+
 # awp.ctt.encontrar_usuario(2195906162464893)
 # awp.ctt.encontrar_usuario(21959061623)
 # # # awp.msg.enviar_mensagem_por_link(21959061623,'testezinho legal')
 # # awp.ctt.encontrar_usuario(21984273613)
 # # # awp.ctt.encontrar_usuario(91469414144944)
 # # # awp.ctt.encontrar_usuario(21959061623)
->>>>>>> Stashed changes
 
-for i in range(2):
-    awp.ctt.chat_abaixo()
-    awp.ctt.chat_acima()
+# for i in range(2):
+#     awp.ctt.chat_abaixo()
+#     awp.ctt.chat_acima()
 
-awp.utilidade.marcar_como_nao_lida()
+# awp.utilidade.marcar_como_nao_lida()
 # # # awp.utilidade.arquivar_chat()
 
 

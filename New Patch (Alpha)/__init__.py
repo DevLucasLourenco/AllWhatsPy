@@ -22,8 +22,7 @@ class AllWhatsPy:
     __tempo_inicial = time.time()    
     flag_connection = False
     
-    def __init__(self, show_off:bool=True, inicializarTitulo:bool=True, realizar_log:bool=True, JSON_file:bool=True):
-        self.show_off = show_off
+    def __init__(self, inicializarTitulo:bool=True, realizar_log:bool=True, JSON_file:bool=True):
         self.JSON_file = JSON_file
         self.realizar_log = realizar_log
         self._inicializador_log()
@@ -39,6 +38,7 @@ class AllWhatsPy:
         
         self._generator_info_contato_acessado = self.__informacoes_contato_acessado()
     
+        self.show_off = None
         self._drive = None
         self._marktime = None   
         self.atual_funcao = None
@@ -78,8 +78,8 @@ class AllWhatsPy:
             print('https://github.com/DevLucasLourenco/AllWhatsPy')
 
 
-    def conexao(self, server_host: bool=False, popup=False, calibragem: tuple[bool, int]=(True, 10)):
-        self.__driveConfigGoogle(server_host)
+    def conexao(self, show_off:bool=True, server_host: bool=False, popup=False, calibragem: tuple[bool, int]=(True, 10)):
+        self.__driveConfigGoogle(server_host, show_off)
 
         while True:
             try:
@@ -161,7 +161,7 @@ class AllWhatsPy:
             yield 
 
 
-    def __driveConfigGoogle(self, validacao_server):        
+    def __driveConfigGoogle(self, validacao_server, show_off):        
         os.environ['WDM_LOG'] = '0'
         servico = Service(ChromeDriverManager().install())  
         options = webdriver.ChromeOptions()
@@ -172,7 +172,7 @@ class AllWhatsPy:
             options.add_argument(f'user-data-dir=C://users/{self.dados_nome_usuario}/AllWhatsPyHost')
             
         self._drive = webdriver.Chrome(service=servico, options=options)
-        self._drive.maximize_window() if self.show_off else self._drive.minimize_window()
+        self._drive.maximize_window() if show_off else self._drive.minimize_window()
         self._drive.get(r'https://web.whatsapp.com/')
         self._marktime = WebDriverWait(self._drive, 90)
 
