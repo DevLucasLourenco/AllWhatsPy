@@ -99,7 +99,7 @@ Email: dev.lucaslourenco@gmail.com
 
 Inspirado por notáveis projetos como o [PyWhatsapp](https://github.com/shauryauppal/PyWhatsapp) e o [PyWhatKit](https://github.com/Ankit404butfound/PyWhatKit), iniciei uma jornada de exploração, imersão e pesquisa aprofundada nas possibilidades oferecidas por Bots e APIs do WhatsApp. Com um compromisso <b>`inabalável com a qualidade e o aprimoramento`</b> de software, decidi investir meu tempo e energia na criação do AllWhatsPy, um projeto que tem sido desenvolvido de forma exclusiva e independente.
 
-Ao longo desse processo, foram dedicadas milhares de linhas de código em testes, registrando cada passo do caminho para garantir o funcionamento perfeito da biblioteca. O resultado é uma ferramenta versátil e flexível que permite que você faça literalmente "o que quiser" no WhatsApp, proporcionando um nível inédito de eficiência e automação. O AllWhatsPy é a solução que você estava esperando para elevar a produtividade e a conveniência no uso do WhatsApp, tornando-o uma ferramenta ainda mais indispensável em sua vida.
+Ao longo desse processo, foram dedicadas milhares de linhas de logs em testes, registrando cada passo do caminho para garantir o funcionamento perfeito da biblioteca. O resultado é uma ferramenta versátil e flexível que permite que você faça literalmente "o que quiser" no WhatsApp, proporcionando um nível inédito de eficiência e automação. O AllWhatsPy é a solução que você estava esperando para elevar a produtividade e a conveniência no uso do WhatsApp, tornando-o uma ferramenta ainda mais indispensável em sua vida.
 
 
 </br>
