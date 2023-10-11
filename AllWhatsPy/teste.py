@@ -13,17 +13,17 @@ awp = AllWhatsPy(inicializarTitulo=False, realizar_log=True, JSON_file=True)
 
 # dicio = {
 #         'objeto' : awp,
-#         'iter_ctt' : ['lucas lourenco', 21169549849489, 21959061623, 'lucas lourenco', 21169549849489, 21959061623, 'lucas lourenco', 21169549849489, 21959061623],
+#         'iter_ctt' : [21169549849489, 21959061623, 'lucas lourenco', 21169549849489, 21959061623, 'lucas lourenco', 21169549849489, 21959061623],
 #         'mensagem' : msg,
 #         'metodo' : 'EM',
 #         'calibragem' : False,
         
 #         }
 
-# # awp.ctt._config_aguarde({'status_bool':True, #consertar este metodo
-# #                         'quantidade_realizacao':3,
-# #                         'tempo_cooldown':10}
-# # )
+# awp.ctt._config_aguarde({'status_bool':True, #consertar este metodo
+#                         'quantidade_realizacao':3,
+#                         'tempo_cooldown':10}
+# )
 
 # awp_script(dicio)
 
