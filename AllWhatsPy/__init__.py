@@ -143,13 +143,13 @@ class AllWhatsPy:
 
 
     def __informacoes_contato_acessado(self): # método 'Generator' usado para coexistir com a classe AWPContato. Nela, será usada para alcançar os dados do contato acessado.
-        xpath_aux = '//*[@id="main"]/header/div[2]/div/div'
+        xpath_aux = '//*[@id="main"]/header'
         self._marktime_func(xpath_aux)
 
         while True:
             # Etapa 1
-            ctt = self._drive.find_element(By.XPATH, xpath_aux)
-            nome = ctt.find_element(By.XPATH, '//*[@id="main"]/header/div[2]/div/div/span').text
+            ctt_dados = self._drive.find_element(By.XPATH, xpath_aux)
+            nome = ctt_dados.find_element(By.XPATH, '//*[@id="main"]/header/div[2]/div/div/div').text 
 
             self.InferenciaAWP.contato = nome
             self.InferenciaAWP.lista_contatos.append(nome)

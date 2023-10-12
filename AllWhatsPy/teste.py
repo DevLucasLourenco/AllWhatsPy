@@ -31,6 +31,7 @@ awp = AllWhatsPy(inicializarTitulo=False, realizar_log=True, JSON_file=True)
 awp.conexao(server_host=True, popup=False, calibragem=False, show_off=True)
 
 awp.ctt.encontrar_usuario(21959061623)
+awp.msg.enviar_mensagem('teste')
 awp.msg.analise._ultima_mensagem_chat()
 
 # awp.ctt.encontrar_usuario(2195906162464893)
