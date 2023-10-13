@@ -130,7 +130,7 @@ Você também pode estar baixando os arquivos e colar na sua pasta, caso sua má
 
 </br>
 
-### Lógica:
+### Lógica básica:
 
 ```mermaid
 flowchart LR
