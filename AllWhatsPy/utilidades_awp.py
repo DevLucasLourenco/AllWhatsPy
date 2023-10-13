@@ -31,6 +31,11 @@ class AWPUtilidades:
             if item < 10:
                 return '0' + str(item)
             return str(item)  
+        
+        
+        for each in [dia_programado, hora_programado, minuto_programado]:
+            if not isinstance(each, str):
+                raise TypeError('Parâmetros de tipos diferentes de <str> não são aceitos.')
 
         while True:
             ano, mes, dia, hora, minuto, *_  = time.localtime()
@@ -42,6 +47,7 @@ class AWPUtilidades:
                 self.objeto_awp._get_logging(f'    No aguardo da hora programada...| Dia:{adaptar_item(dia_programado)}| Hora: {adaptar_item(hora)} | Minuto: {adaptar_item(minuto)}|')
                 time.sleep(60)
                 
+
     @aprovarConexao
     def marcar_como_nao_lida(self):
         ActionChains(self.objeto_awp._drive).key_down(Keys.CONTROL).key_down(Keys.ALT).key_down(

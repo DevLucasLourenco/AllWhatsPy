@@ -88,7 +88,8 @@ awp.conexao(server_host=True, popup=False, calibragem=False, show_off=True)
 
 
 awp.ctt.encontrar_usuario(21959061623)
+awp.utilidade.agendamento('13', '09', '24')
 # awp.msg.enviar_mensagem('teste po 2')
-awp.msg.anexo.enviar_imagem('utilidades/awpimgg.png', 'lucaseh lindo')
+awp.msg.anexo.enviar_imagem('utilidades/awpimgg.png', 'imagem')
 awp.msg.anexo.enviar_arquivo('utilidades/awpimgg.png','agora, por arquivo')
 # # awp.msg.anexo.enviar_arquivo("texto.txt")
