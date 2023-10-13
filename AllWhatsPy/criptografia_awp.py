@@ -1,5 +1,6 @@
+from .decorators_awp import AWPC_Analytics
 import logging
-from decorators_awp import AWPC_Analytics
+
 
 class AWPCriptografia():  
     

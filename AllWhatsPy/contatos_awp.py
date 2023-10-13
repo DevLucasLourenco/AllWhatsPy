@@ -1,5 +1,5 @@
-from decorators_awp import aprovarConexao, executarOrdemTeclas, aguardeCooldown
-from errors_awp import AWPConnectionError
+from .decorators_awp import aprovarConexao, executarOrdemTeclas, aguardeCooldown
+from .errors_awp import AWPConnectionError
 import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys

@@ -1,4 +1,4 @@
-from errors_awp import AWPConnectionError
+from .errors_awp import AWPConnectionError
 import time
 import string
 from selenium.webdriver.common.action_chains import ActionChains
@@ -19,13 +19,13 @@ def eventual_erro(func):
 
         except (Exception, NoSuchElementException, UnexpectedAlertPresentException) as e:
             self.objeto_awp._get_logging(f'Ocorreu um erro durante a execução de {f"{self.objeto_awp.atual_funcao}"} — Erro: {e}. Tempo de Execução AWP: {self.objeto_awp.tempo_execucao}')
-            self.objeto_awp._get_logging(f"{'':=^40}")
+            self.objeto_awp._get_logging(f"{'':=^40}") 
             raise
     return wrapper
 
 
 def aprovarConexao(func):
-    @eventual_erro
+    @eventual_erro 
     def wrapper(self, *args, **kwargs):
         if self.objeto_awp._flag_status():
             self.objeto_awp._alterar_funcao_em_execucao(f'AllWhatsPy.{func.__name__}()')
@@ -81,6 +81,7 @@ def PseudoAWP(func):
                 "server_host" : True,
                 "anexo" : None,  #a criar...
         }
+        
         if isinstance(dicio, dict):
             objeto = dicio.get('objeto')
             relacao['metodo'] = _deteccao_metodo(objeto, "EMP")
@@ -90,6 +91,7 @@ def PseudoAWP(func):
             
         else:
             raise TypeError(f'O objeto {dicio.__name__} do tipo {type(dicio)} é inválido. Passe um objeto do tipo dict para o parâmetro requisitado.')
+        
         
     def _validar_alfabeto_em_contato(contato):   
         try:
@@ -106,6 +108,7 @@ def PseudoAWP(func):
         except TypeError as e:
             return False
         
+
     def wrapper(*args, **kwargs):
         inf = func(*args, **kwargs)
         dict_info = validacao_dados(inf)        
@@ -127,7 +130,9 @@ def PseudoAWP(func):
 def aguardeCooldown(func):
     def wrapper(self, *args, **kwargs):
         f = func(*args, **kwargs)
-        bool_status, quantidade_realizacao, int_tempo_aguarde = self.objeto_awp._status_aguarde['status_bool'], self._status_aguarde['quantidade_realizacao'], self._status_aguarde['tempo_cooldown']
+        bool_status, quantidade_realizacao, int_tempo_aguarde = self.objeto_awp._status_aguarde['status_bool'], 
+        self._status_aguarde['quantidade_realizacao'], 
+        self._status_aguarde['tempo_cooldown']
         
         if bool_status:
             if self.contador > quantidade_realizacao:
