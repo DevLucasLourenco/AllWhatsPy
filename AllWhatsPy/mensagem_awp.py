@@ -172,41 +172,49 @@ class Anexo():
 
     def __init__(self, objeto) -> None:
         self.objeto_awp = objeto
+        self.__metodo_anexo = None
 
 
     @aprovarConexao
-    def enviar_imagem(self, item, mensagem):   # correção.
-        item = os.path.realpath(item)
+    def enviar_imagem(self, nome_arquivo, mensagem):   # correção.
+        self.__metodo_anexo = 'imagem'
+        item = os.path.realpath(nome_arquivo)
         self.__encontrar_botao_anexo_XPATH()
             
-        arquivo = self.objeto_awp._drive.find_element(By.CSS_SELECTOR, "input[type='file']")
-        arquivo.send_keys(item)
+        arquivo = self.objeto_awp._drive.find_elements(By.CSS_SELECTOR, "input[type='file']") #metodo "elements" porque tanto a seleção de arquivo, quanto de imagem em o parâmetro "type" como "file"
+        arquivo[1].send_keys(item)
         time.sleep(2)
 
         self.__enviar_anexo_XPATH(mensagem)
     
+    
     @aprovarConexao
-    def enviar_arquivo(self, nome_arquivo):     ## necessita correção!!!!!!!!!!!!!
-        filename = os.path.realpath(nome_arquivo)
+    def enviar_arquivo(self, nome_arquivo, mensagem):    
+        self.__metodo_anexo = 'arquivo'
+        item = os.path.realpath(nome_arquivo)
         self.__encontrar_botao_anexo_XPATH()
+            
+        arquivo = self.objeto_awp._drive.find_elements(By.CSS_SELECTOR, "input[type='file']") #metodo "elements" porque tanto a seleção de arquivo, quanto de imagem em o parâmetro "type" como "file"
+        arquivo[0].send_keys(item)
+        time.sleep(2)
 
-        self.objeto_awp.marktime('//*[@id="main"]/footer//*[@data-icon="attach-document"]/../input')
-        document_button = self.objeto_awp._drive.find_element(By.XPATH, '//*[@id="main"]/footer//*[@data-icon="attach-document"]/../input')
-        document_button.send_keys(filename)
-
-        self.__enviar_anexo_XPATH()
+        self.__enviar_anexo_XPATH(mensagem)
 
 
     @aprovarConexao
     def __encontrar_botao_anexo_XPATH(self):
         botão_anexo_xpath = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/div'
         self.objeto_awp._drive.find_element(By.XPATH, botão_anexo_xpath).click()
-        time.sleep(2)
+        time.sleep(1)
         
         
     @aprovarConexao
     def __enviar_anexo_XPATH(self, *msg):
-        inputbox_xpath = '//*[@id="app"]/div/div/div[3]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[1]/div[1]/p'
+        dict_delinear = {'arquivo': '//*[@id="app"]/div/div/div[3]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[1]/div[1]/p',
+                         'imagem': '//*[@id="app"]/div/div/div[3]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[2]/div[1]/div[1]/p'
+                         }
+
+        inputbox_xpath = dict_delinear.get(self.__metodo_anexo)
         if msg:
             self.objeto_awp._drive.find_element(By.XPATH, inputbox_xpath).send_keys(msg, Keys.ENTER)
         else:
