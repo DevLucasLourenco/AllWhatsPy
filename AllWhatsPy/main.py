@@ -11,7 +11,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from tkinter import messagebox
-import urllib.request
 import os
 import logging
 import time 
@@ -134,8 +133,9 @@ class AllWhatsPy:
 
 
     def explodir_server(self):
-        ... 
-        
+        #if server no local:
+            #deletar
+        ...
 
     def _IncorporarMediaTempo(self): # func para calcular o tempo médio para cada ação tomada no algoritmo e disponibilisar um .log com estas informações Ex.: MediasAWP.log
         ...        

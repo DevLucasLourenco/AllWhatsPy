@@ -118,7 +118,7 @@ class Analise:
         caixa_mensagens_objeto = quadro_interacao.find_elements(By.XPATH, '//*[@role="row"]')
         caixa_mensagens = caixa_mensagens_objeto[-1].text
         
-        print(caixa_mensagens)  #continuar caixa_mensagens.find_element(By.XPATH, 'xpathaqui')
+        return caixa_mensagens  #depois aprimorar caixa_mensagens.find_element(By.XPATH, '...')
         
 
 

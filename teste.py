@@ -1,13 +1,30 @@
 from AllWhatsPy import AllWhatsPy, PseudoAWP
 
 
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.ctt.encontrar_usuario(21959061623)
+awp.msg.enviar_mensagem_paragrafada('Mensagem paragrafada para envio')
+
+# Caso 2
+awp.msg.enviar_mensagem_paragrafada(['Mensagem paragrafada','para envio'])
+
+# Caso 3
+msg = '''
+mensagem
+paragrafada
+para
+envio
+'''
+awp.msg.enviar_mensagem_paragrafada(msg)
 
 # @PseudoAWP
 # def awp_script(dados):
 #     return dados
 
 
-awp = AllWhatsPy(inicializarTitulo=False, realizar_log=True, JSON_file=True)
+# awp = AllWhatsPy(inicializarTitulo=False, realizar_log=True, JSON_file=True)
 
 # msg = ['teste', 'de cria']
 
@@ -29,7 +46,7 @@ awp = AllWhatsPy(inicializarTitulo=False, realizar_log=True, JSON_file=True)
 # awp_script(dicio)
 
 
-awp.conexao(server_host=True, popup=False, calibragem=False, show_off=True)
+# awp.conexao(server_host=True, popup=False, calibragem=False, show_off=True)
 
 # awp.ctt.encontrar_usuario(21959061623)
 # awp.msg.enviar_mensagem('teste')
@@ -87,9 +104,9 @@ awp.conexao(server_host=True, popup=False, calibragem=False, show_off=True)
 # print(awp.tempo_execucao)
 
 
-awp.ctt.encontrar_usuario(21959061623)
-# awp.utilidade.agendamento('13', '09', '24')
-# awp.msg.enviar_mensagem('teste po 2')
-awp.msg.anexo.enviar_imagem('utilidades/awpimgg.png', 'imagem')
-awp.msg.anexo.enviar_arquivo('utilidades/awpimgg.png','agora, por arquivo')
-# # awp.msg.anexo.enviar_arquivo("texto.txt")
+# awp.ctt.encontrar_usuario(21959061623)
+# # awp.utilidade.agendamento('13', '09', '24')
+# # awp.msg.enviar_mensagem('teste po 2')
+# awp.msg.anexo.enviar_imagem('utilidades/awpimgg.png', 'imagem')
+# awp.msg.anexo.enviar_arquivo('utilidades/awpimgg.png','agora, por arquivo')
+# # # awp.msg.anexo.enviar_arquivo("texto.txt")

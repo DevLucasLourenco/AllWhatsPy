@@ -116,10 +116,10 @@ Ao longo desse processo, foram dedicadas milhares de linhas de logs em testes, r
 Para a instalação da lib, no terminal faça:
 
 ```
-pip install -U allwhatspy-awp (<><><><><><><><><><>)
+pip install -U allwhatspy (<><><><><><><><><><>)
 ```
 
-Após, chame o pacote. Segue um exemplo:
+Após, chame o pacote. Segue exemplo:
 
 ```python
 <><><><><><><><><><><><><><><><><>
@@ -237,74 +237,317 @@ flowchart LR
 </details>
 
 
-  
-## O que você pode fazer com AllWhatsPy
-
-
-- ##  Conectar
-
-> É de enorme importância a utilização deste método! Afinal, ele é o responsável pela integração do AllWhatsPy ao Whatsapp.
-> É possível utilizar como `awp.conexao()` . No primeiro caso, abrirá um `popup` na tela esperando a confirmação para dar continuidade.
->  No segundo caso, será ignorado o popup que aparece após a inicialização do algoritmo.
-
 <p>
-  
-```python
-import AllWhatsPy as awp
 
+# Utilizando AllWhatsPy 
+
+
+<details>
+<summary style="font-size: 25px">
+   AllWhatsPy
+</summary>
+ 
+## Instanciando
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+```
+
+> Instancia do objeto AllWhatsPy.
+
+> `inicializarTitulo` (Padrão: True): Este parâmetro booleano determina se o título do aplicativo será inicializado ou não. Quando definido como True, o título será inicializado. Caso seja False, não será exibido. Este parâmetro somente é responsável por apresentar o AWP e o link do github.
+
+>`realizar_log` (Padrão: True): Este parâmetro booleano controla se o AllWhatsPy deve realizar o registro de ações e eventos. Quando definido como True, o AllWhatsPy registrará informações detalhadas sobre as ações realizadas durante a sessão, o que pode ser útil para rastrear e solucionar problemas.
+
+>`JSON_file` (Padrão: True): Este parâmetro booleano determina se as informações da sessão, como contatos, mensagens e configurações, devem ser salvas em um arquivo JSON. Isso pode ser útil para preservar o estado da sessão entre as execuções do programa.
+
+### Ex.: 
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo:bool=True, realizar_log:bool=True, JSON_file:bool=True)
+```
+
+
+## Conexão
+
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
 awp.conexao()
 ```
-</p>
+>`show_off` (Padrão: True): Este parâmetro booleano controla se a GUI do Google será exibida em tela cheia ou minimizada. Quando True, exibirá em tela cheia. Quando False, minimizado.
+
+>`server_host` (Padrão: False): Este parâmetro booleano determina se a função de conexão armazenará em cache o login feito pelo usuário. Ou seja, basta realizar uma única vez a leitura do QR Code e ela estará armazenada para as próximas instancias do AWP.<p>Diretório onde se encontra o armazenamento: C://users/[Usuário]/AllWhatsPyHost
+
+>`popup` (Padrão: False): Este parâmetro booleano controla se devem ser exibidas janelas pop-up ou notificações durante a conexão. Quando definido como True, o AllWhatsPy pode mostrar janelas pop-up a validação manual do usuário para permissão de continuidade.
+
+>`calibragem` (Padrão: (True, 10)): Este parâmetro é uma tupla que controla a calibração da função de conexão. A primeira parte da tupla (um booleano) indica se a calibração será ativada ou desativada. A segunda parte da tupla (objeto do tipo int) define o tempo da calibração. A calibração é um processo que ajusta e sincroniza os contatos durante a conexão para otimizar o desempenho durante a propagação das funcionalidades do AWP.
+
+
+### Ex.: 
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+```
+
+## Desconexão
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+awp.conexao()
+
+awp.desconectar()
+```
+
+
+## InferênciaAWP
+
+```python 
+class InferenciaAWP:
+        lista_contatos: list
+        contato: str
+        mensagem: str
+        contatosInexistentes: list
+        contato_acessivel: bool
+```
+
+>`lista_contatos`: Este atributo é uma lista que armazena os contatos. Automaticamente, ele é preenchido no decorrer da utilização do AWP. 
+
+>`contato`: Este atributo é uma string que armazena o nome do contato atual. Ele é inicializado como uma string vazia e pode ser usado para acompanhar o contato atual durante a inferência.
+
+>`mensagem`: Este atributo é uma string que armazena a mensagem a ser enviada. Ele é inicializado como uma string vazia e pode ser usado para armazenar a mensagem que será enviada durante a inferência.
+
+>`contatosInexistentes`: Este atributo é uma lista que armazena os contatos inexistentes. Ele é inicializado como uma lista vazia e pode ser usado para rastrear os contatos que não existem no sistema.
+
+>`contato_acessivel`: Este atributo é um booleano que indica se o contato é acessível ou não. Ele é inicializado como um booleano e pode ser usado para verificar se o contato é acessível antes de realizar a inferência.
+
+
+### Ex.: 
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+contato = awp.InferenciaAWP.contato
+lista_contatos = awp.InferenciaAWP.lista_contatos
+ctt_inexistentes = awp.InferenciaAWP.contatosInexistentes
+mensagem = awp.InferenciaAWP.mensagem
+
+print(contato, lista_contatos, ctt_inexistentes, mensagem, sep='\n')
+```
+
+>Todas estas variáveis armazenarão suas respectivas colocações. O preenchimento é feito através dos Decorators do AWP automaticamente, de acordo com o passar das action phases do AWP. 
+
+OBS.: Referente a todos estes atributos, ao final, caso o parâmetro do AllWhatsPy referente ao [JSON](https://github.com/DevLucasLourenco/AllWhatsPy#Instanciando) receber um valor booleano True, como é o caso do exemplo, estas informações serão indexadas ao JSON que será criado.
+
+## Explodir Server
+```python
+from AllWhatsPy import AllWhatsPy
+
+
+```
+</details>
 
 
 
+<details>
+<summary style="font-size: 25px">
+   Contatos
+</summary>
+
+## AWPContatos
+
+### Encontrar Usuário
+___
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+awp.conexao()
+
+awp.ctt.encontrar_usuario()
+```
+> `contato_destino`: Referente ao usuário que será acessado. Por meio desta, será utilizado através da procura direta com o link do Whatsapp. Visto isso, ao contrário do `awp.encontrar_contato()`, não será possível procurar pelo nome do contato salvo, somente seu respectivo número. **Todavia, este é o método mais preciso**
+
+> Valores que serão aceitos ao parâmetro: str ou int 
+
+### Ex.: 
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.ctt.encontrar_usuario(contato_destino=21999999999)
+```
+
+### Encontrar Contato
+___
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+awp.conexao()
+
+awp.ctt.encontrar_contato()
+```
+>`contato_destino`: Referente ao contato que será acessado. Por meio desta, será utilizado a barra de pesquisa para procurar pelo contato. **Somente encontrará contatos salvos**.
+
+### Ex.:
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.ctt.encontrar_contato(contato_destino='Lucas Lourenço')
+# Ou
+awp.ctt.encontrar_contato(contato_destino=21999999999)
+```
+
+### Deslocamento entre Conversas
+___
 
 
-- ## Mensagens de Conversas
-  
-  - ### ultimas_mensagens_conversa()
-    <p>
-    
-    > Esta função irá, na conversa atualmente aberta, pegar as mensagens que foram enviadas.0                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
-     Em seu início, ela subirá para ser possível de captar mais inforamções e, logo após, irá retornar tudo em um dicionário separado por índices. E os valores desses      índices serão mais um dicionário contendo todas as informações daquela conversa.
-    
-    ```python
-    import AllWhatsPy as awp
+```python
+from AllWhatsPy import AllWhatsPy
 
-    awp.conexao()
-    awp.encontrar_contato('Lucas Lourenço')
-    dados = awp.ultimas_mensagens_conversa()
-    ```
-     
-    `output:`
-    ```python
-    >>> {0 : {'[09:30, 21/01/2023] Lucas Lourenço: ': 'Me encaminha oq ela disse kkkkk'}, 
-    >>> 1 : {'[09:32, 21/01/2023] Jenyfer: ': ['Me encaminha oq ela disse kkkkk','taaa']},
-    >>> 2 : {'[09:32, 21/01/2023] Jenyfer: ': 'você vai adorar kkkkkk'}}
+awp = AllWhatsPy()
+awp.conexao()
+
+awp.ctt.chat_acima()
+awp.ctt.chat_abaixo()
+```
+>Respectivamente, responsáveis por se deslocar para o contato acima e para o contato abaixo do atual.
  
-    ```
-    Como é possível reparar, será trazido informações com o índice. Os `values` deles serão outra dicionário onde você pode estar trabalhando. 
-    > quando a mensagem for citando uma outra mensagem enviada pela pessoa que está conversando, o `value` desse dicionário será uma lista
-  
-    </p>
+
+### Ex.:
+
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.ctt.chat_acima()
+awp.ctt.chat_abaixo()
+```
+</details>
 
 
+<details>
+<summary style="font-size: 25px">
+   Mensagens
+</summary>
 
-## Acesso ao Código
-Se quiser ter acesso ao código, basta [Clicar Aqui](/AllWhatsPy/AllWhatsPy.py)
+## AWPMensagem
+
+### Mensagem separada
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+awp.conexao()
+
+awp.ctt.encontrar_usuario()
+awp.msg.enviar_mensagem()
+```
+>`mensagem`: Mensagem que será enviada ao **contato** acessado. Com este método, todo parágrafo possível será executado como uma mensagem separada. Uma lista ou tupla também será executada como uma mensagem separada.
+
+### Ex.:
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo:bool=True, realizar_log:bool=True, JSON_file:bool=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.ctt.encontrar_usuario(21999999999)
+
+# Caso 1
+awp.msg.enviar_mensagem('Mensagem por linha')
+
+# Caso 2
+awp.msg.enviar_mensagem(['mensagem','por linha'])
+
+# Caso 3
+msg = '''
+mensagem
+por
+linha
+'''
+awp.msg.enviar_mensagem(msg)
 
 
+# Caso 1
+>>> Mensagem por linha
 
-## Problemas com o AllWhatsPy
-Ainda não foi encontrado problemas no código. 
+# Caso 2
+>>> Mensagem 
+>>> por linha
 
-Caso você tenha percebido algo, sinta-se à vontade para descrevê-lo na aba `Issues`!
+# Caso 3
+>>> Mensagem 
+>>> por 
+>>> linha
+```
 
-E também para você que está tendo dificuldades em trabalhar com esta lib, basta descrevê-la que irei ajudá-lo!
 
+### Mensagem paragrafada
+```python
+from AllWhatsPy import AllWhatsPy
 
-## Contribuição
+awp = AllWhatsPy()
+awp.conexao()
 
-Pull Requests são muito bem vindas!
+awp.ctt.encontrar_usuario()
+awp.msg.enviar_mensagem_paragrafada()
+```
 
-Caso seja uma grande mudança, por favor, abra uma discussão na aba `Issues` para maior compreensão do seu caso.
+> `mensagem`: Mensagem que será enviada ao **contato** acessado. Responsável pela paragrafação e concatenação das strings. Com este método, toda string passada mensagem será mesclada à uma única, formando assim o envio de uma única mensagem contendo todo o conteúdo.
+
+### Ex.:
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.ctt.encontrar_usuario(21999999999)
+
+# Caso 1
+awp.msg.enviar_mensagem_paragrafada('Mensagem paragrafada para envio')
+
+# Caso 2
+awp.msg.enviar_mensagem_paragrafada(['Mensagem paragrafada','para envio'])
+
+# Caso 3
+msg = '''
+mensagem
+paragrafada
+para
+envio
+'''
+awp.msg.enviar_mensagem_paragrafada(msg)
+
+#Caso 1
+>>> Mensagem paragrafada para envio
+
+#Caso 2
+>>> Mensagem paragrafada 
+para envio
+
+#Caso 3
+>>> mensagem
+paragrafada
+para
+envio
+```
+
+### Mensagem por Link
