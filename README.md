@@ -681,7 +681,7 @@ awp.msg.anexo.enviar_arquivo(r'caminho/do/arquivo.ext', 'Hello World')
 from AllWhatsPy import AllWhatsPy
 awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 
-endereco = awp.msg.endereco(24754000).retornar()
+endereco = awp.msg.endereco(24000000).retornar()
 
 awp.ctt.encontrar_usuario(21999999999)
 awp.msg.enviar_mensagem(endereco)
