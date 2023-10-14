@@ -3,6 +3,7 @@ from AllWhatsPy import AllWhatsPy, PseudoAWP
 
 awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 print(awp.msg.endereco(24754000).retornar())
+
 # awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 # awp.ctt.encontrar_usuario(21959061623)

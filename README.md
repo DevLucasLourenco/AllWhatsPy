@@ -205,7 +205,7 @@ flowchart LR
 
 ## 🚨Exemplos🚨   <><><><><><><><><><><><><><><><><><><><>
 
-<details>
+<details open>
 <summary>
  🚨Exemplos Práticos🚨
 </summary>
@@ -222,7 +222,7 @@ flowchart LR
 </details>
 
 
-<details>
+<details open>
 <summary>
  🚨Exemplos🚨
 </summary>
@@ -243,7 +243,7 @@ flowchart LR
 # Utilizando AllWhatsPy 
 
 
-<details>
+<details open>
 <summary style="font-size: 25px">
    Inicialização
 </summary>
@@ -267,7 +267,7 @@ awp = AllWhatsPy()
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo:bool=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 ```
 
 
@@ -292,7 +292,7 @@ awp.conexao()
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 ```
 
@@ -333,7 +333,7 @@ class InferenciaAWP:
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 contato = awp.InferenciaAWP.contato
@@ -358,7 +358,7 @@ from AllWhatsPy import AllWhatsPy
 
 
 
-<details>
+<details open>
 <summary style="font-size: 25px">
    Contatos
 </summary>
@@ -383,7 +383,7 @@ awp.ctt.encontrar_usuario()
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 awp.ctt.encontrar_usuario(contato_destino=21999999999)
@@ -405,7 +405,7 @@ awp.ctt.encontrar_contato()
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 awp.ctt.encontrar_contato(contato_destino='Lucas Lourenço')
@@ -434,7 +434,7 @@ awp.ctt.chat_abaixo()
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 awp.ctt.chat_acima()
@@ -443,7 +443,7 @@ awp.ctt.chat_abaixo()
 </details>
 
 
-<details>
+<details open>
 <summary style="font-size: 25px">
    Mensagens
 </summary>
@@ -466,7 +466,7 @@ awp.msg.enviar_mensagem()
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo:bool=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 awp.ctt.encontrar_usuario(21999999999)
@@ -517,7 +517,7 @@ awp.msg.enviar_mensagem_paragrafada()
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 awp.ctt.encontrar_usuario(21999999999)
@@ -571,7 +571,7 @@ OBS.: Não é aconselhável utilizar este método para muitos números consecuti
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 awp.msg.enviar_mensagem_por_link(21999999999, 'Mensagem a ser enviada')
@@ -598,7 +598,7 @@ awp.msg.enviar_mensagem_direta()
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 awp.msg.enviar_mensagem_direta(21999999999, 'Hello World', 1, False)
@@ -641,7 +641,7 @@ awp.msg.anexo.enviar_imagem()
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo:bool=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 awp.ctt.encontrar_usuario(21999999999)
@@ -666,7 +666,7 @@ awp.msg.anexo.enviar_arquivo()
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo:bool=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 awp.ctt.encontrar_usuario(21999999999)
@@ -686,7 +686,7 @@ awp.msg.enviar_mensagem(endereco)
 </details>
 
 
-<details>
+<details open>
 <summary style="font-size: 25px">
    Utilidades
 </summary>
@@ -697,7 +697,7 @@ awp.msg.enviar_mensagem(endereco)
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 awp.ctt.encontrar_usuario(21999999999)
@@ -708,7 +708,7 @@ awp.utilidade.arquivar_chat()
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 awp.ctt.encontrar_usuario(21999999999)
@@ -719,7 +719,7 @@ awp.utilidade.marcar_como_nao_lida()
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 awp.ctt.encontrar_usuario(21999999999)
@@ -750,7 +750,7 @@ OBS.:passar ao parâmetro um objeto do tipo str.
 ```python
 from AllWhatsPy import AllWhatsPy
 
-awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 awp.ctt.encontrar_usuario(21999999999)
@@ -764,7 +764,7 @@ awp.utilidade.agendamento(dia_programado="10", hora_programado="15", minuto_prog
 
 </details>
 
-<details>
+<details open>
 <summary style="font-size: 25px">
    Criptografia
 </summary>
