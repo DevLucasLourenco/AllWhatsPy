@@ -215,33 +215,17 @@ flowchart LR
 
 <p>
 
- - [Exemplo Prático - Tratamento de Dados com Execução AWP](/exemplos/TratamentoDeDados-Execução.py)
+ - [Exemplo Prático](/exemplo/exemplo.py)
  
- - [Exemplo Prático - Agendamento em Lista com Execução AWP](/exemplos/ListaDeAgendamentos-ExecucaoAWP.py)
+ - [Exemplo Prático](/exemplo/exemplo2.py)
  
- - [Exemplo Prático - Descendo Chats e Retornando as Mensagens](/exemplos/DescendoChatsBuscandoMensagens-ExecuçãoAWP.py)
+ - [Exemplo Prático](/exemplo/exemplo3.py)
+   
+ - [Exemplo Prático](/exemplo/exemplo4.py)
 </p>
 
 </details>
 
-
-<details open>
-<summary>
- 🚨Exemplos🚨
-</summary>
-
-<p>
-
- - [Exemplo](/exemplos/exemplo.py)
- 
- - [Exemplo]()
- 
-</p>
-
-</details>
-
-
-<p>
 
 # Utilizando AllWhatsPy 
 
