@@ -338,7 +338,7 @@ OBS.: Referente a todos estes atributos, ao final, caso o parâmetro do AllWhats
 ## Explodir Server
 ```python
 from AllWhatsPy import AllWhatsPy
-
+# em construção
 
 ```
 </details>
