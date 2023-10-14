@@ -1,16 +1,16 @@
 from setuptools import setup
 
-with open(r"README.md", "r") as arq:
+with open(r"utilidades/READMEPIPY.md", "r") as arq:
     readme = arq.read()
 
-setup(name='allwhatspy_awp',
-    version='0.0.12.5',
+setup(name='allwhatspy_awp ',
+    version='0.1.00.0',
     license='MIT License',
     author='Lucas Lourenço',
     long_description=readme,
     long_description_content_type="text/markdown",
     author_email='dev.lucaslourenco@gmail.com',
-    keywords='whatsapp api bot mensagem automática analise whatsappAPI',
-    description=u'Whatsapp API - Envio de Mensagem Automática - PT-BR. ',
+    keywords='whatsapp api bot mensagem automática analise whatsappAPI allwhatspy awp allwhatspy-awp wrapper message contact analysis github',
+    description=u'Whatsapp Wrapper - Envio de Mensagem Automática - PT-BR. ',
     packages=['AllWhatsPy'],
-    install_requires=['webdriver-manager', 'selenium', 'urllib'],)
+    install_requires=['webdriver-manager', 'selenium', 'requests'],)

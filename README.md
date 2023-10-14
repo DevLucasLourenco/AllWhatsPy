@@ -116,13 +116,17 @@ Ao longo desse processo, foram dedicadas milhares de linhas de logs em testes, r
 Para a instalação da lib, no terminal faça:
 
 ```
-pip install -U allwhatspy (<><><><><><><><><><>)
+pip install -U allwhatspy 
 ```
+Caso esteja tendo problemas de pacote, execute:
 
-Após, chame o pacote. Segue exemplo:
+```
+pip install setuptools
+pip install webdriver-manager
+pip install selenium
+pip install requests
 
-```python
-<><><><><><><><><><><><><><><><><>
+
 ```
 
 
