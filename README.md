@@ -25,19 +25,19 @@
 
 >Manutenido por [Lucas Lourenço](https://github.com/DevLucasLourenco/AllWhatsPy#autor)
 
+>Pipy: [https://pypi.org/project/allwhatspy](https://pypi.org/project/allwhatspy)
 
-## Sumário <><><><><><><><><><><><><><><><><>
 
-- [Tutorial](https://github.com/DevLucasLourenco/AllWhatsPy#tutorial-em-v%C3%ADdeo2)
-- [AllWhatsPy](https://github.com/DevLucasLourenco/AllWhatsPy#por-que-allwhatspy)
-- [Instalação](https://github.com/DevLucasLourenco/AllWhatsPy#come%C3%A7ando-no-allwhatspy)
-- [Lista de Tarefa](https://github.com/DevLucasLourenco/AllWhatsPy#objetivos-a-serem-terminados)
-- [Exemplos](https://github.com/DevLucasLourenco/AllWhatsPy#exemplos)
-- [Códigos](https://github.com/DevLucasLourenco/AllWhatsPy#o-que-voc%C3%AA-pode-fazer-com-allwhatspy)
-- [Notas do Criador](https://github.com/DevLucasLourenco/AllWhatsPy#notas-do-criador)
-- [Autor](https://github.com/DevLucasLourenco/AllWhatsPy#autor)
-- [Contribuição](https://github.com/DevLucasLourenco/AllWhatsPy#contribui%C3%A7%C3%A3o)
-- [Erros](https://github.com/DevLucasLourenco/AllWhatsPy#problemas-com-o-allwhatspy)
+## Sumário
+
+- [Tutorial](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#tutorial-em-v%C3%ADdeo)
+- [Autor](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#autor)
+- [AllWhatsPy](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#por-que-allwhatspy)
+- [Instalação](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#------instala%C3%A7%C3%A3o---)
+- [Lista de Tarefa](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#objetivos-a-serem-terminados)
+- [Exemplos](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#exemplos)
+- [Códigos](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#utilizando-allwhatspy)
+- [Erros]()
 
 
 ## Tutorial em Vídeo
@@ -206,7 +206,7 @@ flowchart LR
 
 
 
-## 🚨Exemplos🚨   <><><><><><><><><><><><><><><><><><><><>
+## 🚨Exemplos🚨
 
 <details open>
 <summary>
@@ -772,9 +772,19 @@ awp.utilidade.agendamento(dia_programado="10", hora_programado="15", minuto_prog
    Criptografia
 </summary>
 
-
 ## Cifra de Caesar
 
 
 
+## Cifra De Vigenere
 
+</details>
+
+
+# Erros
+
+### AWPConnectionError
+Este erro encontra-se presente quando o usuário tenta utilizar outros métodos que necessitariam do `awp.conexao()` ser executado primeiro, tornando a integração ao Whatsapp válida.
+
+### AWPContatoNaoEncontrado
+Este erro encontra-se presente quando o usuário tenta utilizar uma função de mensagem enquanto não há algum contato acessado.
