@@ -44,7 +44,7 @@
 
 <h1 align="center">
  
-<a href="https://youtu.be/2Z74Y_V80SA">
+<a href="https://www.youtube.com/watch?v=huV9lXCJt4E&ab_channel=LucasLourenco">
 <img src="/utilidades/videoicon.gif" alt="Tutorial" width="350px" href=/>
 </a>
 
