@@ -199,6 +199,7 @@ flowchart LR
 - [ ] Performar criação de pastas com a lib `pathlib` para melhor qualidade de software
 - [x] Implementação de Classes, Métodos e Módulos auxiliaers
 - [x] Lançamento da Versão Final do AllWhatsPy (Realizado - 10/10/2023)
+- [ ] Propagar o erro AWPContatoNaoEncontrado
 
 
 
@@ -244,7 +245,7 @@ flowchart LR
 
 <details>
 <summary style="font-size: 25px">
-   AllWhatsPy
+   Inicialização
 </summary>
  
 ## Instanciando
@@ -362,9 +363,9 @@ from AllWhatsPy import AllWhatsPy
    Contatos
 </summary>
 
-## AWPContatos
+# AWPContatos
 
-### Encontrar Usuário
+## Encontrar Usuário
 ___
 ```python
 from AllWhatsPy import AllWhatsPy
@@ -388,7 +389,7 @@ awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 awp.ctt.encontrar_usuario(contato_destino=21999999999)
 ```
 
-### Encontrar Contato
+## Encontrar Contato
 ___
 ```python
 from AllWhatsPy import AllWhatsPy
@@ -412,7 +413,7 @@ awp.ctt.encontrar_contato(contato_destino='Lucas Lourenço')
 awp.ctt.encontrar_contato(contato_destino=21999999999)
 ```
 
-### Deslocamento entre Conversas
+## Deslocamento entre Conversas
 ___
 
 
@@ -447,9 +448,9 @@ awp.ctt.chat_abaixo()
    Mensagens
 </summary>
 
-## AWPMensagem
+# AWPMensagem
 
-### Mensagem separada
+## Mensagem Separada
 ```python
 from AllWhatsPy import AllWhatsPy
 
@@ -499,7 +500,7 @@ awp.msg.enviar_mensagem(msg)
 ```
 
 
-### Mensagem paragrafada
+## Mensagem Paragrafada
 ```python
 from AllWhatsPy import AllWhatsPy
 
@@ -536,6 +537,7 @@ envio
 '''
 awp.msg.enviar_mensagem_paragrafada(msg)
 
+
 #Caso 1
 >>> Mensagem paragrafada para envio
 
@@ -550,4 +552,226 @@ para
 envio
 ```
 
-### Mensagem por Link
+## Mensagem por Link
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+awp.conexao()
+
+awp.msg.enviar_mensagem_por_link()
+```
+>`numero`: Número o qual será enviado esta mensagem
+
+>`texto`: Texto que será abrangido pelo `parse.quote`, em prol de tratar e transformar de forma adaptativa ao link, uma API do Whatsapp, a mensagem que será enviada. 
+
+OBS.: Não é aconselhável utilizar este método para muitos números consecutivos. Sujeito a bloqueio de conta.
+
+### Ex.:
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.msg.enviar_mensagem_por_link(21999999999, 'Mensagem a ser enviada')
+```
+
+## Mensagem Direta
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+awp.conexao()
+
+awp.msg.enviar_mensagem_direta()
+```
+>`contato`: O nome do contato para o qual você deseja enviar a mensagem.
+> 
+>`mensagem`: A mensagem que você deseja enviar.
+
+>`selecionar_funcao` (Padrão: 1): Uma opção que permite escolher o formato da mensagem. Use 1 para mensagens por linha ou 2 para mensagens paragrafadas.
+
+>`salvo` (Padrão: True): Um valor booleano que determina se o contato deve ser encontrado na lista de contatos salvos (True) ou usando a função de busca (False).
+
+### Ex.:
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.msg.enviar_mensagem_direta(21999999999, 'Hello World', 1, False)
+```
+
+
+# Analise de Mensagens
+
+## Ultima mensagem de um chat
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+awp.conexao()
+
+awp.ctt.encontrar_usuario()
+ultima_msg = awp.msg.analise.ultima_mensagem_chat()
+print(ultima_msg)
+```
+>Este método é capaz de retornar unicamente a última mensagem de um chat atualmente aberto.
+
+
+# Envio de Anexos
+
+## Enviar Imagem
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+awp.conexao()
+
+awp.ctt.encontrar_usuario()
+awp.msg.anexo.enviar_imagem()
+```
+>`nome_arquivo`: O caminho do arquivo da imagem que você deseja enviar.
+
+>`mensagem`: A mensagem de texto que você deseja incluir com a imagem.
+
+### Ex.:
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo:bool=True, realizar_log:bool=True, JSON_file:bool=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.ctt.encontrar_usuario(21999999999)
+awp.msg.anexo.enviar_imagem(r'caminho/do/arquivo.jpg-png', 'Hello World')
+```
+
+## Enviar Arquivo
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+awp.conexao()
+
+awp.ctt.encontrar_usuario()
+awp.msg.anexo.enviar_arquivo()
+```
+>`nome_arquivo`: O caminho do arquivo que você deseja enviar.
+
+>`mensagem`: A mensagem de texto que você deseja incluir com o arquivo.
+
+### Ex.:
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo:bool=True, realizar_log:bool=True, JSON_file:bool=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.ctt.encontrar_usuario(21999999999)
+awp.msg.anexo.enviar_arquivo(r'caminho/do/arquivo.ext', 'Hello World')
+```
+
+# Envio de Endereço via CEP
+```python
+from AllWhatsPy import AllWhatsPy
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
+
+endereco = awp.msg.endereco(24754000).retornar()
+
+awp.ctt.encontrar_usuario(21999999999)
+awp.msg.enviar_mensagem(endereco)
+```
+</details>
+
+
+<details>
+<summary style="font-size: 25px">
+   Utilidades
+</summary>
+
+# Métodos Utilitários
+
+## Arquivar Contato
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.ctt.encontrar_usuario(21999999999)
+awp.utilidade.arquivar_chat()
+```
+
+## Marcar como não Lida
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.ctt.encontrar_usuario(21999999999)
+awp.utilidade.marcar_como_nao_lida()
+```
+
+## Detecção Conta Comercial ou Pessoal
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.ctt.encontrar_usuario(21999999999)
+resultado = awp.utilidade._comercial_ou_pessoal()
+```
+>Após a execução do método, será retornado uma das seguintes strings: "C" ou "P", respectiamente condizente à conta Comercial ou Pessoal.
+
+## Agendamento
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+awp.conexao()
+
+awp.ctt.encontrar_usuario()
+awp.utilidade.agendamento()
+```
+
+>`dia_programado`: O dia do mês programado para a execução da tarefa
+
+>`hora_programado`: A hora programada para a execução da tarefa.
+
+>`minuto_programado`: O minuto programado para a execução da tarefa.
+
+OBS.:passar ao parâmetro um objeto do tipo str.
+
+### Ex.: 
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log:bool=True, JSON_file:bool=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.ctt.encontrar_usuario(21999999999)
+awp.utilidade.agendamento(dia_programado="10", hora_programado="15", minuto_programado="30")
+```
+
+
+#
+
+
+
+</details>
+
+<details>
+<summary style="font-size: 25px">
+   Criptografia
+</summary>
+
+
+## Cifra de Caesar
+
+
+
+

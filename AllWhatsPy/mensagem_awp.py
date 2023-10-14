@@ -19,7 +19,7 @@ class AWPMensagem():
     def __init__(self, objeto):
         self.objeto_awp = objeto
         self.objeto_awp._get_logging(f'{__class__.__name__} obteve êxito.')
-        self.localizacao = Endereco
+        self.endereco = Endereco
         self.anexo = Anexo(self.objeto_awp)
         self.analise = Analise(self.objeto_awp)
 
@@ -113,7 +113,7 @@ class Analise:
         self.objeto_awp = objeto
         
     @aprovarConexao
-    def _ultima_mensagem_chat(self): #verifica se a mensagem foi enviada.
+    def ultima_mensagem_chat(self): #verifica se a mensagem foi enviada.
         quadro_interacao = self.objeto_awp._drive.find_element(By.XPATH, '/html/body/div[1]/div/div/div[5]/div/div[2]/div/div[2]/div[3]') #pelo quadro onde ficar as imagens
         caixa_mensagens_objeto = quadro_interacao.find_elements(By.XPATH, '//*[@role="row"]')
         caixa_mensagens = caixa_mensagens_objeto[-1].text
@@ -165,7 +165,9 @@ class Endereco():
 
 
     def retornar(self):
+        self.dados = ', '.join(self.dados[1:])
         return self.dados
+    
 
 
 class Anexo():

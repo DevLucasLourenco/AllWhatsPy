@@ -2,23 +2,24 @@ from AllWhatsPy import AllWhatsPy, PseudoAWP
 
 
 awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
-awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+print(awp.msg.endereco(24754000).retornar())
+# awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
-awp.ctt.encontrar_usuario(21959061623)
-awp.msg.enviar_mensagem_paragrafada('Mensagem paragrafada para envio')
+# awp.ctt.encontrar_usuario(21959061623)
+# awp.msg.enviar_mensagem_paragrafada('Mensagem paragrafada para envio')
 
-# Caso 2
-awp.msg.enviar_mensagem_paragrafada(['Mensagem paragrafada','para envio'])
+# # Caso 2
+# awp.msg.enviar_mensagem_paragrafada(['Mensagem paragrafada','para envio'])
 
-# Caso 3
-msg = '''
-mensagem
-paragrafada
-para
-envio
-'''
-awp.msg.enviar_mensagem_paragrafada(msg)
-
+# # Caso 3
+# msg = '''
+# mensagem
+# paragrafada
+# para
+# envio
+# '''
+# awp.msg.enviar_mensagem_paragrafada(msg)
+# awp.msg.enviar_mensagem_direta()
 # @PseudoAWP
 # def awp_script(dados):
 #     return dados
@@ -50,7 +51,7 @@ awp.msg.enviar_mensagem_paragrafada(msg)
 
 # awp.ctt.encontrar_usuario(21959061623)
 # awp.msg.enviar_mensagem('teste')
-# awp.msg.analise._ultima_mensagem_chat()
+# awp.msg.analise.ultima_mensagem_chat()
 
 # awp.ctt.encontrar_usuario(2195906162464893)
 # awp.ctt.encontrar_usuario(21959061623)
