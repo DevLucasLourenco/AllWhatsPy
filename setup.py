@@ -3,7 +3,7 @@ from setuptools import setup
 with open(r"utilidades/READMEPIPY.md", "r") as arq:
     readme = arq.read()
 
-setup(name='allwhatspy_awp ',
+setup(name='allwhatspy',
     version='0.1.00.0',
     license='MIT License',
     author='Lucas Lourenço',

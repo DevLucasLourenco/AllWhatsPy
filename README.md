@@ -121,16 +121,15 @@ pip install -U allwhatspy
 Caso esteja tendo problemas de pacote, execute:
 
 ```
+pip install -U allwhatspy 
 pip install setuptools
 pip install webdriver-manager
 pip install selenium
 pip install requests
-
-
 ```
 
-
 Você também pode estar baixando os arquivos e colar na sua pasta, caso sua máquina esteja tendo problemas em instalar esta lib.
+
 
 </br>
 

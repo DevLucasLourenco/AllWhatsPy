@@ -2,3 +2,9 @@
 *.pyc
 eventAWP.log
 *.json
+allwhatspy.egg-info/dependency_links.txt
+allwhatspy.egg-info/PKG-INFO
+allwhatspy.egg-info/requires.txt
+allwhatspy.egg-info/SOURCES.txt
+allwhatspy.egg-info/top_level.txt
+dist/allwhatspy-0.1.0.0.tar.gz
