@@ -30,14 +30,14 @@
 
 ## Sumário
 
-- [Tutorial](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#tutorial-em-v%C3%ADdeo)
-- [Autor](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#autor)
-- [AllWhatsPy](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#por-que-allwhatspy)
-- [Instalação](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#------instala%C3%A7%C3%A3o---)
-- [Lista de Tarefa](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#objetivos-a-serem-terminados)
-- [Exemplos](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#exemplos)
-- [Códigos](https://github.com/DevLucasLourenco/AllWhatsPy/edit/main/README.md#utilizando-allwhatspy)
-- [Erros]()
+- [Tutorial](https://github.com/DevLucasLourenco/AllWhatsPy/tree/main/README.md#tutorial-em-v%C3%ADdeo)
+- [Autor](https://github.com/DevLucasLourenco/AllWhatsPy/tree/main/README.md#autor)
+- [AllWhatsPy](https://github.com/DevLucasLourenco/AllWhatsPy/tree/main/README.md#por-que-allwhatspy)
+- [Instalação](https://github.com/DevLucasLourenco/AllWhatsPy/tree/main/README.md#------instala%C3%A7%C3%A3o---)
+- [Lista de Tarefa](https://github.com/DevLucasLourenco/AllWhatsPy/tree/main/README.md#objetivos-a-serem-terminados)
+- [Exemplos](https://github.com/DevLucasLourenco/AllWhatsPy/tree/main/README.md#exemplos)
+- [Códigos](https://github.com/DevLucasLourenco/AllWhatsPy/tree/main/README.md#utilizando-allwhatspy)
+- [Erros](https://github.com/DevLucasLourenco/AllWhatsPy/tree/main/README.md#erros)
 
 
 ## Tutorial em Vídeo
