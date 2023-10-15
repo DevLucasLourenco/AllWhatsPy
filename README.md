@@ -116,12 +116,12 @@ Ao longo desse processo, foram dedicadas milhares de linhas de logs em testes, r
 Para a instalação da lib, no terminal faça:
 
 ```
-pip install -U allwhatspy 
+pip install -U allwhatspy-awp
 ```
 Caso esteja tendo problemas de pacote, execute:
 
 ```
-pip install -U allwhatspy 
+pip install -U allwhatspy-awp
 pip install setuptools
 pip install webdriver-manager
 pip install selenium
