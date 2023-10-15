@@ -4,7 +4,7 @@
 
  
 <h1 align="center">
-<img src="/utilidades/awpimgg.png" alt="AllWhatsPy" width="350px"/>
+<img src="/utilidades/awpimg.png" alt="AllWhatsPy" width="350px"/>
 
 
 
