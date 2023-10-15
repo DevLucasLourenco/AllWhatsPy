@@ -1,5 +1,5 @@
 from .decorators_awp import aprovarConexao
-from .errors_awp import AWPConnectionError
+from .errors_awp import AWPConnectionError, AWPContatoNaoEncontrado
 import os
 import requests
 import time
@@ -30,7 +30,11 @@ class AWPMensagem():
             mensagem = str(mensagem)
 
         self.objeto_awp.InferenciaAWP.mensagem = mensagem
-        textbox = self.objeto_awp._ArmazemXPATH.textbox_xpath
+        
+        try:
+            textbox = self.objeto_awp._ArmazemXPATH.textbox_xpath
+        except NoSuchElementException:
+            raise AWPContatoNaoEncontrado
 
         if isinstance(mensagem, list):        
             mensagem = '\n'.join(mensagem)
