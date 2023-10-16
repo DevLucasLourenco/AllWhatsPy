@@ -240,7 +240,7 @@ flowchart LR
 
 <details open>
 <summary style="font-size: 25px">
-    <h1>Inicialização</h1>
+    <h1>Inicialização 👇</h1>
 </summary>
  
 ## Instanciando
@@ -355,7 +355,7 @@ from AllWhatsPy import AllWhatsPy
 
 <details open>
 <summary style="font-size: 25px">
-   <h1>Contatos</h1>
+   <h1>Contatos 👇</h1>
 </summary>
 
 # AWPContatos
@@ -440,7 +440,7 @@ awp.ctt.chat_abaixo()
 
 <details open>
 <summary style="font-size: 25px">
-   <h1>Mensagens</h1>
+   <h1>Mensagens 👇</h1>
 </summary>
 
 # AWPMensagem
@@ -683,7 +683,7 @@ awp.msg.enviar_mensagem(endereco)
 
 <details open>
 <summary style="font-size: 25px">
-  <h1>Utilidades</h1>
+  <h1>Utilidades 👇</h1>
 </summary>
 
 # Métodos Utilitários
@@ -761,7 +761,7 @@ awp.utilidade.agendamento(dia_programado="10", hora_programado="15", minuto_prog
 
 <details open>
 <summary style="font-size: 25px">
-   <h1>Criptografia</h1>
+   <h1>Criptografia 👇</h1>
 </summary>
 
 ## Cifra de Caesar
