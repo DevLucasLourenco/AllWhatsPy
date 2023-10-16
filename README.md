@@ -122,7 +122,6 @@ Caso esteja tendo problemas de pacote, execute:
 
 ```
 pip install -U allwhatspy-awp
-pip install setuptools
 pip install webdriver-manager
 pip install selenium
 pip install requests
