@@ -71,14 +71,14 @@ Se você utiliza o AllWhatsPy com frequência, gosta da forma que foi desenvolvi
 <h2>
 <p>
 
-[Linkedin](http://linkedin.com/in/lucas-lourenco0312)
+Linkedin: [devlucaslourenco](https://www.linkedin.com/in/devlucaslourenco/)
 
 </p>
 
 
 <p>
 
-[Instagram](https://www.instagram.com/lucaslourencoo__/)
+Instagram: [lucaslourencoo__](https://www.instagram.com/lucaslourencoo__/)
 
 
 </p>
@@ -173,6 +173,11 @@ flowchart LR
 
 ## Objetivos a Serem Terminados 
 
+<details>
+ <summary>
+      ✅To Do List
+ </summary>
+ 
 - [x] Criar alternativas para envio de mensagem (Realizado - 19/12/2022)
 - [x] Tratar as `except Exception` (Realizado - 21/12/2022)
 - [x] Resolver bug na urllib (Realizado - 21/12/2022)
@@ -201,8 +206,9 @@ flowchart LR
 - [ ] Performar criação de pastas com a lib `pathlib` para melhor qualidade de software
 - [x] Implementação de Classes, Métodos e Módulos auxiliaers
 - [x] Lançamento da Versão Final do AllWhatsPy (Realizado - 10/10/2023)
-- [ ] Propagar o erro AWPContatoNaoEncontrado
+- [x] Propagar o erro AWPContatoNaoEncontrado
 
+</details>
 
 
 ## 🚨Exemplos🚨
@@ -225,13 +231,16 @@ flowchart LR
 
 </details>
 
+<div>
+    <h1 style="float: left;">Utilizando AllWhatsPy</h1>
+    <h6> - (Clique nas setas ou na linha para abrir e fechar as abas.)</h6>
+</div>
 
-# Utilizando AllWhatsPy 
 
 
 <details open>
 <summary style="font-size: 25px">
-   Inicialização
+    <h1>Inicialização</h1>
 </summary>
  
 ## Instanciando
@@ -312,7 +321,7 @@ class InferenciaAWP:
 
 >`contatosInexistentes`: Este atributo é uma lista que armazena os contatos inexistentes. Ele é inicializado como uma lista vazia e pode ser usado para rastrear os contatos que não existem no sistema.
 
->`contato_acessivel`: Este atributo é um booleano que indica se o contato é acessível ou não. Ele é inicializado como um booleano e pode ser usado para verificar se o contato é acessível antes de realizar a inferência.
+>`contato_acessivel`: Este atributo é um booleano que indica se o contato é acessível ou não. Ele é inicializado como um booleano e pode ser usado para verificar se o contato é acessível antes de realizar a inferência. Todavia, sua utilização é focada para o uso interno do AWP.
 
 
 ### Ex.: 
@@ -346,7 +355,7 @@ from AllWhatsPy import AllWhatsPy
 
 <details open>
 <summary style="font-size: 25px">
-   Contatos
+   <h1>Contatos</h1>
 </summary>
 
 # AWPContatos
@@ -431,7 +440,7 @@ awp.ctt.chat_abaixo()
 
 <details open>
 <summary style="font-size: 25px">
-   Mensagens
+   <h1>Mensagens</h1>
 </summary>
 
 # AWPMensagem
@@ -497,7 +506,7 @@ awp.ctt.encontrar_usuario()
 awp.msg.enviar_mensagem_paragrafada()
 ```
 
-> `mensagem`: Mensagem que será enviada ao **contato** acessado. Responsável pela paragrafação e concatenação das strings. Com este método, toda string passada mensagem será mesclada à uma única, formando assim o envio de uma única mensagem contendo todo o conteúdo.
+> `mensagem`: Mensagem que será enviada ao **contato** acessado. Responsável pela paragrafação e concatenação das strings. Com este método, toda string passada será mesclada à uma única, formando assim o envio de uma única mensagem contendo todo o conteúdo. Uma lista ou tupla serão concatenadas de maneira que a mensagem se inclua como um parágrafo.
 
 ### Ex.:
 ```python
@@ -674,7 +683,7 @@ awp.msg.enviar_mensagem(endereco)
 
 <details open>
 <summary style="font-size: 25px">
-   Utilidades
+  <h1>Utilidades</h1>
 </summary>
 
 # Métodos Utilitários
@@ -752,14 +761,15 @@ awp.utilidade.agendamento(dia_programado="10", hora_programado="15", minuto_prog
 
 <details open>
 <summary style="font-size: 25px">
-   Criptografia
+   <h1>Criptografia</h1>
 </summary>
 
 ## Cifra de Caesar
-
+...
 
 
 ## Cifra De Vigenere
+...
 
 </details>
 
@@ -771,3 +781,4 @@ Este erro encontra-se presente quando o usuário tenta utilizar outros métodos 
 
 ### AWPContatoNaoEncontrado
 Este erro encontra-se presente quando o usuário tenta utilizar uma função de mensagem enquanto não há algum contato acessado.
+
