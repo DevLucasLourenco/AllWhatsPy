@@ -331,6 +331,13 @@ from AllWhatsPy import AllWhatsPy
 awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
+# Antes de agregar as informações da maneira que se segue abaixo, você
+# deve utilizar métodos de acesso, envio de mensagens,
+# acessar contatos e tudo o que o AWP tem a oferecer.
+# Por final, utilize o método para puxar todos os dados
+# que foram agregados... entretanto não existe a limitação de que só
+# devam ser usados ao final. É possível utilizar a qualquer momento durante a execução do AWP.
+
 contato = awp.InferenciaAWP.contato
 lista_contatos = awp.InferenciaAWP.lista_contatos
 ctt_inexistentes = awp.InferenciaAWP.contatosInexistentes
