@@ -356,6 +356,75 @@ from AllWhatsPy import AllWhatsPy
 # em construção
 
 ```
+
+<blockquote>
+<details open>
+<summary>
+<h2>PseudoAWP</h2>
+</summary>
+
+
+```python
+from AllWhatsPy import AllWhatsPy, PseudoAWP
+
+@PseudoAWP
+def funcao_para_pseudoAWP():
+   awp = AllWhatsPy()
+   
+   dados_agregacao = {
+      'objeto' : awp,
+      'iter_ctt' : ['contatos','para','acessar'],
+      'mensagem' : 'mensagem', # Mensagem para envio
+      'metodo' : 'EM',
+      'server_host' : True,
+      'calibragem' : (True, 10),
+      'anexo' : ... #Path do arquivo anexado.
+      }
+
+   return dados_agregacao
+```
+   > É importado o módulo AllWhatsPy e as classes AllWhatsPy e PseudoAWP.
+
+   > A função funcao_para_pseudoAWP (Exemplo) é definida e decorada com `@PseudoAWP`. Para utilização do PseudoAWP, é necessário decorá-lo à uma função. Nela, são passadas as configurações para execução.
+
+   > Será necessário a utilização de uma `instância da classe AllWhatsPy`.
+   > Um dicionário chamado dados_agregacao é definido, contendo várias informações:
+   > - A chave `objeto` está associada à instância awp criada.
+   > - A chave `iter_ctt` está associada a uma lista que deverá conter os contatos a serem acessados para execução de envio de mensagens. Automaticamente, ele identificará se é um contato a ser procurado na lista de contatos salvos via método `awp.ctt.encontrar_contato`, ou se executará a procura por usuário via método `awp.ctt.encontrar_usuario`. 
+   > - A chave `mensagem` está associada à qual mensagem será enviada.
+   > - A chave `metodo` está associada à qual método de envio de mensagem será executado. Por padrão, será o método 'EM'.
+   > - A chave `calibragem` está associada a uma tupla com dois valores: True e 10.
+   > - A chave `server_host` está associada à validação booleana se executará a conexão em cache ao Whatsapp já conectado anteriormente.
+   > - a chave `anexo` está associada ao envio de um arquivo/imagem/video.
+
+
+   ### Ex.: 
+```python
+@PseudoAWP
+def funcao_para_pseudoAWP():
+   awp = AllWhatsPy()
+   msg = 'Mensagem de Envio'
+
+   dados_agregacao = {
+      'objeto' : awp,
+      'iter_ctt' : [21169549849489, 21959061623, 'lucas lourenco', 
+                     21169549849489, 21959061623, 'lucas lourenco', 
+                     21169549849489, 21959061623],
+      'mensagem' : msg,
+      'metodo' : 'EM',
+      'server_host' : True,
+      'calibragem' : False,
+      'anexo': r'caminho\para\imagem.png'
+      }
+
+   return dados_agregacao
+
+funcao_para_pseudoAWP()
+```
+
+</details>
+</blockquote>
+
 </details>
 
 

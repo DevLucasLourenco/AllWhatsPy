@@ -77,8 +77,8 @@ def PseudoAWP(func):
                 "iter_ctt": None,
                 "mensagem" : None,
                 "metodo" : None,
-                "calibragem" : [True, 10],
                 "server_host" : True,
+                "calibragem" : [True, 10],
                 "anexo" : None,  #a criar...
         }
         

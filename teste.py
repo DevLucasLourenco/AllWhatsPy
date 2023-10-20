@@ -1,8 +1,30 @@
 from AllWhatsPy import AllWhatsPy, PseudoAWP
 
 
-awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
-print(awp.msg.endereco(24754000).retornar())
+@PseudoAWP
+def funcao_para_pseudoAWP():
+   awp = AllWhatsPy()
+   msg = 'Mensagem de Envio'
+
+   dados_agregacao = {
+      'objeto' : awp,
+      'iter_ctt' : [21169549849489, 21959061623, 'lucas lourenco', 
+                     21169549849489, 21959061623, 'lucas lourenco', 
+                     21169549849489, 21959061623],
+      'mensagem' : msg,
+      'metodo' : 'EM',
+      'server_host' : True,
+      'calibragem' : False,
+      'anexo': r'caminho\para\imagem.png'
+      }
+
+   return dados_agregacao
+
+funcao_para_pseudoAWP()
+
+
+# awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
+# print(awp.msg.endereco(24754000).retornar())
 
 # awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
