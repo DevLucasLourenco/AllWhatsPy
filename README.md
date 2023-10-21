@@ -357,11 +357,9 @@ from AllWhatsPy import AllWhatsPy
 
 ```
 
-<blockquote>
-<details open>
-<summary>
-<h2>PseudoAWP</h2>
-</summary>
+
+
+## PseudoAWP
 
 
 ```python
@@ -421,9 +419,6 @@ def funcao_para_pseudoAWP():
 
 funcao_para_pseudoAWP()
 ```
-
-</details>
-</blockquote>
 
 </details>
 
