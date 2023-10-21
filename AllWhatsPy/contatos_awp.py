@@ -22,7 +22,8 @@ class AWPContatos():
                                                                  'tempo_cooldown':0}
 
     @aprovarConexao
-    def encontrar_usuario(self, contato_destino):   
+    def encontrar_usuario(self, contato_destino):
+        time.sleep(0.5)
         self.objeto_awp._drive.get(f'https://web.whatsapp.com/send?phone={contato_destino}')
         
         if self.__verificacao_existencia_contato(contato_destino):
@@ -39,7 +40,6 @@ class AWPContatos():
     
         time.sleep(3)
         self.objeto_awp._drive.find_element(By.XPATH, var_aux_xpath).send_keys(Keys.ENTER)
-        # self.objeto_awp._drive.find_element(By.XPATH, '//*[@id="side"]/div[1]/div/div/span/button/span').click()
         time.sleep(0.5)
 
         next(self.objeto_awp._generator_info_contato_acessado)

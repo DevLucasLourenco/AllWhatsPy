@@ -26,50 +26,54 @@ class AWPMensagem():
 
     @aprovarConexao
     def enviar_mensagem(self, mensagem: str):
-        if isinstance(mensagem, int) or isinstance(mensagem, float):
-            mensagem = str(mensagem)
+        if self.objeto_awp.InferenciaAWP.contato_acessivel:
+            if isinstance(mensagem, int) or isinstance(mensagem, float):
+                mensagem = str(mensagem)
 
-        self.objeto_awp.InferenciaAWP.mensagem = mensagem
-        textbox = self.objeto_awp._ArmazemXPATH.textbox_xpath
+            self.objeto_awp.InferenciaAWP.mensagem = mensagem
+            textbox = self.objeto_awp._ArmazemXPATH.textbox_xpath
 
-        if isinstance(mensagem, list):        
-            mensagem = '\n'.join(mensagem)
+            if isinstance(mensagem, list):        
+                mensagem = '\n'.join(mensagem)
 
-        self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(mensagem,Keys.ENTER)         
-        self.objeto_awp._get_logging(f'   Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
+            self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(mensagem,Keys.ENTER)         
+            self.objeto_awp._get_logging(f'   Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
 
-        if len(self.objeto_awp.InferenciaAWP.mensagem) > 35:
-            self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
-        else:
-            self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}')
-            
-        time.sleep(1)
+            if len(self.objeto_awp.InferenciaAWP.mensagem) > 35:
+                self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
+            else:
+                self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}')
+                
+            time.sleep(2)
 
 
     @aprovarConexao
     def enviar_mensagem_paragrafada(self, mensagem: str):
-        self.objeto_awp.InferenciaAWP.mensagem = mensagem
+        if self.objeto_awp.InferenciaAWP.contato_acessivel:
+            self.objeto_awp.InferenciaAWP.mensagem = mensagem
 
-        textbox = self.objeto_awp._marktime_func(self.objeto_awp._ArmazemXPATH.textbox_xpath)
-        textbox.click()
+            textbox = self.objeto_awp._marktime_func(self.objeto_awp._ArmazemXPATH.textbox_xpath)
+            textbox.click()
 
-        if isinstance(mensagem, list):
-            mensagem = '\n'.join(mensagem)
+            if isinstance(mensagem, list):
+                mensagem = '\n'.join(mensagem)
+                
+            for linha in mensagem.split('\n'):
+                textbox.send_keys(linha)
+                ActionChains(self.objeto_awp._drive).key_down(Keys.SHIFT).key_down(Keys.ENTER).key_up(Keys.ENTER).key_up(Keys.SHIFT).perform()
+                
+            textbox.send_keys(Keys.ENTER)
+            self.objeto_awp._get_logging(f'   Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
             
-        for linha in mensagem.split('\n'):
-            textbox.send_keys(linha)
-            ActionChains(self.objeto_awp._drive).key_down(Keys.SHIFT).key_down(Keys.ENTER).key_up(Keys.ENTER).key_up(Keys.SHIFT).perform()
-
-        textbox.send_keys(Keys.ENTER)
-        
-        self.objeto_awp._get_logging(f'   Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
-        
-        if len(self.objeto_awp.InferenciaAWP.mensagem) > 35:
-            self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
+            if len(self.objeto_awp.InferenciaAWP.mensagem) > 35:
+                self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
+            else:
+                self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}')
+                
+            time.sleep(2)
         else:
-            self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}')
+            self.objeto_awp._get_logging(f'    Não foi possível enviar mensagem por ser um contato inacessível.')
             
-        time.sleep(1)
 
 
     @aprovarConexao
@@ -85,6 +89,7 @@ class AWPMensagem():
 
         next(self.objeto_awp._generator_info_contato_acessado)
         next(self.objeto_awp._generator_info_contato_acessado)
+        time.sleep(1.5)
 
 
     @aprovarConexao
@@ -114,7 +119,7 @@ class Analise:
         
     @aprovarConexao
     def ultima_mensagem_chat(self): #verifica se a mensagem foi enviada.
-        quadro_interacao = self.objeto_awp._drive.find_element(By.XPATH, '/html/body/div[1]/div/div/div[5]/div/div[2]/div/div[2]/div[3]') #pelo quadro onde ficar as imagens
+        quadro_interacao = self.objeto_awp._drive.find_element(By.XPATH, '/html/body/div[1]/div/div/div[5]/div/div[2]/div/div[2]/div[3]') #pelo quadro onde ficar as msgs
         caixa_mensagens_objeto = quadro_interacao.find_elements(By.XPATH, '//*[@role="row"]')
         caixa_mensagens = caixa_mensagens_objeto[-1].text
         
