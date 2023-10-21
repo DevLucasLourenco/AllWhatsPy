@@ -7,6 +7,6 @@ class AWPConnectionError(ConnectionError):
         
         
 class AWPContatoNaoEncontrado(NoSuchElementException):
-    def __init__(self, menssagem="Contato não encontrado. Impossível realizar métodos da Classe AWPMensagem"):
+    def __init__(self, menssagem="Contato não encontrado. Impossível realizar métodos da classe AWPMensagem"):
         self.message = menssagem
         super().__init__(self.message)

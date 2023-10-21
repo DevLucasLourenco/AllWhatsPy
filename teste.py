@@ -26,13 +26,16 @@ from AllWhatsPy import AllWhatsPy, PseudoAWP
 awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 print(awp.msg.endereco(24754000).retornar())
 
-awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(False, 10))
+awp.ctt.encontrar_usuario(2195906162387456)
+awp.msg.enviar_mensagem('a')
+# awp.ctt.encontrar_usuario(21959061623)
+awp.msg.enviar_mensagem('a')
+# lista = [21959061623, 216546516544989, 21959061623,21959061623, 216546516544989, 21959061623]
 
-lista = [21959061623, 216546516544989, 21959061623,21959061623, 216546516544989, 21959061623]
-
-for i, l in enumerate(lista):
-   awp.ctt.encontrar_usuario(l)
-   awp.msg.enviar_mensagem_paragrafada(['teste1', 'teste2', i])
+# for i, l in enumerate(lista):
+#    awp.ctt.encontrar_usuario(l)
+#    awp.msg.enviar_mensagem_paragrafada(['teste1', 'teste2', i])
 # awp.ctt.encontrar_usuario(21959061623)
 # awp.msg.enviar_mensagem_paragrafada('Mensagem paragrafada para envio')
 
