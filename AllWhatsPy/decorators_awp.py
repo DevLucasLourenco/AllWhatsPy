@@ -70,6 +70,19 @@ def PseudoAWP(func):
         except KeyError:
             raise KeyError(f"Método não aceito. Opções: {', '.join(list(metodo_resolucao.keys()))}") 
 
+    def _validacao_envio_anexo(arq):
+        # verificar extensão do arquivo
+        
+        # aplicar qual será o método que ele usará através da verificação
+        
+        # verificar se há uma mensagem no dict_info['mensagem']
+        
+        # colocar a mensagem, caso haja
+        
+        # enviar
+        
+        ...
+
 
     def validacao_dados(dicio: dict):
         relacao = {
@@ -122,7 +135,10 @@ def PseudoAWP(func):
                 dict_info['objeto'].ctt.encontrar_usuario(ctt)
                 
             if dict_info['objeto'].InferenciaAWP.contato_acessivel:
-                dict_info['metodo'](dict_info['mensagem'])
+                if dict_info['anexo']:
+                    _validacao_envio_anexo(dict_info['anexo'])
+                else:
+                    dict_info['metodo'](dict_info['mensagem'])
                 
     return wrapper
 
