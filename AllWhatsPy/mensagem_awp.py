@@ -56,6 +56,7 @@ class AWPMensagem():
         except (NoSuchElementException, AttributeError):
             raise AWPContatoNaoEncontrado
 
+
     @aprovarConexao
     def enviar_mensagem_paragrafada(self, mensagem: str):
         try:
@@ -85,7 +86,7 @@ class AWPMensagem():
             else:
                 self.objeto_awp._get_logging(f'    Não foi possível enviar mensagem por se tratar de um contato inacessível.')
                 
-        except NoSuchElementException:
+        except (NoSuchElementException, AttributeError):
             raise AWPContatoNaoEncontrado       
 
 
@@ -141,6 +142,7 @@ class Analise:
 
 
 class Enquete():
+    
     def __init__(self) -> None:
         ...
 
@@ -233,8 +235,8 @@ class Anexo():
         dict_delinear = {'arquivo': '//*[@id="app"]/div/div/div[3]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[1]/div[1]/p',
                          'imagem': '//*[@id="app"]/div/div/div[3]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[2]/div[1]/div[1]/p'
                          }
-
         inputbox_xpath = dict_delinear.get(self.__metodo_anexo)
+
         if msg:
             self.objeto_awp._drive.find_element(By.XPATH, inputbox_xpath).send_keys(msg, Keys.ENTER)
         else:
