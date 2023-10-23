@@ -36,6 +36,9 @@ class AWPContatos():
     # @aguardeCooldown
     @aprovarConexao
     def encontrar_contato(self, contato_destino):
+        ActionChains(self.objeto_awp._drive).key_down(Keys.ESCAPE).perform()
+        ActionChains(self.objeto_awp._drive).key_up(Keys.ESCAPE).perform()
+        
         var_aux_xpath = self.objeto_awp._ArmazemXPATH.var_aux2_xpath
         self.objeto_awp._marktime_func(var_aux_xpath)
         self.objeto_awp._drive.find_element(By.XPATH, var_aux_xpath).send_keys(contato_destino)

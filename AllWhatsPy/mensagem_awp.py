@@ -198,7 +198,7 @@ class Anexo():
 
 
     @aprovarConexao
-    def enviar_imagem(self, nome_arquivo, mensagem):   # correção.
+    def enviar_imagem(self, nome_arquivo, mensagem):
         self.__metodo_anexo = 'imagem'
         item = os.path.realpath(nome_arquivo)
         self.__encontrar_botao_anexo_XPATH()
@@ -231,7 +231,7 @@ class Anexo():
         
         
     @aprovarConexao
-    def __enviar_anexo_XPATH(self, *msg):
+    def __enviar_anexo_XPATH(self, msg):
         dict_delinear = {'arquivo': '//*[@id="app"]/div/div/div[3]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[1]/div[1]/p',
                          'imagem': '//*[@id="app"]/div/div/div[3]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[2]/div[1]/div[1]/p'
                          }

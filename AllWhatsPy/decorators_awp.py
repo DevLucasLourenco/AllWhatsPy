@@ -70,18 +70,24 @@ def PseudoAWP(func):
         except KeyError:
             raise KeyError(f"Método não aceito. Opções: {', '.join(list(metodo_resolucao.keys()))}") 
 
-    def _validacao_envio_anexo(arq):
+    def _validacao_envio_anexo(dict_info_parametro):
         # verificar extensão do arquivo
+        palavra_reversa_arq = dict_info_parametro['anexo'][::-1]
+        sep_PRA = palavra_reversa_arq.split('.')[0]
+        extensao_arq_atual = sep_PRA[::-1]
         
-        # aplicar qual será o método que ele usará através da verificação
+        # aplicar qual será o método que ele usará através da verificação do arquivo
+        if extensao_arq_atual in ['png','jpg','jpeg']:
+            if dict_info_parametro['mensagem']:
+                dict_info_parametro['objeto'].msg.anexo.enviar_imagem(dict_info_parametro['anexo'], dict_info_parametro['mensagem'])
+            else:
+                dict_info_parametro['objeto'].msg.anexo.enviar_imagem(dict_info_parametro['anexo'], " ")
         
-        # verificar se há uma mensagem no dict_info['mensagem']
         
-            # colocar a mensagem, caso haja
+        # continuar para extensão de videos
         
-        # enviar
+        # else para outros, então enviará pelo método de envio de arquivos
         
-        ...
 
 
     def validacao_dados(dicio: dict):
@@ -134,9 +140,9 @@ def PseudoAWP(func):
             else:
                 dict_info['objeto'].ctt.encontrar_usuario(ctt)
                 
-            if dict_info['objeto'].InferenciaAWP.contato_acessivel:
+            if dict_info['objeto'].InferenciaAWP.contato_acessivel: # verificar, pois esta linha não se faz necessária. (talvez somente para o envio do anexo)
                 if dict_info['anexo']:
-                    _validacao_envio_anexo(dict_info['anexo'])
+                    _validacao_envio_anexo(dict_info)
                 else:
                     dict_info['metodo'](dict_info['mensagem'])
                 
