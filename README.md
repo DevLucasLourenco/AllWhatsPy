@@ -157,13 +157,13 @@ flowchart LR
   awp.ctt.encontrar_usuario --> .msg
 
 
-  .msg ---> awp.msg.enviar_mensagem
+  .msg ---> awp.msg.enviar_mensagem_isolada
   .msg ---> awp.msg.enviar_mensagem_paragrafada
 
   .msg --> .audio 
 
   awp.msg.enviar_mensagem_paragrafada --> awp.desconectar
-  awp.msg.enviar_mensagem --> awp.desconectar
+  awp.msg.enviar_mensagem_isolada --> awp.desconectar
 
 
        
@@ -373,7 +373,7 @@ def funcao_para_pseudoAWP():
       'objeto' : awp,
       'iter_ctt' : ['contatos','para','acessar'],
       'mensagem' : 'mensagem', # Mensagem para envio
-      'metodo' : 'EM',
+      'metodo' : 'EMP',
       'server_host' : True,
       'calibragem' : (True, 10),
       'anexo' : ... #Path do arquivo anexado.
@@ -390,7 +390,7 @@ def funcao_para_pseudoAWP():
    > - A chave `objeto` está associada à instância awp criada.
    > - A chave `iter_ctt` está associada a uma lista que deverá conter os contatos a serem acessados para execução de envio de mensagens. Automaticamente, ele identificará se é um contato a ser procurado na lista de contatos salvos via método `awp.ctt.encontrar_contato`, ou se executará a procura por usuário via método `awp.ctt.encontrar_usuario`. 
    > - A chave `mensagem` está associada à qual mensagem será enviada.
-   > - A chave `metodo` está associada à qual método de envio de mensagem será executado. Por padrão, será o método 'EM'.
+   > - A chave `metodo` está associada à qual método de envio de mensagem será executado. Por padrão, será o método 'EMP'.
    > - A chave `calibragem` está associada a uma tupla com dois valores: True e 10.
    > - A chave `server_host` está associada à validação booleana se executará a conexão em cache ao Whatsapp já conectado anteriormente.
    > - a chave `anexo` está associada ao envio de um arquivo/imagem/video.
@@ -516,7 +516,7 @@ awp.ctt.chat_abaixo()
 
 # AWPMensagem
 
-## Mensagem Separada
+## Mensagem Isolada
 ```python
 from AllWhatsPy import AllWhatsPy
 
@@ -524,7 +524,7 @@ awp = AllWhatsPy()
 awp.conexao()
 
 awp.ctt.encontrar_usuario()
-awp.msg.enviar_mensagem()
+awp.msg.enviar_mensagem_isolada()
 ```
 >`mensagem`: Mensagem que será enviada ao **contato** acessado. Com este método, todo parágrafo possível será executado como uma mensagem separada. Uma lista ou tupla também será executada como uma mensagem separada.
 
@@ -538,10 +538,10 @@ awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 awp.ctt.encontrar_usuario(21999999999)
 
 # Caso 1
-awp.msg.enviar_mensagem('Mensagem por linha')
+awp.msg.enviar_mensagem_isolada('Mensagem por linha')
 
 # Caso 2
-awp.msg.enviar_mensagem(['mensagem','por linha'])
+awp.msg.enviar_mensagem_isolada(['mensagem','por linha'])
 
 # Caso 3
 msg = '''
@@ -549,7 +549,7 @@ mensagem
 por
 linha
 '''
-awp.msg.enviar_mensagem(msg)
+awp.msg.enviar_mensagem_isolada(msg)
 
 
 # Caso 1
@@ -656,7 +656,7 @@ awp.msg.enviar_mensagem_direta()
 > 
 >`mensagem`: A mensagem que você deseja enviar.
 
->`selecionar_funcao` (Padrão: 1): Uma opção que permite escolher o formato da mensagem. Use 1 para mensagens por linha ou 2 para mensagens paragrafadas.
+>`selecionar_funcao` (Padrão: 1): Uma opção que permite escolher o formato da mensagem. Use 1 para mensagens isoladas ou 2 para mensagens paragrafadas.
 
 >`salvo` (Padrão: True): Um valor booleano que determina se o contato deve ser encontrado na lista de contatos salvos (True) ou usando a função de busca (False).
 
@@ -747,7 +747,7 @@ awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 endereco = awp.msg.endereco(24000000).retornar()
 
 awp.ctt.encontrar_usuario(21999999999)
-awp.msg.enviar_mensagem(endereco)
+awp.msg.enviar_mensagem_isolada(endereco)
 ```
 </details>
 

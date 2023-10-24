@@ -25,7 +25,7 @@ class AWPMensagem():
 
 
     @aprovarConexao
-    def enviar_mensagem(self, mensagem: str):
+    def enviar_mensagem_isolada(self, mensagem: str):
         try:
             if self.objeto_awp.InferenciaAWP.contato_acessivel:
                 if isinstance(mensagem, int) or isinstance(mensagem, float):
@@ -88,6 +88,16 @@ class AWPMensagem():
                 
         except (NoSuchElementException, AttributeError):
             raise AWPContatoNaoEncontrado       
+        
+        
+    @aprovarConexao
+    def enviar_mensagem_compulsiva(self, msg):
+        ...
+        
+        
+    @aprovarConexao
+    def enviar_mensagemCP(self, msg):
+        ...
 
 
     @aprovarConexao
@@ -116,7 +126,7 @@ class AWPMensagem():
             
         
         if selecionar_funcao == 1:
-            self.objeto_awp.msg.enviar_mensagem(mensagem)
+            self.objeto_awp.msg.enviar_mensagem_isolada(mensagem)
         
         elif selecionar_funcao == 2:
             self.objeto_awp.msg.enviar_mensagem_paragrafada(mensagem)

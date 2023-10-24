@@ -61,7 +61,7 @@ def executarOrdemTeclas(func):
 def PseudoAWP(func):
     def _deteccao_metodo(obj, item):
         metodo_resolucao = {
-                "EM" : obj.msg.enviar_mensagem,
+                "EMI" : obj.msg.enviar_mensagem_isolada,
                 "EMP" : obj.msg.enviar_mensagem_paragrafada,
                 }
         try:
@@ -98,7 +98,7 @@ def PseudoAWP(func):
                 "metodo" : None,
                 "server_host" : True,
                 "calibragem" : [True, 10],
-                "anexo" : None,  #a criar...
+                "anexo" : None,
         }
         
         if isinstance(dicio, dict):

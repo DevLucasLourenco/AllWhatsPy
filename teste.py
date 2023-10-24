@@ -5,13 +5,13 @@ from AllWhatsPy import AllWhatsPy, PseudoAWP
 @PseudoAWP
 def funcao_para_pseudoAWP():
    awp = AllWhatsPy()
-   msg = 'Mensagem de Envio'
+   msg = ['Mensagem de Envio','Teste']
 
    dados_agregacao = {
       'objeto' : awp,
       'iter_ctt' : [21169549849489, 21959061623, 'lucas lourenco'],
       'mensagem' : msg,
-      'metodo' : 'EM',
+      'metodo' : 'EMI',
       'server_host' : True,
       'calibragem' : False,
       'anexo': r'utilidades\awpimgg.png'
@@ -31,9 +31,9 @@ funcao_para_pseudoAWP()
 
 # awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(False, 10))
 # awp.ctt.encontrar_usuario(2195906162387456)
-# awp.msg.enviar_mensagem('a')
+# awp.msg.enviar_mensagem_isolada('a')
 # # awp.ctt.encontrar_usuario(21959061623)
-# awp.msg.enviar_mensagem('a')
+# awp.msg.enviar_mensagem_isolada('a')
 # # lista = [21959061623, 216546516544989, 21959061623,21959061623, 216546516544989, 21959061623]
 
 # for i, l in enumerate(lista):
@@ -84,7 +84,7 @@ funcao_para_pseudoAWP()
 # awp.conexao(server_host=True, popup=False, calibragem=False, show_off=True)
 
 # awp.ctt.encontrar_usuario(21959061623)
-# awp.msg.enviar_mensagem('teste')
+# awp.msg.enviar_mensagem_isolada('teste')
 # awp.msg.analise.ultima_mensagem_chat()
 
 # awp.ctt.encontrar_usuario(2195906162464893)
@@ -111,7 +111,7 @@ funcao_para_pseudoAWP()
 
 # awp.ctt.encontrar_usuario(91469414144944)
 # awp.ctt.encontrar_usuario(21959061623)
-# awp.msg.enviar_mensagem([texto, texto_descrip])
+# awp.msg.enviar_mensagem_isolada([texto, texto_descrip])
 
 # texto = 'Lucas e o criador do AWP, AllWhatsPy'
 # key = 5
@@ -141,7 +141,7 @@ funcao_para_pseudoAWP()
 
 # awp.ctt.encontrar_usuario(21959061623)
 # # awp.utilidade.agendamento('13', '09', '24')
-# # awp.msg.enviar_mensagem('teste po 2')
+# # awp.msg.enviar_mensagem_isolada('teste po 2')
 # awp.msg.anexo.enviar_imagem('utilidades/awpimgg.png', 'imagem')
 # awp.msg.anexo.enviar_arquivo('utilidades/awpimgg.png','agora, por arquivo')
 # # # awp.msg.anexo.enviar_arquivo("texto.txt")
