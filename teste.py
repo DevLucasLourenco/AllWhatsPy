@@ -2,38 +2,43 @@ from AllWhatsPy import AllWhatsPy, PseudoAWP
 
 
 
-@PseudoAWP
-def funcao_para_pseudoAWP():
-   awp = AllWhatsPy()
-   msg = ['Mensagem de Envio','Teste']
+# @PseudoAWP
+# def funcao_para_pseudoAWP():
+#    awp = AllWhatsPy()
+#    msg = ['Mensagem de Envio','Teste']
 
-   dados_agregacao = {
-      'objeto' : awp,
-      'iter_ctt' : [21169549849489, 21959061623, 'lucas lourenco'],
-      'mensagem' : msg,
-      'metodo' : 'EMI',
-      'server_host' : True,
-      'calibragem' : False,
-      'anexo': r'utilidades\awpimgg.png'
-      }
+#    dados_agregacao = {
+#       'objeto' : awp,
+#       'iter_ctt' : [21169549849489, 21959061623, 'lucas lourenco'],
+#       'mensagem' : msg,
+#       'metodo' : 'EMI',
+#       'server_host' : True,
+#       'calibragem' : False,
+#       'anexo': r'utilidades\awpimgg.png'
+#       }
 
-   return dados_agregacao
+#    return dados_agregacao
 
-funcao_para_pseudoAWP()
+# funcao_para_pseudoAWP()
 
 
 # a = 'AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)'
 # awp = eval(a)
-
-# # awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
+nome = 'lucas'
+msg = f"""
+mensagem de envio
+para teste 
+automatizado do {nome}
+"""
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 # print(awp.msg.endereco(24754000).retornar())
 
 
-# awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(False, 10))
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(False, 10))
 # awp.ctt.encontrar_usuario(2195906162387456)
 # awp.msg.enviar_mensagem_isolada('a')
-# # awp.ctt.encontrar_usuario(21959061623)
-# awp.msg.enviar_mensagem_isolada('a')
+awp.ctt.encontrar_usuario(21959061623)
+awp.msg.enviar_mensagemCP(msg)
 # # lista = [21959061623, 216546516544989, 21959061623,21959061623, 216546516544989, 21959061623]
 
 # for i, l in enumerate(lista):

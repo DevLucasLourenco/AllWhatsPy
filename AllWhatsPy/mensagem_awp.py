@@ -3,6 +3,7 @@ from .errors_awp import AWPContatoNaoEncontrado
 import os
 import requests
 import time
+import pyperclip
 from urllib import parse
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -37,18 +38,14 @@ class AWPMensagem():
                 if isinstance(mensagem, list):        
                     mensagem = '\n'.join(mensagem)
                     
-                try:
-                    self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(mensagem,Keys.ENTER)         
-                except NoSuchElementException:
-                    raise AWPContatoNaoEncontrado
-                
+                self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(mensagem,Keys.ENTER)         
                 self.objeto_awp._get_logging(f'   Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
 
-                if len(self.objeto_awp.InferenciaAWP.mensagem) > 35:
-                    self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
+                if len(self.objeto_awp.InferenciaAWP.mensagem) > 50:
+                    self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:50]}[...]')
                 else:
-                    self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}')
-                time.sleep(2)
+                    self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:50]}')
+                time.sleep(2) # mudar para o aguarde do envio
                 
             else:
                 self.objeto_awp._get_logging(f'    Não foi possível enviar mensagem por se tratar de um contato inacessível.')
@@ -76,12 +73,12 @@ class AWPMensagem():
                 textbox.send_keys(Keys.ENTER)
                 self.objeto_awp._get_logging(f'   Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
                 
-                if len(self.objeto_awp.InferenciaAWP.mensagem) > 35:
-                    self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}[...]')
+                if len(self.objeto_awp.InferenciaAWP.mensagem) > 50:
+                    self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:50]}[...]')
                 else:
-                    self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:35]}')
+                    self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:50]}')
                     
-                time.sleep(2)
+                time.sleep(2) # mudar para o aguarde do envio
                 
             else:
                 self.objeto_awp._get_logging(f'    Não foi possível enviar mensagem por se tratar de um contato inacessível.')
@@ -96,8 +93,31 @@ class AWPMensagem():
         
         
     @aprovarConexao
-    def enviar_mensagemCP(self, msg):
-        ...
+    def enviar_mensagemCP(self, mensagem:str):
+        try:
+            if self.objeto_awp.InferenciaAWP.contato_acessivel:
+                
+                self.objeto_awp.InferenciaAWP.mensagem = mensagem
+                textbox = self.objeto_awp._ArmazemXPATH.textbox_xpath
+                
+                pyperclip.copy(mensagem)
+                self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(Keys.CONTROL, 'v')
+                self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(Keys.ENTER)
+                pyperclip.copy('')
+                
+
+                self.objeto_awp._get_logging(f'   Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
+                if len(self.objeto_awp.InferenciaAWP.mensagem) > 50:
+                    self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:50]}[...]')
+                else:
+                    self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:50]}')
+                time.sleep(2) # mudar para o aguarde do envio
+                
+            else:
+                self.objeto_awp._get_logging(f'    Não foi possível enviar mensagem por se tratar de um contato inacessível.')
+                
+        except (NoSuchElementException, AttributeError):
+            raise AWPContatoNaoEncontrado
 
 
     @aprovarConexao
