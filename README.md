@@ -443,7 +443,7 @@ awp.ctt.encontrar_usuario()
 ```
 > `contato_destino`: Referente ao usuário que será acessado. Por meio desta, será utilizado através da procura direta com o link do Whatsapp. Visto isso, ao contrário do `awp.ctt.encontrar_contato()`, não será possível procurar pelo nome do contato salvo, somente seu respectivo número. **Todavia, este é o método mais preciso**
 
-> Valores que serão aceitos ao parâmetro: str ou int 
+> TIpos de objetos que serão aceitos ao parâmetro: str ou int 
 
 ### Ex.: 
 ```python
