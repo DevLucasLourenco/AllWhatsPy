@@ -25,7 +25,7 @@
 
 >Manutenido por [Lucas Lourenço](https://github.com/DevLucasLourenco/AllWhatsPy#autor)
 
->Pipy: [https://pypi.org/project/allwhatspy](https://pypi.org/project/allwhatspy)
+>Pipy: [https://pypi.org/project/allwhatspy](https://pypi.org/project/allwhatspy-awp)
 
 
 ## Sumário
