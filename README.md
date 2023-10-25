@@ -256,7 +256,7 @@ awp = AllWhatsPy()
 
 >`realizar_log` (Padrão: True): Este parâmetro booleano controla se o AllWhatsPy deve realizar o registro de ações e eventos. Quando definido como True, o AllWhatsPy registrará informações detalhadas sobre as ações realizadas durante a sessão, o que pode ser útil para rastrear e solucionar problemas.
 
->`JSON_file` (Padrão: True): Este parâmetro booleano determina se as informações da sessão, como contatos, mensagens e configurações, devem ser salvas em um arquivo JSON. Isso pode ser útil para preservar o estado da sessão entre as execuções do programa.
+>`JSON_file` (Padrão: True): Este parâmetro booleano determina se as informações da sessão, como contatos, mensagens e configurações, devem ser salvas em um arquivo JSON. Isso pode ser útil para realizar uma analise mais apurada de como foi realizada a execução da instância do AWP.
 
 ### Ex.: 
 ```python
