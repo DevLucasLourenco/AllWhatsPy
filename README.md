@@ -376,7 +376,7 @@ def funcao_para_pseudoAWP():
       'metodo' : 'EMP',
       'server_host' : True,
       'calibragem' : (True, 10),
-      'anexo' : ... #Path do arquivo anexado.
+      'anexo' : caminho/para/arquivo.ext #Path do arquivo anexado.
       }
 
    return dados_agregacao
