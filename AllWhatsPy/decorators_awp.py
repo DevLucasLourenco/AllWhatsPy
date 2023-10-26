@@ -174,3 +174,9 @@ def AWPC_Analytics(func):
         self.objeto_logawp_log(f'AWPCriptografia.{var_aux[1]}: {var_aux[0]}')
         return f
     return wrapper
+
+
+def padraoAWPMensagem(func):
+    def wrapper(self, *args, **kwargs):
+        ...
+    return wrapper

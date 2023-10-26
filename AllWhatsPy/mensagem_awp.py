@@ -120,7 +120,7 @@ class AWPMensagem():
             raise AWPContatoNaoEncontrado
         
         
-    def _exito_de_envio(self):
+    def _exitoEnvio(self):
         try:
             self.objeto_awp._marktime_func('//*[@id="main"]//*[@data-icon="msg-time"]')
             self.objeto_awp._marktime_func_not_until('//*[@id="main"]//*[@data-icon="msg-time"]')
