@@ -123,6 +123,7 @@ class AWPMensagem():
     def _exito_de_envio(self):
         try:
             self.objeto_awp._marktime_func('//*[@id="main"]//*[@data-icon="msg-time"]')
+            self.objeto_awp._marktime_func_not_until('//*[@id="main"]//*[@data-icon="msg-time"]')
             
         except (NoSuchElementException, Exception) as e:
             self.objeto_awp._get_logging(f"Não foi obtido êxito no envio da mensagem ao contato {self.objeto_awp.InferenciaAWP.contato} - {e}")

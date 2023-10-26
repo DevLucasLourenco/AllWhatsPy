@@ -247,6 +247,14 @@ class AllWhatsPy:
                     )
         return res
     
+    def _marktime_func_not_until(self, objeto):
+        res = self._marktime.until_not(
+                    EC.presence_of_element_located(
+                        (By.XPATH, objeto)
+                        )
+                    )
+        return res
+    
     
     def _tratamento_log_func(self, metodo):
         return f'{__class__.__name__}'+'.'+f'{metodo.__name__}'+'()'
