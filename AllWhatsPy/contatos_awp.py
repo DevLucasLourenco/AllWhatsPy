@@ -16,7 +16,6 @@ class AWPContatos():
     def __init__(self, objeto):
         self.objeto_awp = objeto
         self.objeto_awp._get_logging(f'{__class__.__name__} obteve êxito.')
-        self.contador_aguarde:int = 0
         self._status_aguarde:dict[str:bool, str:int, str:int] = {'status_bool':False,
                                                                  'quantidade_realizacao':0,
                                                                  'tempo_cooldown':0}
