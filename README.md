@@ -409,7 +409,7 @@ def funcao_para_pseudoAWP():
                      21169549849489, 21959061623, 'lucas lourenco', 
                      21169549849489, 21959061623],
       'mensagem' : msg,
-      'metodo' : 'EM',
+      'metodo' : 'EMP',
       'server_host' : True,
       'calibragem' : False,
       'anexo': r'caminho\para\imagem.png'
