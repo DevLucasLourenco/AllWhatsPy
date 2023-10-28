@@ -4,7 +4,7 @@
 
  
 <h1 align="center">
-<img src="/utilidades/AWPgifprocreate.gif" alt="AllWhatsPy" width="350px"/>
+<img src="/utilidades/AWPgifprocreate.gif" alt="AllWhatsPy" width="450px"/>
 
 
 
