@@ -237,15 +237,15 @@ flowchart LR
 </div>
 
 
+<div align="center">
+ <img src="/utilidades/AWPgifprocreate.gif" alt="AllWhatsPy" width="450px"/>
+</div>
+
 
 <details open>
 <summary style="font-size: 25px">
     <h1>Inicialização 👇</h1>
 </summary>
-
-
-<h1 align="center">
-<img src="/utilidades/AWPgifprocreate.gif" alt="AllWhatsPy" width="450px"/>
 
  
 ## Instanciando
