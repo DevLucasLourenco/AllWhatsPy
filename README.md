@@ -27,7 +27,7 @@
 
 >Pipy: [https://pypi.org/project/allwhatspy-awp](https://pypi.org/project/allwhatspy-awp)
 
->v2.0.7
+>v2.1.0
 
 
 ## Sumário
@@ -51,6 +51,15 @@
 </a>
 
 </h1>
+
+<h2>
+Vídeo mais recente 👇🏻
+
+<a href="https://youtu.be/5_jpKMmHdso">
+<img src="/utilidades/thumbnails/1.png" alt="Tutorial" width="350px" href=/>
+</a>
+
+</h2>
 
 
 ## ⭐ Avalie o Código! ⭐
