@@ -27,6 +27,8 @@
 
 >Pipy: [https://pypi.org/project/allwhatspy-awp](https://pypi.org/project/allwhatspy-awp)
 
+>v2.0.7
+
 
 ## Sumário
 
@@ -202,11 +204,9 @@ flowchart LR
 - [x] Atualizar bug da função `desconectar()` (Realizado - 20/02/2023)
 - [x] Corrigir bug na função `pegar_foto_contato()` (Realizado - 21/02/2023)
 - [x] Atualizar icon do AWP (Realizado - 25/02/2023)
-- [x] Atualizar `contato_nome()`
 - [x] Realizar a explicação de como começar no AWP
-- [ ] Performar criação de pastas com a lib `pathlib` para melhor qualidade de software
 - [x] Implementação de Classes, Métodos e Módulos auxiliaers
-- [x] Lançamento da Versão Final do AllWhatsPy (Realizado - 10/10/2023)
+- [x] Lançamento da Versão 2 do AllWhatsPy (Realizado - 10/10/2023)
 - [x] Propagar o erro AWPContatoNaoEncontrado
 
 </details>
