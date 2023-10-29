@@ -137,7 +137,7 @@ class AllWhatsPy:
             #deletar
         ...
 
-    def _IncorporarMediaTempo(self): # func para calcular o tempo médio para cada ação tomada no algoritmo e disponibilisar um .log com estas informações Ex.: MediasAWP.log
+    def _IncorporarMediaTempo(self): # func para calcular o tempo médio para cada ação tomada no algoritmo e disponibilizar um .log com estas informações Ex.: MediasAWP.log
         ...        
 
 
@@ -149,6 +149,7 @@ class AllWhatsPy:
             # Etapa 1
             ctt_dados = self._drive.find_element(By.XPATH, xpath_aux)
             nome = ctt_dados.find_element(By.XPATH, '//*[@id="main"]/header/div[2]/div/div/div').text 
+            # criar uma parametrização para quando for o nome de um grupo. não funciona desta maneira.
 
             self.InferenciaAWP.contato = nome
             self.InferenciaAWP.lista_contatos.append(nome)

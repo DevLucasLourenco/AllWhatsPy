@@ -125,6 +125,7 @@ pip install -U allwhatspy-awp
 pip install webdriver-manager
 pip install selenium
 pip install requests
+pip install pyperclip
 ```
 
 Você também pode estar baixando os arquivos e colar na sua pasta, caso sua máquina esteja tendo problemas em instalar esta lib.

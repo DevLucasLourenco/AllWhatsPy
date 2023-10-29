@@ -45,7 +45,7 @@ class AWPMensagem():
                     self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:50]}[...]')
                 else:
                     self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:50]}')
-                time.sleep(2) # mudar para o aguarde do envio
+                self._exitoEnvio()
                 
             else:
                 self.objeto_awp._get_logging(f'    Não foi possível enviar mensagem por se tratar de um contato inacessível.')
@@ -78,7 +78,7 @@ class AWPMensagem():
                 else:
                     self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:50]}')
                     
-                time.sleep(2) # mudar para o aguarde do envio
+                self._exitoEnvio()
                 
             else:
                 self.objeto_awp._get_logging(f'    Não foi possível enviar mensagem por se tratar de um contato inacessível.')
@@ -88,10 +88,30 @@ class AWPMensagem():
         
         
     @aprovarConexao
-    def enviar_mensagem_compulsiva(self, msg):
-        ...
+    def enviar_mensagem_compulsiva(self, recorrencia: int, iter_msg:list = []):
+        try:
+            if self.objeto_awp.InferenciaAWP.contato_acessivel:
+                self.objeto_awp.InferenciaAWP.mensagem = iter_msg
+                textbox = self.objeto_awp._ArmazemXPATH.textbox_xpath
+                
+                for i in range(recorrencia):
+                    for msg in iter_msg:
+                        self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(msg)
+                
+                self.objeto_awp._get_logging(f'   Mensagem enviada para {self.objeto_awp.InferenciaAWP.contato}')
+                if len(self.objeto_awp.InferenciaAWP.mensagem) > 50:
+                    self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:50]}[...]')
+                else:
+                    self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:50]}')
+                self._exitoEnvio()
+            
+            else:
+                self.objeto_awp._get_logging(f'    Não foi possível enviar mensagem por se tratar de um contato inacessível.')
+                
+        except (NoSuchElementException, AttributeError):
+            raise AWPContatoNaoEncontrado
         
-        
+
     @aprovarConexao
     def enviar_mensagemCP(self, mensagem:str):
         try:
@@ -111,7 +131,7 @@ class AWPMensagem():
                     self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:50]}[...]')
                 else:
                     self.objeto_awp._get_logging(f'   Mensagem: {self.objeto_awp.InferenciaAWP.mensagem[:50]}')
-                time.sleep(2) # mudar para o aguarde do envio
+                self._exitoEnvio()
                 
             else:
                 self.objeto_awp._get_logging(f'    Não foi possível enviar mensagem por se tratar de um contato inacessível.')
@@ -119,15 +139,6 @@ class AWPMensagem():
         except (NoSuchElementException, AttributeError):
             raise AWPContatoNaoEncontrado
         
-        
-    def _exitoEnvio(self):
-        try:
-            self.objeto_awp._marktime_func('//*[@id="main"]//*[@data-icon="msg-time"]')
-            self.objeto_awp._marktime_func_not_until('//*[@id="main"]//*[@data-icon="msg-time"]')
-            
-        except (NoSuchElementException, Exception) as e:
-            self.objeto_awp._get_logging(f"Não foi obtido êxito no envio da mensagem ao contato {self.objeto_awp.InferenciaAWP.contato} - {e}")
-
 
     @aprovarConexao
     def enviar_mensagem_por_link(self, numero, texto):
@@ -162,6 +173,16 @@ class AWPMensagem():
 
         else:
             raise ValueError('Valor informado incoerente.')
+        
+            
+    def _exitoEnvio(self):
+        try:
+            self.objeto_awp._marktime_func('//*[@id="main"]//*[@data-icon="msg-time"]')
+            self.objeto_awp._marktime_func_not_until('//*[@id="main"]//*[@data-icon="msg-time"]')
+            
+        except (NoSuchElementException, Exception) as e:
+            self.objeto_awp._get_logging(f"Não foi obtido êxito no envio da mensagem ao contato {self.objeto_awp.InferenciaAWP.contato} - {e}")
+
 
 
 
@@ -237,30 +258,51 @@ class Anexo():
 
 
     @aprovarConexao
-    def enviar_imagem(self, nome_arquivo, mensagem):
-        self.__metodo_anexo = 'imagem'
-        item = os.path.realpath(nome_arquivo)
-        self.__encontrar_botao_anexo_XPATH()
-            
-        arquivo = self.objeto_awp._drive.find_elements(By.CSS_SELECTOR, "input[type='file']") #metodo "elements" porque tanto a seleção de arquivo, quanto de imagem em o parâmetro "type" como "file"
-        arquivo[1].send_keys(item)
-        time.sleep(2)
+    def imagem(self, nome_arquivo, mensagem=''):
+        try:
+            if self.objeto_awp.InferenciaAWP.contato_acessivel:
+                
+                self.__metodo_anexo = 'imagem'
+                item = os.path.realpath(nome_arquivo)
+                self.__encontrar_botao_anexo_XPATH()
+                    
+                arquivo = self.objeto_awp._drive.find_elements(By.CSS_SELECTOR, "input[type='file']") #metodo "elements" porque tanto a seleção de arquivo, quanto de imagem em o parâmetro "type" como "file"
+                arquivo[1].send_keys(item)
+                time.sleep(2)
 
-        self.__enviar_anexo_XPATH(mensagem)
+                self.__enviar_anexo_XPATH(mensagem)
+                time.sleep(2)
+                # self.objeto_awp.msg._exitoEnvio()
+
+            else:
+                self.objeto_awp._get_logging(f'    Não foi possível enviar a imagem por se tratar de um contato inacessível.')
+
+        except (NoSuchElementException, AttributeError):
+            raise AWPContatoNaoEncontrado
     
     
     @aprovarConexao
-    def enviar_arquivo(self, nome_arquivo, mensagem):    
-        self.__metodo_anexo = 'arquivo'
-        item = os.path.realpath(nome_arquivo)
-        self.__encontrar_botao_anexo_XPATH()
-            
-        arquivo = self.objeto_awp._drive.find_elements(By.CSS_SELECTOR, "input[type='file']") #metodo "elements" porque tanto a seleção de arquivo, quanto de imagem em o parâmetro "type" como "file"
-        arquivo[0].send_keys(item)
-        time.sleep(2)
+    def arquivo(self, nome_arquivo, mensagem=''):  
+        try:
+            if self.objeto_awp.InferenciaAWP.contato_acessivel:  
+                self.__metodo_anexo = 'arquivo'
+                item = os.path.realpath(nome_arquivo)
+                self.__encontrar_botao_anexo_XPATH()
+                    
+                arquivo = self.objeto_awp._drive.find_elements(By.CSS_SELECTOR, "input[type='file']") #metodo "elements" porque tanto a seleção de arquivo, quanto de imagem em o parâmetro "type" como "file"
+                arquivo[0].send_keys(item)
+                time.sleep(2)
 
-        self.__enviar_anexo_XPATH(mensagem)
+                self.__enviar_anexo_XPATH(mensagem)
+                time.sleep(2)
+                # self.objeto_awp.msg._exitoEnvio()
+            else:
+                self.objeto_awp._get_logging(f'    Não foi possível enviar o arquivo por se tratar de um contato inacessível.')
 
+        
+        except (NoSuchElementException, AttributeError):
+            raise AWPContatoNaoEncontrado
+    
 
     @aprovarConexao
     def __encontrar_botao_anexo_XPATH(self):

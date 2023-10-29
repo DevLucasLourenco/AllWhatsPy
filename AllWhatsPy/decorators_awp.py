@@ -51,9 +51,11 @@ def executarOrdemTeclas(func):
     def wrapper(self, *args, **kwargs):
         run = func(self, *args, **kwargs)
         _ordenacao(self, run)
+
         
         next(self.objeto_awp._generator_info_contato_acessado)
         next(self.objeto_awp._generator_info_contato_acessado)
+        time.sleep(1.5)
         
     return wrapper
 

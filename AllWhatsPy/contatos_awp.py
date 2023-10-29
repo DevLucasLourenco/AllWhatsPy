@@ -24,7 +24,6 @@ class AWPContatos():
     def encontrar_usuario(self, contato_destino):
         time.sleep(0.5)
         
-        # self.objeto_awp.InferenciaAWP.contato_acessivel = False ## precisa? testar
         self.objeto_awp._drive.get(f'https://web.whatsapp.com/send?phone={contato_destino}')
         
         if self.__verificacao_existencia_contato(contato_destino):
