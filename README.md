@@ -708,6 +708,66 @@ awp.msg.enviar_mensagem_direta(21999999999, 'Hello World', 1, False)
 ```
 
 
+## Mensagem CP
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+awp.conexao()
+
+awp.ctt.encontrar_usuario()
+awp.msg.enviar_mensagemCP()
+```
+
+> `mensagem`: Este método utiliza o mecanismo de Copy Paste. Diferentemente do "enviar_mensagem_isolada" ou até mesmo "enviar_mensagem_paragrafada", onde um realiza o envio de mensagem linha à linha, o outro utiliza a concatenação das mensagens, fazendo-as ficarem uma abaixo da outra, respectivamente. Já este, utiizando o Copy Paste, garante maior velocidade na hora do envio de uma mensagem. No envio paragrafado, custava-se tempo para quando fosse uma mensagem com uma relativa quantidade de linhas. Entretanto, com este, custa-se somente milésimos de segundos.
+
+> O único adendo que acrescento a este método, é evitar a cópia de algo durante sua execução. Afinal, pode vir o acaso de você copiar no único milésimo de segundo onde ocorre a cópia da mensagem e o envio. Ocasionado assim, o que foi copiado por você ser enviado, ao invés da mensagem de fato. Claro, repito, isto ocorreria somente se você copiasse de fato no milésimo de segundo em que isto acontece.
+
+
+### Ex.:
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.ctt.encontrar_usuario(21999999999)
+awp.msg.enviar_mensagemCP("Mensagem para envio")
+```
+
+
+
+## Mensagem Compulsiva
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+awp.conexao()
+
+awp.ctt.encontrar_usuario()
+awp.msg.enviar_mensagem_compulsiva()
+```
+
+> `recorrencia`: Este valor receberá um objeto do tipo **int**. Ele é responsável pela quantidade de laços de repetição que ocorrerão para o envio compulsivo das mensagens que forem passadas no parâmetro seguinte.
+
+> `iter_msg`: Este, por sua vez, deve receber um iterable contendo as mensagens que serão enviadas. Seguindo a mesma lógica do `enviar_mensagem_isolada`, enviará mensagens linha à linha, ignorando quando houver um CRLF para união.
+
+
+### Ex.:
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+awp.ctt.encontrar_usuario(21999999999)
+awp.msg.enviar_mensagem_compulsiva(3. ['Mensagem 1','Mensagem 2'])
+```
+
+
+</br>
+</br>
+
 # Analise de Mensagens
 
 ## Ultima mensagem de um chat
