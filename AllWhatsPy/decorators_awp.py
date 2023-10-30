@@ -181,4 +181,5 @@ def AWPC_Analytics(func):
 def padraoAWPMensagem(func):
     def wrapper(self, *args, **kwargs):
         ...
+        
     return wrapper

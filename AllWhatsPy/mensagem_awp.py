@@ -153,7 +153,7 @@ class AWPMensagem():
 
         next(self.objeto_awp._generator_info_contato_acessado)
         next(self.objeto_awp._generator_info_contato_acessado)
-        time.sleep(1.5)
+        self._exitoEnvio()
 
 
     @aprovarConexao
@@ -177,8 +177,12 @@ class AWPMensagem():
             
     def _exitoEnvio(self):
         try:
+            # match case mensagem
             self.objeto_awp._marktime_func('//*[@id="main"]//*[@data-icon="msg-time"]')
             self.objeto_awp._marktime_func_not_until('//*[@id="main"]//*[@data-icon="msg-time"]')
+            #match case imagem
+            
+            #match case arquivo
             
         except (NoSuchElementException, Exception) as e:
             self.objeto_awp._get_logging(f"Não foi obtido êxito no envio da mensagem ao contato {self.objeto_awp.InferenciaAWP.contato} - {e}")
