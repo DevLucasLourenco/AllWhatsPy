@@ -159,6 +159,7 @@ pip install webdriver-manager
 pip install selenium
 pip install requests
 pip install pyperclip
+pip install Pillow
 ```
 
 Você também pode estar baixando os arquivos e colar na sua pasta, caso sua máquina esteja tendo problemas em instalar esta lib.

@@ -13,4 +13,4 @@ setup(name='allwhatspy-awp',
     keywords='whatsapp api bot mensagem automática analise whatsappAPI allwhatspy awp allwhatspy-awp wrapper message contact analysis github automação automacao',
     description=u'Whatsapp Wrapper - Envio de Mensagem Automática - PT-BR.',
     packages=['AllWhatsPy'],
-    install_requires=['webdriver-manager', 'selenium', 'requests'],)
+    install_requires=['webdriver-manager', 'selenium', 'requests', 'pyperclip', 'Pillow'],)

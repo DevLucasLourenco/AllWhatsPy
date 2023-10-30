@@ -4,6 +4,7 @@ import os
 import requests
 import time
 import pyperclip
+from PIL import Image
 from urllib import parse
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -189,7 +190,6 @@ class AWPMensagem():
 
 
 
-
 class Analise:
     
     def __init__(self, objeto) -> None:
@@ -270,6 +270,33 @@ class Anexo():
                 item = os.path.realpath(nome_arquivo)
                 self.__encontrar_botao_anexo_XPATH()
                     
+                arquivo = self.objeto_awp._drive.find_elements(By.CSS_SELECTOR, "input[type='file']") #metodo "elements" porque tanto a seleção de arquivo, quanto de imagem em o parâmetro "type" como "file"
+                arquivo[1].send_keys(item)
+                time.sleep(2)
+
+                self.__enviar_anexo_XPATH(mensagem)
+                time.sleep(2)
+                # self.objeto_awp.msg._exitoEnvio()
+
+            else:
+                self.objeto_awp._get_logging(f'    Não foi possível enviar a imagem por se tratar de um contato inacessível.')
+
+        except (NoSuchElementException, AttributeError):
+            raise AWPContatoNaoEncontrado
+        
+    @aprovarConexao
+    def imagemCP(self, nome_arquivo, mensagem=''): ## atualizar - não testado - possivelmente nas linha de control V dará erro.
+        try:
+            if self.objeto_awp.InferenciaAWP.contato_acessivel:
+                
+                self.__metodo_anexo = 'imagem'
+
+                item = imagem = Image.open(nome_arquivo)
+                textbox = self.objeto_awp._ArmazemXPATH.textbox_xpath
+                
+                self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(Keys.CONTROL, 'v')
+                self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(Keys.ENTER)
+            
                 arquivo = self.objeto_awp._drive.find_elements(By.CSS_SELECTOR, "input[type='file']") #metodo "elements" porque tanto a seleção de arquivo, quanto de imagem em o parâmetro "type" como "file"
                 arquivo[1].send_keys(item)
                 time.sleep(2)
