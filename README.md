@@ -563,6 +563,7 @@ awp.conexao()
 awp.ctt.encontrar_usuario()
 awp.msg.enviar_mensagem_isolada()
 ```
+
 >`mensagem`: Mensagem que será enviada ao **contato** acessado. Com este método, todo parágrafo possível será executado como uma mensagem separada. Uma lista ou tupla também será executada como uma mensagem separada.
 
 ### Ex.:
