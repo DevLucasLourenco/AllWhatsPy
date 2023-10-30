@@ -76,7 +76,8 @@ class AWPContatos():
     @executarOrdemTeclas
     @aprovarConexao
     def chat_acima(self):        
-        time.sleep(0.5)   
+        time.sleep(0.5)
+        # contato acessivel = True - veriricar a funcionalidade
         return Keys.CONTROL, Keys.SHIFT, Keys.ALT, '['
 
     
