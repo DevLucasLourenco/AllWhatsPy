@@ -119,6 +119,25 @@ Ao longo desse processo, foram dedicadas milhares de linhas de logs em testes, r
 </br>
 </br>
   
+## Antes de Começar no AllWhatsPy
+
+> ### É de extrema importância a compreensão de alguns aspectos que podem redigir à situações problemáticas à sua conta.
+
+>1º -  Contas/Números recém criados podem ocasionar em bloqueio imediato após  instancias de utilização do AWP para grande massa de números.
+
+>2 - Utilize números aquecidos. Números que já tem histórico com o Meta em um geral. Estes por sua vez, terão uma chance inferior de ser bloqueados por SPAM.
+
+>3 - O Whatsapp é contra automações para envio de mensagem em massa. o AWP é construído para imitar o funcionamento ótico e interacional de um humano. Entretanto, existem métodos que deixam este ponto de lado, focando na precisão, velocidade e exatidão. Estes por sua vez, garantem menos segurança para a detecção do Whatsapp ao SPAM. 
+
+>4º Para fugir do item acima, foque na não utilização – quanto a conta for recente – de métodos que são realizados através de links, APIs ou atalhos para seu funcionamento. Dos métodos de envio de mensagem, o que deve-se evitar a utilização é `AWP.msg.enviar_mensagem_por_link()`. Aos demais, não há a necessidade de se preocupar tal quanto este. 
+
+>5º - o AllWhatsPy não se responsabiliza pela utilização do usuário quanto às normais lógicas do WhatsApp
+
+>6º - Limite a quantidade de mensagens que podem ser enviadas. Utilize o método `AWP.utilidade.agendamento()` para ocasionar no intervalo de uma massa de contatos acessados. Por exemplo, envie primeiramente mensagem para 50 contatos e aguarde um intervalo de tempo considerável.
+
+>7º - Mais uma vez, tenha sempre em mente os dois primeiros tópicos em mente. A utilização astuciosa e rigorosa é o que garante a qualidade do AllWhatsPy.
+
+
 ## Começando no AllWhatsPy
 
 <div align="center">
