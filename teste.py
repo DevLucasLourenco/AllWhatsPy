@@ -1,9 +1,8 @@
 from AllWhatsPy import AllWhatsPy, PseudoAWP
 
 
-lista_ctt_numero = [21959061623, 219999999999987, 21959061623, 
-                    21959061623, 219999999999987, 21959061623,
-                    21959061623, 219999999999987, 21959061623,]
+# lista_ctt_numero = [21959061623, 219999999999987, 21959061623]
+lista_ctt_numero = [21959061623]
 
 texto = '''
 Teste - {} - {}
@@ -34,12 +33,12 @@ for i, cn in enumerate(lista_ctt_numero):
     AWP.msg.anexo.imagem(r'utilidades/awpimgg.png')
     AWP.msg.anexo.arquivo(r'AllWhatsPy/__init__.py')
 
-    # AWP.ctt.chat_abaixo()
-    # AWP.ctt.chat_acima()
+    AWP.ctt.chat_abaixo()
+    AWP.ctt.chat_acima()
 
-    AWP.msg.enviar_mensagemCP('Teste realizado')
+    AWP.msg.enviar_mensagem_isolada('Teste realizado==========')
     
 #    
-
+print('Teste')
 
 

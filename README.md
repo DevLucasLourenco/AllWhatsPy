@@ -125,7 +125,7 @@ Ao longo desse processo, foram dedicadas milhares de linhas de logs em testes, r
 
 >1º -  Contas/Números recém criados podem ocasionar em bloqueio imediato após  instancias de utilização do AWP para grande massa de números.
 
->2 - Utilize números aquecidos. Números que já tem histórico com o Meta em um geral. Estes por sua vez, terão uma chance inferior de ser bloqueados por SPAM.
+>2 - Utilize números aquecidos. Números que já tem histórico com o Meta em um geral. Estes por sua vez, terão uma chance inferior de ser bloqueados por SPAM. Da mesma forma funciona para conversas aquecidas. Se o Whatsapp perceber que está sendo enviado para uma grande massa e esta é a primeira mensagem troca entre vocês, a chance de ocorrer é maior. Portando, siga os passos do tópico 6 que se encontra abaixo.
 
 >3 - O Whatsapp é contra automações para envio de mensagem em massa. o AWP é construído para imitar o funcionamento ótico e interacional de um humano. Entretanto, existem métodos que deixam este ponto de lado, focando na precisão, velocidade e exatidão. Estes por sua vez, garantem menos segurança para a detecção do Whatsapp ao SPAM. 
 
@@ -136,7 +136,9 @@ Ao longo desse processo, foram dedicadas milhares de linhas de logs em testes, r
 >6º - Limite a quantidade de mensagens que podem ser enviadas. Utilize o método `AWP.utilidade.agendamento()` para ocasionar no intervalo de uma massa de contatos acessados. Por exemplo, envie primeiramente mensagem para 50 contatos e aguarde um intervalo de tempo considerável.
 
 >7º - Mais uma vez, tenha sempre em mente os dois primeiros tópicos em mente. A utilização astuciosa e rigorosa é o que garante a qualidade do AllWhatsPy.
-
+___
+<br>
+</br>
 
 ## Começando no AllWhatsPy
 

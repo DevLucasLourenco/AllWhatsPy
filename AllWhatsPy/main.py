@@ -46,6 +46,7 @@ class AllWhatsPy:
 
 
     def __del__(self):
+        self._drive.close()
         self.__JSON_execucao()
         self._get_logging(f'Tempo de Execução AWP: {self.tempo_execucao}')
         self._get_logging(f"{'':=^40}")
