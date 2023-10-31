@@ -135,7 +135,7 @@ Ao longo desse processo, foram dedicadas milhares de linhas de logs em testes, r
 
 >6º - Limite a quantidade de mensagens que podem ser enviadas. Utilize o método `AWP.utilidade.agendamento()` para ocasionar no intervalo de uma massa de contatos acessados. Por exemplo, envie primeiramente mensagem para 50 contatos e aguarde um intervalo de tempo considerável.
 
->7º - Mais uma vez, tenha sempre em mente os dois primeiros tópicos em mente. A utilização astuciosa e rigorosa é o que garante a qualidade do AllWhatsPy.
+>7º - Mais uma vez, tenha sempre os dois primeiros tópicos em mente. A utilização astuciosa e rigorosa é o que garante a qualidade do AllWhatsPy.
 ___
 <br>
 </br>

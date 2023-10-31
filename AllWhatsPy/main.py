@@ -265,3 +265,8 @@ class AllWhatsPy:
     def _alterar_funcao_em_execucao(self, atual_funcao):
         self.atual_funcao = atual_funcao
         self.funcoes_utilizadas.append(atual_funcao)
+
+
+    async def EnvioAgendado(self):
+        # await async sla
+        ... 
