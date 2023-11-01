@@ -798,7 +798,7 @@ awp = AllWhatsPy()
 awp.conexao()
 
 awp.ctt.encontrar_usuario()
-awp.msg.anexo.enviar_imagem()
+awp.msg.anexo.imagem()
 ```
 >`nome_arquivo`: O caminho do arquivo da imagem que você deseja enviar.
 
@@ -812,7 +812,7 @@ awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 awp.ctt.encontrar_usuario(21999999999)
-awp.msg.anexo.enviar_imagem(r'caminho/do/arquivo.jpg-png', 'Hello World')
+awp.msg.anexo.imagem(r'caminho/do/arquivo.jpg-png', 'Hello World')
 ```
 
 ## Enviar Arquivo
@@ -823,7 +823,7 @@ awp = AllWhatsPy()
 awp.conexao()
 
 awp.ctt.encontrar_usuario()
-awp.msg.anexo.enviar_arquivo()
+awp.msg.anexo.arquivo()
 ```
 >`nome_arquivo`: O caminho do arquivo que você deseja enviar.
 
@@ -837,7 +837,7 @@ awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 awp.ctt.encontrar_usuario(21999999999)
-awp.msg.anexo.enviar_arquivo(r'caminho/do/arquivo.ext', 'Hello World')
+awp.msg.anexo.arquivo(r'caminho/do/arquivo.ext', 'Hello World')
 ```
 
 # Envio de Endereço via CEP
