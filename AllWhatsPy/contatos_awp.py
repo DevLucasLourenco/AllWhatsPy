@@ -75,7 +75,7 @@ class AWPContatos():
     
     @executarOrdemTeclas
     @aprovarConexao
-    def chat_acimaAT(self):        
+    def chat_acima(self):  #atalho      
         time.sleep(0.5)
         
         self.objeto_awp.InferenciaAWP.contato_acessivel = True
@@ -84,14 +84,12 @@ class AWPContatos():
     
     @executarOrdemTeclas
     @aprovarConexao
-    def chat_abaixoAT(self):     #atalho
+    def chat_abaixo(self): #atalho
         time.sleep(0.5)   
         self.objeto_awp.InferenciaAWP.contato_acessivel = True
         return Keys.CONTROL, Keys.SHIFT, Keys.ALT, ']'
 
-    def chat_abaixo(self): #sem atalho
-        ...
-    
+
     def _config_aguarde(self, dados:dict[bool, int, int]) -> dict:
         if isinstance(dados, dict):
             self._status_aguarde = self._status_aguarde.update(dados)
