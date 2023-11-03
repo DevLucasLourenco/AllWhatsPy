@@ -75,16 +75,15 @@ class AWPContatos():
     
     @executarOrdemTeclas
     @aprovarConexao
-    def chat_acima(self):  #atalho      
+    def chat_acima(self):
         time.sleep(0.5)
-        
         self.objeto_awp.InferenciaAWP.contato_acessivel = True
         return Keys.CONTROL, Keys.SHIFT, Keys.ALT, '['
 
     
     @executarOrdemTeclas
     @aprovarConexao
-    def chat_abaixo(self): #atalho
+    def chat_abaixo(self):
         time.sleep(0.5)   
         self.objeto_awp.InferenciaAWP.contato_acessivel = True
         return Keys.CONTROL, Keys.SHIFT, Keys.ALT, ']'

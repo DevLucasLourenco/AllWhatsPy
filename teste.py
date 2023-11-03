@@ -23,18 +23,16 @@ for i, cn in enumerate(lista_ctt_numero):
     with AWP.criptografia.CifraDeCaesar(t1, 5, 'd') as crpt:
         t2 = crpt.retornar()
 
-    AWP.ctt.encontrar_usuario(cn)
+    # AWP.ctt.encontrar_usuario(cn)
+    AWP.ctt.encontrar_contato(cn)
 
     AWP.msg.enviar_mensagem_isolada(t2)
     AWP.msg.enviar_mensagem_paragrafada(t2)
     AWP.msg.enviar_mensagemCP(t1)
     AWP.msg.enviar_mensagem_compulsiva(3, [t1, t2])
 
-    AWP.msg.anexo.imagem(r'utilidades/awpimgg.png')
+    AWP.msg.anexo.imagem(r'utilidades/awpimgg.png', 'através do AWP.msg.anexo.imagem()')
     AWP.msg.anexo.arquivo(r'AllWhatsPy/__init__.py')
-
-    AWP.ctt.chat_abaixo()
-    AWP.ctt.chat_acima()
 
     AWP.msg.enviar_mensagem_isolada('Teste realizado==========')
     
