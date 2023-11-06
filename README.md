@@ -123,19 +123,14 @@ Ao longo desse processo, foram dedicadas milhares de linhas de logs em testes, r
 
 > ### É de extrema importância a compreensão de alguns aspectos que podem redigir à situações problemáticas à sua conta.
 
->1º -  Contas/Números recém criados podem ocasionar em bloqueio imediato após  instancias de utilização do AWP para grande massa de números.
+>1 -  Contas/Números recém criados podem ocasionar em bloqueio imediato após  instancias de utilização do AWP para grande massa de números.
 
->2 - Utilize números aquecidos. Números que já tem histórico com o Meta em um geral. Estes por sua vez, terão uma chance inferior de ser bloqueados por SPAM. Da mesma forma funciona para conversas aquecidas. Se o Whatsapp perceber que está sendo enviado para uma grande massa e esta é a primeira mensagem troca entre vocês, a chance de ocorrer é maior. Portando, siga os passos do tópico 6 que se encontra abaixo.
+>2 - Utilize números aquecidos. Números que já tem histórico com o Meta em um geral. Estes por sua vez, terão uma chance inferior de ser bloqueados por SPAM. Da mesma forma funciona para conversas aquecidas. Se o Whatsapp perceber que está sendo enviado para uma grande massa e esta é a primeira mensagem troca entre vocês, a chance de ocorrer é maior.
 
->3 - O Whatsapp é contra automações para envio de mensagem em massa. o AWP é construído para imitar o funcionamento ótico e interacional de um humano. Entretanto, existem métodos que deixam este ponto de lado, focando na precisão, velocidade e exatidão. Estes por sua vez, garantem menos segurança para a detecção do Whatsapp ao SPAM. 
+>3 - O Whatsapp é contra automações para envio de mensagem em massa. o AWP é construído para imitar o funcionamento ótico e interacional de um humano. Entretanto, é bom estar ciente e evitar a utilização de maneira excessiva às regras do Meta.
 
->4º Para fugir do item acima, foque na não utilização – quanto a conta for recente – de métodos que são realizados através de links, APIs ou atalhos para seu funcionamento. Dos métodos de envio de mensagem, o que deve-se evitar a utilização é `AWP.msg.enviar_mensagem_por_link()`. Aos demais, não há a necessidade de se preocupar tal quanto este. 
+>4 - Limite a quantidade de mensagens que podem ser enviadas. Utilize o método `AWP.utilidade.agendamento()` para ocasionar no intervalo de uma massa de contatos acessados.
 
->5º - o AllWhatsPy não se responsabiliza pela utilização do usuário quanto às normais lógicas do WhatsApp
-
->6º - Limite a quantidade de mensagens que podem ser enviadas. Utilize o método `AWP.utilidade.agendamento()` para ocasionar no intervalo de uma massa de contatos acessados. Por exemplo, envie primeiramente mensagem para 50 contatos e aguarde um intervalo de tempo considerável.
-
->7º - Mais uma vez, tenha sempre os dois primeiros tópicos em mente. A utilização astuciosa e rigorosa é o que garante a qualidade do AllWhatsPy.
 ___
 <br>
 </br>
