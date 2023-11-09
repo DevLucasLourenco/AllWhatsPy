@@ -11,7 +11,7 @@ endereco: {}
 
 #
 AWP = AllWhatsPy()
-AWP.conexao(server_host=True)
+AWP.conexao(server_host=True, headless=True)
 
 endereco = AWP.msg.endereco(24020110).retornar()
 
