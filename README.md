@@ -27,7 +27,7 @@
 
 >Pipy: [https://pypi.org/project/allwhatspy-awp](https://pypi.org/project/allwhatspy-awp)
 
->v2.1.0
+>v2.1.1
 
 
 ## Sumário
