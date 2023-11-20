@@ -4,7 +4,7 @@ with open(r"README.md", "r") as arq:
     readme = arq.read()
 
 setup(name='allwhatspy-awp',
-    version='0.2.1.1',
+    version='0.2.1.2',
     license='MIT License',
     author='Lucas Lourenço',
     long_description=readme,

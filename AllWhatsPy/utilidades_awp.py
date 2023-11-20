@@ -1,19 +1,24 @@
 from .decorators_awp import aprovarConexao
+import time
+import locale
+from datetime import datetime
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
-import time
 from selenium.common.exceptions import (
     UnexpectedAlertPresentException,
     NoSuchElementException,
 )
 
 
+
 class AWPUtilidades:
     def __init__(self, objeto) -> None:
         self.objeto_awp = objeto
         self.objeto_awp._get_logging(f'{__class__.__name__} obteve êxito.')
+        locale.setlocale(locale.LC_TIME,'pt_BR')
+        
 
 
     @aprovarConexao
@@ -23,10 +28,42 @@ class AWPUtilidades:
         
         self.objeto_awp._get_logging(f'    {self.objeto_awp.InferenciaAWP.contato} foi arquivado.')
         time.sleep(1)
-
+        
+        
+    @aprovarConexao
+    def Schedule(self, ano_aguardado:int=None, mes_aguardado:int=None, dia_aguardado:int=None, 
+                 hora_aguardado:int=None, minuto_aguardado:int=None):
+        
+        agora = datetime.now()
+        
+        schedule_time = {
+            'ano':ano_aguardado if ano_aguardado != None else agora.year,
+            'mes':mes_aguardado if mes_aguardado != None else agora.month,
+            'dia':dia_aguardado if dia_aguardado != None else agora.day,
+            'hora':hora_aguardado if hora_aguardado != None else agora.hour,
+            'minuto':minuto_aguardado if minuto_aguardado != None else agora.minute,
+        }
+        
+        
+        data_programada = datetime(schedule_time.get('ano'), schedule_time.get('mes'), schedule_time.get('dia'),
+                                   schedule_time.get('hora'), schedule_time.get('minuto'))
+        dif_aguarde = (data_programada - agora).seconds
+        
+        
+        if data_programada > agora:
+            self.objeto_awp._get_logging(f'    No aguardo da hora programada...| {dif_aguarde}s até o final do agendamento. — {data_programada.strftime("%A, %d/%m/%Y, %H:%M")}|')
+            time.sleep(dif_aguarde)
+        else:
+            self.objeto_awp._get_logging(f'    Horário agendado ultrapassado.')
+        
+        return data_programada.strftime("%A, %d/%m/%Y, %H:%M")
 
     @aprovarConexao
     def agendamento(self, dia_programado: str, hora_programado: str, minuto_programado: str):
+        '''
+        Descontinuado
+        '''
+        
         def adaptar_item(item):
             if item < 10:
                 return '0' + str(item)

@@ -27,7 +27,7 @@
 
 >Pipy: [https://pypi.org/project/allwhatspy-awp](https://pypi.org/project/allwhatspy-awp)
 
->v2.1.1
+>v2.1.2
 
 
 ## Sumário
@@ -123,13 +123,15 @@ Ao longo desse processo, foram dedicadas milhares de linhas de logs em testes, r
 
 > ### É de extrema importância a compreensão de alguns aspectos que podem redigir à situações problemáticas à sua conta.
 
->1 -  Contas/Números recém criados podem ocasionar em bloqueio imediato após  instancias de utilização do AWP para grande massa de números.
+>1 - Utilize números aquecidos. Números que já tem histórico com o Meta em um geral. Estes por sua vez, terão uma chance inferior de ser bloqueados por SPAM. Da mesma forma funciona para conversas aquecidas. Se o Whatsapp perceber que está sendo enviado para uma grande massa e esta é a primeira mensagem troca entre vocês, a chance de ocorrer é maior.
 
->2 - Utilize números aquecidos. Números que já tem histórico com o Meta em um geral. Estes por sua vez, terão uma chance inferior de ser bloqueados por SPAM. Da mesma forma funciona para conversas aquecidas. Se o Whatsapp perceber que está sendo enviado para uma grande massa e esta é a primeira mensagem troca entre vocês, a chance de ocorrer é maior.
+>2 -  Contas/Números recém criados podem ocasionar em bloqueio imediato após  instancias de utilização do AWP para grande massa de números.
 
 >3 - O Whatsapp é contra automações para envio de mensagem em massa. o AWP é construído para imitar o funcionamento ótico e interacional de um humano. Entretanto, é bom estar ciente e evitar a utilização de maneira excessiva às regras do Meta.
 
->4 - Limite a quantidade de mensagens que podem ser enviadas. Utilize o método `AWP.utilidade.agendamento()` para ocasionar no intervalo de uma massa de contatos acessados.
+>4 - Limite a quantidade de mensagens que podem ser enviadas. Utilize os métodos de Schedule para ocasionar no intervalo de uma massa de contatos acessados.
+
+>5 - Todas as libs de automação do Whatsapp funcionam baseado nestes tópicos acima. Em caso de dúvidas, basta abrir uma Issue ou enviar-me mensagem.
 
 ___
 <br>
@@ -889,7 +891,51 @@ resultado = awp.utilidade._comercial_ou_pessoal()
 ```
 >Após a execução do método, será retornado uma das seguintes strings: "C" ou "P", respectiamente condizente à conta Comercial ou Pessoal.
 
+
+## Schedule
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+awp.conexao()
+
+awp.ctt.encontrar_usuario()
+awp.utilidade.Schedule()
+```
+
+> Parâmetros: `ano_aguardado`, `mes_aguardado`, `dia_aguardado`, `hora_aguardado`, `minuto_aguardado`. Parâmetros para o aguarde do agendamento do AWP. Somentes objetos do tipo int são válidos.
+
+> Se algum dos parâmetros não forem passados, será considerado as informações da atual data que está sendo executado o código.
+
+> Este método retorna um objeto do tipo str, seguindo o formado -> `"%A, %d/%m/%Y, %H:%M"` -> `segunda-feira, 20/112023, 18:30`
+
+
+### Ex.: 
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
+awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
+
+
+awp.utilidade.Schedule(ano_aguardado=2023, mes_aguardado=11, dia_aguardado=20, 
+                 hora_aguardado=18, minuto_aguardado=30) 
+
+# Ou
+
+awp.utilidade.Schedule(hora_aguardado=18, minuto_aguardado=30)
+
+awp.ctt.encontrar_usuario(21999999999)
+```
+
+
+
+
+
 ## Agendamento
+> Atualmente, este médodo encontra-se descontinuado. Para realizar o agendamento, utilize o método `Schedule`
+
+
 ```python
 from AllWhatsPy import AllWhatsPy
 

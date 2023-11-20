@@ -17,6 +17,7 @@ import time
 import json
 
 
+
 class AllWhatsPy:
     __tempo_inicial = time.time()
     flag_connection = False
