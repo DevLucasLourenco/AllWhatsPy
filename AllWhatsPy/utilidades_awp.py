@@ -32,7 +32,7 @@ class AWPUtilidades:
         
     @aprovarConexao
     def Schedule(self, ano_aguardado:int=None, mes_aguardado:int=None, dia_aguardado:int=None, 
-                 hora_aguardado:int=None, minuto_aguardado:int=None):
+                 hora_aguardado:int=None, minuto_aguardado:int=None) -> tuple[str|bool]:
         
         agora = datetime.now()
         

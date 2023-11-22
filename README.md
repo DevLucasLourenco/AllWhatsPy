@@ -900,7 +900,7 @@ awp = AllWhatsPy()
 awp.conexao()
 
 awp.ctt.encontrar_usuario()
-awp.utilidade.Schedule()
+data_agendada = awp.utilidade.Schedule()
 ```
 
 > Parâmetros: `ano_aguardado`, `mes_aguardado`, `dia_aguardado`, `hora_aguardado`, `minuto_aguardado`. Parâmetros para o aguarde do agendamento do AWP. Somentes objetos do tipo int são válidos.
@@ -918,12 +918,12 @@ awp = AllWhatsPy(inicializarTitulo=True, realizar_log=True, JSON_file=True)
 awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 
 
-awp.utilidade.Schedule(ano_aguardado=2023, mes_aguardado=11, dia_aguardado=20, 
+data_agendada:tuple[str|bool] = awp.utilidade.Schedule(ano_aguardado=2023, mes_aguardado=11, dia_aguardado=20, 
                  hora_aguardado=18, minuto_aguardado=30) 
 
 # Outro exemplo:
 
-awp.utilidade.Schedule(hora_aguardado=18, minuto_aguardado=30)
+data_agendada:tuple[str|bool] = awp.utilidade.Schedule(hora_aguardado=18, minuto_aguardado=30)
 
 awp.ctt.encontrar_usuario(21999999999)
 ```
@@ -932,6 +932,7 @@ awp.ctt.encontrar_usuario(21999999999)
 
 ## Agendamento
 > Atualmente, este médodo encontra-se descontinuado. Para realizar o agendamento, utilize o método `Schedule`
+> Em versões futuras, este método será desabilitado.
 
 
 ```python
@@ -976,11 +977,88 @@ awp.utilidade.agendamento(dia_programado="10", hora_programado="15", minuto_prog
 </summary>
 
 ## Cifra de Caesar
-...
+```python
+from AllWhatsPy import AllWhatsPy
 
+awp = AllWhatsPy()
+
+with awp.criptografia.CifraDeCaesar(mensagem, chave_numeral, metodo) as awp_criptografia:
+        texto_criptografado = awp_criptografia.retornar()
+```
+> Este método não necessita da conexão ao Whatsapp
+>`mensagem`: Mensagem que será tratada pela classe
+ 
+>`chave_numeral`: Chave para integridade da classe. Somente int
+
+>`metodo`: Passe o argumento 'c' para criptografar o texto. Passe 'd' para descriptografar
+
+
+### Ex.: 
+```python
+from AllWhatsPy import AllWhatsPy
+
+texto = "Texto exemplo"
+
+# Criptografando
+with awp.criptografia.CifraDeCaesar(texto, 5, 'c') as awp_criptografia:
+        texto_criptografado = awp_criptografia.retornar()
+
+print(texto_criptografado)
+
+
+# Descriptografar 
+with awp.criptografia.CifraDeCaesar(texto_criptografado, 5, 'd') as awp_descriptografia:
+        texto_retornado = awp_descriptografia.retornar()
+
+print(texto_retornado)
+
+
+awp.ctt.encontrar_usuario(21999999999)
+awp.msg.enviar_mensagem_isolada([texto_criptografado, texto_retornado])
+```
 
 ## Cifra De Vigenere
-...
+```python
+from AllWhatsPy import AllWhatsPy
+
+awp = AllWhatsPy()
+
+with awp.criptografia.CifraDeVigenere(mensagem, chave_numeral, metodo) as awp_criptografia:
+        texto_criptografado = awp_criptografia.retornar()
+```
+> Este método não necessita da conexão ao Whatsapp
+>`mensagem`: Mensagem que será tratada pela classe
+ 
+>`chave_numeral`: Chave para integridade da classe. Pode conter string
+
+>`metodo`: Passe o argumento 'c' para criptografar o texto. Passe 'd' para descriptografar
+
+
+### Ex.: 
+```python
+from AllWhatsPy import AllWhatsPy
+
+texto = "Texto exemplo"
+
+# Criptografar
+with awp.criptografia.CifraDeVigenere(texto, 'senha123', 'c') as awp_criptografia:
+        texto_criptografado = awp_criptografia.retornar()
+
+print(texto_criptografado)
+
+
+# Descriptografar 
+with awp.criptografia.CifraDeVigenere(texto_criptografado, 'senha123', 'd') as awp_descriptografia:
+        texto_retornado = awp_descriptografia.retornar()
+
+print(texto_retornado)
+
+
+awp.ctt.encontrar_usuario(21999999999)
+awp.msg.enviar_mensagem_isolada([texto_criptografado, texto_retornado])
+```
+
+
 
 </details>
 
