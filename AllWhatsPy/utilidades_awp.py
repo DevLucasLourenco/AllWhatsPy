@@ -53,10 +53,13 @@ class AWPUtilidades:
         if data_programada > agora:
             self.objeto_awp._get_logging(f'    No aguardo da hora programada...| {dif_aguarde}s até o final do agendamento. — {data_programada.strftime("%A, %d/%m/%Y, %H:%M")}|')
             time.sleep(dif_aguarde)
+            agendamento_realizado = True
         else:
             self.objeto_awp._get_logging(f'    Horário agendado ultrapassado.')
+            agendamento_realizado = False
         
-        return data_programada.strftime("%A, %d/%m/%Y, %H:%M")
+        return (data_programada.strftime("%A, %d/%m/%Y, %H:%M"), agendamento_realizado)
+
 
     @aprovarConexao
     def agendamento(self, dia_programado: str, hora_programado: str, minuto_programado: str):

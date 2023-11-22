@@ -9,7 +9,7 @@ Teste - {} - {}
 endereco: {}
 '''
 
-#
+
 AWP = AllWhatsPy()
 AWP.conexao(server_host=True)
 
@@ -29,7 +29,7 @@ for i, cn in enumerate(lista_ctt_numero):
     # AWP.ctt.encontrar_usuario(cn)
     AWP.ctt.encontrar_contato(cn)
 
-    AWP.msg.enviar_mensagem_isolada(horario_agendado)
+    AWP.msg.enviar_mensagem_isolada(horario_agendado[0])
     
     AWP.msg.enviar_mensagem_paragrafada(t2)
     AWP.msg.enviar_mensagemCP(t1)

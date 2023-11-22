@@ -31,7 +31,6 @@ class AWPContatos():
             next(self.objeto_awp._generator_info_contato_acessado)
 
 
-    # @aguardeCooldown
     @aprovarConexao
     def encontrar_contato(self, contato_destino):
         ActionChains(self.objeto_awp._drive).key_down(Keys.ESCAPE).perform()

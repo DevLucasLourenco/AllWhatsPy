@@ -4,8 +4,6 @@ import os
 import requests
 import time
 import pyperclip
-import subprocess
-from PIL import Image
 from urllib import parse
 from selenium import webdriver
 from selenium.webdriver.common.by import By

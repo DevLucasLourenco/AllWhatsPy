@@ -907,7 +907,7 @@ awp.utilidade.Schedule()
 
 > Se algum dos parâmetros não forem passados, será considerado as informações da atual data que está sendo executado o código.
 
-> Este método retorna um objeto do tipo str, seguindo o formado -> `"%A, %d/%m/%Y, %H:%M"` -> `segunda-feira, 20/112023, 18:30`
+> Este método retorna uma tupla contendo, no índice 0, um objeto do tipo str, seguindo o formado -> `"%A, %d/%m/%Y, %H:%M"` -> `segunda-feira, 20/112023, 18:30` e, no indice 1, um objeto do tipo bool. True, para caso tenha-se aguardado até a hora delimitada e False para caso a hora aguardada que foi passada já tenha sido ultrapassada.
 
 
 ### Ex.: 
@@ -921,14 +921,12 @@ awp.conexao(show_off=True, server_host=True, popup=False, calibragem=(True, 10))
 awp.utilidade.Schedule(ano_aguardado=2023, mes_aguardado=11, dia_aguardado=20, 
                  hora_aguardado=18, minuto_aguardado=30) 
 
-# Ou
+# Outro exemplo:
 
 awp.utilidade.Schedule(hora_aguardado=18, minuto_aguardado=30)
 
 awp.ctt.encontrar_usuario(21999999999)
 ```
-
-
 
 
 
