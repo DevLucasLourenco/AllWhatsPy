@@ -165,13 +165,15 @@ class AWPMensagem():
             self.objeto_awp.ctt.encontrar_usuario(contato)
             
         
-        if selecionar_funcao == 1:
-            self.objeto_awp.msg.enviar_mensagem_isolada(mensagem)
+        metodos_envio:dict ={
+            1:'self.objeto_awp.msg.enviar_mensagem_isolada(mensagem)',
+            2: 'self.objeto_awp.msg.enviar_mensagem_paragrafada(mensagem)',
+        }
         
-        elif selecionar_funcao == 2:
-            self.objeto_awp.msg.enviar_mensagem_paragrafada(mensagem)
-
-        else:
+        try:
+            eval(metodos_envio[selecionar_funcao])
+        except Exception as e:
+            print(e)
             raise ValueError('Valor informado incoerente.')
         
             
