@@ -88,13 +88,13 @@ class AWPMensagem():
         
         
     @aprovarConexao
-    def enviar_mensagem_compulsiva(self, recorrencia: int, iter_msg:list = []):
+    def enviar_mensagem_compulsiva(self, repeticao: int, iter_msg:list = []):
         try:
             if self.objeto_awp.InferenciaAWP.contato_acessivel:
                 self.objeto_awp.InferenciaAWP.mensagem = iter_msg
                 textbox = self.objeto_awp._ArmazemXPATH.textbox_xpath
                 
-                for i in range(recorrencia):
+                for i in range(repeticao):
                     for msg in iter_msg:
                         self.objeto_awp._drive.find_element(By.XPATH,textbox).send_keys(msg)
                 

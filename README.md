@@ -749,7 +749,7 @@ awp.ctt.encontrar_usuario()
 awp.msg.enviar_mensagem_compulsiva()
 ```
 
-> `recorrencia`: Este valor receberá um objeto do tipo **int**. Ele é responsável pela quantidade de laços de repetição que ocorrerão para o envio compulsivo das mensagens que forem passadas no parâmetro seguinte.
+> `repeticao`: Este parâmetro receberá um objeto do tipo **int**. Ele é responsável pela quantidade de laços de repetição que ocorrerão para o envio compulsivo das mensagens que forem passadas no parâmetro abaixo.
 
 > `iter_msg`: Este, por sua vez, deve receber um iterable contendo as mensagens que serão enviadas. Seguindo a mesma lógica do `enviar_mensagem_isolada`, enviará mensagens linha à linha, ignorando quando houver um CRLF para união.
 
@@ -908,6 +908,8 @@ data_agendada = awp.utilidade.Schedule()
 > Se algum dos parâmetros não forem passados, será considerado as informações da atual data que está sendo executado o código.
 
 > Este método retorna uma tupla contendo, no índice 0, um objeto do tipo str, seguindo o formado -> `"%A, %d/%m/%Y, %H:%M"` -> `segunda-feira, 20/112023, 18:30` e, no indice 1, um objeto do tipo bool. True, para caso tenha-se aguardado até a hora delimitada e False para caso a hora aguardada que foi passada já tenha sido ultrapassada.
+
+> O parâmetro `prosseguir_agendamento_ultrapassado`, quando passado como True (valor padrão), irá prosseguir com o algoritmo caso o horário tenha sido ultrapassado. Se for passado como False, subirá um erro referente, cujo irá quebrar o código, forçando o usuário a tratar o recebimento do erro, se assim for necessário.
 
 
 ### Ex.: 
@@ -1071,3 +1073,5 @@ Este erro encontra-se presente quando o usuário tenta utilizar outros métodos 
 ### AWPContatoNaoEncontrado
 Este erro encontra-se presente quando o usuário tenta utilizar uma função de mensagem enquanto não há algum contato acessado.
 
+### AWPHorarioUltrapassado
+Este erro encontra-se presente quando o horário for ultrapassado no método Schedule, caso o parâmetro para este erro for validado coom True

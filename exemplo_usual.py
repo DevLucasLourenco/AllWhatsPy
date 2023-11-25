@@ -1,9 +1,9 @@
 from AllWhatsPy import AllWhatsPy, PseudoAWP
 
 
-# lista_ctt_numero = [21959061623, 219999999999987, 21959061623]
-lista_ctt_numero = [21959061623]
-
+lista_ctt_numero = [21959061623, 219999999999987, 21959061623, 219999999999987, 21959061623]
+# lista_ctt_numero = [21959061623]
+ 
 texto = '''
 Teste - {} - {}
 endereco: {}
@@ -14,8 +14,7 @@ AWP = AllWhatsPy()
 AWP.conexao(server_host=True)
 
 endereco = AWP.msg.endereco(24020110).retornar()
-horario_agendado = AWP.utilidade.Schedule(hora_aguardado=20, minuto_aguardado=18)
-
+horario_agendado = AWP.utilidade.Schedule(hora_aguardado=10, minuto_aguardado=19, prosseguir_agendamento_ultrapassado=False) 
 
 for i, cn in enumerate(lista_ctt_numero):
     with AWP.criptografia.CifraDeCaesar(texto.format(cn, i, endereco), 5, 'c') as crpt:
@@ -25,8 +24,8 @@ for i, cn in enumerate(lista_ctt_numero):
         t2 = crpt.retornar()
         
 
-    # AWP.ctt.encontrar_usuario(cn)
-    AWP.ctt.encontrar_contato(cn)
+    AWP.ctt.encontrar_usuario(cn)
+    # AWP.ctt.encontrar_contato(cn)
 
     AWP.msg.enviar_mensagem_isolada(horario_agendado[0])
     AWP.msg.enviar_mensagem_paragrafada(t2)

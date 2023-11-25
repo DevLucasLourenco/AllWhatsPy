@@ -1,4 +1,5 @@
 from .decorators_awp import aprovarConexao
+from .errors_awp import AWPHorarioUltrapassado
 import time
 import locale
 from datetime import datetime
@@ -32,10 +33,9 @@ class AWPUtilidades:
         
     @aprovarConexao
     def Schedule(self, ano_aguardado:int=None, mes_aguardado:int=None, dia_aguardado:int=None, 
-                 hora_aguardado:int=None, minuto_aguardado:int=None) -> tuple[str|bool]:
-        
+                 hora_aguardado:int=None, minuto_aguardado:int=None, prosseguir_agendamento_ultrapassado:bool=True ) -> tuple[str|bool]:
         agora = datetime.now()
-        
+                
         schedule_time = {
             'ano':ano_aguardado if ano_aguardado != None else agora.year,
             'mes':mes_aguardado if mes_aguardado != None else agora.month,
@@ -55,10 +55,15 @@ class AWPUtilidades:
             time.sleep(dif_aguarde)
             agendamento_realizado = True
         else:
-            self.objeto_awp._get_logging(f'    Horário agendado ultrapassado.')
-            agendamento_realizado = False
+            if prosseguir_agendamento_ultrapassado:
+                self.objeto_awp._get_logging(f'    Horário agendado ultrapassado.')
+                agendamento_realizado = False
+            else:
+                raise AWPHorarioUltrapassado()
+            self.objeto_awp._get_logging('Variável de prosseguimento validada como False. -> Horário Agendado Ultrapassado, não será possível continuar.')
         
         return (data_programada.strftime("%A, %d/%m/%Y, %H:%M"), agendamento_realizado)
+        
 
 
     @aprovarConexao
