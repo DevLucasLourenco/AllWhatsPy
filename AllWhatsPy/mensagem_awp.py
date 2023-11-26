@@ -167,7 +167,7 @@ class AWPMensagem():
         
         metodos_envio:dict ={
             1:'self.objeto_awp.msg.enviar_mensagem_isolada(mensagem)',
-            2: 'self.objeto_awp.msg.enviar_mensagem_paragrafada(mensagem)',
+            2:'self.objeto_awp.msg.enviar_mensagem_paragrafada(mensagem)',
         }
         
         try:
