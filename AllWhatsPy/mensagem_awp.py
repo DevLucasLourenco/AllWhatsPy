@@ -195,7 +195,13 @@ class Analise:
     
     def __init__(self, objeto) -> None:
         self.objeto_awp = objeto
+        self.contato_mensagem = None
+        self.dia_mensagem = None
+        self.hora_mensagem = None
         
+    
+    #criar método de puxar estes 3 dados acima por padrão 
+    
     @aprovarConexao
     def ultima_mensagem_chat(self): #verifica se a mensagem foi enviada.
         quadro_interacao = self.objeto_awp._drive.find_element(By.XPATH, '/html/body/div[1]/div/div/div[5]/div/div[2]/div/div[2]/div[3]') #pelo quadro onde ficar as msgs
@@ -203,6 +209,8 @@ class Analise:
         caixa_mensagens = caixa_mensagens_objeto[-1].text
         
         return caixa_mensagens  #depois aprimorar caixa_mensagens.find_element(By.XPATH, '...')
+    
+    
         
 
 

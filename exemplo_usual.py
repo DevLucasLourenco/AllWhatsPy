@@ -37,6 +37,8 @@ for i, cn in enumerate(lista_ctt_numero):
 
     AWP.msg.enviar_mensagem_isolada('Teste realizado !!!')
     
+    print(AWP.msg.analise.ultima_mensagem_chat())
+    
 #    
 print('Teste')
 
