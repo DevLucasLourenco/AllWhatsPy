@@ -1,8 +1,9 @@
 from .decorators_awp import aprovarConexao
 from .errors_awp import AWPContatoNaoEncontrado
 import os
-import requests
+import re
 import time
+import requests
 import pyperclip
 from urllib import parse
 from selenium import webdriver
@@ -191,16 +192,36 @@ class AWPMensagem():
 
 
 
+class __TratarAnalise():
+    
+    def __init__(self, t_util) -> None:
+        self.__t_util = t_util
+        self.get = {
+            'USER':self.__identificar_user(),
+            'MSG':self.__identificar_mensagem(),
+            'TIME':self.__identificar_hora(),
+            'ALL':self.__t_util,
+            }
+        
+
+    def __identificar_user(self):
+        return ''
+    
+    
+    def __identificar_mensagem(self):
+        return ''
+
+
+    def __identificar_hora(self):
+        return ''
+        
+    
+
 class Analise:
     
     def __init__(self, objeto) -> None:
         self.objeto_awp = objeto
-        self.contato_mensagem = None
-        self.dia_mensagem = None
-        self.hora_mensagem = None
-        
-    
-    #criar método de puxar estes 3 dados acima por padrão 
+            
     
     @aprovarConexao
     def ultima_mensagem_chat(self): #verifica se a mensagem foi enviada.
@@ -208,7 +229,8 @@ class Analise:
         caixa_mensagens_objeto = quadro_interacao.find_elements(By.XPATH, '//*[@role="row"]')
         caixa_mensagens = caixa_mensagens_objeto[-1].text
         
-        return caixa_mensagens  #depois aprimorar caixa_mensagens.find_element(By.XPATH, '...')
+        return __TratarAnalise(caixa_mensagens)  #depois aprimorar caixa_mensagens.find_element(By.XPATH, '...')
+        
     
     
         
