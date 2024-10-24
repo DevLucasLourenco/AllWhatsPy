@@ -84,7 +84,7 @@ class AllWhatsPy:
 
         while True:
             try:
-                self._drive.find_element(By.XPATH, self._ArmazemXPATH.var_aux_xpath)
+                self._drive.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[3]/header/header/div/div[1]/h1')
 
                 if server_host:
                     self._get_logging(f'Conexão por Server efetuada.')
